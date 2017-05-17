@@ -1,42 +1,21 @@
 # Kuali Rice
 
-Kuali Rice is an application development framework and middleware suite developed for and by the higher education community.  Kuali Rice is being used by several Kuali universiy enterprise applications, for its build in eDocLite document routing, and as basis for custom applications.
+Kuali Rice is an open source application development framework and middleware suite developed for and by the higher
+education community.
 
-More info about Kuali Rice at http://www.kuali.org/rice.
-
-## Where to find the official version?
-
-End users can download Kuali Rice at http://www.kuali.org/download/rice
-
-Developers can contribute to Kuali Rice at https://github.com/kuali/rice
-
-## Additional Resources
-
-* Wiki:https://wiki.kuali.org/display/KULRICE/Home
-* Issue tracking: https://jira.kuali.org/browse/KULRICE
-* Technical help and discussions: rice.collab@kuali.org email list 
-  * Archive: https://groups.google.com/a/kuali.org/forum/#!forum/rice.collab
-
-## Contributions
-
-Contributions are welcome. The Rice Project strives for a simple and quick contribution process.  However, there are some specific requirements we need to enforce:
-* Please report all security issues to security@kuali.org.  
-* It is recommended to contact the Kuali Rice development team before starting work on a pull request.  Send the contribution proposal to the collaboration mailing list (rice.collab@kuali.org). The Kuali Rice team will evaluate the proposal, assign a Jira issue, and respond via email.
-* Every contributor must have a Contributor License Agreement (CLA on File with Kuali).  To submit the CLA:
-  * Create an account at http://kis.kuali.org/ (details: [Create a KIS account] (https://wiki.kuali.org/display/KULFOUND/Create+a+KIS+account)).
-  * Sign the [Contributor License Agreement] (https://docs.google.com/a/kuali.org/file/d/0B98dhdqKa_2hNzk5MzhhODgtYzM2Ni00MmUyLWFlYzYtNmJhMDdkZGM2MTI4/edit), scan and send it to help@kuali.org (details: [License Agreement Process (CLA / CCLA)] (https://wiki.kuali.org/pages/viewpage.action?pageId=313879878)).
-* Create a separate pull request for each feature.
-* Squash pull request into one commit (see [Squashing Change Log] (https://wiki.kuali.org/pages/viewpage.action?pageId=338976534#Git/GitHubWorkflow,PoliciesandUsage-1.4.5SquashingChangeLog)).
-* Prefix each commit message with the Jira issue identifier (e.g. KULRICE-1234).
-* Contributions should follow the [Policies and Standards] (https://wiki.kuali.org/display/KULRICE/Policies+and+Standards) of Kuali Rice. 
+Kuali Rice is currently in maintenance mode, but does continue to be maintained from the perspective of security,
+bug fixes, and minor enhancements while its replacements are being developed. This repository only contains the latest
+version of the Kuali Rice source code. Source code for versions 1.0 through 2.5 of Kuali Rice can be found at
+https://github.com/kuali/rice
 
 ## Running Rice for Development
 
 ### Project and Database Setup
 
-* Install the latest 5.7.x version of MySQL Community Edition
+* Install the latest version of MySQL Community Edition
   * Be sure to remember your root password!
-* Clone this repository 
+* Clone this repository
+* Run a `mvn install` from the command line after cloning (this will probably take awhile)
 * Change directory to `db/impex/master` in directory where you cloned the repository
 * Run the following to ensure that you can connect to your mysql instance
   * ```mvn validate -Pdb,mysql -Dimpex.dba.password=[root password]```
@@ -107,15 +86,6 @@ Note that the access and secret keys will need to allow read/write access to the
 * Then browse the folder where you cloned the repo and ensure that all of the various pom.xml modules are selected and click "Finish"
 * After approximately one year of waiting, the build should complete and hopefully there will be no errors
 
-### Running Rice Standalone in Eclipse
-
-* In the Servers tab, add a new Server (preferably Tomcat 8)
-* Drag-and-drop the "rice-standalone" to the new tomcat server in the servers view, this will publish it
-* Because of issues with m2e-wtp plugin (maven and web tools integration), the overlays and filtering on the rice-standalone module don't work :( We have created an Ant target in the root of the project that can be run that will deploy the proper files. It is called "m2e-wtp-deploy-standalone", execute that target via Eclipase and it will copy the appropriate files
-* Right-click on the server and start it
-* Rice Standalone should (hopefully) start up successfully
-* Go to http://localhost:8080/rice-standalone and you should see the Kuali Rice "portal"
-
 ### Setting up Dev Environment for Running Integration Tests
 
 * Change directory to `db/impex/master` in directory where you cloned the repository
@@ -131,3 +101,15 @@ Note that the access and secret keys will need to allow read/write access to the
 * If you want the S3-related tests to pass, then you will need to add configuration to your common-test-config.xml file for S3 attachment configuration as specified earlier. Be sure to use an appropriate folder name for your integration tests so that it does not conflict with your development or other testing environments. There is no need to manually pass `-Dspring.profiles.active=s3` when running your integration tests as the appropriate integration test modules will set this profile when forking the JVM for the test run.
 * To run the integration tests from the command line, execute the following:
 ```mvn -Pitests verify```
+
+## Running the Kuali Rice Standalone Server
+
+To get the WAR file that contains the Kuali Rice server, simply run the following from the root of the project:
+
+```mvn package```
+
+The Kuali Rice Standalone WAR will then be available under the `rice-middleware/standalone/target` directory.
+Alternatively, you can simply grab the []already built WAR from Maven Central](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.kuali.rice%22%20AND%20a%3A%22rice-standalone%22).
+
+
+
