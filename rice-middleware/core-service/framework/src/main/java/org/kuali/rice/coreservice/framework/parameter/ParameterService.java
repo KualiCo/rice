@@ -18,6 +18,7 @@ package org.kuali.rice.coreservice.framework.parameter;
 import org.kuali.rice.coreservice.api.parameter.Parameter;
 
 import java.util.Collection;
+import java.util.function.Consumer;
 
 /**
  * This service is used by krad to interact with {@link Parameter Parameters}.
@@ -810,5 +811,7 @@ public interface ParameterService {
      * @see {@link org.kuali.rice.coreservice.api.parameter.ParameterRepositoryService#getSubParameterValuesAsString(org.kuali.rice.coreservice.api.parameter.ParameterKey, String)} for details
      */
     Collection<String> getSubParameterValuesAsFilteredString(Class<?> componentClass, String parameterName, String subParameterName);
+
+    void watchParameter(String namespaceCode, String componentCode, String parameterName, Consumer<Parameter> consumer);
 
 }

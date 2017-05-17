@@ -17,8 +17,10 @@ package org.kuali.rice.krad.uif.util;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.function.Consumer;
 
 import org.kuali.rice.coreservice.api.parameter.Parameter;
+import org.kuali.rice.coreservice.api.parameter.ParameterKey;
 import org.kuali.rice.coreservice.framework.parameter.ParameterService;
 
 /**
@@ -268,4 +270,8 @@ public class MockParameterService implements ParameterService {
         return Collections.emptyList();
     }
 
+    @Override
+    public void watchParameter(String namespaceCode, String componentCode, String parameterName, Consumer<Parameter> consumer) {
+        // do nothing
+    }
 }
