@@ -552,7 +552,8 @@ public class KualiDocumentActionBase extends KualiAction {
         boolean rulePassed = getKualiRuleService().applyRules(new SendAdHocRequestsEvent(document));
 
         if (rulePassed) {
-            getDocumentService().sendAdHocRequests(document, kualiDocumentFormBase.getAnnotation(), combineAdHocRecipients(kualiDocumentFormBase));
+            String nodeName = document.getAdHocRouteNodeName();
+            getDocumentService().sendAdHocRequests(document, kualiDocumentFormBase.getAnnotation(), nodeName, combineAdHocRecipients(kualiDocumentFormBase));
             KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_SEND_AD_HOC_REQUESTS_SUCCESSFUL);
         }
 

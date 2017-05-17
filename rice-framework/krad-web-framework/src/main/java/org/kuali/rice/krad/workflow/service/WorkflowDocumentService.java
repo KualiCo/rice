@@ -222,6 +222,21 @@ public interface WorkflowDocumentService {
             List<AdHocRouteRecipient> adHocRecipients, String notificationLabel) throws WorkflowException;
 
     /**
+     * Sends workflow notification at the specified node to the list of ad hoc recipients. This method is usually used
+     * to notify users of a note that has been added to a document. The notificationLabel parameter is
+     * used to give the request a custom label in the user's Action List
+     *
+     * @param workflowDocument
+     * @param annotation
+     * @param nodeName
+     * @param adHocRecipients
+     * @param notificationLabel
+     * @throws WorkflowException
+     */
+    public void sendWorkflowNotification(WorkflowDocument workflowDocument, String annotation, String nodeName,
+                                         List<AdHocRouteRecipient> adHocRecipients, String notificationLabel) throws WorkflowException;
+
+    /**
      * Sends workflow notification to the list of ad hoc recipients. This method is usually used to
      * notify users of a note that has been added to a document
      *
@@ -232,6 +247,20 @@ public interface WorkflowDocumentService {
      */
     public void sendWorkflowNotification(WorkflowDocument workflowDocument, String annotation,
             List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException;
+
+    /**
+     * Sends workflow notification at the specified node to the list of ad hoc recipients. This method is usually used to
+     * notify users of a note that has been added to a document
+     *
+     * @param workflowDocument
+     * @param annotation
+     * @param nodeName
+     * @param adHocRecipients
+     * @throws WorkflowException
+     */
+    public void sendWorkflowNotification(WorkflowDocument workflowDocument, String annotation, String nodeName,
+                                         List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException;
+
 
     /**
      * Returns the current node names of the document delimited by {@code ", "} if there is more

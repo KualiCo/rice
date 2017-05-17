@@ -166,6 +166,11 @@ public class AgendaEditorMaintenanceDocumentDummy implements MaintenanceDocument
     public void setAdHocRouteWorkgroups(List<AdHocRouteWorkgroup> adHocRouteWorkgroups) {
     }
 
+    @Override
+    public String getAdHocRouteNodeName() {
+        return null;
+    }
+
     public void prepareForSave() {
     }
 

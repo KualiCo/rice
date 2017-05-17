@@ -486,6 +486,17 @@ public abstract class DocumentBase extends PersistableBusinessObjectBaseAdapter 
         this.adHocRouteWorkgroups = adHocRouteWorkgroups;
     }
 
+    /**
+     * Returns null by default. Subclasses can override this to provide the node name to which any
+     * adhoc requests should be attached.
+     *
+     * @return the name of the node to attach adhoc requests toage
+     */
+    @Override
+    public String getAdHocRouteNodeName() {
+        return null;
+    }
+
     @Override
     public void postProcessSave(DocumentEvent event) {
         // TODO Auto-generated method stub
