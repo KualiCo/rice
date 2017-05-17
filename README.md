@@ -109,7 +109,7 @@ To get the WAR file that contains the Kuali Rice server, simply run the followin
 ```mvn package```
 
 The Kuali Rice Standalone WAR will then be available under the `rice-middleware/standalone/target` directory.
-Alternatively, you can simply grab the []already built WAR from Maven Central](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.kuali.rice%22%20AND%20a%3A%22rice-standalone%22).
+Alternatively, you can simply grab the [already built WAR from Maven Central](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.kuali.rice%22%20AND%20a%3A%22rice-standalone%22).
 
 
 
