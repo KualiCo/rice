@@ -183,6 +183,14 @@ public interface Document extends GloballyUnique {
     void setAdHocRouteWorkgroups(List<AdHocRouteWorkgroup> adHocRouteWorkgroups);
 
     /**
+     * Return the name of the node to route any adhoc requests to, or null to let the workflow engine choose.
+     *
+     * @return the name of the node to route any adhoc requests to
+     */
+    String getAdHocRouteNodeName();
+
+
+    /**
      * This method provides a hook that will be called before the document is saved. This method is useful for applying document
      * level data to children. For example, if someone changes data at the document level, and that data needs to be propagated to
      * child objects or child lists of objects, you can use this method to update the child object or iterate through the list of

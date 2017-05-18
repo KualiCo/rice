@@ -220,11 +220,21 @@ public class WorkflowDocumentServiceImpl implements WorkflowDocumentService {
 
     @Override
     public void sendWorkflowNotification(WorkflowDocument workflowDocument, String annotation, List<AdHocRouteRecipient> adHocRecipients, String notificationLabel) throws WorkflowException {
+        sendWorkflowNotification(workflowDocument,annotation, null, adHocRecipients, notificationLabel);
+    }
+
+    @Override
+    public void sendWorkflowNotification(WorkflowDocument workflowDocument, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException {
+        sendWorkflowNotification(workflowDocument, annotation, nodeName, adHocRecipients, null);
+    }
+
+    @Override
+    public void sendWorkflowNotification(WorkflowDocument workflowDocument, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRecipients, String notificationLabel) throws WorkflowException {
         if (LOG.isDebugEnabled()) {
             LOG.debug("sending FYI for document(" + workflowDocument.getDocumentId() + ")");
         }
 
-        handleAdHocRouteRequests(workflowDocument, annotation, adHocRecipients, notificationLabel);
+        handleAdHocRouteRequests(workflowDocument, annotation, nodeName, adHocRecipients, notificationLabel);
     }
 
     @Override
@@ -296,33 +306,27 @@ public class WorkflowDocumentServiceImpl implements WorkflowDocumentService {
     }
 
     private void handleAdHocRouteRequests(WorkflowDocument workflowDocument, String annotation, List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException {
-    	handleAdHocRouteRequests(workflowDocument, annotation, adHocRecipients, null);
+    	handleAdHocRouteRequests(workflowDocument, annotation, null, adHocRecipients, null);
     }
 
     /**
      * Convenience method for generating ad hoc requests for a given document
-     *
-     * @param flexDoc
-     * @param annotation
-     * @param adHocRecipients
-     * @throws InvalidActionTakenException
-     * @throws InvalidRouteTypeException
-     * @throws InvalidActionRequestException
      */
-    private void handleAdHocRouteRequests(WorkflowDocument workflowDocument, String annotation, List<AdHocRouteRecipient> adHocRecipients, String notificationLabel) throws WorkflowException {
+    private void handleAdHocRouteRequests(WorkflowDocument workflowDocument, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRecipients, String notificationLabel) throws WorkflowException {
 
         if (adHocRecipients != null && adHocRecipients.size() > 0) {
 
-            Set<String> currentNodes = workflowDocument.getSimpleNodeNames();
-            if (currentNodes.isEmpty()) {
-                // let's check simple "terminal" nodes as well if there are no "active" ones
-                currentNodes = workflowDocument.getCurrentSimpleNodeNames();
-            }
+            if (StringUtils.isBlank(nodeName)) {
+                Set<String> currentNodes = workflowDocument.getSimpleNodeNames();
+                if (currentNodes.isEmpty()) {
+                    // let's check simple "terminal" nodes as well if there are no "active" ones
+                    currentNodes = workflowDocument.getCurrentSimpleNodeNames();
+                }
 
-            String currentNode = null;
-            if (!currentNodes.isEmpty()) {
-                // select the current node, if there are multiple simple nodes on the document, we just pick one to use
-                currentNode = currentNodes.iterator().next();
+                if (!currentNodes.isEmpty()) {
+                    // select the current node, if there are multiple simple nodes on the document, we just pick one to use
+                    nodeName = currentNodes.iterator().next();
+                }
             }
 
             List<AdHocRoutePerson> adHocRoutePersons = new ArrayList<AdHocRoutePerson>();
@@ -345,7 +349,7 @@ public class WorkflowDocumentServiceImpl implements WorkflowDocumentService {
                 		if (principal == null) {
                 			throw new RiceRuntimeException("Could not locate principal with name '" + recipient.getId() + "'");
                 		}
-                        workflowDocument.adHocToPrincipal(ActionRequestType.fromCode(recipient.getActionRequested()), currentNode, newAnnotation, principal.getPrincipalId(), "", true, notificationLabel);
+                        workflowDocument.adHocToPrincipal(ActionRequestType.fromCode(recipient.getActionRequested()), nodeName, newAnnotation, principal.getPrincipalId(), "", true, notificationLabel);
                         AdHocRoutePerson personRecipient  = (AdHocRoutePerson)recipient;
                         adHocRoutePersons.add(personRecipient);
                     }
@@ -354,7 +358,7 @@ public class WorkflowDocumentServiceImpl implements WorkflowDocumentService {
                 		if (group == null) {
                 			throw new RiceRuntimeException("Could not locate group with id '" + recipient.getId() + "'");
                 		}
-                    	workflowDocument.adHocToGroup(ActionRequestType.fromCode(recipient.getActionRequested()), currentNode, newAnnotation, group.getId() , "", true, notificationLabel);
+                    	workflowDocument.adHocToGroup(ActionRequestType.fromCode(recipient.getActionRequested()), nodeName, newAnnotation, group.getId() , "", true, notificationLabel);
                         AdHocRouteWorkgroup groupRecipient  = (AdHocRouteWorkgroup)recipient;
                         adHocRouteWorkgroups.add(groupRecipient);
                     }

@@ -1074,18 +1074,24 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public Document sendAdHocRequests(Document document, String annotation,
             List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException {
-    	// KULRICE-12987 : removing this line to prevent updates to the workflow document on an operation
-    	// which should only be adding new notifications.
+        return sendAdHocRequests(document, annotation, null, adHocRecipients);
+    }
+
+    @Override
+    public Document sendAdHocRequests(Document document, String annotation, String nodeName,
+                                      List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException {
+        // KULRICE-12987 : removing this line to prevent updates to the workflow document on an operation
+        // which should only be adding new notifications.
         //prepareWorkflowDocument(document);
-    	
+
         getWorkflowDocumentService()
-                .sendWorkflowNotification(document.getDocumentHeader().getWorkflowDocument(), annotation,
+                .sendWorkflowNotification(document.getDocumentHeader().getWorkflowDocument(), annotation, nodeName,
                         adHocRecipients);
         UserSessionUtils.addWorkflowDocument(GlobalVariables.getUserSession(),
                 document.getDocumentHeader().getWorkflowDocument());
 
         removeAdHocPersonsAndWorkgroups(document);
-        
+
         return document;
     }
 
