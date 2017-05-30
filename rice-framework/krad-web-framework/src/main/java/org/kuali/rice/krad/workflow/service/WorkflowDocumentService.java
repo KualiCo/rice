@@ -61,6 +61,8 @@ public interface WorkflowDocumentService {
      */
     public WorkflowDocument loadWorkflowDocument(String documentHeaderId, Person workflowUser) throws WorkflowException;
 
+    void route(WorkflowDocument workflowDocument, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException;
+
     /**
      * This method will first determine if the {@link WorkflowDocument#saveDocument(String)} method
      * is valid to be called. If so the method will save the document to workflows action list
@@ -95,6 +97,8 @@ public interface WorkflowDocumentService {
     public void route(WorkflowDocument workflowDocument, String annotation, List<AdHocRouteRecipient> adHocRecipients)
             throws WorkflowException;
 
+    void acknowledge(WorkflowDocument workflowDocument, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException;
+
     /**
      * approve this workflowDocument optionally providing an annotation for this action taken which
      * will show up in the route log for this document corresponding to this action taken, and
@@ -106,6 +110,8 @@ public interface WorkflowDocumentService {
      */
     public void approve(WorkflowDocument workflowDocument, String annotation, List<AdHocRouteRecipient> adHocRecipients)
             throws WorkflowException;
+
+    void approve(WorkflowDocument workflowDocument, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException;
 
     /**
      * super user approve this workflowDocument optionally providing an annotation for this action
@@ -147,6 +153,8 @@ public interface WorkflowDocumentService {
      * @param annotation
      */
     public void disapprove(WorkflowDocument workflowDocument, String annotation) throws WorkflowException;
+
+    void blanketApprove(WorkflowDocument workflowDocument, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException;
 
     /**
      * cancel this workflowDocument optionally providing an annotation for this action taken which
@@ -236,6 +244,8 @@ public interface WorkflowDocumentService {
     public void sendWorkflowNotification(WorkflowDocument workflowDocument, String annotation, String nodeName,
                                          List<AdHocRouteRecipient> adHocRecipients, String notificationLabel) throws WorkflowException;
 
+    void clearFyi(WorkflowDocument workflowDocument, String nodeName, List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException;
+
     /**
      * Sends workflow notification to the list of ad hoc recipients. This method is usually used to
      * notify users of a note that has been added to a document
@@ -285,4 +295,6 @@ public interface WorkflowDocumentService {
      * @param annotation
      */
     public void recall(WorkflowDocument workflowDocument, String annotation, boolean cancel) throws WorkflowException;
+
+    void complete(WorkflowDocument workflowDocument, String annotation, String nodeName, List adHocRecipients) throws WorkflowException;
 }

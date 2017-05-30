@@ -801,6 +801,7 @@ public class DocumentControllerServiceImpl extends ControllerServiceImpl impleme
 
         try {
             String successMessageKey = null;
+            String nodeName = document.getAdHocRouteNodeName();
             switch (action) {
                 case SAVE:
                     if (documentEvent == null) {
@@ -812,17 +813,17 @@ public class DocumentControllerServiceImpl extends ControllerServiceImpl impleme
                     successMessageKey = RiceKeyConstants.MESSAGE_SAVED;
                     break;
                 case ROUTE:
-                    document = getDocumentService().routeDocument(document, form.getAnnotation(),
+                    document = getDocumentService().routeDocument(document, form.getAnnotation(), nodeName,
                             combineAdHocRecipients(form));
                     successMessageKey = RiceKeyConstants.MESSAGE_ROUTE_SUCCESSFUL;
                     break;
                 case BLANKETAPPROVE:
-                    document = getDocumentService().blanketApproveDocument(document, form.getAnnotation(),
+                    document = getDocumentService().blanketApproveDocument(document, form.getAnnotation(), nodeName,
                             combineAdHocRecipients(form));
                     successMessageKey = RiceKeyConstants.MESSAGE_ROUTE_APPROVED;
                     break;
                 case APPROVE:
-                    document = getDocumentService().approveDocument(document, form.getAnnotation(),
+                    document = getDocumentService().approveDocument(document, form.getAnnotation(), nodeName,
                             combineAdHocRecipients(form));
                     successMessageKey = RiceKeyConstants.MESSAGE_ROUTE_APPROVED;
                     break;
@@ -832,11 +833,11 @@ public class DocumentControllerServiceImpl extends ControllerServiceImpl impleme
                     successMessageKey = RiceKeyConstants.MESSAGE_ROUTE_DISAPPROVED;
                     break;
                 case FYI:
-                    document = getDocumentService().clearDocumentFyi(document, combineAdHocRecipients(form));
+                    document = getDocumentService().clearDocumentFyi(document, nodeName, combineAdHocRecipients(form));
                     successMessageKey = RiceKeyConstants.MESSAGE_ROUTE_FYIED;
                     break;
                 case ACKNOWLEDGE:
-                    document = getDocumentService().acknowledgeDocument(document, form.getAnnotation(),
+                    document = getDocumentService().acknowledgeDocument(document, form.getAnnotation(), nodeName,
                             combineAdHocRecipients(form));
                     successMessageKey = RiceKeyConstants.MESSAGE_ROUTE_ACKNOWLEDGED;
                     break;
@@ -848,14 +849,13 @@ public class DocumentControllerServiceImpl extends ControllerServiceImpl impleme
                     break;
                 case COMPLETE:
                     if (getDocumentService().documentExists(document.getDocumentNumber())) {
-                        document = getDocumentService().completeDocument(document, form.getAnnotation(),
+                        document = getDocumentService().completeDocument(document, form.getAnnotation(), nodeName,
                                 combineAdHocRecipients(form));
                         successMessageKey = RiceKeyConstants.MESSAGE_ROUTE_SUCCESSFUL;
                     }
                     break;
                 case SENDADHOCREQUESTS:
-                    getDocumentService().sendAdHocRequests(document, form.getAnnotation(), combineAdHocRecipients(
-                            form));
+                    getDocumentService().sendAdHocRequests(document, form.getAnnotation(), nodeName, combineAdHocRecipients(form));
                     successMessageKey = RiceKeyConstants.MESSAGE_ROUTE_SUCCESSFUL;
                     break;
                 case RECALL:
