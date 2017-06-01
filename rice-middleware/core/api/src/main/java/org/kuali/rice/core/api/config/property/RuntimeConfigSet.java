@@ -41,10 +41,6 @@ public class RuntimeConfigSet {
         listeners.add(consumer);
     }
 
-    public void unlisten(Consumer<RuntimeConfigSet> consumer) {
-        listeners.remove(consumer);
-    }
-
     private void listenToConfigs(List<RuntimeConfig> configs) {
         configs.forEach(config -> config.listen(this::consumeConfigChange));
     }
@@ -52,7 +48,7 @@ public class RuntimeConfigSet {
     private void consumeConfigChange(RuntimeConfig changedConfig) {
         configs.forEach(config -> {
             if (config != changedConfig) {
-                changedConfig.sync();
+                changedConfig.fetch();
             }
         });
         listeners.forEach(listener -> listener.accept(this));

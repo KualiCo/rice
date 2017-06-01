@@ -13,6 +13,6 @@ public interface RuntimeConfig {
 
     void listen(Consumer<RuntimeConfig> consumer);
 
-    void sync();
+    void fetch();
 
 }

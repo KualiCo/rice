@@ -55,7 +55,7 @@ public class ParameterRuntimeConfig implements RuntimeConfig {
     }
 
     @Override
-    public synchronized void sync() {
+    public synchronized void fetch() {
         String currentValue = parameter == null ? null : parameter.getValue();
         Parameter newParameter = this.parameterService.getParameter(namespaceCode, componentCode, name);
         String newValue = newParameter == null ? null : newParameter.getValue();

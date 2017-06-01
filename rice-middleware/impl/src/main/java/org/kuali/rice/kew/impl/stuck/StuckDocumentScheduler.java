@@ -13,7 +13,6 @@ import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -27,7 +26,6 @@ public class StuckDocumentScheduler implements ApplicationListener<ContextRefres
     private static final JobKey JOB_KEY = JobKey.jobKey("Checker", "StuckDocuments");
 
     private Scheduler scheduler;
-    private StuckDocumentNotifier notifier;
 
     private RuntimeConfig enabled;
     private RuntimeConfig autofix;
@@ -40,7 +38,7 @@ public class StuckDocumentScheduler implements ApplicationListener<ContextRefres
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         configSet = new RuntimeConfigSet(enabled, autofix, checkFrequency, autofixQuietPeriod, maxAutofixAttempts);
-        configChanged(configSet);
+        achieveDesiredState();
         configSet.listen(this::configChanged);
     }
 
