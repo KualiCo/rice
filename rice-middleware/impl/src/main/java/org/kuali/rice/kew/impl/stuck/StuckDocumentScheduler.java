@@ -15,11 +15,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
 
 /**
  * @author Eric Westfall
  */
-public class StuckDocumentScheduler implements InitializingBean {
+public class StuckDocumentScheduler implements ApplicationListener<ContextRefreshedEvent> {
 
     private static final Logger LOG = LoggerFactory.getLogger(StuckDocumentScheduler.class);
     private static final JobKey JOB_KEY = JobKey.jobKey("Checker", "StuckDocuments");
@@ -36,38 +38,45 @@ public class StuckDocumentScheduler implements InitializingBean {
     private RuntimeConfigSet configSet;
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         configSet = new RuntimeConfigSet(enabled, autofix, checkFrequency, autofixQuietPeriod, maxAutofixAttempts);
         configChanged(configSet);
         configSet.listen(this::configChanged);
     }
 
     private void configChanged(RuntimeConfigSet configSet) {
-        try {
-            LOG.info("StuckDocumentScheduler config was changed, rebuilding job.");
-            rebuildJob();
-        } catch (SchedulerException e) {
-            throw new IllegalStateException("Failed to handle configuration change to stuck documents job", e);
-        }
+        LOG.info("StuckDocumentScheduler config was changed, rebuilding job.");
+        achieveDesiredState();
     }
 
-    private void rebuildJob() throws SchedulerException {
+    private void achieveDesiredState() {
+        try {
+            boolean isEnabled = Boolean.valueOf(enabled.getValue());
+            scheduleStuckDocumentsJob(isEnabled);
+        } catch (SchedulerException e) {
+            throw new IllegalStateException("Scheduling failure when attempting to configure Stuck Documents jobs", e);
+        }
+
+    }
+
+    private void scheduleStuckDocumentsJob(boolean isEnabled) throws SchedulerException{
         if (scheduler.checkExists(JOB_KEY)) {
             scheduler.deleteJob(JOB_KEY);
         }
-        if (Boolean.valueOf(enabled.getValue())) {
+        if (isEnabled) {
             JobDetail job = JobBuilder.newJob(StuckDocumentJob.class)
                     .withIdentity(JOB_KEY)
-                    .usingJobData("autofix", autofix.getValue())
-                    .usingJobData("checkFrequency", autofix.getValue())
-                    .usingJobData("autofixQuietPeriod", autofixQuietPeriod.getValue())
-                    .usingJobData("maxAutofixAttempts", maxAutofixAttempts.getValue()).build();
+                    .usingJobData(StuckDocumentJob.AUTOFIX_KEY, autofix.getValue())
+                    .usingJobData(StuckDocumentJob.CHECK_FREQUENCY_KEY, checkFrequency.getValue())
+                    .usingJobData(StuckDocumentJob.AUTOFIX_QUIET_PERIOD_KEY, autofixQuietPeriod.getValue())
+                    .usingJobData(StuckDocumentJob.MAX_AUTOFIX_ATTEMPTS_KEY, maxAutofixAttempts.getValue()).build();
 
             int checkFrequencySeconds = Integer.parseInt(checkFrequency.getValue());
             LOG.info("Stuck Documents job is enabled, scheduling for a frequency of " + checkFrequencySeconds + " seconds");
             ScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
                     .repeatForever()
-                    .withIntervalInSeconds(checkFrequencySeconds);
+                    .withIntervalInSeconds(checkFrequencySeconds)
+                    .withMisfireHandlingInstructionNextWithExistingCount();
             Trigger trigger = TriggerBuilder.newTrigger()
                     .forJob(job)
                     .startNow()
@@ -82,11 +91,6 @@ public class StuckDocumentScheduler implements InitializingBean {
     public void setScheduler(Scheduler scheduler) {
         this.scheduler = scheduler;
     }
-
-//    @Required
-//    public void setNotifier(StuckDocumentNotifier notifier) {
-//        this.notifier = notifier;
-//    }
 
     @Required
     public void setEnabled(RuntimeConfig enabled) {

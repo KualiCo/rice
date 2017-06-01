@@ -208,6 +208,7 @@
         <idref local="rice.kew.noteService"/>
         <idref local="rice.kew.kewTypeRepositoryService"/>
         <idref local="rice.kew.peopleFlowService"/>
+        <idref local="rice.kew.stuckDocumentService"/>
       </list>
     </property>
   </bean>
@@ -265,7 +266,7 @@
         class="org.kuali.rice.core.framework.resourceloader.GlobalResourceLoaderServiceFactoryBean"
         p:serviceName="rice.ksb.scheduler"/>
 
-  <bean id="stuckDocumentScheduler"
+  <bean id="rice.kew.stuckDocumentScheduler"
         class="org.kuali.rice.kew.impl.stuck.StuckDocumentScheduler"
         p:scheduler-ref="rice.ksb.import.scheduler"
         p:enabled-ref="stuckDocumentsCheckerEnabledParam"
@@ -274,7 +275,9 @@
         p:autofixQuietPeriod-ref="stuckDocumentsAutofixQuietPeriodParam"
         p:maxAutofixAttempts-ref="stuckDocumentsMaxAutofixAttemptsParam"/>
 
-
+  <bean id="rice.kew.stuckDocumentService"
+        class="org.kuali.rice.kew.impl.stuck.StuckDocumentServiceImpl"
+        p:stuckDocumentDao-ref="rice.kew.stuckDocumentDao"/>
 
 
 </beans>

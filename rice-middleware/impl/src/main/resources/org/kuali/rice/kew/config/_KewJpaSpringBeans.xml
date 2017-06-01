@@ -88,6 +88,8 @@
     <value>org.kuali.rice.kew.impl.type.KewTypeBo</value>
     <value>org.kuali.rice.kew.impl.type.KewTypeAttributeBo</value>
     <value>org.kuali.rice.kew.impl.type.KewAttributeDefinitionBo</value>
+    <value>org.kuali.rice.kew.impl.stuck.StuckDocumentIncident</value>
+    <value>org.kuali.rice.kew.impl.stuck.StuckDocumentFixAttempt</value>
   </util:list>
 
   <util:list id="additionalMetadataProviders" />
@@ -175,5 +177,10 @@
   <bean id="enStatsDAO" class="org.kuali.rice.kew.stats.dao.impl.StatsDaoJpa" lazy-init="true">
     <property name="entityManager" ref="rice.kew.entityManager"/>
   </bean>
+
+  <bean id="rice.kew.stuckDocumentDao" class="org.kuali.rice.kew.impl.stuck.StuckDocumentDaoJpa" lazy-init="true">
+    <property name="entityManager" ref="rice.kew.entityManager"/>
+  </bean>
+
 </beans>
 
