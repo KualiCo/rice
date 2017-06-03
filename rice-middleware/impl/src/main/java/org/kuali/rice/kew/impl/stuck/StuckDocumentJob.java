@@ -1,14 +1,13 @@
 package org.kuali.rice.kew.impl.stuck;
 
 import com.google.common.collect.Lists;
-import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
+import org.kuali.rice.kew.service.KEWServiceLocator;
 import org.quartz.DateBuilder;
 import org.quartz.Job;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.quartz.ScheduleBuilder;
 import org.quartz.SchedulerException;
 import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
@@ -106,9 +105,9 @@ public class StuckDocumentJob implements Job {
     }
 
 
-    private StuckDocumentService getStuckDocumentService() {
+    protected StuckDocumentService getStuckDocumentService() {
         if (this.stuckDocumentService == null) {
-            this.stuckDocumentService = GlobalResourceLoader.getService(STUCK_DOCUMENT_SERVICE_NAME);
+            this.stuckDocumentService = KEWServiceLocator.getStuckDocumentService();
         }
         return this.stuckDocumentService;
     }
