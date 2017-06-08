@@ -552,8 +552,7 @@ public class KualiDocumentActionBase extends KualiAction {
         boolean rulePassed = getKualiRuleService().applyRules(new SendAdHocRequestsEvent(document));
 
         if (rulePassed) {
-            String nodeName = document.getAdHocRouteNodeName();
-            getDocumentService().sendAdHocRequests(document, kualiDocumentFormBase.getAnnotation(), nodeName, combineAdHocRecipients(kualiDocumentFormBase));
+            getDocumentService().sendAdHocRequests(document, kualiDocumentFormBase.getAnnotation(), combineAdHocRecipients(kualiDocumentFormBase));
             KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_SEND_AD_HOC_REQUESTS_SUCCESSFUL);
         }
 
@@ -799,9 +798,7 @@ public class KualiDocumentActionBase extends KualiAction {
         if (forward != null) {
             return forward;
         }
-
-        String nodeName = document.getAdHocRouteNodeName();
-        document = getDocumentService().routeDocument(document, kualiDocumentFormBase.getAnnotation(), nodeName, combineAdHocRecipients(kualiDocumentFormBase));
+        document = getDocumentService().routeDocument(document, kualiDocumentFormBase.getAnnotation(), combineAdHocRecipients(kualiDocumentFormBase));
         kualiDocumentFormBase.setDocument(document);
         KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_ROUTE_SUCCESSFUL);
         kualiDocumentFormBase.setAnnotation("");
@@ -844,8 +841,7 @@ public class KualiDocumentActionBase extends KualiAction {
         if (forward != null) {
             return forward;
         }
-        String nodeName = document.getAdHocRouteNodeName();
-        document = getDocumentService().blanketApproveDocument(document, kualiDocumentFormBase.getAnnotation(), nodeName, combineAdHocRecipients(kualiDocumentFormBase));
+        document = getDocumentService().blanketApproveDocument(document, kualiDocumentFormBase.getAnnotation(), combineAdHocRecipients(kualiDocumentFormBase));
         kualiDocumentFormBase.setDocument(document);
         KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_ROUTE_APPROVED);
         kualiDocumentFormBase.setAnnotation("");
@@ -879,8 +875,7 @@ public class KualiDocumentActionBase extends KualiAction {
             return forward;
         }
 
-        String nodeName = document.getAdHocRouteNodeName();
-        document = getDocumentService().approveDocument(document, kualiDocumentFormBase.getAnnotation(), nodeName, combineAdHocRecipients(kualiDocumentFormBase));
+        document = getDocumentService().approveDocument(document, kualiDocumentFormBase.getAnnotation(), combineAdHocRecipients(kualiDocumentFormBase));
         kualiDocumentFormBase.setDocument(document);
         KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_ROUTE_APPROVED);
         kualiDocumentFormBase.setAnnotation("");
@@ -1100,8 +1095,7 @@ public class KualiDocumentActionBase extends KualiAction {
         KualiDocumentFormBase kualiDocumentFormBase = (KualiDocumentFormBase) form;
         doProcessingAfterPost(kualiDocumentFormBase, request);
         Document document = kualiDocumentFormBase.getDocument();
-        String nodeName = document.getAdHocRouteNodeName();
-        document = getDocumentService().clearDocumentFyi(document, nodeName, combineAdHocRecipients(kualiDocumentFormBase));
+        document = getDocumentService().clearDocumentFyi(document, combineAdHocRecipients(kualiDocumentFormBase));
         kualiDocumentFormBase.setDocument(document);
         KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_ROUTE_FYIED);
         kualiDocumentFormBase.setAnnotation("");
@@ -1122,8 +1116,7 @@ public class KualiDocumentActionBase extends KualiAction {
         KualiDocumentFormBase kualiDocumentFormBase = (KualiDocumentFormBase) form;
         doProcessingAfterPost(kualiDocumentFormBase, request);
         Document document = kualiDocumentFormBase.getDocument();
-        String nodeName = document.getAdHocRouteNodeName();
-        document = getDocumentService().acknowledgeDocument(document, kualiDocumentFormBase.getAnnotation(), nodeName, combineAdHocRecipients(kualiDocumentFormBase));
+        document = getDocumentService().acknowledgeDocument(document, kualiDocumentFormBase.getAnnotation(), combineAdHocRecipients(kualiDocumentFormBase));
         kualiDocumentFormBase.setDocument(document);
         KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_ROUTE_ACKNOWLEDGED);
         kualiDocumentFormBase.setAnnotation("");
