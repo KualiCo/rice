@@ -51,8 +51,4 @@ public class StuckDocumentFixAttempt {
         this.timestamp = timestamp;
     }
 
-    public static enum Outcome {
-        PENDING, SUCCESS, FAILURE
-    }
-
 }

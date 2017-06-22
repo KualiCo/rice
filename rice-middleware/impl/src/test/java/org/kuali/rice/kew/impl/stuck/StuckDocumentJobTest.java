@@ -40,6 +40,8 @@ import static org.powermock.api.mockito.PowerMockito.mockStatic;
 
 /**
  * Unit test for {@link StuckDocumentJob}
+ *
+ * @author Eric Westfall
  */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({KEWServiceLocator.class})
@@ -154,15 +156,15 @@ public class StuckDocumentJobTest {
         assertEquals(0, currentAutofixCount);
 
         // check autofix enabled
-        boolean autofixEnabled = jobDetail.getJobDataMap().getBooleanFromString(StuckDocumentJob.AUTOFIX_KEY);
+        boolean autofixEnabled = jobDetail.getJobDataMap().getBoolean(StuckDocumentJob.AUTOFIX_KEY);
         assertTrue(autofixEnabled);
 
         // check autofix quiet period
-        int autofixQuietPeriod = jobDetail.getJobDataMap().getIntegerFromString(StuckDocumentJob.AUTOFIX_QUIET_PERIOD_KEY);
+        int autofixQuietPeriod = jobDetail.getJobDataMap().getInt(StuckDocumentJob.AUTOFIX_QUIET_PERIOD_KEY);
         assertEquals(60, autofixQuietPeriod);
 
         // check maxAutofixAttempts
-        int maxAutofixAttempts = jobDetail.getJobDataMap().getIntegerFromString(StuckDocumentJob.MAX_AUTOFIX_ATTEMPTS_KEY);
+        int maxAutofixAttempts = jobDetail.getJobDataMap().getInt(StuckDocumentJob.MAX_AUTOFIX_ATTEMPTS_KEY);
         assertEquals(2, maxAutofixAttempts);
 
         // next, examine the trigger, it's really hard to test this against the values passed in unfortunately, we need
@@ -211,15 +213,15 @@ public class StuckDocumentJobTest {
     }
 
     private void setAutofixEnabled(boolean enabled) {
-        jobDataMap.put(StuckDocumentJob.AUTOFIX_KEY, Boolean.toString(enabled));
+        jobDataMap.put(StuckDocumentJob.AUTOFIX_KEY, enabled);
     }
 
     private void setAutofixQuietPeriod(int autofixQuietPeriod) {
-        jobDataMap.put(StuckDocumentJob.AUTOFIX_QUIET_PERIOD_KEY, Integer.toString(autofixQuietPeriod));
+        jobDataMap.put(StuckDocumentJob.AUTOFIX_QUIET_PERIOD_KEY, autofixQuietPeriod);
     }
 
     private void setMaxAutofixAttempts(int maxAutofixAttempts) {
-        jobDataMap.put(StuckDocumentJob.MAX_AUTOFIX_ATTEMPTS_KEY, Integer.toString(maxAutofixAttempts));
+        jobDataMap.put(StuckDocumentJob.MAX_AUTOFIX_ATTEMPTS_KEY, maxAutofixAttempts);
     }
 
     private List<StuckDocumentIncident> setNumberOfStuckDocumentIncidents(int numberOfIncidents) {

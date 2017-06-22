@@ -1,5 +1,6 @@
 package org.kuali.rice.coreservice.framework.parameter;
 
+import org.kuali.rice.core.api.config.property.AbstractRuntimeConfig;
 import org.kuali.rice.core.api.config.property.RuntimeConfig;
 import org.kuali.rice.coreservice.api.parameter.Parameter;
 import org.kuali.rice.coreservice.api.parameter.ParameterKey;
@@ -12,13 +13,12 @@ import java.util.function.Consumer;
 /**
  * @author Eric Westfall
  */
-public class ParameterRuntimeConfig implements RuntimeConfig {
+public class ParameterRuntimeConfig extends AbstractRuntimeConfig {
 
     private final String namespaceCode;
     private final String componentCode;
     private final String name;
     private final String defaultValue;
-    private final List<Consumer<RuntimeConfig>> listeners;
     private final ParameterService parameterService;
 
     private Parameter parameter;
@@ -32,7 +32,6 @@ public class ParameterRuntimeConfig implements RuntimeConfig {
         this.name = name;
         this.defaultValue = defaultValue;
         this.parameterService = parameterService;
-        this.listeners = new ArrayList<>();
         this.parameter = this.parameterService.getParameter(namespaceCode, componentCode, name);
         this.parameterService.watchParameter(namespaceCode, componentCode, name, this::parameterChanged);
     }
@@ -50,11 +49,6 @@ public class ParameterRuntimeConfig implements RuntimeConfig {
     }
 
     @Override
-    public synchronized void listen(Consumer<RuntimeConfig> consumer) {
-        listeners.add(consumer);
-    }
-
-    @Override
     public synchronized void fetch() {
         String currentValue = parameter == null ? null : parameter.getValue();
         Parameter newParameter = this.parameterService.getParameter(namespaceCode, componentCode, name);
@@ -63,10 +57,6 @@ public class ParameterRuntimeConfig implements RuntimeConfig {
             this.parameter = newParameter;
             notifyListeners();
         }
-    }
-
-    private synchronized void notifyListeners() {
-        listeners.forEach(listener -> listener.accept(this));
     }
 
     private synchronized void parameterChanged(Parameter parameter) {

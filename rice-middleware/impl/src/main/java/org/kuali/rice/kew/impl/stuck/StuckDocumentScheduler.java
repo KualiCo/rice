@@ -9,6 +9,7 @@ import org.quartz.ScheduleBuilder;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.SimpleScheduleBuilder;
+import org.quartz.SimpleTrigger;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.slf4j.Logger;
@@ -64,16 +65,16 @@ public class StuckDocumentScheduler implements ApplicationListener<ContextRefres
         if (isEnabled) {
             JobDetail job = JobBuilder.newJob(StuckDocumentJob.class)
                     .withIdentity(JOB_KEY)
-                    .usingJobData(StuckDocumentJob.AUTOFIX_KEY, autofix.getValue())
-                    .usingJobData(StuckDocumentJob.CHECK_FREQUENCY_KEY, checkFrequency.getValue())
-                    .usingJobData(StuckDocumentJob.AUTOFIX_QUIET_PERIOD_KEY, autofixQuietPeriod.getValue())
-                    .usingJobData(StuckDocumentJob.MAX_AUTOFIX_ATTEMPTS_KEY, maxAutofixAttempts.getValue()).build();
+                    .usingJobData(StuckDocumentJob.AUTOFIX_KEY, autofix.getValueAsBoolean())
+                    .usingJobData(StuckDocumentJob.CHECK_FREQUENCY_KEY, checkFrequency.getValueAsInteger())
+                    .usingJobData(StuckDocumentJob.AUTOFIX_QUIET_PERIOD_KEY, autofixQuietPeriod.getValueAsInteger())
+                    .usingJobData(StuckDocumentJob.MAX_AUTOFIX_ATTEMPTS_KEY, maxAutofixAttempts.getValueAsInteger()).build();
 
-            int checkFrequencySeconds = Integer.parseInt(checkFrequency.getValue());
-            LOG.info("Stuck Documents job is enabled, scheduling for a frequency of " + checkFrequencySeconds + " seconds");
-            ScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
+
+            LOG.info("Stuck Documents job is enabled, scheduling for a frequency of " + checkFrequency.getValue() + " seconds");
+            ScheduleBuilder<SimpleTrigger> scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
                     .repeatForever()
-                    .withIntervalInSeconds(checkFrequencySeconds)
+                    .withIntervalInSeconds(checkFrequency.getValueAsInteger())
                     .withMisfireHandlingInstructionNextWithExistingCount();
             Trigger trigger = TriggerBuilder.newTrigger()
                     .forJob(job)

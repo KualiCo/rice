@@ -11,6 +11,12 @@ public interface RuntimeConfig {
 
     String getValue();
 
+    Boolean getValueAsBoolean();
+
+    Integer getValueAsInteger();
+
+    Long getValueAsLong();
+
     void listen(Consumer<RuntimeConfig> consumer);
 
     void fetch();

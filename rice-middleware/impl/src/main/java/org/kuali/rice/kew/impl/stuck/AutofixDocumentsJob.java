@@ -26,6 +26,8 @@ public class AutofixDocumentsJob implements Job {
     static final String INCIDENT_IDS = "incidentIds";
     static final String CURRENT_AUTOFIX_COUNT = "currentAutofixCount";
 
+    private volatile StuckDocumentService stuckDocumentService;
+
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         int currentAutofixCount = incrementAutofixCount(context);
@@ -87,8 +89,16 @@ public class AutofixDocumentsJob implements Job {
         return context.getMergedJobDataMap().getInt(StuckDocumentJob.MAX_AUTOFIX_ATTEMPTS_KEY);
     }
 
-    private StuckDocumentService getStuckDocumentService() {
-        return KEWServiceLocator.getStuckDocumentService();
+    protected StuckDocumentService getStuckDocumentService() {
+        if (this.stuckDocumentService == null) {
+            this.stuckDocumentService = KEWServiceLocator.getStuckDocumentService();
+        }
+        return this.stuckDocumentService;
     }
+
+    public void setStuckDocumentService(StuckDocumentService stuckDocumentService) {
+        this.stuckDocumentService = stuckDocumentService;
+    }
+
 
 }

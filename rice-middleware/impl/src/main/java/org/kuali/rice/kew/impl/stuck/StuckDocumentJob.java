@@ -34,7 +34,6 @@ public class StuckDocumentJob implements Job {
     static final String AUTOFIX_QUIET_PERIOD_KEY = "autofixQuietPeriod";
     static final String MAX_AUTOFIX_ATTEMPTS_KEY = "maxAutofixAttempts";
 
-
     private volatile StuckDocumentService stuckDocumentService;
 
     @Override
@@ -93,7 +92,7 @@ public class StuckDocumentJob implements Job {
     }
 
     private boolean isAutofixEnabled(JobExecutionContext context) {
-        return context.getMergedJobDataMap().getBooleanFromString(AUTOFIX_KEY);
+        return context.getMergedJobDataMap().getBoolean(AUTOFIX_KEY);
     }
 
     private int maxAutofixAttempts(JobExecutionContext context) {
@@ -103,7 +102,6 @@ public class StuckDocumentJob implements Job {
     private int autofixQuietPeriod(JobExecutionContext context) {
         return context.getMergedJobDataMap().getInt(AUTOFIX_QUIET_PERIOD_KEY);
     }
-
 
     protected StuckDocumentService getStuckDocumentService() {
         if (this.stuckDocumentService == null) {

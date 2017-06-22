@@ -95,10 +95,10 @@ public class StuckDocumentSchedulerTest {
 
         JobDetail jobDetail = jobCaptor.getValue();
         JobDataMap jobData = jobDetail.getJobDataMap();
-        assertEquals("false", jobData.getString("autofix"));
-        assertEquals("120", jobData.getString("checkFrequency"));
-        assertEquals("60", jobData.getString("autofixQuietPeriod"));
-        assertEquals("1", jobData.getString("maxAutofixAttempts"));
+        assertEquals(false, jobData.getBoolean("autofix"));
+        assertEquals(120, jobData.getInt("checkFrequency"));
+        assertEquals(60, jobData.getInt("autofixQuietPeriod"));
+        assertEquals(1, jobData.getInt("maxAutofixAttempts"));
 
     }
 

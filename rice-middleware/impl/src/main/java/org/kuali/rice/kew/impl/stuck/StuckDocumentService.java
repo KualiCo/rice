@@ -9,15 +9,15 @@ public interface StuckDocumentService {
 
     StuckDocumentIncident find(String stuckDocumentIncidentId);
 
-    List<StuckDocumentIncident> findAll(List<String> stuckDocumentIds);
+    List<StuckDocumentIncident> findAll(List<String> stuckDocumentIncidentIds);
 
     List<StuckDocumentIncident> identifyAndRecordNewStuckDocuments();
 
-    StuckDocumentFixAttempt recordNewFixAttempt(StuckDocumentIncident incident);
+    StuckDocumentFixAttempt recordNewFixAttempt(StuckDocumentIncident stuckDocumentIncident);
 
-    List<StuckDocumentIncident> resolveIfPossible(List<String> incidentIds);
+    List<StuckDocumentIncident> resolveIfPossible(List<String> stuckDocumentIncidentIds);
 
-    StuckDocumentIncident recordFailure(StuckDocumentIncident incident);
+    StuckDocumentIncident recordFailure(StuckDocumentIncident stuckDocumentIncident);
 
     StuckDocumentIncident startFixing(StuckDocumentIncident stuckDocumentIncident);
 

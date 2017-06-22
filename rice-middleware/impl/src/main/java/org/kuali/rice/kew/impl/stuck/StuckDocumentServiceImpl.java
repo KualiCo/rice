@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * @author Eric Westfall
  */
@@ -14,11 +16,13 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
 
     @Override
     public StuckDocumentIncident find(String stuckDocumentIncidentId) {
-        return stuckDocumentDao.findIncident(stuckDocumentIncidentId);
+        checkNotNull(stuckDocumentIncidentId);
+        return getStuckDocumentDao().findIncident(stuckDocumentIncidentId);
     }
 
     @Override
     public List<StuckDocumentIncident> findAll(List<String> stuckDocumentIncidentIds) {
+        checkNotNull(stuckDocumentIncidentIds);
         List<StuckDocumentIncident> incidents = new ArrayList<>(stuckDocumentIncidentIds.size());
         for (String stuckDocumentIncidentId : stuckDocumentIncidentIds) {
             StuckDocumentIncident incident = find(stuckDocumentIncidentId);
@@ -36,31 +40,31 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
     }
 
     @Override
-    public StuckDocumentFixAttempt recordNewFixAttempt(StuckDocumentIncident incident) {
+    public StuckDocumentFixAttempt recordNewFixAttempt(StuckDocumentIncident stuckDocumentIncident) {
+        checkNotNull(stuckDocumentIncident);
         StuckDocumentFixAttempt auditEntry = new StuckDocumentFixAttempt();
-        auditEntry.setStuckDocumentIncidentId(incident.getStuckDocumentIncidentId());
+        auditEntry.setStuckDocumentIncidentId(stuckDocumentIncident.getStuckDocumentIncidentId());
         auditEntry.setTimestamp(new Timestamp(System.currentTimeMillis()));
         return getStuckDocumentDao().saveFixAttempt(auditEntry);
     }
 
     @Override
-    public List<StuckDocumentIncident> resolveIfPossible(List<String> incidentIds) {
-        List<StuckDocumentIncident> stuckIncidents = getStuckDocumentDao().identifyStillStuckDocuments(incidentIds);
+    public List<StuckDocumentIncident> resolveIfPossible(List<String> stuckDocumentIncidentIds) {
+        checkNotNull(stuckDocumentIncidentIds);
+        List<StuckDocumentIncident> stuckIncidents = getStuckDocumentDao().identifyStillStuckDocuments(stuckDocumentIncidentIds);
         List<String> stuckIncidentIds = stuckIncidents.stream().map(StuckDocumentIncident::getStuckDocumentIncidentId).collect(Collectors.toList());
         // let's find the ones that aren't stuck so that we can resolve them
-        List<String> notStuckIncidentIds = new ArrayList<>(incidentIds);
+        List<String> notStuckIncidentIds = new ArrayList<>(stuckDocumentIncidentIds);
         notStuckIncidentIds.removeAll(stuckIncidentIds);
         if (!notStuckIncidentIds.isEmpty()) {
             List<StuckDocumentIncident> notStuckIncidents = findAll(notStuckIncidentIds);
-            notStuckIncidents.forEach(incident -> {
-                incident.setStatus(StuckDocumentIncident.Status.FIXED);
-                incident.setEndDate(new Timestamp(System.currentTimeMillis()));
-            });
+            notStuckIncidents.forEach(this::resolve);
         }
         return stuckIncidents;
     }
 
     public StuckDocumentIncident resolve(StuckDocumentIncident stuckDocumentIncident) {
+        checkNotNull(stuckDocumentIncident);
         stuckDocumentIncident.setStatus(StuckDocumentIncident.Status.FIXED);
         stuckDocumentIncident.setEndDate(new Timestamp(System.currentTimeMillis()));
         return getStuckDocumentDao().saveIncident(stuckDocumentIncident);
@@ -68,12 +72,14 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
 
     @Override
     public StuckDocumentIncident startFixing(StuckDocumentIncident stuckDocumentIncident) {
+        checkNotNull(stuckDocumentIncident);
         stuckDocumentIncident.setStatus(StuckDocumentIncident.Status.FIXING);
         return getStuckDocumentDao().saveIncident(stuckDocumentIncident);
     }
 
     @Override
     public StuckDocumentIncident recordFailure(StuckDocumentIncident stuckDocumentIncident) {
+        checkNotNull(stuckDocumentIncident);
         stuckDocumentIncident.setStatus(StuckDocumentIncident.Status.FAILED);
         stuckDocumentIncident.setEndDate(new Timestamp(System.currentTimeMillis()));
         return getStuckDocumentDao().saveIncident(stuckDocumentIncident);

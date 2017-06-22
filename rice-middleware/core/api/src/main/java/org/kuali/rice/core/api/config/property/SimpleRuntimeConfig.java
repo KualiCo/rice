@@ -10,18 +10,14 @@ import java.util.function.Consumer;
  *
  * @author Eric Westfall
  */
-public class SimpleRuntimeConfig implements RuntimeConfig {
+public class SimpleRuntimeConfig extends AbstractRuntimeConfig {
 
     private String value;
-    private List<Consumer<RuntimeConfig>> listeners;
 
-    public SimpleRuntimeConfig() {
-        this(null);
-    }
+    public SimpleRuntimeConfig() {}
 
     public SimpleRuntimeConfig(String value) {
         this.value = value;
-        this.listeners = new ArrayList<>();
     }
 
     @Override
@@ -32,15 +28,6 @@ public class SimpleRuntimeConfig implements RuntimeConfig {
     public void setValue(String value) {
         this.value = value;
         notifyListeners();
-    }
-
-    private void notifyListeners() {
-        listeners.forEach(listener -> listener.accept(this));
-    }
-
-    @Override
-    public void listen(Consumer<RuntimeConfig> consumer) {
-        listeners.add(consumer);
     }
 
     @Override
