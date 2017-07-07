@@ -118,7 +118,7 @@ public class AutofixDocumentsJobTest {
         setIncidentIds(incidents.get(0).getStuckDocumentIncidentId(), incidents.get(1).getStuckDocumentIncidentId());
 
         // indicate that no documents are stuck when asked
-        when(stuckDocumentService.resolveIfPossible(any())).thenReturn(new ArrayList<>());
+        when(stuckDocumentService.resolveIncidentsIfPossible(any())).thenReturn(new ArrayList<>());
 
         autofixDocumentsJob.execute(context);
 
@@ -135,9 +135,9 @@ public class AutofixDocumentsJobTest {
         setIncidentIds(incident1.getStuckDocumentIncidentId(), incident2.getStuckDocumentIncidentId());
 
         // indicate that the second stuck doc is still stuck when asked, but the first one is resolved
-        when(stuckDocumentService.resolveIfPossible(any())).thenReturn(Collections.singletonList(incident2));
+        when(stuckDocumentService.resolveIncidentsIfPossible(any())).thenReturn(Collections.singletonList(incident2));
         // just return the incident when we start fixing it
-        when(stuckDocumentService.startFixing(any())).then(invocation -> invocation.getArgumentAt(0, StuckDocumentIncident.class));
+        when(stuckDocumentService.startFixingIncident(any())).then(invocation -> invocation.getArgumentAt(0, StuckDocumentIncident.class));
 
         autofixDocumentsJob.execute(context);
 
@@ -146,14 +146,14 @@ public class AutofixDocumentsJobTest {
         assertEquals(1, stillStuckDocs.size());
         assertEquals(incident2.getStuckDocumentIncidentId(), stillStuckDocs.get(0));
 
-        verify(stuckDocumentService).startFixing(any());
-        verify(stuckDocumentService).recordNewFixAttempt(any());
-        verify(stuckDocumentService, never()).recordFailure(any());
+        verify(stuckDocumentService).startFixingIncident(any());
+        verify(stuckDocumentService).recordNewIncidentFixAttempt(any());
+        verify(stuckDocumentService, never()).recordIncidentFailure(any());
 
         // now execute again, this time it should detect that we are past our number of attempts and will record failure
         autofixDocumentsJob.execute(context);
 
-        verify(stuckDocumentService).recordFailure(any());
+        verify(stuckDocumentService).recordIncidentFailure(any());
 
     }
 
@@ -199,7 +199,7 @@ public class AutofixDocumentsJobTest {
     }
 
     private void setMaxAutofixAttempts(int maxAutofixAttempts) {
-        this.jobDetail.getJobDataMap().put(StuckDocumentJob.MAX_AUTOFIX_ATTEMPTS_KEY, maxAutofixAttempts);
+        this.jobDetail.getJobDataMap().put(AutofixCollectorJob.AUTOFIX_MAX_ATTEMPTS_KEY, maxAutofixAttempts);
     }
 
 

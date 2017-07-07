@@ -2,14 +2,12 @@ package org.kuali.rice.kew.impl.stuck;
 
 import org.kuali.rice.core.api.config.property.RuntimeConfig;
 import org.kuali.rice.core.api.config.property.RuntimeConfigSet;
+import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.JobKey;
-import org.quartz.ScheduleBuilder;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
-import org.quartz.SimpleScheduleBuilder;
-import org.quartz.SimpleTrigger;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.slf4j.Logger;
@@ -24,22 +22,24 @@ import org.springframework.context.event.ContextRefreshedEvent;
 public class StuckDocumentScheduler implements ApplicationListener<ContextRefreshedEvent> {
 
     private static final Logger LOG = LoggerFactory.getLogger(StuckDocumentScheduler.class);
-    private static final JobKey JOB_KEY = JobKey.jobKey("Checker", "StuckDocuments");
+
+    protected static final JobKey NOTIFICATION_JOB_KEY = JobKey.jobKey("StuckDocuments", "Notification");
+    protected static final JobKey AUTOFIX_COLLECTOR_JOB_KEY = JobKey.jobKey("StuckDocuments", "AutofixCollector");
 
     private Scheduler scheduler;
 
-    private RuntimeConfig enabled;
-    private RuntimeConfig autofix;
-    private RuntimeConfig checkFrequency;
-    private RuntimeConfig autofixQuietPeriod;
-    private RuntimeConfig maxAutofixAttempts;
+    private RuntimeConfig notificationEnabled;
+    private RuntimeConfig notificationCronExpression;
 
-    private RuntimeConfigSet configSet;
+    private RuntimeConfig autofixEnabled;
+    private RuntimeConfig autofixCronExpression;
+    private RuntimeConfig autofixQuietPeriod;
+    private RuntimeConfig autofixMaxAttempts;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        configSet = new RuntimeConfigSet(enabled, autofix, checkFrequency, autofixQuietPeriod, maxAutofixAttempts);
         achieveDesiredState();
+        RuntimeConfigSet configSet = new RuntimeConfigSet(notificationEnabled, notificationCronExpression, autofixEnabled, autofixCronExpression, autofixQuietPeriod, autofixMaxAttempts);
         configSet.listen(this::configChanged);
     }
 
@@ -50,39 +50,58 @@ public class StuckDocumentScheduler implements ApplicationListener<ContextRefres
 
     private void achieveDesiredState() {
         try {
-            boolean isEnabled = Boolean.valueOf(enabled.getValue());
-            scheduleStuckDocumentsJob(isEnabled);
+            scheduleNotificationJob();
+            scheduleAutofixCollectorJob();
         } catch (SchedulerException e) {
-            throw new IllegalStateException("Scheduling failure when attempting to configure Stuck Documents jobs", e);
+            throw new IllegalStateException("Scheduling failure when attempting to configure Stuck Document jobs", e);
         }
-
     }
 
-    private void scheduleStuckDocumentsJob(boolean isEnabled) throws SchedulerException{
-        if (scheduler.checkExists(JOB_KEY)) {
-            scheduler.deleteJob(JOB_KEY);
-        }
-        if (isEnabled) {
-            JobDetail job = JobBuilder.newJob(StuckDocumentJob.class)
-                    .withIdentity(JOB_KEY)
-                    .usingJobData(StuckDocumentJob.AUTOFIX_KEY, autofix.getValueAsBoolean())
-                    .usingJobData(StuckDocumentJob.CHECK_FREQUENCY_KEY, checkFrequency.getValueAsInteger())
-                    .usingJobData(StuckDocumentJob.AUTOFIX_QUIET_PERIOD_KEY, autofixQuietPeriod.getValueAsInteger())
-                    .usingJobData(StuckDocumentJob.MAX_AUTOFIX_ATTEMPTS_KEY, maxAutofixAttempts.getValueAsInteger()).build();
+    private void scheduleNotificationJob() throws SchedulerException {
+        unscheduleJobIfExists(NOTIFICATION_JOB_KEY);
+        if (notificationEnabled.getValueAsBoolean()) {
+            JobDetail job = JobBuilder.newJob(StuckDocumentNotificationJob.class)
+                    .withIdentity(NOTIFICATION_JOB_KEY).build();
 
-
-            LOG.info("Stuck Documents job is enabled, scheduling for a frequency of " + checkFrequency.getValue() + " seconds");
-            ScheduleBuilder<SimpleTrigger> scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
-                    .repeatForever()
-                    .withIntervalInSeconds(checkFrequency.getValueAsInteger())
-                    .withMisfireHandlingInstructionNextWithExistingCount();
+            LOG.info("Stuck Documents Notification job is enabled, scheduling with cron expression " + notificationCronExpression.getValue());
+            CronScheduleBuilder scheduleBuilder =
+                    CronScheduleBuilder.cronSchedule(notificationCronExpression.getValue())
+                            .withMisfireHandlingInstructionDoNothing();
             Trigger trigger = TriggerBuilder.newTrigger()
                     .forJob(job)
                     .startNow()
                     .withSchedule(scheduleBuilder).build();
             scheduler.scheduleJob(job, trigger);
         } else {
-            LOG.info("Stuck Documents job is disabled.");
+            LOG.info("Stuck Documents Notification job is disabled.");
+        }
+    }
+
+    private void scheduleAutofixCollectorJob() throws SchedulerException {
+        unscheduleJobIfExists(AUTOFIX_COLLECTOR_JOB_KEY);
+        if (autofixEnabled.getValueAsBoolean()) {
+            JobDetail job = JobBuilder.newJob(AutofixCollectorJob.class)
+                    .withIdentity(AUTOFIX_COLLECTOR_JOB_KEY)
+                    .usingJobData(AutofixCollectorJob.AUTOFIX_QUIET_PERIOD_KEY, autofixQuietPeriod.getValueAsInteger())
+                    .usingJobData(AutofixCollectorJob.AUTOFIX_MAX_ATTEMPTS_KEY, autofixMaxAttempts.getValueAsInteger()).build();
+
+            LOG.info("Stuck Documents Autofix job is enabled, scheduling with cron expression " + autofixCronExpression.getValue());
+            CronScheduleBuilder scheduleBuilder =
+                    CronScheduleBuilder.cronSchedule(autofixCronExpression.getValue())
+                            .withMisfireHandlingInstructionDoNothing();
+            Trigger trigger = TriggerBuilder.newTrigger()
+                    .forJob(job)
+                    .startNow()
+                    .withSchedule(scheduleBuilder).build();
+            scheduler.scheduleJob(job, trigger);
+        } else {
+            LOG.info("Stuck Documents Autofix job is disabled.");
+        }
+    }
+
+    private void unscheduleJobIfExists(JobKey jobKey) throws SchedulerException {
+       if (scheduler.checkExists(jobKey)) {
+            scheduler.deleteJob(jobKey);
         }
     }
 
@@ -92,18 +111,23 @@ public class StuckDocumentScheduler implements ApplicationListener<ContextRefres
     }
 
     @Required
-    public void setEnabled(RuntimeConfig enabled) {
-        this.enabled = enabled;
+    public void setNotificationEnabled(RuntimeConfig notificationEnabled) {
+        this.notificationEnabled = notificationEnabled;
     }
 
     @Required
-    public void setAutofix(RuntimeConfig autofix) {
-        this.autofix = autofix;
+    public void setNotificationCronExpression(RuntimeConfig notificationCronExpression) {
+        this.notificationCronExpression = notificationCronExpression;
     }
 
     @Required
-    public void setCheckFrequency(RuntimeConfig checkFrequency) {
-        this.checkFrequency = checkFrequency;
+    public void setAutofixEnabled(RuntimeConfig autofixEnabled) {
+        this.autofixEnabled = autofixEnabled;
+    }
+
+    @Required
+    public void setAutofixCronExpression(RuntimeConfig autofixCronExpression) {
+        this.autofixCronExpression = autofixCronExpression;
     }
 
     @Required
@@ -112,8 +136,8 @@ public class StuckDocumentScheduler implements ApplicationListener<ContextRefres
     }
 
     @Required
-    public void setMaxAutofixAttempts(RuntimeConfig maxAutofixAttempts) {
-        this.maxAutofixAttempts = maxAutofixAttempts;
+    public void setAutofixMaxAttempts(RuntimeConfig autofixMaxAttempts) {
+        this.autofixMaxAttempts = autofixMaxAttempts;
     }
 
 }

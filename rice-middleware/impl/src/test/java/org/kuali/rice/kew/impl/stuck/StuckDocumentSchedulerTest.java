@@ -37,68 +37,73 @@ public class StuckDocumentSchedulerTest {
     @Mock
     private ContextRefreshedEvent contextRefreshedEvent;
 
-    private SimpleRuntimeConfig enabled = new SimpleRuntimeConfig("false");
-    private SimpleRuntimeConfig autofix = new SimpleRuntimeConfig("false");
-    private SimpleRuntimeConfig checkFrequency = new SimpleRuntimeConfig("120");
+    private SimpleRuntimeConfig notificationEnabled = new SimpleRuntimeConfig("false");
+    private SimpleRuntimeConfig notificationCronExpression = new SimpleRuntimeConfig("0 0 0/1 1/1 * ? *");
+    private SimpleRuntimeConfig autofixEnabled = new SimpleRuntimeConfig("false");
+    private SimpleRuntimeConfig autofixCronExpression = new SimpleRuntimeConfig("0 0/15 * 1/1 * ? *");
     private SimpleRuntimeConfig autofixQuietPeriod = new SimpleRuntimeConfig("60");
-    private SimpleRuntimeConfig maxAutofixAttempts = new SimpleRuntimeConfig("1");
+    private SimpleRuntimeConfig autofixMaxAttempts = new SimpleRuntimeConfig("1");
 
     @InjectMocks
     private StuckDocumentScheduler stuckDocumentScheduler;
 
     @Before
-    public void setup() {
-        stuckDocumentScheduler.setEnabled(enabled);
-        stuckDocumentScheduler.setAutofix(autofix);
-        stuckDocumentScheduler.setCheckFrequency(checkFrequency);
+    public void setup() throws Exception {
+        stuckDocumentScheduler.setNotificationEnabled(notificationEnabled);
+        stuckDocumentScheduler.setNotificationCronExpression(notificationCronExpression);
+        stuckDocumentScheduler.setAutofixEnabled(autofixEnabled);
+        stuckDocumentScheduler.setAutofixCronExpression(autofixCronExpression);
         stuckDocumentScheduler.setAutofixQuietPeriod(autofixQuietPeriod);
-        stuckDocumentScheduler.setMaxAutofixAttempts(maxAutofixAttempts);
+        stuckDocumentScheduler.setAutofixMaxAttempts(autofixMaxAttempts);
+        when(scheduler.checkExists(StuckDocumentScheduler.NOTIFICATION_JOB_KEY)).thenReturn(false);
+        when(scheduler.checkExists(StuckDocumentScheduler.AUTOFIX_COLLECTOR_JOB_KEY)).thenReturn(false);
     }
 
     @Test
-    public void testInitialization_NotEnabled() throws Exception {
-        when(scheduler.checkExists(any(JobKey.class))).thenReturn(false);
-
+    public void testInitialization_NotificationNotEnabled() throws Exception {
         stuckDocumentScheduler.onApplicationEvent(contextRefreshedEvent);
 
-        verify(scheduler).checkExists(any(JobKey.class));
-        verify(scheduler, never()).deleteJob(any(JobKey.class));
-        verifyNoMoreInteractions(scheduler);
+        JobKey jobKey = StuckDocumentScheduler.NOTIFICATION_JOB_KEY;
+        verify(scheduler).checkExists(jobKey);
+        verify(scheduler, never()).deleteJob(jobKey);
+        verify(scheduler, never()).scheduleJob(any(JobDetail.class), any(Trigger.class));
     }
 
     /**
      * Make sure that we delete the job if one exists upon initialization.
      */
     @Test
-    public void testInitialization_ExistingJob() throws Exception {
-        when(scheduler.checkExists(any(JobKey.class))).thenReturn(true);
+    public void testInitialization_ExistingNotificationJob() throws Exception {
+        JobKey jobKey = StuckDocumentScheduler.NOTIFICATION_JOB_KEY;
+        when(scheduler.checkExists(jobKey)).thenReturn(true);
 
         stuckDocumentScheduler.onApplicationEvent(contextRefreshedEvent);
 
-        verify(scheduler).checkExists(any(JobKey.class));
-        verify(scheduler).deleteJob(any(JobKey.class));
+        verify(scheduler).checkExists(jobKey);
+        verify(scheduler).deleteJob(jobKey);
     }
 
     @Test
-    public void testEnableAfterInitialization() throws Exception {
+    public void testEnableAfterInitialization_NotificationJob() throws Exception {
 
         stuckDocumentScheduler.onApplicationEvent(contextRefreshedEvent);
 
-        verify(scheduler, never()).deleteJob(any(JobKey.class));
+        verify(scheduler, never()).deleteJob(StuckDocumentScheduler.NOTIFICATION_JOB_KEY);
 
         // now let's enable the stuck document scheduler, after doing this it should get scheduled
         ArgumentCaptor<JobDetail> jobCaptor = ArgumentCaptor.forClass(JobDetail.class);
 
-        enabled.setValue("true");
+        notificationEnabled.setValue("true");
 
         verify(scheduler, times(1)).scheduleJob(jobCaptor.capture(), any(Trigger.class));
 
         JobDetail jobDetail = jobCaptor.getValue();
         JobDataMap jobData = jobDetail.getJobDataMap();
-        assertEquals(false, jobData.getBoolean("autofix"));
-        assertEquals(120, jobData.getInt("checkFrequency"));
-        assertEquals(60, jobData.getInt("autofixQuietPeriod"));
-        assertEquals(1, jobData.getInt("maxAutofixAttempts"));
+        assertEquals(StuckDocumentScheduler.NOTIFICATION_JOB_KEY, jobDetail.getKey());
+//        assertEquals(false, jobData.getBoolean("autofix"));
+//        assertEquals(120, jobData.getInt("checkFrequency"));
+//        assertEquals(60, jobData.getInt("autofixQuietPeriod"));
+//        assertEquals(1, jobData.getInt("maxAutofixAttempts"));
 
     }
 

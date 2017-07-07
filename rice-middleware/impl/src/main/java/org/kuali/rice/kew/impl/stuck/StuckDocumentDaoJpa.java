@@ -1,5 +1,7 @@
 package org.kuali.rice.kew.impl.stuck;
 
+import org.springframework.beans.factory.annotation.Required;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.ArrayList;
@@ -17,14 +19,25 @@ public class StuckDocumentDaoJpa implements StuckDocumentDao {
                     "left outer join KREW_ACTN_ITM_T AI on DH.DOC_HDR_ID=AI.DOC_HDR_ID " +
                     "left outer join KREW_STUCK_DOC_INCIDENT_T SD on DH.DOC_HDR_ID=SD.DOC_HDR_ID " +
                     "where DH.DOC_HDR_STAT_CD='R' AND AI.DOC_HDR_ID IS NULL and " +
-                    "(SD.DOC_HDR_ID IS NULL OR SD.STATUS='FIXED')";
+                    "(SD.DOC_HDR_ID IS NULL OR SD.STATUS='FIXED' OR (SD.STATUS='FAILED' AND DH.STAT_MDFN_DT > SD.END_DT))";
 
     private static final String EXISTING_STUCK_DOCUMENT_SQL =
             "select DH.DOC_HDR_ID from KREW_DOC_HDR_T DH " +
                     "left outer join KREW_ACTN_ITM_T AI on DH.DOC_HDR_ID=AI.DOC_HDR_ID " +
                     "where DH.DOC_HDR_STAT_CD='R' AND AI.DOC_HDR_ID IS NULL AND DH.DOC_HDR_ID = ?";
 
+    private static final String ALL_STUCK_DOCUMENT_SQL =
+            "select DH.DOC_HDR_ID from KREW_DOC_HDR_T DH " +
+                    "left outer join KREW_ACTN_ITM_T AI on DH.DOC_HDR_ID=AI.DOC_HDR_ID " +
+                    "where DH.DOC_HDR_STAT_CD='R' AND AI.DOC_HDR_ID IS NULL";
+
     private EntityManager entityManager;
+
+    @Override
+    public List<String> findAllStuckDocumentIds() {
+        Query query = entityManager.createNativeQuery(ALL_STUCK_DOCUMENT_SQL);
+        return Collections.unmodifiableList((List<String>)query.getResultList());
+    }
 
     @Override
     public StuckDocumentIncident findIncident(String stuckDocumentIncidentId) {
@@ -67,6 +80,7 @@ public class StuckDocumentDaoJpa implements StuckDocumentDao {
         return entityManager;
     }
 
+    @Required
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }

@@ -73,49 +73,49 @@ public class StuckDocumentServiceImplTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void testFind_NullArgument() {
-        stuckDocumentService.find(null);
+    public void testFindIncident_NullArgument() {
+        stuckDocumentService.findIncident(null);
     }
 
     @Test
-    public void testFind() {
+    public void testFindIncident() {
         List<StuckDocumentIncident> incidents = generateAndSaveIncidents(2);
 
         String incidentId = UUID.randomUUID().toString();
-        assertNull(stuckDocumentService.find(incidentId));
+        assertNull(stuckDocumentService.findIncident(incidentId));
         verify(dao, times(1)).findIncident(incidentId);
 
-        incidents.forEach(incident -> assertEquals(incident, stuckDocumentService.find(incident.getStuckDocumentIncidentId())));
+        incidents.forEach(incident -> assertEquals(incident, stuckDocumentService.findIncident(incident.getStuckDocumentIncidentId())));
     }
 
     @Test(expected = NullPointerException.class)
-    public void testFindAll_NullArgument() {
-        stuckDocumentService.findAll(null);
+    public void testFindIncidents_NullArgument() {
+        stuckDocumentService.findIncidents(null);
     }
 
     @Test
-    public void testFindAll_EmptyList() {
-        assertTrue(stuckDocumentService.findAll(Collections.emptyList()).isEmpty());
+    public void testFindIncidents_EmptyList() {
+        assertTrue(stuckDocumentService.findIncidents(Collections.emptyList()).isEmpty());
     }
 
     @Test
-    public void testFindAll_BadId() {
+    public void testFindIncidents_BadId() {
         // it should just ignore bad ids
         List<StuckDocumentIncident> generatedIncidents = generateAndSaveIncidents(5);
 
         List<String> incidentIds = new ArrayList<>();
         incidentIds.add(UUID.randomUUID().toString());
-        List<StuckDocumentIncident> incidents = stuckDocumentService.findAll(incidentIds);
+        List<StuckDocumentIncident> incidents = stuckDocumentService.findIncidents(incidentIds);
         assertEquals(0, incidents.size());
 
         // now have list with one good id and one bad one
         incidentIds.add(generatedIncidents.get(1).getStuckDocumentIncidentId());
-        incidents = stuckDocumentService.findAll(incidentIds);
+        incidents = stuckDocumentService.findIncidents(incidentIds);
         assertEquals(1, incidents.size());
     }
 
     @Test
-    public void testFindAll() {
+    public void testFindIncidents() {
         List<StuckDocumentIncident> incidents = generateAndSaveIncidents(5);
         StuckDocumentIncident incident1 = incidents.get(0);
         StuckDocumentIncident incident2 = incidents.get(2);
@@ -126,7 +126,7 @@ public class StuckDocumentServiceImplTest {
         incidentIdsToFind.add(incident2.getStuckDocumentIncidentId());
         incidentIdsToFind.add(incident3.getStuckDocumentIncidentId());
 
-        List<StuckDocumentIncident> results = stuckDocumentService.findAll(incidentIdsToFind);
+        List<StuckDocumentIncident> results = stuckDocumentService.findIncidents(incidentIdsToFind);
         assertEquals(3, results.size());
         assertTrue(results.contains(incident1));
         assertTrue(results.contains(incident2));
@@ -134,15 +134,15 @@ public class StuckDocumentServiceImplTest {
     }
 
     @Test
-    public void testIdentifyAndRecordNewStuckDocuments_NoStuckDocuments() {
+    public void testRecordNewStuckDocumentIncidents_NoStuckDocuments() {
         when(dao.identifyNewStuckDocuments()).thenReturn(Collections.emptyList());
-        assertTrue(stuckDocumentService.identifyAndRecordNewStuckDocuments().isEmpty());
+        assertTrue(stuckDocumentService.recordNewStuckDocumentIncidents().isEmpty());
         verify(dao, times(1)).identifyNewStuckDocuments();
         verifyNoMoreInteractions(dao);
     }
 
     @Test
-    public void testIdentifyAndRecordNewStuckDocuments() {
+    public void testRecordNewStuckDocumentIncidents() {
         // identify some doc ids and return them from dao.identityNewStuckDocuments
         String documentId1 = "123456789";
         String documentId2 = "987654321";
@@ -150,7 +150,7 @@ public class StuckDocumentServiceImplTest {
         when(dao.identifyNewStuckDocuments()).thenReturn(stuckDocumentIds);
 
 
-        List<StuckDocumentIncident> newIncidents = stuckDocumentService.identifyAndRecordNewStuckDocuments();
+        List<StuckDocumentIncident> newIncidents = stuckDocumentService.recordNewStuckDocumentIncidents();
         assertEquals(2, newIncidents.size());
         List<String> newIncidentDocIds = newIncidents.stream().map(StuckDocumentIncident::getDocumentId).collect(Collectors.toList());
         assertTrue(newIncidentDocIds.contains(documentId1));
@@ -170,15 +170,15 @@ public class StuckDocumentServiceImplTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void testRecordNewFixAttempt_NullArgument() {
-        stuckDocumentService.recordNewFixAttempt(null);
+    public void testRecordNewIncidentFixAttempt_NullArgument() {
+        stuckDocumentService.recordNewIncidentFixAttempt(null);
     }
 
     @Test
-    public void testRecordNewFixAttempt() {
+    public void testRecordNewIncidentFixAttempt() {
         StuckDocumentIncident incident = generateAndSaveIncident();
 
-        StuckDocumentFixAttempt attempt1 = stuckDocumentService.recordNewFixAttempt(incident);
+        StuckDocumentFixAttempt attempt1 = stuckDocumentService.recordNewIncidentFixAttempt(incident);
         assertNotNull(attempt1.getStuckDocumentFixAttemptId());
         assertEquals(attempt1, fixAttemptDatabase.get(attempt1.getStuckDocumentFixAttemptId()));
         // make sure the timestamp is no more than 1 second ago
@@ -186,7 +186,7 @@ public class StuckDocumentServiceImplTest {
         assertEquals(incident.getStuckDocumentIncidentId(), attempt1.getStuckDocumentIncidentId());
 
         // now try to record another one for the same doc
-        StuckDocumentFixAttempt attempt2 = stuckDocumentService.recordNewFixAttempt(incident);
+        StuckDocumentFixAttempt attempt2 = stuckDocumentService.recordNewIncidentFixAttempt(incident);
         assertNotEquals(attempt1, attempt2);
         assertNotNull(attempt2.getStuckDocumentFixAttemptId());
         assertEquals(attempt2, fixAttemptDatabase.get(attempt2.getStuckDocumentFixAttemptId()));
@@ -197,18 +197,18 @@ public class StuckDocumentServiceImplTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void testResolveIfPossible_NullArgument() {
-        stuckDocumentService.resolveIfPossible(null);
+    public void testResolveIncidentsIfPossible_NullArgument() {
+        stuckDocumentService.resolveIncidentsIfPossible(null);
     }
 
     @Test
-    public void testResolveIfPossible_EmptyList() {
+    public void testResolveIncidentsIfPossible_EmptyList() {
         when(dao.identifyStillStuckDocuments(any())).thenReturn(Collections.emptyList());
-        assertTrue(stuckDocumentService.resolveIfPossible(Collections.emptyList()).isEmpty());
+        assertTrue(stuckDocumentService.resolveIncidentsIfPossible(Collections.emptyList()).isEmpty());
     }
 
     @Test
-    public void testResolveIfPossible() {
+    public void testResolveIncidentsIfPossible() {
         List<StuckDocumentIncident> stuck = generateAndSaveIncidents(3);
         StuckDocumentIncident incident1 = stuck.get(0);
         StuckDocumentIncident incident2 = stuck.get(1);
@@ -217,7 +217,7 @@ public class StuckDocumentServiceImplTest {
         // let's pretend like the first and second incident are no longer stuck
         when(dao.identifyStillStuckDocuments(any())).thenReturn(Lists.newArrayList(incident3));
 
-        List<StuckDocumentIncident> stillStuck = stuckDocumentService.resolveIfPossible(Lists.newArrayList(
+        List<StuckDocumentIncident> stillStuck = stuckDocumentService.resolveIncidentsIfPossible(Lists.newArrayList(
                 incident1.getStuckDocumentIncidentId(),
                 incident2.getStuckDocumentIncidentId(),
                 incident3.getStuckDocumentIncidentId()));
@@ -228,8 +228,8 @@ public class StuckDocumentServiceImplTest {
         assertNotEquals(StuckDocumentIncident.Status.FIXED, stillStuckIncident.getStatus());
 
         // now check the other two and make sure they've been updated
-        StuckDocumentIncident incident1Updated = stuckDocumentService.find(incident1.getStuckDocumentIncidentId());
-        StuckDocumentIncident incident2Updated = stuckDocumentService.find(incident2.getStuckDocumentIncidentId());
+        StuckDocumentIncident incident1Updated = stuckDocumentService.findIncident(incident1.getStuckDocumentIncidentId());
+        StuckDocumentIncident incident2Updated = stuckDocumentService.findIncident(incident2.getStuckDocumentIncidentId());
         assertEquals(StuckDocumentIncident.Status.FIXED, incident1Updated.getStatus());
         assertEquals(StuckDocumentIncident.Status.FIXED, incident2Updated.getStatus());
         // check that the end dates were recorded within the last second
@@ -257,35 +257,35 @@ public class StuckDocumentServiceImplTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void testStartFixing_NullArgument() {
-        stuckDocumentService.startFixing(null);
+    public void testStartFixingIncident_NullArgument() {
+        stuckDocumentService.startFixingIncident(null);
     }
 
     @Test
-    public void testStartFixing() {
+    public void testStartFixingIncident() {
         StuckDocumentIncident incident = generateAndSaveIncident();
         assertEquals(StuckDocumentIncident.Status.PENDING, incident.getStatus());
 
         // now start fixing it
-        incident = stuckDocumentService.startFixing(incident);
+        incident = stuckDocumentService.startFixingIncident(incident);
         assertEquals(StuckDocumentIncident.Status.FIXING, incident.getStatus());
 
         verify(dao, times(2)).saveIncident(any());
     }
 
     @Test(expected = NullPointerException.class)
-    public void testRecordFailure_NullArgument() {
-        stuckDocumentService.recordFailure(null);
+    public void testRecordIncidentFailure_NullArgument() {
+        stuckDocumentService.recordIncidentFailure(null);
     }
 
     @Test
-    public void testRecordFailure() {
+    public void testRecordIncidentFailure() {
         StuckDocumentIncident incident = generateAndSaveIncident();
         assertEquals(StuckDocumentIncident.Status.PENDING, incident.getStatus());
         assertNull(incident.getEndDate());
 
         // now resolve it
-        incident = stuckDocumentService.recordFailure(incident);
+        incident = stuckDocumentService.recordIncidentFailure(incident);
         assertEquals(StuckDocumentIncident.Status.FAILED, incident.getStatus());
         assertRecentTimestamp(incident.getEndDate());
 

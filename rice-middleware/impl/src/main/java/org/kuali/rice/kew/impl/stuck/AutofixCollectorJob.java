@@ -22,17 +22,14 @@ import java.util.stream.Collectors;
 /**
  * @author Eric Westfall
  */
-public class StuckDocumentJob implements Job {
+public class AutofixCollectorJob implements Job {
 
-    private static final Logger LOG = LoggerFactory.getLogger(StuckDocumentJob.class);
-    private static final String STUCK_DOCUMENT_SERVICE_NAME = "rice.kew.stuckDocumentService";
+    private static final Logger LOG = LoggerFactory.getLogger(AutofixCollectorJob.class);
     private static final int PARTITION_SIZE = 50;
-    private static final String AUTOFIX_JOB_KEY_PREFIX = "Autofix Job - ";
+    private static final String AUTOFIX_JOB_KEY_PREFIX = "Autofix Documents Job - ";
 
-    static final String AUTOFIX_KEY = "autofix";
-    static final String CHECK_FREQUENCY_KEY = "checkFrequency";
     static final String AUTOFIX_QUIET_PERIOD_KEY = "autofixQuietPeriod";
-    static final String MAX_AUTOFIX_ATTEMPTS_KEY = "maxAutofixAttempts";
+    static final String AUTOFIX_MAX_ATTEMPTS_KEY = "autofixMaxAttempts";
 
     private volatile StuckDocumentService stuckDocumentService;
 
@@ -40,18 +37,21 @@ public class StuckDocumentJob implements Job {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         if (dependenciesAvailable()) {
             List<StuckDocumentIncident> newIncidents =
-                    getStuckDocumentService().identifyAndRecordNewStuckDocuments();
+                    getStuckDocumentService().recordNewStuckDocumentIncidents();
             if (!newIncidents.isEmpty()) {
                 LOG.info("Identified " + newIncidents.size() + " new stuck documents");
-                if (isAutofixEnabled(context)) {
-                    LOG.info("Autofix is enabled, scheduling jobs to attempt to fix the following documents: "
-                            + newIncidents.stream().map(StuckDocumentIncident::getDocumentId).collect(Collectors.joining(", ")));
-                    partitionAndScheduleAutofixJobs(newIncidents, context);
-                }
+                LOG.info("Scheduling jobs to attempt to fix the following documents: "
+                        + newIncidents.stream().map(StuckDocumentIncident::getDocumentId).collect(Collectors.joining(", ")));
+                partitionAndScheduleAutofixJobs(newIncidents, context);
             }
         }
     }
 
+    /**
+     * Checks if needed dependencies are available in order to run this job. Due to the fact that this is a quartz job,
+     * it could trigger while the system is offline and then immediately get fired when the system starts up and due to
+     * the startup process it could attempt to execute while not all of the necessary services are fully initialized.
+     */
     private boolean dependenciesAvailable() {
         return getStuckDocumentService() != null;
     }
@@ -64,7 +64,7 @@ public class StuckDocumentJob implements Job {
         List<String> incidentIds = incidents.stream().map(StuckDocumentIncident::getStuckDocumentIncidentId).collect(Collectors.toList());
         String jobKey = generateAutofixJobKey();
         int autofixQuietPeriod = autofixQuietPeriod(context);
-        int maxAutofixAttempts = maxAutofixAttempts(context);
+        int autofixMaxAttempts = autofixMaxAttempts(context);
         JobDetail job = JobBuilder.newJob(AutofixDocumentsJob.class)
                 .withIdentity(jobKey)
                 .usingJobData(context.getMergedJobDataMap())
@@ -76,7 +76,7 @@ public class StuckDocumentJob implements Job {
                 .startNow()
                 .withSchedule(SimpleScheduleBuilder.simpleSchedule()
                         .withIntervalInSeconds(autofixQuietPeriod)
-                        .withRepeatCount(maxAutofixAttempts)
+                        .withRepeatCount(autofixMaxAttempts)
                         .withMisfireHandlingInstructionNextWithExistingCount())
                 .startAt(DateBuilder.futureDate(autofixQuietPeriod, DateBuilder.IntervalUnit.SECOND))
                 .build();
@@ -91,12 +91,8 @@ public class StuckDocumentJob implements Job {
         return AUTOFIX_JOB_KEY_PREFIX + UUID.randomUUID().toString();
     }
 
-    private boolean isAutofixEnabled(JobExecutionContext context) {
-        return context.getMergedJobDataMap().getBoolean(AUTOFIX_KEY);
-    }
-
-    private int maxAutofixAttempts(JobExecutionContext context) {
-        return context.getMergedJobDataMap().getInt(MAX_AUTOFIX_ATTEMPTS_KEY);
+    private int autofixMaxAttempts(JobExecutionContext context) {
+        return context.getMergedJobDataMap().getInt(AUTOFIX_MAX_ATTEMPTS_KEY);
     }
 
     private int autofixQuietPeriod(JobExecutionContext context) {

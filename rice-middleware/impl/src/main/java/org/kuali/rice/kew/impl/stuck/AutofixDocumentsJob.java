@@ -32,7 +32,7 @@ public class AutofixDocumentsJob implements Job {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         int currentAutofixCount = incrementAutofixCount(context);
         List<String> incidentIds = incidentIds(context);
-        List<StuckDocumentIncident> stillStuck = getStuckDocumentService().resolveIfPossible(incidentIds);
+        List<StuckDocumentIncident> stillStuck = getStuckDocumentService().resolveIncidentsIfPossible(incidentIds);
         if (stillStuck.isEmpty()) {
             LOG.info("All stuck document incidents have been resolved, deleting autofix job.");
             JobKey key = context.getJobDetail().getKey();
@@ -41,10 +41,10 @@ public class AutofixDocumentsJob implements Job {
             } catch (SchedulerException e) {
                 throw new IllegalStateException("Failed to delete job with key: " + key, e);
             }
-        } else if (currentAutofixCount > maxAutofixAttempts(context)) {
+        } else if (currentAutofixCount > autofixMaxAttempts(context)) {
             // at this point any remaining stuck docs are failures
-            LOG.info("Exceeded maxAutofixAttempts of " + maxAutofixAttempts(context) + ". Marking remaining " + stillStuck.size() + " stuck document incidents as failures.");
-            stillStuck.forEach(stuck -> getStuckDocumentService().recordFailure(stuck));
+            LOG.info("Exceeded autofixMaxAttempts of " + autofixMaxAttempts(context) + ". Marking remaining " + stillStuck.size() + " stuck document incidents as failures.");
+            stillStuck.forEach(stuck -> getStuckDocumentService().recordIncidentFailure(stuck));
         } else {
             // let's update the list of stuck doc incident ids and we know we have more iterations of this job scheduled so it should try again
             LOG.info("There are " + stillStuck.size() + " stuck documents still remaining at autofix attempt " + currentAutofixCount + ", will try again.");
@@ -73,20 +73,20 @@ public class AutofixDocumentsJob implements Job {
 
     private void processIncident(StuckDocumentIncident incident) {
         if (StuckDocumentIncident.Status.PENDING.equals(incident.getStatus())) {
-            incident = getStuckDocumentService().startFixing(incident);
+            incident = getStuckDocumentService().startFixingIncident(incident);
         }
         tryToFix(incident);
     }
 
     private void tryToFix(StuckDocumentIncident incident) {
-        getStuckDocumentService().recordNewFixAttempt(incident);
+        getStuckDocumentService().recordNewIncidentFixAttempt(incident);
         String docId = incident.getDocumentId();
         DocumentType documentType = KEWServiceLocator.getDocumentTypeService().findByDocumentId(docId);
         KewApiServiceLocator.getDocumentProcessingQueue(docId, documentType.getApplicationId()).process(docId);
     }
 
-    private int maxAutofixAttempts(JobExecutionContext context) {
-        return context.getMergedJobDataMap().getInt(StuckDocumentJob.MAX_AUTOFIX_ATTEMPTS_KEY);
+    private int autofixMaxAttempts(JobExecutionContext context) {
+        return context.getMergedJobDataMap().getInt(AutofixCollectorJob.AUTOFIX_MAX_ATTEMPTS_KEY);
     }
 
     protected StuckDocumentService getStuckDocumentService() {

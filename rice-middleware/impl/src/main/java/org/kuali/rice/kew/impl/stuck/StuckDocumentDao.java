@@ -7,6 +7,8 @@ import java.util.List;
  */
 public interface StuckDocumentDao {
 
+    List<String> findAllStuckDocumentIds();
+
     StuckDocumentIncident findIncident(String stuckDocumentIncidentId);
 
     StuckDocumentIncident saveIncident(StuckDocumentIncident incident);

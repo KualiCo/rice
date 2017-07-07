@@ -1,12 +1,9 @@
 package org.kuali.rice.kew.impl.stuck;
 
-import org.kuali.rice.core.api.config.property.RuntimeConfig;
+import java.util.List;
 
-/**
- * Created by ewestfal on 5/11/17.
- */
-public class StuckDocumentNotifier {
+public interface StuckDocumentNotifier {
 
-    private RuntimeConfig notificationEmailAddress;
+    void notify(List<String> documentIds);
 
 }

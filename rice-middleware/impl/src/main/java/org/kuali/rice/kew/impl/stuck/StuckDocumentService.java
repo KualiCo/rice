@@ -7,18 +7,20 @@ import java.util.List;
  */
 public interface StuckDocumentService {
 
-    StuckDocumentIncident find(String stuckDocumentIncidentId);
+    List<String> findAllStuckDocumentIds();
 
-    List<StuckDocumentIncident> findAll(List<String> stuckDocumentIncidentIds);
+    StuckDocumentIncident findIncident(String stuckDocumentIncidentId);
 
-    List<StuckDocumentIncident> identifyAndRecordNewStuckDocuments();
+    List<StuckDocumentIncident> findIncidents(List<String> stuckDocumentIncidentIds);
 
-    StuckDocumentFixAttempt recordNewFixAttempt(StuckDocumentIncident stuckDocumentIncident);
+    List<StuckDocumentIncident> recordNewStuckDocumentIncidents();
 
-    List<StuckDocumentIncident> resolveIfPossible(List<String> stuckDocumentIncidentIds);
+    StuckDocumentFixAttempt recordNewIncidentFixAttempt(StuckDocumentIncident stuckDocumentIncident);
 
-    StuckDocumentIncident recordFailure(StuckDocumentIncident stuckDocumentIncident);
+    List<StuckDocumentIncident> resolveIncidentsIfPossible(List<String> stuckDocumentIncidentIds);
 
-    StuckDocumentIncident startFixing(StuckDocumentIncident stuckDocumentIncident);
+    StuckDocumentIncident recordIncidentFailure(StuckDocumentIncident stuckDocumentIncident);
+
+    StuckDocumentIncident startFixingIncident(StuckDocumentIncident stuckDocumentIncident);
 
 }

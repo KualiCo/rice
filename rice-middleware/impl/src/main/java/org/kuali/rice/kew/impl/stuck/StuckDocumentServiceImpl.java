@@ -1,7 +1,13 @@
 package org.kuali.rice.kew.impl.stuck;
 
+import org.kuali.rice.core.api.config.property.RuntimeConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Required;
+
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,17 +21,22 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
     private StuckDocumentDao stuckDocumentDao;
 
     @Override
-    public StuckDocumentIncident find(String stuckDocumentIncidentId) {
+    public List<String> findAllStuckDocumentIds() {
+        return getStuckDocumentDao().findAllStuckDocumentIds();
+    }
+
+    @Override
+    public StuckDocumentIncident findIncident(String stuckDocumentIncidentId) {
         checkNotNull(stuckDocumentIncidentId);
         return getStuckDocumentDao().findIncident(stuckDocumentIncidentId);
     }
 
     @Override
-    public List<StuckDocumentIncident> findAll(List<String> stuckDocumentIncidentIds) {
+    public List<StuckDocumentIncident> findIncidents(List<String> stuckDocumentIncidentIds) {
         checkNotNull(stuckDocumentIncidentIds);
         List<StuckDocumentIncident> incidents = new ArrayList<>(stuckDocumentIncidentIds.size());
         for (String stuckDocumentIncidentId : stuckDocumentIncidentIds) {
-            StuckDocumentIncident incident = find(stuckDocumentIncidentId);
+            StuckDocumentIncident incident = findIncident(stuckDocumentIncidentId);
             if (incident != null) {
                 incidents.add(incident);
             }
@@ -34,13 +45,13 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
     }
 
     @Override
-    public List<StuckDocumentIncident> identifyAndRecordNewStuckDocuments() {
+    public List<StuckDocumentIncident> recordNewStuckDocumentIncidents() {
         List<String> newStuckDocuments = getStuckDocumentDao().identifyNewStuckDocuments();
         return newStuckDocuments.stream().map(documentId -> getStuckDocumentDao().saveIncident(StuckDocumentIncident.startNewIncident(documentId))).collect(Collectors.toList());
     }
 
     @Override
-    public StuckDocumentFixAttempt recordNewFixAttempt(StuckDocumentIncident stuckDocumentIncident) {
+    public StuckDocumentFixAttempt recordNewIncidentFixAttempt(StuckDocumentIncident stuckDocumentIncident) {
         checkNotNull(stuckDocumentIncident);
         StuckDocumentFixAttempt auditEntry = new StuckDocumentFixAttempt();
         auditEntry.setStuckDocumentIncidentId(stuckDocumentIncident.getStuckDocumentIncidentId());
@@ -49,7 +60,7 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
     }
 
     @Override
-    public List<StuckDocumentIncident> resolveIfPossible(List<String> stuckDocumentIncidentIds) {
+    public List<StuckDocumentIncident> resolveIncidentsIfPossible(List<String> stuckDocumentIncidentIds) {
         checkNotNull(stuckDocumentIncidentIds);
         List<StuckDocumentIncident> stuckIncidents = getStuckDocumentDao().identifyStillStuckDocuments(stuckDocumentIncidentIds);
         List<String> stuckIncidentIds = stuckIncidents.stream().map(StuckDocumentIncident::getStuckDocumentIncidentId).collect(Collectors.toList());
@@ -57,13 +68,13 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
         List<String> notStuckIncidentIds = new ArrayList<>(stuckDocumentIncidentIds);
         notStuckIncidentIds.removeAll(stuckIncidentIds);
         if (!notStuckIncidentIds.isEmpty()) {
-            List<StuckDocumentIncident> notStuckIncidents = findAll(notStuckIncidentIds);
+            List<StuckDocumentIncident> notStuckIncidents = findIncidents(notStuckIncidentIds);
             notStuckIncidents.forEach(this::resolve);
         }
         return stuckIncidents;
     }
 
-    public StuckDocumentIncident resolve(StuckDocumentIncident stuckDocumentIncident) {
+    protected StuckDocumentIncident resolve(StuckDocumentIncident stuckDocumentIncident) {
         checkNotNull(stuckDocumentIncident);
         stuckDocumentIncident.setStatus(StuckDocumentIncident.Status.FIXED);
         stuckDocumentIncident.setEndDate(new Timestamp(System.currentTimeMillis()));
@@ -71,24 +82,25 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
     }
 
     @Override
-    public StuckDocumentIncident startFixing(StuckDocumentIncident stuckDocumentIncident) {
+    public StuckDocumentIncident startFixingIncident(StuckDocumentIncident stuckDocumentIncident) {
         checkNotNull(stuckDocumentIncident);
         stuckDocumentIncident.setStatus(StuckDocumentIncident.Status.FIXING);
         return getStuckDocumentDao().saveIncident(stuckDocumentIncident);
     }
 
     @Override
-    public StuckDocumentIncident recordFailure(StuckDocumentIncident stuckDocumentIncident) {
+    public StuckDocumentIncident recordIncidentFailure(StuckDocumentIncident stuckDocumentIncident) {
         checkNotNull(stuckDocumentIncident);
         stuckDocumentIncident.setStatus(StuckDocumentIncident.Status.FAILED);
         stuckDocumentIncident.setEndDate(new Timestamp(System.currentTimeMillis()));
         return getStuckDocumentDao().saveIncident(stuckDocumentIncident);
     }
 
-    public StuckDocumentDao getStuckDocumentDao() {
+    protected StuckDocumentDao getStuckDocumentDao() {
         return stuckDocumentDao;
     }
 
+    @Required
     public void setStuckDocumentDao(StuckDocumentDao stuckDocumentDao) {
         this.stuckDocumentDao = stuckDocumentDao;
     }
