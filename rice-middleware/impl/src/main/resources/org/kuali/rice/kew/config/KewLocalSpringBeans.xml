@@ -222,24 +222,6 @@
 
   <!-- Stuck document configuration -->
 
-  <bean id="stuckDocumentsNotificationEnabledParam"
-        class="org.kuali.rice.coreservice.framework.parameter.ParameterRuntimeConfig"
-        c:namespaceCode="KR-WKFLW"
-        c:componentCode="All"
-        c:name="STUCK_DOCUMENTS_NOTIFICATION_ENABLED_IND"
-        c:defaultValue="false"
-        c:parameterService-ref="rice.kew.import.parameterService"/>
-
-
-  <!-- Default, every 1 hour -->
-  <bean id="stuckDocumentsNotificationCronExpressionParam"
-        class="org.kuali.rice.coreservice.framework.parameter.ParameterRuntimeConfig"
-        c:namespaceCode="KR-WKFLW"
-        c:componentCode="All"
-        c:name="STUCK_DOCUMENTS_NOTIFICATION_CRON_EXPRESSION"
-        c:defaultValue="0 0 0/1 1/1 * ? *"
-        c:parameterService-ref="rice.kew.import.parameterService"/>
-
   <bean id="stuckDocumentsAutofixEnabledParam"
         class="org.kuali.rice.coreservice.framework.parameter.ParameterRuntimeConfig"
         c:namespaceCode="KR-WKFLW"
@@ -272,6 +254,23 @@
         c:componentCode="All"
         c:name="STUCK_DOCUMENTS_AUTOFIX_MAX_ATTEMPTS"
         c:defaultValue="2"
+        c:parameterService-ref="rice.kew.import.parameterService"/>
+
+  <bean id="stuckDocumentsNotificationEnabledParam"
+        class="org.kuali.rice.coreservice.framework.parameter.ParameterRuntimeConfig"
+        c:namespaceCode="KR-WKFLW"
+        c:componentCode="All"
+        c:name="STUCK_DOCUMENTS_NOTIFICATION_ENABLED_IND"
+        c:defaultValue="false"
+        c:parameterService-ref="rice.kew.import.parameterService"/>
+
+  <!-- Default, every 1 hour -->
+  <bean id="stuckDocumentsNotificationCronExpressionParam"
+        class="org.kuali.rice.coreservice.framework.parameter.ParameterRuntimeConfig"
+        c:namespaceCode="KR-WKFLW"
+        c:componentCode="All"
+        c:name="STUCK_DOCUMENTS_NOTIFICATION_CRON_EXPRESSION"
+        c:defaultValue="0 0 0/1 1/1 * ? *"
         c:parameterService-ref="rice.kew.import.parameterService"/>
 
   <bean id="stuckDocumentsNotificationFromParam"

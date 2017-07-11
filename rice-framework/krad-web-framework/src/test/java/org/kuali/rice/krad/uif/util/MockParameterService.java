@@ -22,6 +22,7 @@ import java.util.function.Consumer;
 import org.kuali.rice.coreservice.api.parameter.Parameter;
 import org.kuali.rice.coreservice.api.parameter.ParameterKey;
 import org.kuali.rice.coreservice.framework.parameter.ParameterService;
+import org.kuali.rice.krad.util.KRADConstants;
 
 /**
  * TODO mark don't forget to fill this in. 
@@ -268,6 +269,11 @@ public class MockParameterService implements ParameterService {
     @Override
     public Collection<String> getSubParameterValuesAsFilteredString(Class<?> componentClass, String parameterName, String subParameterName) {
         return Collections.emptyList();
+    }
+
+    @Override
+    public String getApplicationId() {
+        return KRADConstants.DEFAULT_PARAMETER_APPLICATION_ID;
     }
 
     @Override

@@ -17,6 +17,8 @@ public interface RuntimeConfig {
 
     Long getValueAsLong();
 
+    void setValue(String value);
+
     void listen(Consumer<RuntimeConfig> consumer);
 
     void fetch();

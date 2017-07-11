@@ -26,6 +26,7 @@
         <li><portal:portalLink displayTitle="true" title="Statistics" url="${ConfigProperties.kew.url}/Stats.do?returnLocation=${ConfigProperties.application.url}/portal.do" /></li>
         <li><portal:portalLink displayTitle="true" title="Document Operation" url="${ConfigProperties.kew.url}/DocumentOperation.do" /></li>
         <li><portal:portalLink displayTitle="true" title="Document Type" url="${ConfigProperties.kr.url}/lookup.do?methodToCall=start&businessObjectClassName=org.kuali.rice.kew.doctype.bo.DocumentType&returnLocation=${ConfigProperties.application.url}/portal.do&hideReturnLink=true&docFormKey=88888888" /></li>
+		<li><portal:portalLink displayTitle="true" title="Stuck Documents" url="${ConfigProperties.kew.url}/StuckDocuments.do" /></li>
 	</ul>
 
 </div>

@@ -434,6 +434,11 @@ public class ParameterServiceImpl implements ParameterService, InitializingBean 
         this.applicationId = applicationId;
     }
 
+    @Override
+    public String getApplicationId() {
+        return this.applicationId;
+    }
+
     //utilities that act as a poor-man's closure & higher order functions - these help consolidate validation & construction of parameter keys
     private <R> R exec(Fun<R> fun, String namespaceCode, String componentCode, String parameterName) {
         if (StringUtils.isBlank(applicationId)) {

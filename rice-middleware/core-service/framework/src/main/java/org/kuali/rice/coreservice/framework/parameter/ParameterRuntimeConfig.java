@@ -4,6 +4,7 @@ import org.kuali.rice.core.api.config.property.AbstractRuntimeConfig;
 import org.kuali.rice.core.api.config.property.RuntimeConfig;
 import org.kuali.rice.coreservice.api.parameter.Parameter;
 import org.kuali.rice.coreservice.api.parameter.ParameterKey;
+import org.kuali.rice.coreservice.api.parameter.ParameterType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +33,8 @@ public class ParameterRuntimeConfig extends AbstractRuntimeConfig {
         this.name = name;
         this.defaultValue = defaultValue;
         this.parameterService = parameterService;
-        this.parameter = this.parameterService.getParameter(namespaceCode, componentCode, name);
-        this.parameterService.watchParameter(namespaceCode, componentCode, name, this::parameterChanged);
+        this.parameter = parameterService.getParameter(namespaceCode, componentCode, name);
+        parameterService.watchParameter(namespaceCode, componentCode, name, this::parameterChanged);
     }
 
     public ParameterRuntimeConfig(String namespaceCode, String componentCode, String name, ParameterService parameterService) {
@@ -49,12 +50,33 @@ public class ParameterRuntimeConfig extends AbstractRuntimeConfig {
     }
 
     @Override
+    public synchronized void setValue(String value) {
+        if (parameter == null) {
+            if (value != null) {
+                Parameter.Builder builder = Parameter.Builder.create(
+                        parameterService.getApplicationId(),
+                        namespaceCode,
+                        componentCode,
+                        name,
+                        ParameterType.Builder.create("CONFG")
+                );
+                builder.setValue(value);
+                parameter = parameterService.createParameter(builder.build());
+            }
+        } else {
+            Parameter.Builder builder = Parameter.Builder.create(parameter);
+            builder.setValue(value);
+            parameter = parameterService.updateParameter(builder.build());
+        }
+    }
+
+    @Override
     public synchronized void fetch() {
         String currentValue = parameter == null ? null : parameter.getValue();
-        Parameter newParameter = this.parameterService.getParameter(namespaceCode, componentCode, name);
+        Parameter newParameter = parameterService.getParameter(namespaceCode, componentCode, name);
         String newValue = newParameter == null ? null : newParameter.getValue();
         if (!Objects.equals(currentValue, newValue)) {
-            this.parameter = newParameter;
+            parameter = newParameter;
             notifyListeners();
         }
     }

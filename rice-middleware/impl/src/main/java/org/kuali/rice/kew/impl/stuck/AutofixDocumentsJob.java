@@ -30,6 +30,9 @@ public class AutofixDocumentsJob implements Job {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
+        if (!dependenciesAvailable()) {
+            return;
+        }
         int currentAutofixCount = incrementAutofixCount(context);
         List<String> incidentIds = incidentIds(context);
         List<StuckDocumentIncident> stillStuck = getStuckDocumentService().resolveIncidentsIfPossible(incidentIds);
@@ -52,6 +55,16 @@ public class AutofixDocumentsJob implements Job {
             stillStuck.forEach(this::processIncident);
         }
     }
+
+    /**
+     * Checks if needed dependencies are available in order to run this job. Due to the fact that this is a quartz job,
+     * it could trigger while the system is offline and then immediately get fired when the system starts up and due to
+     * the startup process it could attempt to execute while not all of the necessary services are fully initialized.
+     */
+    private boolean dependenciesAvailable() {
+        return getStuckDocumentService() != null;
+    }
+
 
     private int incrementAutofixCount(JobExecutionContext context) {
         int currentAutofixCount = context.getJobDetail().getJobDataMap().getInt(CURRENT_AUTOFIX_COUNT);

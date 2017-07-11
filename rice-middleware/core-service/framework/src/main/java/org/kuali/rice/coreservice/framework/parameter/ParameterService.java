@@ -812,6 +812,8 @@ public interface ParameterService {
      */
     Collection<String> getSubParameterValuesAsFilteredString(Class<?> componentClass, String parameterName, String subParameterName);
 
+    String getApplicationId();
+
     void watchParameter(String namespaceCode, String componentCode, String parameterName, Consumer<Parameter> consumer);
 
 }

@@ -29,7 +29,7 @@ public class StuckDocumentNotifierImpl implements StuckDocumentNotifier {
     @Override
     public void notify(List<String> documentIds) {
         if (!documentIds.isEmpty()) {
-            send(MessageFormat.format(EMAIL_TEMPLATE, documentIds.size(), documentIds));
+            send(MessageFormat.format(EMAIL_TEMPLATE, documentIds.size(), String.join("\n", documentIds)));
         }
 
     }
