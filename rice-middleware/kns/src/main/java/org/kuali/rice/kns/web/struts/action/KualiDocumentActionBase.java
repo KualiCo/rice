@@ -552,8 +552,7 @@ public class KualiDocumentActionBase extends KualiAction {
         boolean rulePassed = getKualiRuleService().applyRules(new SendAdHocRequestsEvent(document));
 
         if (rulePassed) {
-            String nodeName = document.getAdHocRouteNodeName();
-            getDocumentService().sendAdHocRequests(document, kualiDocumentFormBase.getAnnotation(), nodeName, combineAdHocRecipients(kualiDocumentFormBase));
+            getDocumentService().sendAdHocRequests(document, kualiDocumentFormBase.getAnnotation(), combineAdHocRecipients(kualiDocumentFormBase));
             KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_SEND_AD_HOC_REQUESTS_SUCCESSFUL);
         }
 
@@ -582,15 +581,6 @@ public class KualiDocumentActionBase extends KualiAction {
         ActionForward actionForward = docHandler(mapping, form, request, response);
 
         KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_RELOADED);
-        // TODO: remove this when further testing passed
-//        if (form instanceof KualiDocumentFormBase) {
-//            UserSession userSession = (UserSession) request.getSession().getAttribute(RiceConstants.USER_SESSION_KEY);
-//            // force to recreate formkey in execute method
-//            if (document instanceof SessionDocumentService && userSession.retrieveObject(kualiDocumentFormBase.getFormKey()) != null) {
-//        	userSession.removeObject(kualiDocumentFormBase.getFormKey());;
-//            }
-//        }
-
         return actionForward;
     }
 
@@ -622,15 +612,6 @@ public class KualiDocumentActionBase extends KualiAction {
 
         KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_SAVED);
         kualiDocumentFormBase.setAnnotation("");
-
-        // TODO: remove this when further testing passed
-//        if (form instanceof KualiDocumentFormBase) {
-//            UserSession userSession = (UserSession) request.getSession().getAttribute(RiceConstants.USER_SESSION_KEY);
-//            // force to recreate formkey in execute method
-//            if (document instanceof SessionDocumentService && userSession.retrieveObject(kualiDocumentFormBase.getFormKey()) != null) {
-//        	userSession.removeObject(kualiDocumentFormBase.getFormKey());;
-//            }
-//        }
 
         return mapping.findForward(RiceConstants.MAPPING_BASIC);
     }
@@ -817,7 +798,6 @@ public class KualiDocumentActionBase extends KualiAction {
         if (forward != null) {
             return forward;
         }
-
         document = getDocumentService().routeDocument(document, kualiDocumentFormBase.getAnnotation(), combineAdHocRecipients(kualiDocumentFormBase));
         kualiDocumentFormBase.setDocument(document);
         KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_ROUTE_SUCCESSFUL);
@@ -861,7 +841,6 @@ public class KualiDocumentActionBase extends KualiAction {
         if (forward != null) {
             return forward;
         }
-
         document = getDocumentService().blanketApproveDocument(document, kualiDocumentFormBase.getAnnotation(), combineAdHocRecipients(kualiDocumentFormBase));
         kualiDocumentFormBase.setDocument(document);
         KNSGlobalVariables.getMessageList().add(RiceKeyConstants.MESSAGE_ROUTE_APPROVED);
@@ -1245,27 +1224,6 @@ public class KualiDocumentActionBase extends KualiAction {
                     }
                 }
             }
-            /*
-            if (parameterName.startsWith("newAdHocRouteWorkgroup[") && !"".equals(request.getParameter(parameterName))) {
-                if (parameterName.endsWith(".recipientName")) {
-                    int lineNumber = Integer.parseInt(StringUtils.substringBetween(parameterName, "[", "]"));
-                  //check for namespace
-                    String namespaceParam = "newAdHocRouteWorkgroup[" + lineNumber + "].recipientNamespaceCode";
-                    String namespace = KimApiConstants.KIM_GROUP_DEFAULT_NAMESPACE_CODE;
-                    if (request.getParameter(namespaceParam) != null && !"".equals(request.getParameter(namespaceParam).trim())) {
-                        namespace = request.getParameter(namespaceParam).trim();
-                    }
-                    KimGroup group = getIdentityManagementService().getGroupByNamespaceCodeAndName(namespace, request.getParameter(parameterName));
-                    if (group != null) {
-                        kualiForm.getAdHocRouteWorkgroup(lineNumber).setId(group.getGroupId());
-                        kualiForm.getAdHocRouteWorkgroup(lineNumber).setRecipientName(group.getGroupName());
-                        kualiForm.getAdHocRouteWorkgroup(lineNumber).setRecipientNamespaceCode(group.getNamespaceCode());
-                    } else {
-                        throw new RuntimeException("Invalid workgroup id passed as parameter.");
-                    }
-                }
-            }
-            */
         }
     }
 
@@ -1524,17 +1482,6 @@ public class KualiDocumentActionBase extends KualiAction {
     public ActionForward deleteBONote(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
         KualiDocumentFormBase kualiDocumentFormBase = (KualiDocumentFormBase) form;
         Document document = kualiDocumentFormBase.getDocument();
-
-
-//        DataDictionary dataDictionary = getDataDictionaryService().getDataDictionary();
-//        DocumentEntry entry = dataDictionary.getDocumentEntry(document.getClass().getName());
-
-        // check authorization for adding notes
-        //DocumentActionFlags flags = getDocumentActionFlags(document);
-        //if (!kualiDocumentFormBase.getDocumentActions().containsKey(KRADConstants.KUALI_ACTION_CAN_ANNOTATE)) {
-        //    buildAuthorizationException("annotate", document);
-        //    return mapping.findForward(RiceConstants.MAPPING_BASIC);
-        //}
 
         // ok to delete the note/attachment
         // derive the note property from the newNote on the form

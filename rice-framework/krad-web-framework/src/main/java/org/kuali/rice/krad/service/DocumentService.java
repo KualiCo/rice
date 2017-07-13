@@ -385,4 +385,16 @@ public interface DocumentService {
      * @return the saved document
      */
     Document validateAndPersistDocument(Document document, DocumentEvent event) throws ValidationException;
+
+    Document routeDocument(Document document, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRouteRecipients) throws WorkflowException;
+
+    Document blanketApproveDocument(Document document, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRouteRecipients) throws WorkflowException;
+
+    Document approveDocument(Document document, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRouteRecipients) throws WorkflowException;
+
+    Document clearDocumentFyi(Document document, String nodeName, List<AdHocRouteRecipient> adHocRouteRecipients) throws WorkflowException;
+
+    Document acknowledgeDocument(Document document, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRouteRecipients) throws WorkflowException;
+
+    Document completeDocument(Document document, String annotation, String nodeName, List<AdHocRouteRecipient> adHocRouteRecipients) throws WorkflowException;
 }

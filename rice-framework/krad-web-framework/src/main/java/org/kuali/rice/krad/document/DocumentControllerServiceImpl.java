@@ -854,8 +854,7 @@ public class DocumentControllerServiceImpl extends ControllerServiceImpl impleme
                     }
                     break;
                 case SENDADHOCREQUESTS:
-                    getDocumentService().sendAdHocRequests(document, form.getAnnotation(), combineAdHocRecipients(
-                            form));
+                    getDocumentService().sendAdHocRequests(document, form.getAnnotation(),  combineAdHocRecipients(form));
                     successMessageKey = RiceKeyConstants.MESSAGE_ROUTE_SUCCESSFUL;
                     break;
                 case RECALL:

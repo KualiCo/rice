@@ -211,15 +211,22 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public Document routeDocument(Document document, String annotation,
             List<AdHocRouteRecipient> adHocRecipients) throws ValidationException, WorkflowException {
+        return routeDocument(document, annotation, document.getAdHocRouteNodeName(), adHocRecipients);
+    }
+
+    /**
+     * @see org.kuali.rice.krad.service.DocumentService#routeDocument(org.kuali.rice.krad.document.Document,
+     *      java.lang.String, java.util.List)
+     */
+    @Override
+    public Document routeDocument(Document document, String annotation, String adHocRouteNodeName,
+                                  List<AdHocRouteRecipient> adHocRecipients) throws ValidationException, WorkflowException {
         checkForNulls(document);
-        //if (!getDocumentActionFlags(document).getCanRoute()) {
-        //    throw buildAuthorizationException("route", document);
-        //}
         document.prepareForSave();
         Document savedDocument = validateAndPersistDocument(document, new RouteDocumentEvent(document));
         prepareWorkflowDocument(savedDocument);
         getWorkflowDocumentService()
-                .route(savedDocument.getDocumentHeader().getWorkflowDocument(), annotation, adHocRecipients);
+                .route(savedDocument.getDocumentHeader().getWorkflowDocument(), annotation, adHocRouteNodeName, adHocRecipients);
         UserSessionUtils.addWorkflowDocument(GlobalVariables.getUserSession(),
                 savedDocument.getDocumentHeader().getWorkflowDocument());
         removeAdHocPersonsAndWorkgroups(savedDocument);
@@ -234,15 +241,23 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public Document approveDocument(Document document, String annotation,
             List<AdHocRouteRecipient> adHocRecipients) throws ValidationException, WorkflowException {
+        return approveDocument(document, annotation, document.getAdHocRouteNodeName(), adHocRecipients);
+    }
+
+    /**
+     * @see org.kuali.rice.krad.service.DocumentService#approveDocument(org.kuali.rice.krad.document.Document,
+     *      java.lang.String,
+     *      java.util.List)
+     */
+    @Override
+    public Document approveDocument(Document document, String annotation, String adHocRouteNodeName,
+                                    List<AdHocRouteRecipient> adHocRecipients) throws ValidationException, WorkflowException {
         checkForNulls(document);
-        //if (!getDocumentActionFlags(document).getCanApprove()) {
-        //    throw buildAuthorizationException("approve", document);
-        //}
         document.prepareForSave();
         Document savedDocument = validateAndPersistDocument(document, new ApproveDocumentEvent(document));
         prepareWorkflowDocument(savedDocument);
         getWorkflowDocumentService()
-                .approve(savedDocument.getDocumentHeader().getWorkflowDocument(), annotation, adHocRecipients);
+                .approve(savedDocument.getDocumentHeader().getWorkflowDocument(), annotation, adHocRouteNodeName, adHocRecipients);
         UserSessionUtils.addWorkflowDocument(GlobalVariables.getUserSession(),
                 savedDocument.getDocumentHeader().getWorkflowDocument());
         removeAdHocPersonsAndWorkgroups(savedDocument);
@@ -401,18 +416,23 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public Document acknowledgeDocument(Document document, String annotation,
             List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException {
+        return acknowledgeDocument(document, annotation, document.getAdHocRouteNodeName(), adHocRecipients);
+    }
+
+    @Override
+    public Document acknowledgeDocument(Document document, String annotation, String adHocRouteNodeName,
+                                        List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException {
+
         checkForNulls(document);
-        //if (!getDocumentActionFlags(document).getCanAcknowledge()) {
-        //    throw buildAuthorizationException("acknowledge", document);
-        //}
         prepareWorkflowDocument(document);
         getWorkflowDocumentService()
-                .acknowledge(document.getDocumentHeader().getWorkflowDocument(), annotation, adHocRecipients);
+                .acknowledge(document.getDocumentHeader().getWorkflowDocument(), annotation, adHocRouteNodeName, adHocRecipients);
         UserSessionUtils.addWorkflowDocument(GlobalVariables.getUserSession(),
                 document.getDocumentHeader().getWorkflowDocument());
         removeAdHocPersonsAndWorkgroups(document);
         return document;
     }
+
 
     /**
      * @see org.kuali.rice.krad.service.DocumentService#blanketApproveDocument(org.kuali.rice.krad.document.Document,
@@ -422,15 +442,23 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public Document blanketApproveDocument(Document document, String annotation,
             List<AdHocRouteRecipient> adHocRecipients) throws ValidationException, WorkflowException {
+       return blanketApproveDocument(document, annotation, document.getAdHocRouteNodeName(), adHocRecipients);
+    }
+
+    /**
+     * @see org.kuali.rice.krad.service.DocumentService#blanketApproveDocument(org.kuali.rice.krad.document.Document,
+     *      java.lang.String,
+     *      java.util.List)
+     */
+    @Override
+    public Document blanketApproveDocument(Document document, String annotation, String adHocRouteNodeName,
+                                           List<AdHocRouteRecipient> adHocRecipients) throws ValidationException, WorkflowException {
         checkForNulls(document);
-        //if (!getDocumentActionFlags(document).getCanBlanketApprove()) {
-        //    throw buildAuthorizationException("blanket approve", document);
-        //}
         document.prepareForSave();
         Document savedDocument = validateAndPersistDocument(document, new BlanketApproveDocumentEvent(document));
         prepareWorkflowDocument(savedDocument);
         getWorkflowDocumentService()
-                .blanketApprove(savedDocument.getDocumentHeader().getWorkflowDocument(), annotation, adHocRecipients);
+                .blanketApprove(savedDocument.getDocumentHeader().getWorkflowDocument(), annotation, adHocRouteNodeName, adHocRecipients);
         UserSessionUtils.addWorkflowDocument(GlobalVariables.getUserSession(),
                 savedDocument.getDocumentHeader().getWorkflowDocument());
         removeAdHocPersonsAndWorkgroups(savedDocument);
@@ -444,14 +472,40 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public Document clearDocumentFyi(Document document,
             List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException {
+        return clearDocumentFyi(document, document.getAdHocRouteNodeName(), adHocRecipients);
+    }
+
+    @Override
+    public Document clearDocumentFyi(Document document, String adHocRouteNodeName,
+                                     List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException {
         checkForNulls(document);
         // populate document content so searchable attributes will be indexed properly
         document.populateDocumentForRouting();
-        getWorkflowDocumentService().clearFyi(document.getDocumentHeader().getWorkflowDocument(), adHocRecipients);
+        getWorkflowDocumentService().clearFyi(document.getDocumentHeader().getWorkflowDocument(), adHocRouteNodeName, adHocRecipients);
         UserSessionUtils.addWorkflowDocument(GlobalVariables.getUserSession(),
                 document.getDocumentHeader().getWorkflowDocument());
         removeAdHocPersonsAndWorkgroups(document);
         return document;
+    }
+
+
+    @Override
+    public Document completeDocument(Document document, String annotation, String adHocRouteNodeName,
+                                     List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException {
+        checkForNulls(document);
+
+        document.prepareForSave();
+        Document savedDocument = validateAndPersistDocument(document, new CompleteDocumentEvent(document));
+
+        prepareWorkflowDocument(savedDocument);
+        getWorkflowDocumentService().complete(savedDocument.getDocumentHeader().getWorkflowDocument(), annotation, adHocRouteNodeName, adHocRecipients);
+
+        UserSessionUtils.addWorkflowDocument(GlobalVariables.getUserSession(),
+                savedDocument.getDocumentHeader().getWorkflowDocument());
+
+        removeAdHocPersonsAndWorkgroups(savedDocument);
+
+        return savedDocument;
     }
 
     /**
@@ -462,21 +516,7 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public Document completeDocument(Document document, String annotation,
             List adHocRecipients) throws WorkflowException {
-        checkForNulls(document);
-
-        document.prepareForSave();
-        Document savedDocument = validateAndPersistDocument(document, new CompleteDocumentEvent(document));
-
-        prepareWorkflowDocument(savedDocument);
-        getWorkflowDocumentService().complete(savedDocument.getDocumentHeader().getWorkflowDocument(), annotation,
-                adHocRecipients);
-
-        UserSessionUtils.addWorkflowDocument(GlobalVariables.getUserSession(),
-        		savedDocument.getDocumentHeader().getWorkflowDocument());
-
-        removeAdHocPersonsAndWorkgroups(savedDocument);
-
-        return savedDocument;
+      return completeDocument(document, annotation, document.getAdHocRouteNodeName(), adHocRecipients);
     }
 
     protected void checkForNulls(Document document) {
@@ -1074,19 +1114,18 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public Document sendAdHocRequests(Document document, String annotation,
             List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException {
-        return sendAdHocRequests(document, annotation, null, adHocRecipients);
+        return sendAdHocRequests(document, annotation, document.getAdHocRouteNodeName(), adHocRecipients);
     }
 
     @Override
-    public Document sendAdHocRequests(Document document, String annotation, String nodeName,
+    public Document sendAdHocRequests(Document document, String annotation, String adHocRouteNodeName,
                                       List<AdHocRouteRecipient> adHocRecipients) throws WorkflowException {
         // KULRICE-12987 : removing this line to prevent updates to the workflow document on an operation
         // which should only be adding new notifications.
         //prepareWorkflowDocument(document);
 
         getWorkflowDocumentService()
-                .sendWorkflowNotification(document.getDocumentHeader().getWorkflowDocument(), annotation, nodeName,
-                        adHocRecipients);
+                .sendWorkflowNotification(document.getDocumentHeader().getWorkflowDocument(), annotation, adHocRouteNodeName, adHocRecipients);
         UserSessionUtils.addWorkflowDocument(GlobalVariables.getUserSession(),
                 document.getDocumentHeader().getWorkflowDocument());
 
