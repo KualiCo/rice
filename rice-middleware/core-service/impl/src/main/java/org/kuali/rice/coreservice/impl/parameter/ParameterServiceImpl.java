@@ -15,6 +15,8 @@
  */
 package org.kuali.rice.coreservice.impl.parameter;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.text.StrSubstitutor;
 import org.kuali.rice.core.api.config.property.ConfigStrLookup;
@@ -24,20 +26,45 @@ import org.kuali.rice.coreservice.api.parameter.ParameterRepositoryService;
 import org.kuali.rice.coreservice.framework.parameter.ParameterService;
 import org.kuali.rice.krad.service.KualiModuleService;
 import org.kuali.rice.krad.util.KRADConstants;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.scheduling.TaskScheduler;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  * Default implementation of {@link ParameterService}.
  */
-public class ParameterServiceImpl implements ParameterService {
+public class ParameterServiceImpl implements ParameterService, InitializingBean {
+
+    private static final long PARAMETER_WATCH_FREQUENCY = 5000;
 
     private static final StrSubstitutor CONFIG_SUBSTITUTOR = new StrSubstitutor(new ConfigStrLookup());
 
     private KualiModuleService kualiModuleService;
     private ParameterRepositoryService parameterRepositoryService;
+    private TaskScheduler taskScheduler;
+
     private String applicationId = KRADConstants.DEFAULT_PARAMETER_APPLICATION_ID;
+
+    private Multimap<ParameterKey, Consumer<Parameter>> watches;
+    private Map<ParameterKey, String> watchedValues;
+
+    private Object watchLock = new Object();
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        watches = ArrayListMultimap.create();
+        watchedValues = new HashMap<>();
+        if (taskScheduler != null) {
+            taskScheduler.scheduleAtFixedRate(this::checkWatches, PARAMETER_WATCH_FREQUENCY);
+        }
+    }
 
     /**
      * {@inheritDoc}
@@ -378,6 +405,19 @@ public class ParameterServiceImpl implements ParameterService {
         return filteredValues;
     }
 
+    @Override
+    public void watchParameter(String namespaceCode, String componentCode, String parameterName, Consumer<Parameter> consumer) {
+       if (taskScheduler == null) {
+           throw new UnsupportedOperationException("No TaskScheduler available.");
+       }
+       ParameterKey parameterKey = ParameterKey.create(applicationId, namespaceCode, componentCode, parameterName);
+       Parameter parameter = getParameter(namespaceCode, componentCode, parameterName);
+       synchronized (watchLock) {
+           watches.put(parameterKey, consumer);
+           watchedValues.put(parameterKey, nullSafeValue(parameter));
+       }
+    }
+
     public void setKualiModuleService(KualiModuleService kualiModuleService) {
         this.kualiModuleService = kualiModuleService;
     }
@@ -386,8 +426,17 @@ public class ParameterServiceImpl implements ParameterService {
         this.parameterRepositoryService = parameterRepositoryService;
     }
 
+    public void setTaskScheduler(TaskScheduler taskScheduler) {
+        this.taskScheduler = taskScheduler;
+    }
+
     public void setApplicationId(String applicationId) {
         this.applicationId = applicationId;
+    }
+
+    @Override
+    public String getApplicationId() {
+        return this.applicationId;
     }
 
     //utilities that act as a poor-man's closure & higher order functions - these help consolidate validation & construction of parameter keys
@@ -405,5 +454,25 @@ public class ParameterServiceImpl implements ParameterService {
 
     private interface Fun<R> {
         R f(ParameterKey key);
+    }
+
+    private void checkWatches() {
+        Map<Consumer<Parameter>, Parameter> toNotify = new HashMap<>();
+        synchronized (watchLock) {
+            watches.keySet().forEach(parameterKey -> {
+                String originalValue = watchedValues.get(parameterKey);
+                Parameter newParameter = getParameter(parameterKey.getNamespaceCode(), parameterKey.getComponentCode(), parameterKey.getName());
+                String newValue = nullSafeValue(newParameter);
+                if (!Objects.equals(originalValue, newValue)) {
+                    watchedValues.put(parameterKey, newValue);
+                    watches.get(parameterKey).forEach(consumer -> toNotify.put(consumer, newParameter));
+                }
+            });
+        }
+        toNotify.keySet().forEach(consumer -> consumer.accept(toNotify.get(consumer)));
+    }
+
+    private String nullSafeValue(Parameter parameter) {
+        return parameter == null ? null : parameter.getValue();
     }
 }

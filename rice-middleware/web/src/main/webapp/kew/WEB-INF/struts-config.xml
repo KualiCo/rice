@@ -44,6 +44,7 @@
         <form-bean name="IngesterForm" type="org.kuali.rice.core.web.impex.IngesterForm" />
         <form-bean name="FeedbackForm" type="org.kuali.rice.kew.feedback.web.FeedbackForm"/>
         <form-bean name="NoteForm" type="org.kuali.rice.kew.notes.web.NoteForm" />
+        <form-bean name="StuckDocumentsForm" type="org.kuali.rice.kew.web.StuckDocumentsForm" />
     </form-beans>
 
     <global-exceptions>
@@ -217,6 +218,12 @@
             <forward name="basic" path="/WEB-INF/jsp/notes/AllNotesReport.jsp" />
             <forward name="requiredStateError" path="/WEB-INF/jsp/notes/AllNotesReport.jsp"/>
             <forward name="finalStateError" path="/WEB-INF/jsp/notes/AllNotesReport.jsp"/>
+        </action>
+
+        <action path="/StuckDocuments" name="StuckDocumentsForm" input="/WEB-INF/jsp/StuckDocuments.jsp"
+                type="org.kuali.rice.kew.web.StuckDocumentsAction"
+                scope="request" parameter="methodToCall" validate="true" attribute="KualiForm">
+            <forward name="basic" path="/WEB-INF/jsp/StuckDocuments.jsp" />
         </action>
 
     </action-mappings>

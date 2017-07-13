@@ -56,10 +56,13 @@
     <property name="dataObjectService" ref="dataObjectService"/>
   </bean>
 
+  <bean id="taskScheduler" class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler"/>
+
   <bean id="parameterService" class="org.kuali.rice.coreservice.impl.parameter.ParameterServiceImpl">
     <property name="parameterRepositoryService" ref="parameterRepositoryService"/>
     <property name="kualiModuleService" ref="rice.coreService.import.kualiModuleService"/>
     <property name="applicationId" value="${application.id}"/>
+    <property name="taskScheduler" ref="taskScheduler"/>
   </bean>
 
   <bean id="styleService" class="org.kuali.rice.coreservice.impl.style.StyleServiceImpl">

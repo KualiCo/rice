@@ -40,6 +40,8 @@ import org.kuali.rice.kew.engine.simulation.SimulationWorkflowEngine;
 import org.kuali.rice.kew.exception.WorkflowDocumentExceptionRoutingService;
 import org.kuali.rice.kew.identity.service.IdentityHelperService;
 import org.kuali.rice.kew.impl.document.WorkflowDocumentPrototype;
+import org.kuali.rice.kew.impl.stuck.StuckDocumentNotifier;
+import org.kuali.rice.kew.impl.stuck.StuckDocumentService;
 import org.kuali.rice.kew.mail.service.ActionListEmailService;
 import org.kuali.rice.kew.mail.service.EmailContentService;
 import org.kuali.rice.kew.notes.service.NoteService;
@@ -212,6 +214,10 @@ public final class KEWServiceLocator {
     public static final String WORKFLOW_RULE_ATTRIBUTE_MEDIATOR = "rice.kew.workflowRuleAttributeMediator";
 
     public static final String LOCAL_CACHE_MANAGER = "kewLocalCacheManager";
+
+	public static final String STUCK_DOCUMENT_SERVICE = "rice.kew.stuckDocumentService";
+
+	public static final String STUCK_DOCUMENT_NOTIFIER = "rice.kew.stuckDocumentNotifier";
 
     public static EntityManagerFactory getEntityManagerFactory() {
         return (EntityManagerFactory) getService(ENTITY_MANAGER_FACTORY);
@@ -415,4 +421,12 @@ public final class KEWServiceLocator {
     public static CacheManager getLocalCacheManager() {
         return (CacheManager) getService(LOCAL_CACHE_MANAGER);
     }
+
+	public static StuckDocumentService getStuckDocumentService() {
+		return getBean(STUCK_DOCUMENT_SERVICE);
+	}
+
+	public static StuckDocumentNotifier getStuckDocumentNotifier() {
+		return getBean(STUCK_DOCUMENT_NOTIFIER);
+	}
 }
