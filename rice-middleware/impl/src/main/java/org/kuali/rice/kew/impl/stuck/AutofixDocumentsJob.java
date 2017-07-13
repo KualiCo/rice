@@ -30,11 +30,9 @@ public class AutofixDocumentsJob implements Job {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        if (!dependenciesAvailable()) {
-            return;
-        }
-        int currentAutofixCount = incrementAutofixCount(context);
         List<String> incidentIds = incidentIds(context);
+        checkDependenciesAvailable(incidentIds);
+        int currentAutofixCount = incrementAutofixCount(context);
         List<StuckDocumentIncident> stillStuck = getStuckDocumentService().resolveIncidentsIfPossible(incidentIds);
         if (stillStuck.isEmpty()) {
             LOG.info("All stuck document incidents have been resolved, deleting autofix job.");
@@ -61,8 +59,12 @@ public class AutofixDocumentsJob implements Job {
      * it could trigger while the system is offline and then immediately get fired when the system starts up and due to
      * the startup process it could attempt to execute while not all of the necessary services are fully initialized.
      */
-    private boolean dependenciesAvailable() {
-        return getStuckDocumentService() != null;
+    private void checkDependenciesAvailable(List<String> incidentIds) throws JobExecutionException {
+        if (getStuckDocumentService() == null) {
+            String message = "Dependencies are not available for this autofix documents job for stuck document incidents: " + incidentIds.toString();
+            LOG.warn(message);
+            throw new JobExecutionException(message);
+        }
     }
 
 

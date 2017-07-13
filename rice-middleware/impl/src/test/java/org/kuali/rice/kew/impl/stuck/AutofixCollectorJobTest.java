@@ -94,7 +94,7 @@ public class AutofixCollectorJobTest {
     /**
      * Tests that the job is failsafe if no {@link StuckDocumentService} is available.
      */
-    @Test
+    @Test(expected = JobExecutionException.class)
     public void testExecute_NoDependenciesAvailable() throws JobExecutionException {
         // first, set the injected service to null
         autofixCollectorJob.setStuckDocumentService(null);
@@ -105,9 +105,6 @@ public class AutofixCollectorJobTest {
 
         // try to execute it, no exceptions should be thrown
         autofixCollectorJob.execute(context);
-
-        // verify it never did anything with the context or the stuckDocumentService
-        verifyZeroInteractions(context, stuckDocumentService);
     }
 
     @Test

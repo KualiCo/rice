@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Required;
 import java.text.MessageFormat;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 public class StuckDocumentNotifierImpl implements StuckDocumentNotifier {
 
@@ -31,7 +30,6 @@ public class StuckDocumentNotifierImpl implements StuckDocumentNotifier {
         if (!documentIds.isEmpty()) {
             send(MessageFormat.format(EMAIL_TEMPLATE, documentIds.size(), String.join("\n", documentIds)));
         }
-
     }
 
     private void send(String messageBody) {

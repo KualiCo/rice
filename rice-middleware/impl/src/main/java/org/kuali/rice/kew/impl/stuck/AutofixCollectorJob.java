@@ -35,15 +35,14 @@ public class AutofixCollectorJob implements Job {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        if (dependenciesAvailable()) {
-            List<StuckDocumentIncident> newIncidents =
-                    getStuckDocumentService().recordNewStuckDocumentIncidents();
-            if (!newIncidents.isEmpty()) {
-                LOG.info("Identified " + newIncidents.size() + " new stuck documents");
-                LOG.info("Scheduling jobs to attempt to fix the following documents: "
-                        + newIncidents.stream().map(StuckDocumentIncident::getDocumentId).collect(Collectors.joining(", ")));
-                partitionAndScheduleAutofixJobs(newIncidents, context);
-            }
+        checkDependenciesAvailable();
+        List<StuckDocumentIncident> newIncidents =
+                getStuckDocumentService().recordNewStuckDocumentIncidents();
+        if (!newIncidents.isEmpty()) {
+            LOG.info("Identified " + newIncidents.size() + " new stuck documents");
+            LOG.info("Scheduling jobs to attempt to fix the following documents: "
+                    + newIncidents.stream().map(StuckDocumentIncident::getDocumentId).collect(Collectors.joining(", ")));
+            partitionAndScheduleAutofixJobs(newIncidents, context);
         }
     }
 
@@ -52,8 +51,12 @@ public class AutofixCollectorJob implements Job {
      * it could trigger while the system is offline and then immediately get fired when the system starts up and due to
      * the startup process it could attempt to execute while not all of the necessary services are fully initialized.
      */
-    private boolean dependenciesAvailable() {
-        return getStuckDocumentService() != null;
+    private void checkDependenciesAvailable() throws JobExecutionException {
+        if (getStuckDocumentService() == null) {
+            String message = "Dependencies are not available for the autofix collector job";
+            LOG.warn(message);
+            throw new JobExecutionException(message);
+        }
     }
 
     private void partitionAndScheduleAutofixJobs(List<StuckDocumentIncident> incidents, JobExecutionContext context) {

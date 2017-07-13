@@ -25,6 +25,11 @@
             document.forms[0].elements['methodToCall'].value = 'updateConfig';
             document.forms[0].submit();
         }
+        function runStuckNotificationNow() {
+            document.forms[0].elements['methodToCall'].value = 'runStuckNotificationNow';
+            document.forms[0].submit();
+        }
+
     </script>
     <div class="headerarea" id="headerarea">
         <h1>Stuck Document Processing</h1>
@@ -32,49 +37,69 @@
     <html-el:form action="StuckDocuments">
         <html-el:hidden property="methodToCall" value=""/>
         <kul:csrf />
-        <div style="margin-left:20px">
-            <h1>Stuck Document Notification</h1>
-            <div>
-                <label>Enable</label>
-                <html-el:text property="notificationEnabled"/>
-            </div>
-            <div>
-                <label>Cron Expression</label>
-                <html-el:text property="notificationCronExpression"/>
-            </div>
-            <div>
-                <label>From</label>
-                <html-el:text property="notificationFrom"/>
-            </div>
-            <div>
-                <label>To</label>
-                <html-el:text property="notificationTo"/>
-            </div>
+        <div style="margin:2em">
+            <p>
+                On this page, you can manage the configuration for stuck document notification as well as controlling whether or
+                not the system will attempt to automatically fix any stuck documents that are detected.
+            </p>
+            <p>
+                For the cron expressions, you can use <a href="http://www.cronmaker.com/">Cron Maker</a> to help
+                construct and interpret these.
+            </p>
+            <fieldset style="padding: 1em">
+                <legend style="font-weight: bold; font-size: 150%">Notification</legend>
+                <div style="padding: 0.5em">
+                    <label for="notificationEnabled"><b>Enable:</b></label>
+                    <html-el:text property="notificationEnabled" styleId="notificationEnabled"/>
+                </div>
+                <div style="padding: 0.5em">
+                    <label for="notificationCronExpression"><b>Cron Expression:</b></label>
+                    <html-el:text property="notificationCronExpression" styleId="notificationCronExpression"/>
+                </div>
+                <div style="padding: 0.5em">
+                    <label for="notificationFrom"><b>From:</b></label>
+                    <html-el:text property="notificationFrom" styleId="notificationFrom"/>
+                </div>
+                <div style="padding: 0.5em">
+                    <label for="notificationTo"><b>To:</b></label>
+                    <html-el:text property="notificationTo" styleId="notificationTo"/>
+                </div>
 
-            <div>
-                <label>Subject</label>
-                <html-el:text property="notificationSubject"/>
-            </div>
+                <div style="padding: 0.5em">
+                    <label for="notificationSubject"><b>Subject:</b></label>
+                    <html-el:text property="notificationSubject" styleId="notificationSubject" style="width:200px"/>
+                </div>
 
-            <h1>Stuck Document Autofix</h1>
-            <div>
-                <label>Enable</label>
-                <html-el:text property="autofixEnabled"/>
-            </div>
-            <div>
-                <label>Cron Expression</label>
-                <html-el:text property="autofixCronExpression"/>
-            </div>
-            <div>
-                <label>Quiet Period</label>
-                <html-el:text property="autofixQuietPeriod"/>
-            </div>
-            <div>
-                <label>Max Attempts</label>
-                <html-el:text property="autofixMaxAttempts"/>
-            </div>
+            </fieldset>
 
-            <input type="button" value="Update" onclick="updateConfig()"/>
+            <fieldset style="padding: 1em; margin-top: 2em">
+                <legend style="font-weight: bold; font-size: 150%">Autofix</legend>
+                <div style="padding: 0.5em">
+                    <label for="autofixEnabled"><b>Enable:</b></label>
+                    <html-el:text property="autofixEnabled" styleId="autofixEnabled"/>
+                </div>
+                <div style="padding: 0.5em">
+                    <label for="autofixCronExpression"><b>Cron Expression:</b></label>
+                    <html-el:text property="autofixCronExpression" styleId="autofixCronExpression"/>
+                </div>
+                <div style="padding: 0.5em">
+                    <label for="autofixQuietPeriod"><b>Quiet Period (sec):</b></label>
+                    <html-el:text property="autofixQuietPeriod" styleId="autofixQuietPeriod"/>
+                </div>
+                <div style="padding: 0.5em">
+                    <label for="autofixMaxAttempts"><b>Max Attempts:</b></label>
+                    <html-el:text property="autofixMaxAttempts" styleId="autofixMaxAttempts"/>
+                </div>
+            </fieldset>
+
+            <div style="margin-top: 2em; padding: 1em">
+                <div>
+                    <input type="button" style="padding:0.5em; background: #ccc; font-size: 150%" value="Update" onclick="updateConfig()"/>
+                </div>
+                <div style="margin-top: 1em">
+                    <input type="button" style="padding:0.5em; background: #ccc; font-size: 150%" value="Run Notification Now" onclick="runStuckNotificationNow()"/>
+                </div>
+            </div>
         </div>
     </html-el:form>
 

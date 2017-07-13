@@ -6,6 +6,7 @@ import org.apache.struts.action.ActionMapping;
 import org.kuali.rice.core.api.config.property.RuntimeConfig;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
 import org.kuali.rice.core.api.util.RiceConstants;
+import org.kuali.rice.kew.impl.stuck.StuckDocumentNotificationJob;
 import org.kuali.rice.kim.api.role.RoleService;
 import org.kuali.rice.kim.api.services.KimApiServiceLocator;
 import org.kuali.rice.kns.web.struts.action.KualiAction;
@@ -17,9 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Collections;
 import java.util.HashMap;
 
-/**
- * Created by ewestfal on 7/7/17.
- */
 public class StuckDocumentsAction extends KualiAction {
 
     private static final String NOTIFICATION_ENABLED = "stuckDocumentsNotificationEnabledParam";
@@ -88,6 +86,14 @@ public class StuckDocumentsAction extends KualiAction {
         getAutofixQuietPeriod().setValue(form.getAutofixQuietPeriod());
         getAutofixMaxAttempts().setValue(form.getAutofixMaxAttempts());
 
+        return mapping.findForward(RiceConstants.MAPPING_BASIC);
+    }
+
+    public ActionForward runStuckNotificationNow(ActionMapping mapping, ActionForm actionForm, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        // make sure we update any config first
+        updateConfig(mapping, actionForm, request, response);
+        // a little hacky, we are depending on that fact that this job doesn't use the JobExecutionContext
+        new StuckDocumentNotificationJob().execute(null);
         return mapping.findForward(RiceConstants.MAPPING_BASIC);
     }
 

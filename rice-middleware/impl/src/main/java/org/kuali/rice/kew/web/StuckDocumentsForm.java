@@ -2,9 +2,6 @@ package org.kuali.rice.kew.web;
 
 import org.kuali.rice.kns.web.struts.form.KualiForm;
 
-/**
- * Created by ewestfal on 7/7/17.
- */
 public class StuckDocumentsForm extends KualiForm {
 
     private String notificationEnabled;
