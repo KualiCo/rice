@@ -39,7 +39,7 @@ public class StuckDocumentFixAttempt {
     @Column(name = "STUCK_DOC_INCIDENT_ID", nullable = false)
     private String stuckDocumentIncidentId;
 
-    @Column(name = "TIMESTAMP", nullable = false)
+    @Column(name = "ATTMPT_TS", nullable = false)
     private Timestamp timestamp;
 
     public String getStuckDocumentFixAttemptId() {
