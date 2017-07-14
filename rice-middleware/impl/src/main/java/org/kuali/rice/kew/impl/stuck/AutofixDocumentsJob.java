@@ -18,6 +18,7 @@ package org.kuali.rice.kew.impl.stuck;
 import org.kuali.rice.kew.api.KewApiServiceLocator;
 import org.kuali.rice.kew.doctype.bo.DocumentType;
 import org.kuali.rice.kew.service.KEWServiceLocator;
+import org.opensaml.xmlsec.signature.P;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
@@ -105,7 +106,12 @@ public class AutofixDocumentsJob implements Job {
         if (StuckDocumentIncident.Status.PENDING.equals(incident.getStatus())) {
             incident = getStuckDocumentService().startFixingIncident(incident);
         }
-        tryToFix(incident);
+        try {
+            tryToFix(incident);
+        } catch (Throwable t) {
+            // we catch and log here because we don't want one bad apple to ruin the whole bunch!
+            LOG.error("Error occurred when attmpting to fix stuck document incident for doc id " + incident.getDocumentId(), t);
+        }
     }
 
     private void tryToFix(StuckDocumentIncident incident) {
