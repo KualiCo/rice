@@ -112,7 +112,7 @@ public class AutofixDocumentsJob implements Job {
         getStuckDocumentService().recordNewIncidentFixAttempt(incident);
         String docId = incident.getDocumentId();
         DocumentType documentType = KEWServiceLocator.getDocumentTypeService().findByDocumentId(docId);
-        KewApiServiceLocator.getDocumentProcessingQueue(docId, documentType.getApplicationId()).process(docId);
+        KewApiServiceLocator.getDocumentRequeuerService(documentType.getApplicationId(), docId, 0).refreshDocument(docId);
     }
 
     private int autofixMaxAttempts(JobExecutionContext context) {
