@@ -19,6 +19,7 @@ import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.kuali.rice.core.api.config.property.SimpleRuntimeConfig;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -55,6 +56,7 @@ public class StuckDocumentServiceImplTest {
 
     @Mock
     private StuckDocumentDao dao;
+    private SimpleRuntimeConfig failureNotificationEnabled = new SimpleRuntimeConfig("false");
 
     @InjectMocks
     private StuckDocumentServiceImpl stuckDocumentService;
@@ -64,6 +66,7 @@ public class StuckDocumentServiceImplTest {
 
     @Before
     public void setup() {
+        stuckDocumentService.setFailureNotificationEnabled(failureNotificationEnabled);
         incidentDatabase = new HashMap<String, StuckDocumentIncident>();
         fixAttemptDatabase = new HashMap<String, StuckDocumentFixAttempt>();
         when(dao.findIncident(any())).then(invocation -> {
