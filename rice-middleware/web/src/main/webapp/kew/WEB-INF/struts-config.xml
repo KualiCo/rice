@@ -224,6 +224,8 @@
                 type="org.kuali.rice.kew.web.StuckDocumentsAction"
                 scope="request" parameter="methodToCall" validate="true" attribute="KualiForm">
             <forward name="basic" path="/WEB-INF/jsp/StuckDocuments.jsp" />
+            <forward name="report" path="/WEB-INF/jsp/StuckDocumentsReport.jsp" />
+            <forward name="autofixReport" path="/WEB-INF/jsp/StuckDocumentsAutofixReport.jsp" />
         </action>
 
     </action-mappings>

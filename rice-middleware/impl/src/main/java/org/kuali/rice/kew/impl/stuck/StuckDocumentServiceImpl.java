@@ -34,6 +34,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class StuckDocumentServiceImpl implements StuckDocumentService {
 
     private StuckDocumentDao stuckDocumentDao;
+    private StuckDocumentNotifier notifier;
+    private RuntimeConfig failureNotificationEnabled;
 
     @Override
     public List<String> findAllStuckDocumentIds() {
@@ -60,6 +62,11 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
     }
 
     @Override
+    public List<StuckDocumentIncident> findAllIncidents(int maxIncidents) {
+        return getStuckDocumentDao().findAllIncidents(maxIncidents);
+    }
+
+    @Override
     public List<StuckDocumentIncident> recordNewStuckDocumentIncidents() {
         List<String> newStuckDocuments = getStuckDocumentDao().identifyNewStuckDocuments();
         return newStuckDocuments.stream().map(documentId -> getStuckDocumentDao().saveIncident(StuckDocumentIncident.startNewIncident(documentId))).collect(Collectors.toList());
@@ -72,6 +79,11 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
         auditEntry.setStuckDocumentIncidentId(stuckDocumentIncident.getStuckDocumentIncidentId());
         auditEntry.setTimestamp(new Timestamp(System.currentTimeMillis()));
         return getStuckDocumentDao().saveFixAttempt(auditEntry);
+    }
+
+    @Override
+    public List<StuckDocumentFixAttempt> findAllFixAttempts(String stuckDocumentIncidentId) {
+        return getStuckDocumentDao().findAllFixAttempts(stuckDocumentIncidentId);
     }
 
     @Override
@@ -108,7 +120,16 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
         checkNotNull(stuckDocumentIncident);
         stuckDocumentIncident.setStatus(StuckDocumentIncident.Status.FAILED);
         stuckDocumentIncident.setEndDate(new Timestamp(System.currentTimeMillis()));
-        return getStuckDocumentDao().saveIncident(stuckDocumentIncident);
+        stuckDocumentIncident = getStuckDocumentDao().saveIncident(stuckDocumentIncident);
+        notifyIncidentFailure(stuckDocumentIncident);
+        return stuckDocumentIncident;
+    }
+
+    protected void notifyIncidentFailure(StuckDocumentIncident stuckDocumentIncident) {
+        if (getFailureNotificationEnabled().getValueAsBoolean()) {
+            List<StuckDocumentFixAttempt> attempts = getStuckDocumentDao().findAllFixAttempts(stuckDocumentIncident.getStuckDocumentIncidentId());
+            notifier.notifyIncidentFailure(stuckDocumentIncident, attempts);
+        }
     }
 
     protected StuckDocumentDao getStuckDocumentDao() {
@@ -120,4 +141,21 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
         this.stuckDocumentDao = stuckDocumentDao;
     }
 
+    protected StuckDocumentNotifier getNotifier() {
+        return notifier;
+    }
+
+    @Required
+    public void setNotifier(StuckDocumentNotifier notifier) {
+        this.notifier = notifier;
+    }
+
+    protected RuntimeConfig getFailureNotificationEnabled() {
+        return failureNotificationEnabled;
+    }
+
+    @Required
+    public void setFailureNotificationEnabled(RuntimeConfig failureNotificationEnabled) {
+        this.failureNotificationEnabled = failureNotificationEnabled;
+    }
 }

@@ -28,9 +28,13 @@ public interface StuckDocumentService {
 
     List<StuckDocumentIncident> findIncidents(List<String> stuckDocumentIncidentIds);
 
+    List<StuckDocumentIncident> findAllIncidents(int maxIncidents);
+
     List<StuckDocumentIncident> recordNewStuckDocumentIncidents();
 
     StuckDocumentFixAttempt recordNewIncidentFixAttempt(StuckDocumentIncident stuckDocumentIncident);
+
+    List<StuckDocumentFixAttempt> findAllFixAttempts(String stuckDocumentIncidentId);
 
     List<StuckDocumentIncident> resolveIncidentsIfPossible(List<String> stuckDocumentIncidentIds);
 

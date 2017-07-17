@@ -24,6 +24,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Required;
 
 import java.text.MessageFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 
@@ -33,6 +34,9 @@ public class StuckDocumentNotifierImpl implements StuckDocumentNotifier {
 
     private static final String EMAIL_TEMPLATE =
             "{0} stuck documents have been identified within the workflow system with the following document IDs:\n\n{1}";
+    private static final String FAILURE_EMAIL_TEMPLATE =
+            "Failed to autofix document {0}.\n\nIncident details:\n\tStarted: {1}\n\tEnded: {2}\n\nAttempts occurred at the following times:{3}";
+    private static final String FAILURE_EMAIL_SUBJECT_TEMPLATE = "Failed to autofix stuck document with ID {0}";
 
     private RuntimeConfig from;
     private RuntimeConfig to;
@@ -47,12 +51,33 @@ public class StuckDocumentNotifierImpl implements StuckDocumentNotifier {
         }
     }
 
+    @Override
+    public void notifyIncidentFailure(StuckDocumentIncident incident, List<StuckDocumentFixAttempt> attempts) {
+        send(MessageFormat.format(FAILURE_EMAIL_TEMPLATE, incident.getDocumentId(),
+                incident.getStartDate().toString(),
+                incident.getEndDate().toString(),
+                generateAttemptsText(attempts)),
+                MessageFormat.format(FAILURE_EMAIL_SUBJECT_TEMPLATE, incident.getDocumentId()));
+    }
+
+    private String generateAttemptsText(List<StuckDocumentFixAttempt> attempts) {
+        StringBuilder builder = new StringBuilder();
+        for (StuckDocumentFixAttempt attempt : attempts) {
+            builder.append("\n\t").append(attempt.getTimestamp().toString());
+        }
+        return builder.toString();
+    }
+
     private void send(String messageBody) {
+        send(messageBody, subject.getValue());
+    }
+
+    private void send(String messageBody, String subject) {
         if (checkCanSend()) {
             MailMessage message = new MailMessage();
             message.setFromAddress(from.getValue());
             message.setToAddresses(Collections.singleton(to.getValue()));
-            message.setSubject(subject.getValue());
+            message.setSubject(subject);
             message.setMessage(messageBody);
             try {
                 mailer.sendEmail(message);
