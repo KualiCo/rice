@@ -19,6 +19,10 @@ import org.springframework.beans.factory.annotation.Required;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -63,6 +67,9 @@ public class StuckDocumentDaoJpa implements StuckDocumentDao {
     private static final String IS_STUCK_DOCUMENT_ACTION_REQUEST_SQL =
             ALL_STUCK_DOCUMENT_ACTION_REQUEST_SQL + " AND DH.DOC_HDR_ID = ?";
 
+    static final String FIX_ATTEMPTS_FOR_INCIDENT_NAME = "StuckDocumentFixAttempt.FixAttemptsForIncident";
+    static final String FIX_ATTEMPTS_FOR_INCIDENT_QUERY = "select fa from StuckDocumentFixAttempt fa where fa.stuckDocumentIncidentId = :stuckDocumentIncidentId";
+
 
 
     private EntityManager entityManager;
@@ -86,8 +93,21 @@ public class StuckDocumentDaoJpa implements StuckDocumentDao {
     }
 
     @Override
-    public StuckDocumentFixAttempt findFixAttempt(String stuckDocumentAuditEntryId) {
-        return entityManager.find(StuckDocumentFixAttempt.class, stuckDocumentAuditEntryId);
+    public List<StuckDocumentIncident> findAllIncidents(int maxIncidents) {
+        CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
+        CriteriaQuery<StuckDocumentIncident> q = cb.createQuery(StuckDocumentIncident.class);
+        Root<StuckDocumentIncident> incident = q.from(StuckDocumentIncident.class);
+        q.select(incident).orderBy(cb.desc(incident.get("startDate")));
+        TypedQuery<StuckDocumentIncident> query = getEntityManager().createQuery(q);
+        query.setMaxResults(maxIncidents);
+        return new ArrayList<>(query.getResultList());
+    }
+
+    @Override
+    public List<StuckDocumentFixAttempt> findAllFixAttempts(String stuckDocumentIncidentId) {
+        TypedQuery<StuckDocumentFixAttempt> query = getEntityManager().createNamedQuery(FIX_ATTEMPTS_FOR_INCIDENT_NAME, StuckDocumentFixAttempt.class);
+        query.setParameter("stuckDocumentIncidentId", stuckDocumentIncidentId);
+        return new ArrayList<>(query.getResultList());
     }
 
     @Override

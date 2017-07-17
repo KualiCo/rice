@@ -28,7 +28,9 @@ public interface StuckDocumentDao {
 
     StuckDocumentIncident saveIncident(StuckDocumentIncident incident);
 
-    StuckDocumentFixAttempt findFixAttempt(String stuckDocumentIncidentId);
+    List<StuckDocumentIncident> findAllIncidents(int maxIncidents);
+
+    List<StuckDocumentFixAttempt> findAllFixAttempts(String stuckDocumentIncidentId);
 
     StuckDocumentFixAttempt saveFixAttempt(StuckDocumentFixAttempt incident);
 

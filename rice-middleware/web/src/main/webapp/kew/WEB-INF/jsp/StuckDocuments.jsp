@@ -29,7 +29,12 @@
             document.forms[0].elements['methodToCall'].value = 'runStuckNotificationNow';
             document.forms[0].submit();
         }
-
+        function report() {
+            window.location.href='StuckDocuments.do?methodToCall=report';
+        }
+        function autofixReport() {
+            window.location.href='StuckDocuments.do?methodToCall=autofixReport';
+        }
     </script>
     <div class="headerarea" id="headerarea">
         <h1>Stuck Document Processing</h1>
@@ -90,6 +95,10 @@
                     <label for="autofixMaxAttempts"><b>Max Attempts:</b></label>
                     <html-el:text property="autofixMaxAttempts" styleId="autofixMaxAttempts"/>
                 </div>
+                <div style="padding: 0.5em">
+                    <label for="autofixNotificationEnabled"><b>Notify on Autofix Failure:</b></label>
+                    <html-el:text property="autofixNotificationEnabled" styleId="autofixNotificationEnabled"/>
+                </div>
             </fieldset>
 
             <div style="margin-top: 2em; padding: 1em">
@@ -98,6 +107,12 @@
                 </div>
                 <div style="margin-top: 1em">
                     <input type="button" style="padding:0.5em; background: #ccc; font-size: 150%" value="Run Notification Now" onclick="runStuckNotificationNow()"/>
+                </div>
+                <div style="margin-top: 1em">
+                    <input type="button" style="padding:0.5em; background: #ccc; font-size: 150%" value="View Stuck Documents Report" onclick="report()"/>
+                </div>
+                <div style="margin-top: 1em">
+                    <input type="button" style="padding:0.5em; background: #ccc; font-size: 150%" value="View Autofix Report" onclick="autofixReport()"/>
                 </div>
             </div>
         </div>

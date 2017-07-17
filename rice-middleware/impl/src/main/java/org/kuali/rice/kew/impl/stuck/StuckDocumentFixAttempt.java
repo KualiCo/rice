@@ -19,15 +19,19 @@ import org.kuali.rice.krad.data.jpa.PortableSequenceGenerator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "KREW_STUCK_DOC_FIX_ATTMPT_T")
+@NamedQueries({
+        @NamedQuery(name = StuckDocumentDaoJpa.FIX_ATTEMPTS_FOR_INCIDENT_NAME,
+                query = StuckDocumentDaoJpa.FIX_ATTEMPTS_FOR_INCIDENT_QUERY)
+})
 public class StuckDocumentFixAttempt {
 
     @Id

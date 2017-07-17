@@ -256,6 +256,15 @@
         c:defaultValue="2"
         c:parameterService-ref="rice.kew.import.parameterService"/>
 
+  <bean id="stuckDocumentsAutofixNotificationEnabledParam"
+        class="org.kuali.rice.coreservice.framework.parameter.ParameterRuntimeConfig"
+        c:namespaceCode="KR-WKFLW"
+        c:componentCode="All"
+        c:name="STUCK_DOCUMENTS_AUTOFIX_NOTIFICATION_ENABLED"
+        c:defaultValue="true"
+        c:parameterService-ref="rice.kew.import.parameterService"/>
+
+
   <bean id="stuckDocumentsNotificationEnabledParam"
         class="org.kuali.rice.coreservice.framework.parameter.ParameterRuntimeConfig"
         c:namespaceCode="KR-WKFLW"
@@ -311,7 +320,9 @@
 
   <bean id="rice.kew.stuckDocumentService"
         class="org.kuali.rice.kew.impl.stuck.StuckDocumentServiceImpl"
-        p:stuckDocumentDao-ref="rice.kew.stuckDocumentDao"/>
+        p:stuckDocumentDao-ref="rice.kew.stuckDocumentDao"
+        p:notifier-ref="rice.kew.stuckDocumentNotifier"
+        p:failureNotificationEnabled-ref="stuckDocumentsAutofixNotificationEnabledParam"/>
 
   <bean id="rice.kew.stuckDocumentNotifier"
         class="org.kuali.rice.kew.impl.stuck.StuckDocumentNotifierImpl"

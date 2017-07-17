@@ -21,4 +21,6 @@ public interface StuckDocumentNotifier {
 
     void notify(List<String> documentIds);
 
+    void notifyIncidentFailure(StuckDocumentIncident incident, List<StuckDocumentFixAttempt> attempts);
+
 }
