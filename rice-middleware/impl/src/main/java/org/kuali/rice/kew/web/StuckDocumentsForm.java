@@ -30,6 +30,7 @@ public class StuckDocumentsForm extends KualiForm {
     private String autofixQuietPeriod;
     private String autofixMaxAttempts;
     private String autofixNotificationEnabled;
+    private String autofixNotificationSubject;
 
     public String getNotificationEnabled() {
         return notificationEnabled;
@@ -109,6 +110,14 @@ public class StuckDocumentsForm extends KualiForm {
 
     public void setAutofixNotificationEnabled(String autofixNotificationEnabled) {
         this.autofixNotificationEnabled = autofixNotificationEnabled;
+    }
+
+    public String getAutofixNotificationSubject() {
+        return autofixNotificationSubject;
+    }
+
+    public void setAutofixNotificationSubject(String autofixNotificationSubject) {
+        this.autofixNotificationSubject = autofixNotificationSubject;
     }
 
 }

@@ -24,6 +24,8 @@ public interface StuckDocumentService {
 
     List<String> findAllStuckDocumentIds();
 
+    List<StuckDocument> findAllStuckDocuments();
+
     StuckDocumentIncident findIncident(String stuckDocumentIncidentId);
 
     List<StuckDocumentIncident> findIncidents(List<String> stuckDocumentIncidentIds);

@@ -35,6 +35,7 @@
     <thead>
         <tr>
             <th>Document ID</th>
+            <th>Document Type</th>
             <th>Start Date</th>
             <th>End Date</th>
             <th>Status</th>
@@ -45,6 +46,7 @@
     <c:forEach var="incidentHistory" items="${history}">
         <tr>
             <td><c:out value="${incidentHistory.documentId}"/></td>
+            <td><c:out value="${incidentHistory.documentTypeLabel}"/></td>
             <td><c:out value="${incidentHistory.startDate}"/></td>
             <td><c:out value="${incidentHistory.endDate}"/></td>
             <td><c:out value="${incidentHistory.status}"/></td>

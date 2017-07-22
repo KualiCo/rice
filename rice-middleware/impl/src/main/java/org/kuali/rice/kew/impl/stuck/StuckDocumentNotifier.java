@@ -19,7 +19,7 @@ import java.util.List;
 
 public interface StuckDocumentNotifier {
 
-    void notify(List<String> documentIds);
+    void notify(List<StuckDocument> stuckDocuments);
 
     void notifyIncidentFailure(StuckDocumentIncident incident, List<StuckDocumentFixAttempt> attempts);
 

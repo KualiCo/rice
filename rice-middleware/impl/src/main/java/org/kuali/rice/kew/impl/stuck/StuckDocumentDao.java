@@ -24,9 +24,13 @@ public interface StuckDocumentDao {
 
     List<String> findAllStuckDocumentIds();
 
+    List<StuckDocument> findAllStuckDocuments();
+
     StuckDocumentIncident findIncident(String stuckDocumentIncidentId);
 
     StuckDocumentIncident saveIncident(StuckDocumentIncident incident);
+
+    void deleteIncident(StuckDocumentIncident incident);
 
     List<StuckDocumentIncident> findAllIncidents(int maxIncidents);
 
