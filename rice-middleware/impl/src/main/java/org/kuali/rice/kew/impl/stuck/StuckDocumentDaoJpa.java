@@ -22,6 +22,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -123,6 +124,20 @@ public class StuckDocumentDaoJpa implements StuckDocumentDao {
         Root<StuckDocumentIncident> incident = q.from(StuckDocumentIncident.class);
         q.select(incident).orderBy(cb.desc(incident.get("startDate")));
         TypedQuery<StuckDocumentIncident> query = getEntityManager().createQuery(q);
+        query.setMaxResults(maxIncidents);
+        return new ArrayList<>(query.getResultList());
+    }
+
+    @Override
+    public List<StuckDocumentIncident> findIncidentsByStatus(int maxIncidents, StuckDocumentIncident.Status status) {
+        CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
+        CriteriaQuery<StuckDocumentIncident> q = cb.createQuery(StuckDocumentIncident.class);
+        Root<StuckDocumentIncident> incident = q.from(StuckDocumentIncident.class);
+        q.select(incident).orderBy(cb.desc(incident.get("startDate")));
+        ParameterExpression<StuckDocumentIncident.Status> statusParameter = cb.parameter(StuckDocumentIncident.Status.class);
+        q.where(cb.equal(incident.get("status"), statusParameter));
+        TypedQuery<StuckDocumentIncident> query = getEntityManager().createQuery(q);
+        query.setParameter(statusParameter, status);
         query.setMaxResults(maxIncidents);
         return new ArrayList<>(query.getResultList());
     }

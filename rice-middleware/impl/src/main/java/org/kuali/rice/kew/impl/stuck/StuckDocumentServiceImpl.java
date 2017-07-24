@@ -72,6 +72,11 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
     }
 
     @Override
+    public List<StuckDocumentIncident> findIncidentsByStatus(int maxIncidents, StuckDocumentIncident.Status status) {
+        return getStuckDocumentDao().findIncidentsByStatus(maxIncidents, status);
+    }
+
+    @Override
     public List<StuckDocumentIncident> recordNewStuckDocumentIncidents() {
         List<String> newStuckDocuments = getStuckDocumentDao().identifyNewStuckDocuments();
         return newStuckDocuments.stream().map(documentId -> getStuckDocumentDao().saveIncident(StuckDocumentIncident.startNewIncident(documentId))).collect(Collectors.toList());

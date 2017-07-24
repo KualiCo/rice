@@ -32,6 +32,8 @@ public interface StuckDocumentService {
 
     List<StuckDocumentIncident> findAllIncidents(int maxIncidents);
 
+    List<StuckDocumentIncident> findIncidentsByStatus(int maxIncidents, StuckDocumentIncident.Status status);
+
     List<StuckDocumentIncident> recordNewStuckDocumentIncidents();
 
     StuckDocumentFixAttempt recordNewIncidentFixAttempt(StuckDocumentIncident stuckDocumentIncident);

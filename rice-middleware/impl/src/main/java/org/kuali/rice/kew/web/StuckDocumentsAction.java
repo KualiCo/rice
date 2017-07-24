@@ -138,7 +138,14 @@ public class StuckDocumentsAction extends KualiAction {
 
     public ActionForward autofixReport(ActionMapping mapping, ActionForm actionForm, HttpServletRequest request, HttpServletResponse response) throws Exception {
         StuckDocumentService stuckDocumentService = getStuckDocumentService();
-        List<StuckDocumentIncident> incidents = stuckDocumentService.findAllIncidents(MAX_INCIDENTS);
+        StuckDocumentsForm form = (StuckDocumentsForm)actionForm;
+        StuckDocumentsForm.Status selectedStatus = form.getSelectedStatus();
+        List<StuckDocumentIncident> incidents;
+        if (selectedStatus == null || selectedStatus.getValue().equals("All")) {
+            incidents = stuckDocumentService.findAllIncidents(MAX_INCIDENTS);
+        } else {
+            incidents = stuckDocumentService.findIncidentsByStatus(MAX_INCIDENTS, StuckDocumentIncident.Status.valueOf(selectedStatus.getValue()));
+        }
         List<IncidentHistory> history = incidents.stream().map(incident -> {
             List<StuckDocumentFixAttempt> attempts = stuckDocumentService.findAllFixAttempts(incident.getStuckDocumentIncidentId());
             String documentTypeLabel = getDocumentTypeService().findByDocumentId(incident.getDocumentId()).getLabel();

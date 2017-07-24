@@ -34,6 +34,8 @@ public interface StuckDocumentDao {
 
     List<StuckDocumentIncident> findAllIncidents(int maxIncidents);
 
+    List<StuckDocumentIncident> findIncidentsByStatus(int maxIncidents, StuckDocumentIncident.Status status);
+
     List<StuckDocumentFixAttempt> findAllFixAttempts(String stuckDocumentIncidentId);
 
     StuckDocumentFixAttempt saveFixAttempt(StuckDocumentFixAttempt incident);
