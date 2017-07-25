@@ -55,7 +55,8 @@
                 <legend style="font-weight: bold; font-size: 150%">Notification</legend>
                 <div style="padding: 0.5em">
                     <label for="notificationEnabled"><b>Enable:</b></label>
-                    <html-el:text property="notificationEnabled" styleId="notificationEnabled"/>
+                    <html-el:radio property="notificationEnabled" styleId="notificationEnabled" value="true"/> True
+                    <html-el:radio property="notificationEnabled" styleId="notificationEnabled" value="false"/> False
                 </div>
                 <div style="padding: 0.5em">
                     <label for="notificationCronExpression"><b>Cron Expression:</b></label>
@@ -72,16 +73,25 @@
 
                 <div style="padding: 0.5em">
                     <label for="notificationSubject"><b>Subject:</b></label>
-                    <html-el:text property="notificationSubject" styleId="notificationSubject" style="width:200px"/>
+                    <html-el:text property="notificationSubject" styleId="notificationSubject" style="width:300px"/>
+                    <aside>
+                        <p>Available variables to use in the subject include:</p>
+                        <ul>
+                            <li>&#36;{numStuckDocuments}</li>
+                            <li>&#36;{environment}</li>
+                            <li>&#36;{applicationUrl}</li>
+                        </ul>
+                    </aside>
                 </div>
-
             </fieldset>
 
             <fieldset style="padding: 1em; margin-top: 2em">
                 <legend style="font-weight: bold; font-size: 150%">Autofix</legend>
                 <div style="padding: 0.5em">
                     <label for="autofixEnabled"><b>Enable:</b></label>
-                    <html-el:text property="autofixEnabled" styleId="autofixEnabled"/>
+                    <html-el:radio property="autofixEnabled" styleId="autofixEnabled" value="true"/> True
+                    <html-el:radio property="autofixEnabled" styleId="autofixEnabled" value="false"/> False
+
                 </div>
                 <div style="padding: 0.5em">
                     <label for="autofixCronExpression"><b>Cron Expression:</b></label>
@@ -97,8 +107,26 @@
                 </div>
                 <div style="padding: 0.5em">
                     <label for="autofixNotificationEnabled"><b>Notify on Autofix Failure:</b></label>
-                    <html-el:text property="autofixNotificationEnabled" styleId="autofixNotificationEnabled"/>
+                    <html-el:radio property="autofixNotificationEnabled" styleId="autofixNotificationEnabled" value="true"/> True
+                    <html-el:radio property="autofixNotificationEnabled" styleId="autofixNotificationEnabled" value="false"/> False
                 </div>
+                <div style="padding: 0.5em">
+                    <label for="autofixNotificationSubject"><b>Autofix Notification Subject:</b></label>
+                    <html-el:text property="autofixNotificationSubject" styleId="autofixNotificationSubject" style="width:300px"/>
+                    <aside>
+                        <p>Available variables to use in the subject include:</p>
+                        <ul>
+                            <li>&#36;{documentId}</li>
+                            <li>&#36;{documentTypeLabel}</li>
+                            <li>&#36;{startDate}</li>
+                            <li>&#36;{endDate}</li>
+                            <li>&#36;{numberOfAutofixAttempts}</li>
+                            <li>&#36;{environment}</li>
+                            <li>&#36;{applicationUrl}</li>
+                        </ul>
+                    </aside>
+                </div>
+
             </fieldset>
 
             <div style="margin-top: 2em; padding: 1em">

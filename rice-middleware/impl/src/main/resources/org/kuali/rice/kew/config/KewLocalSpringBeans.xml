@@ -264,6 +264,13 @@
         c:defaultValue="true"
         c:parameterService-ref="rice.kew.import.parameterService"/>
 
+  <bean id="stuckDocumentsAutofixNotificationSubjectParam"
+        class="org.kuali.rice.coreservice.framework.parameter.ParameterRuntimeConfig"
+        c:namespaceCode="KR-WKFLW"
+        c:componentCode="All"
+        c:name="STUCK_DOCUMENTS_AUTOFIX_NOTIFICATION_SUBJECT"
+        c:defaultValue="Failed to autofix document #{ '$' + '{documentId}'}"
+        c:parameterService-ref="rice.kew.import.parameterService"/>
 
   <bean id="stuckDocumentsNotificationEnabledParam"
         class="org.kuali.rice.coreservice.framework.parameter.ParameterRuntimeConfig"
@@ -329,7 +336,8 @@
         p:from-ref="stuckDocumentsNotificationFromParam"
         p:to-ref="stuckDocumentsNotificationToParam"
         p:subject-ref="stuckDocumentsNotificationSubjectParam"
-        p:mailer-ref="rice.kew.import.mailer"/>
+        p:mailer-ref="rice.kew.import.mailer"
+        p:autofixSubject-ref="stuckDocumentsAutofixNotificationSubjectParam"/>
 
 
 </beans>

@@ -103,7 +103,7 @@ public class StuckDocumentIncident {
     }
 
     public static enum Status {
-        PENDING, FIXING, FAILED, IGNORED, FIXED
+        PENDING, FIXING, FAILED, FIXED
     }
 
 }

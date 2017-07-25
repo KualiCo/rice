@@ -21,6 +21,8 @@ import org.apache.struts.action.ActionMapping;
 import org.kuali.rice.core.api.config.property.RuntimeConfig;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
 import org.kuali.rice.core.api.util.RiceConstants;
+import org.kuali.rice.kew.doctype.service.DocumentTypeService;
+import org.kuali.rice.kew.impl.stuck.StuckDocument;
 import org.kuali.rice.kew.impl.stuck.StuckDocumentFixAttempt;
 import org.kuali.rice.kew.impl.stuck.StuckDocumentIncident;
 import org.kuali.rice.kew.impl.stuck.StuckDocumentNotificationJob;
@@ -54,6 +56,7 @@ public class StuckDocumentsAction extends KualiAction {
     private static final String AUTOFIX_QUIET_PERIOD = "stuckDocumentsAutofixQuietPeriodParam";
     private static final String AUTOFIX_MAX_ATTEMPTS = "stuckDocumentsAutofixMaxAttemptsParam";
     private static final String AUTOFIX_NOTIFICATION_ENABLED = "stuckDocumentsAutofixNotificationEnabledParam";
+    private static final String AUTOFIX_NOTIFICATION_SUBJECT = "stuckDocumentsAutofixNotificationSubjectParam";
 
     private static final int MAX_INCIDENTS = 1000;
 
@@ -95,6 +98,7 @@ public class StuckDocumentsAction extends KualiAction {
         form.setAutofixQuietPeriod(getAutofixQuietPeriod().getValue());
         form.setAutofixMaxAttempts(getAutofixMaxAttempts().getValue());
         form.setAutofixNotificationEnabled(getAutofixNotificationEnabled().getValue());
+        form.setAutofixNotificationSubject(getAutofixNotificationSubject().getValue());
 
         return super.defaultDispatch(mapping, form, request, response);
     }
@@ -113,6 +117,7 @@ public class StuckDocumentsAction extends KualiAction {
         getAutofixQuietPeriod().setValue(form.getAutofixQuietPeriod());
         getAutofixMaxAttempts().setValue(form.getAutofixMaxAttempts());
         getAutofixNotificationEnabled().setValue(form.getAutofixNotificationEnabled());
+        getAutofixNotificationSubject().setValue(form.getAutofixNotificationSubject());
 
         return mapping.findForward(RiceConstants.MAPPING_BASIC);
     }
@@ -126,20 +131,25 @@ public class StuckDocumentsAction extends KualiAction {
     }
 
     public ActionForward report(ActionMapping mapping, ActionForm actionForm, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        List<String> stuckDocumentIds = getStuckDocumentService().findAllStuckDocumentIds();
-        if (stuckDocumentIds.isEmpty()) {
-            stuckDocumentIds = Collections.singletonList("None");
-        }
-        request.setAttribute("stuckDocumentIds", stuckDocumentIds);
+        List<StuckDocument> stuckDocuments = getStuckDocumentService().findAllStuckDocuments();
+        request.setAttribute("stuckDocuments", stuckDocuments);
         return mapping.findForward("report");
     }
 
     public ActionForward autofixReport(ActionMapping mapping, ActionForm actionForm, HttpServletRequest request, HttpServletResponse response) throws Exception {
         StuckDocumentService stuckDocumentService = getStuckDocumentService();
-        List<StuckDocumentIncident> incidents = stuckDocumentService.findAllIncidents(MAX_INCIDENTS);
+        StuckDocumentsForm form = (StuckDocumentsForm)actionForm;
+        StuckDocumentsForm.Status selectedStatus = form.getSelectedStatus();
+        List<StuckDocumentIncident> incidents;
+        if (selectedStatus == null || selectedStatus.getValue().equals("All")) {
+            incidents = stuckDocumentService.findAllIncidents(MAX_INCIDENTS);
+        } else {
+            incidents = stuckDocumentService.findIncidentsByStatus(MAX_INCIDENTS, StuckDocumentIncident.Status.valueOf(selectedStatus.getValue()));
+        }
         List<IncidentHistory> history = incidents.stream().map(incident -> {
             List<StuckDocumentFixAttempt> attempts = stuckDocumentService.findAllFixAttempts(incident.getStuckDocumentIncidentId());
-            return new IncidentHistory(incident, attempts);
+            String documentTypeLabel = getDocumentTypeService().findByDocumentId(incident.getDocumentId()).getLabel();
+            return new IncidentHistory(incident, attempts, documentTypeLabel);
         }).collect(Collectors.toList());
         request.setAttribute("history", history);
         return mapping.findForward("autofixReport");
@@ -185,18 +195,28 @@ public class StuckDocumentsAction extends KualiAction {
         return GlobalResourceLoader.getService(AUTOFIX_NOTIFICATION_ENABLED);
     }
 
+    private RuntimeConfig getAutofixNotificationSubject() {
+        return GlobalResourceLoader.getService(AUTOFIX_NOTIFICATION_SUBJECT);
+    }
+
     private StuckDocumentService getStuckDocumentService() {
         return KEWServiceLocator.getStuckDocumentService();
+    }
+
+    private DocumentTypeService getDocumentTypeService() {
+        return KEWServiceLocator.getDocumentTypeService();
     }
 
     public static class IncidentHistory {
 
         private final StuckDocumentIncident incident;
         private final List<StuckDocumentFixAttempt> attempts;
+        private final String documentTypeLabel;
 
-        IncidentHistory(StuckDocumentIncident incident, List<StuckDocumentFixAttempt> attempts) {
+        IncidentHistory(StuckDocumentIncident incident, List<StuckDocumentFixAttempt> attempts, String documentTypeLabel) {
             this.incident = incident;
             this.attempts = attempts;
+            this.documentTypeLabel = documentTypeLabel;
         }
 
         public String getDocumentId() {
@@ -222,6 +242,10 @@ public class StuckDocumentsAction extends KualiAction {
             return attempts.stream().
                     map(attempt -> attempt.getTimestamp().toString()).
                     collect(Collectors.joining(", "));
+        }
+
+        public String getDocumentTypeLabel() {
+            return documentTypeLabel;
         }
     }
 

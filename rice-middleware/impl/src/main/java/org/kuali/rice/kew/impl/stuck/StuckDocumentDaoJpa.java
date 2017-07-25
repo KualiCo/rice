@@ -22,7 +22,9 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -52,14 +54,16 @@ public class StuckDocumentDaoJpa implements StuckDocumentDao {
                     "(SD.DOC_HDR_ID IS NULL OR SD.STATUS='FIXED' OR (SD.STATUS='FAILED' AND DH.STAT_MDFN_DT > SD.END_DT))";
 
     private static final String ALL_STUCK_DOCUMENT_ACTION_ITEM_SQL =
-            "select DH.DOC_HDR_ID from KREW_DOC_HDR_T DH " +
+            "select DH.DOC_HDR_ID, DH.CRTE_DT, DT.LBL from KREW_DOC_HDR_T DH " +
                     "left outer join KREW_ACTN_ITM_T AI on DH.DOC_HDR_ID=AI.DOC_HDR_ID " +
+                    "join KREW_DOC_TYP_T DT on DH.DOC_TYP_ID=DT.DOC_TYP_ID " +
                     "where DH.DOC_HDR_STAT_CD='R' AND AI.DOC_HDR_ID IS NULL";
 
     private static final String ALL_STUCK_DOCUMENT_ACTION_REQUEST_SQL =
-            "select DH.DOC_HDR_ID from KREW_DOC_HDR_T DH left outer join KREW_ACTN_RQST_T AR on " +
-                    "DH.DOC_HDR_ID=AR.DOC_HDR_ID AND AR.STAT_CD = 'A' where DH.DOC_HDR_STAT_CD='R' " +
-                    "AND AR.DOC_HDR_ID IS NULL";
+            "select DH.DOC_HDR_ID, DH.CRTE_DT, DT.LBL from KREW_DOC_HDR_T DH " +
+                    "left outer join KREW_ACTN_RQST_T AR on DH.DOC_HDR_ID=AR.DOC_HDR_ID AND AR.STAT_CD = 'A' " +
+                    "join KREW_DOC_TYP_T DT on DH.DOC_TYP_ID=DT.DOC_TYP_ID " +
+                    "where DH.DOC_HDR_STAT_CD='R' AND AR.DOC_HDR_ID IS NULL";
 
     private static final String IS_STUCK_DOCUMENT_ACTION_ITEM_SQL =
             ALL_STUCK_DOCUMENT_ACTION_ITEM_SQL + " AND DH.DOC_HDR_ID = ?";
@@ -76,10 +80,27 @@ public class StuckDocumentDaoJpa implements StuckDocumentDao {
 
     @Override
     public List<String> findAllStuckDocumentIds() {
-        Set<String> documentIds = new HashSet<>();
-        documentIds.addAll(entityManager.createNativeQuery(ALL_STUCK_DOCUMENT_ACTION_ITEM_SQL).getResultList());
-        documentIds.addAll(entityManager.createNativeQuery(ALL_STUCK_DOCUMENT_ACTION_REQUEST_SQL).getResultList());
-        return Collections.unmodifiableList(new ArrayList<>(documentIds));
+        return findAllStuckDocuments().stream().map(StuckDocument::getDocumentId).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<StuckDocument> findAllStuckDocuments() {
+        List<Object[]> stuckDocumentResults = new ArrayList<>();
+        stuckDocumentResults.addAll(entityManager.createNativeQuery(ALL_STUCK_DOCUMENT_ACTION_ITEM_SQL).getResultList());
+        stuckDocumentResults.addAll(entityManager.createNativeQuery(ALL_STUCK_DOCUMENT_ACTION_REQUEST_SQL).getResultList());
+        List<StuckDocument> unfilteredStuckDocuments = stuckDocumentResults.stream().map(result -> new StuckDocument((String)result[0], (String)result[2], ((Timestamp)result[1]).toLocalDateTime())).collect(Collectors.toList());
+        return filterDuplicateStuckDocuments(unfilteredStuckDocuments);
+    }
+
+    private List<StuckDocument> filterDuplicateStuckDocuments(List<StuckDocument> unfilteredStuckDocuments) {
+        Set<String> processedDocumentIds = new HashSet<>();
+        return unfilteredStuckDocuments.stream().filter(stuckDocument -> {
+            if (processedDocumentIds.contains(stuckDocument.getDocumentId())) {
+                return false;
+            }
+            processedDocumentIds.add(stuckDocument.getDocumentId());
+            return true;
+        }).collect(Collectors.toList());
     }
 
     @Override
@@ -92,6 +113,10 @@ public class StuckDocumentDaoJpa implements StuckDocumentDao {
         return entityManager.merge(incident);
     }
 
+    public void deleteIncident(StuckDocumentIncident incident) {
+        entityManager.remove(incident);
+    }
+
     @Override
     public List<StuckDocumentIncident> findAllIncidents(int maxIncidents) {
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
@@ -99,6 +124,20 @@ public class StuckDocumentDaoJpa implements StuckDocumentDao {
         Root<StuckDocumentIncident> incident = q.from(StuckDocumentIncident.class);
         q.select(incident).orderBy(cb.desc(incident.get("startDate")));
         TypedQuery<StuckDocumentIncident> query = getEntityManager().createQuery(q);
+        query.setMaxResults(maxIncidents);
+        return new ArrayList<>(query.getResultList());
+    }
+
+    @Override
+    public List<StuckDocumentIncident> findIncidentsByStatus(int maxIncidents, StuckDocumentIncident.Status status) {
+        CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
+        CriteriaQuery<StuckDocumentIncident> q = cb.createQuery(StuckDocumentIncident.class);
+        Root<StuckDocumentIncident> incident = q.from(StuckDocumentIncident.class);
+        q.select(incident).orderBy(cb.desc(incident.get("startDate")));
+        ParameterExpression<StuckDocumentIncident.Status> statusParameter = cb.parameter(StuckDocumentIncident.Status.class);
+        q.where(cb.equal(incident.get("status"), statusParameter));
+        TypedQuery<StuckDocumentIncident> query = getEntityManager().createQuery(q);
+        query.setParameter(statusParameter, status);
         query.setMaxResults(maxIncidents);
         return new ArrayList<>(query.getResultList());
     }

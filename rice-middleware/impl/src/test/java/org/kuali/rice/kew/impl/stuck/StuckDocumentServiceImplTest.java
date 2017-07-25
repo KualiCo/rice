@@ -245,14 +245,11 @@ public class StuckDocumentServiceImplTest {
         StuckDocumentIncident stillStuckIncident = stillStuck.get(0);
         assertNotEquals(StuckDocumentIncident.Status.FIXED, stillStuckIncident.getStatus());
 
-        // now check the other two and make sure they've been updated
-        StuckDocumentIncident incident1Updated = stuckDocumentService.findIncident(incident1.getStuckDocumentIncidentId());
-        StuckDocumentIncident incident2Updated = stuckDocumentService.findIncident(incident2.getStuckDocumentIncidentId());
-        assertEquals(StuckDocumentIncident.Status.FIXED, incident1Updated.getStatus());
-        assertEquals(StuckDocumentIncident.Status.FIXED, incident2Updated.getStatus());
-        // check that the end dates were recorded within the last second
-        assertRecentTimestamp(incident1Updated.getEndDate());
-        assertRecentTimestamp(incident2Updated.getEndDate());
+        // now check the other two, since they were pending and then fixed while still in pending status, it should
+        // haved deleted them via the dao
+        verify(dao).deleteIncident(incident1);
+        verify(dao).deleteIncident(incident2);
+
     }
 
     @Test(expected = NullPointerException.class)
@@ -266,12 +263,15 @@ public class StuckDocumentServiceImplTest {
         assertEquals(StuckDocumentIncident.Status.PENDING, incident.getStatus());
         assertNull(incident.getEndDate());
 
+        // start fixing it
+        incident = stuckDocumentService.startFixingIncident(incident);
+
         // now resolve it
         incident = stuckDocumentService.resolve(incident);
         assertEquals(StuckDocumentIncident.Status.FIXED, incident.getStatus());
         assertRecentTimestamp(incident.getEndDate());
 
-        verify(dao, times(2)).saveIncident(any());
+        verify(dao, times(3)).saveIncident(any());
     }
 
     @Test(expected = NullPointerException.class)

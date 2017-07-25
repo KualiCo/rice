@@ -37,9 +37,9 @@ public class StuckDocumentNotificationJob implements Job {
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         checkDependenciesAvailable();
-        List<String> stuckDocumentIds = getStuckDocumentService().findAllStuckDocumentIds();
-        if (!stuckDocumentIds.isEmpty()) {
-            getNotifier().notify(stuckDocumentIds);
+        List<StuckDocument> stuckDocuments = getStuckDocumentService().findAllStuckDocuments();
+        if (!stuckDocuments.isEmpty()) {
+            getNotifier().notify(stuckDocuments);
         }
     }
 

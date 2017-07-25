@@ -24,11 +24,15 @@ public interface StuckDocumentService {
 
     List<String> findAllStuckDocumentIds();
 
+    List<StuckDocument> findAllStuckDocuments();
+
     StuckDocumentIncident findIncident(String stuckDocumentIncidentId);
 
     List<StuckDocumentIncident> findIncidents(List<String> stuckDocumentIncidentIds);
 
     List<StuckDocumentIncident> findAllIncidents(int maxIncidents);
+
+    List<StuckDocumentIncident> findIncidentsByStatus(int maxIncidents, StuckDocumentIncident.Status status);
 
     List<StuckDocumentIncident> recordNewStuckDocumentIncidents();
 

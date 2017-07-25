@@ -43,6 +43,11 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
     }
 
     @Override
+    public List<StuckDocument> findAllStuckDocuments() {
+        return getStuckDocumentDao().findAllStuckDocuments();
+    }
+
+    @Override
     public StuckDocumentIncident findIncident(String stuckDocumentIncidentId) {
         checkNotNull(stuckDocumentIncidentId);
         return getStuckDocumentDao().findIncident(stuckDocumentIncidentId);
@@ -64,6 +69,11 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
     @Override
     public List<StuckDocumentIncident> findAllIncidents(int maxIncidents) {
         return getStuckDocumentDao().findAllIncidents(maxIncidents);
+    }
+
+    @Override
+    public List<StuckDocumentIncident> findIncidentsByStatus(int maxIncidents, StuckDocumentIncident.Status status) {
+        return getStuckDocumentDao().findIncidentsByStatus(maxIncidents, status);
     }
 
     @Override
@@ -103,9 +113,16 @@ public class StuckDocumentServiceImpl implements StuckDocumentService {
 
     protected StuckDocumentIncident resolve(StuckDocumentIncident stuckDocumentIncident) {
         checkNotNull(stuckDocumentIncident);
-        stuckDocumentIncident.setStatus(StuckDocumentIncident.Status.FIXED);
-        stuckDocumentIncident.setEndDate(new Timestamp(System.currentTimeMillis()));
-        return getStuckDocumentDao().saveIncident(stuckDocumentIncident);
+        if (stuckDocumentIncident.getStatus().equals(StuckDocumentIncident.Status.PENDING)) {
+            // if it was pending that means we just went through the quiet period and the document unstuck itself,
+            // let's get rid of it's incident since it's just noise
+            getStuckDocumentDao().deleteIncident(stuckDocumentIncident);
+            return stuckDocumentIncident;
+        } else {
+            stuckDocumentIncident.setStatus(StuckDocumentIncident.Status.FIXED);
+            stuckDocumentIncident.setEndDate(new Timestamp(System.currentTimeMillis()));
+            return getStuckDocumentDao().saveIncident(stuckDocumentIncident);
+        }
     }
 
     @Override

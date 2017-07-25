@@ -15,7 +15,13 @@
  */
 package org.kuali.rice.kew.web;
 
+import org.apache.commons.lang.StringUtils;
+import org.kuali.rice.kew.impl.stuck.StuckDocumentIncident;
 import org.kuali.rice.kns.web.struts.form.KualiForm;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StuckDocumentsForm extends KualiForm {
 
@@ -30,6 +36,32 @@ public class StuckDocumentsForm extends KualiForm {
     private String autofixQuietPeriod;
     private String autofixMaxAttempts;
     private String autofixNotificationEnabled;
+    private String autofixNotificationSubject;
+
+    private List<Status> statuses;
+
+    public StuckDocumentsForm() {
+        this.statuses = new ArrayList<Status>();
+        this.statuses.add(new Status("All", false));
+        for (StuckDocumentIncident.Status status : StuckDocumentIncident.Status.values()) {
+            this.statuses.add(new Status(status.name(), false));
+        }
+    }
+
+    @Override
+    public void populate(HttpServletRequest request) {
+        super.populate(request);
+        // determine if they set the status filter
+        String statusFilter = request.getParameter("statusFilter");
+        if (!StringUtils.isBlank(statusFilter)) {
+            for (Status status : this.statuses) {
+                if (status.getValue().equals(statusFilter)) {
+                    status.setSelected(true);
+                    break;
+                }
+            }
+        }
+    }
 
     public String getNotificationEnabled() {
         return notificationEnabled;
@@ -109,6 +141,56 @@ public class StuckDocumentsForm extends KualiForm {
 
     public void setAutofixNotificationEnabled(String autofixNotificationEnabled) {
         this.autofixNotificationEnabled = autofixNotificationEnabled;
+    }
+
+    public String getAutofixNotificationSubject() {
+        return autofixNotificationSubject;
+    }
+
+    public void setAutofixNotificationSubject(String autofixNotificationSubject) {
+        this.autofixNotificationSubject = autofixNotificationSubject;
+    }
+
+    public List<Status> getStatuses() {
+        return statuses;
+    }
+
+    public void setStatuses(List<Status> statuses) {
+        this.statuses = statuses;
+    }
+
+    public Status getSelectedStatus() {
+        for (Status status : statuses) {
+            if (status.isSelected()) {
+                return status;
+            }
+        }
+        return null;
+    }
+
+    public static class Status {
+        private String value;
+        private boolean selected;
+        public Status(String value, boolean selected) {
+            this.value = value;
+            this.selected = selected;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        public boolean isSelected() {
+            return selected;
+        }
+
+        public void setSelected(boolean selected) {
+            this.selected = selected;
+        }
     }
 
 }

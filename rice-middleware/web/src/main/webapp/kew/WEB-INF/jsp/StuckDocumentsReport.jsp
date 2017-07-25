@@ -21,13 +21,37 @@
 <head>
     <meta charset="utf-8">
     <title>Stuck Documents Report</title>
+    <style type="text/css">
+        td, th
+        {
+            padding:0 15px 0 15px;
+        }
+    </style>
 </head>
 <body>
 <h1>Currently Stuck Documents</h1>
-<ul>
-<c:forEach var="stuckDocumentId" items="${stuckDocumentIds}">
-    <li><c:out value="${stuckDocumentId}"/></li>
-</c:forEach>
-</ul>
+<c:choose>
+    <c:when test="${fn:length(stuckDocuments) == 0}">
+        <p>There are currently no stuck documents</p>
+    </c:when>
+    <c:otherwise>
+    <table>
+        <thead>
+        <tr>
+            <th>Document ID</th>
+            <th>Document Type</th>
+            <th>Create Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="stuckDocument" items="${stuckDocuments}">
+          <tr>
+              <td><c:out value="${stuckDocument.documentId}"/></td>
+              <td><c:out value="${stuckDocument.documentTypeLabel}"/></td>
+              <td><c:out value="${stuckDocument.formattedCreateDate}"/></td>
+          </tr>
+        </c:forEach>
+    </c:otherwise>
+</c:choose>
 </body>
 </html>
