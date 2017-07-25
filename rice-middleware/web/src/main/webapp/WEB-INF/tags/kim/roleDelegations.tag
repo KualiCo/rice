@@ -224,7 +224,7 @@
 							</c:when>
 	        	       		<c:otherwise>
 	        	        		<html:image property='methodToCall.deleteDelegationMember.line${statusMember.index}.anchor${currentTabIndex}'
-								src='${ConfigProperties.kr.externalizable.images.url}tinybutton-delete1.gif' styleClass='tinybutton'/>
+								src='${ConfigProperties.kr.externalizable.images.url}tinybutton-inactivate.gif' styleClass='tinybutton'/>
 		        	       	</c:otherwise>
 	        	     	</c:choose>  
 					</div>
