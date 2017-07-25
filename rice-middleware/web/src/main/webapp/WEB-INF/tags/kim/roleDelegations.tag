@@ -222,6 +222,10 @@
 							<c:when test="${member.edit or readOnlyAssignees}">
 	        	          		<img class='nobord' src='${ConfigProperties.kr.externalizable.images.url}tinybutton-delete2.gif' styleClass='tinybutton'/>
 							</c:when>
+							<c:when test="${empty member.delegationMemberId}">
+								<html:image property='methodToCall.deleteDelegationMember.line${statusMember.index}.anchor${currentTabIndex}'
+											src='${ConfigProperties.kr.externalizable.images.url}tinybutton-delete1.gif' styleClass='tinybutton'/>
+							</c:when>
 	        	       		<c:otherwise>
 	        	        		<html:image property='methodToCall.deleteDelegationMember.line${statusMember.index}.anchor${currentTabIndex}'
 								src='${ConfigProperties.kr.externalizable.images.url}tinybutton-inactivate.gif' styleClass='tinybutton'/>

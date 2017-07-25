@@ -548,8 +548,13 @@ public class IdentityManagementRoleDocumentAction extends IdentityManagementDocu
         IdentityManagementRoleDocumentForm roleDocumentForm = (IdentityManagementRoleDocumentForm) form;
 
         RoleDocumentDelegationMember memberToDelete = roleDocumentForm.getRoleDocument().getDelegationMembers().get(getLineToDelete(request));
-        Calendar cal = Calendar.getInstance();
-        memberToDelete.setActiveToDate(new Timestamp(cal.getTimeInMillis()));
+        // if it's a new member that hasn't been saved yet, just allow them to delete it, otherwise inactivate it
+        if (memberToDelete.getDelegationMemberId() == null) {
+            roleDocumentForm.getRoleDocument().getDelegationMembers().remove(getLineToDelete(request));
+        } else {
+            Calendar cal = Calendar.getInstance();
+            memberToDelete.setActiveToDate(new Timestamp(cal.getTimeInMillis()));
+        }
 
         roleDocumentForm.setDelegationMember(roleDocumentForm.getRoleDocument().getBlankDelegationMember());
         return mapping.findForward(RiceConstants.MAPPING_BASIC);
