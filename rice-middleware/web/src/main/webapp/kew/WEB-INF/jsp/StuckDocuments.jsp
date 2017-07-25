@@ -74,8 +74,15 @@
                 <div style="padding: 0.5em">
                     <label for="notificationSubject"><b>Subject:</b></label>
                     <html-el:text property="notificationSubject" styleId="notificationSubject" style="width:300px"/>
+                    <aside>
+                        <p>Available variables to use in the subject include:</p>
+                        <ul>
+                            <li>&#36;{numStuckDocuments}</li>
+                            <li>&#36;{environment}</li>
+                            <li>&#36;{applicationUrl}</li>
+                        </ul>
+                    </aside>
                 </div>
-
             </fieldset>
 
             <fieldset style="padding: 1em; margin-top: 2em">
@@ -106,6 +113,18 @@
                 <div style="padding: 0.5em">
                     <label for="autofixNotificationSubject"><b>Autofix Notification Subject:</b></label>
                     <html-el:text property="autofixNotificationSubject" styleId="autofixNotificationSubject" style="width:300px"/>
+                    <aside>
+                        <p>Available variables to use in the subject include:</p>
+                        <ul>
+                            <li>&#36;{documentId}</li>
+                            <li>&#36;{documentTypeLabel}</li>
+                            <li>&#36;{startDate}</li>
+                            <li>&#36;{endDate}</li>
+                            <li>&#36;{numberOfAutofixAttempts}</li>
+                            <li>&#36;{environment}</li>
+                            <li>&#36;{applicationUrl}</li>
+                        </ul>
+                    </aside>
                 </div>
 
             </fieldset>
