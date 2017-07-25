@@ -217,11 +217,11 @@ if (attributeEntry == null) {
 			 <c:if test="${empty readOnlyAlternateDisplay}">
 		       <bean:write name="KualiForm" property="${property}"/>
              </c:if>
-             <c:out value="${readOnlyAlternateDisplay}"/>
+             <span style="white-space:pre"><c:out value="${readOnlyAlternateDisplay}"/></span>
 		    </c:when>
 			<c:otherwise>
               <html:hidden write="${empty readOnlyAlternateDisplay ? 'true' : 'false'}" property="${property}" style="${textStyle}" />
-             <c:out value="${readOnlyAlternateDisplay}"/>
+              <span style="white-space:pre"><c:out value="${readOnlyAlternateDisplay}"/></span>
             </c:otherwise>
 		  </c:choose>
          </c:if>
