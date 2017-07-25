@@ -169,11 +169,6 @@ public class IdentityManagementRoleDocumentAction extends IdentityManagementDocu
         }
     }
 
-    /**
-     * This overridden method ...
-     *
-     * @see org.kuali.rice.krad.web.struts.action.KualiDocumentActionBase#createDocument(org.kuali.rice.krad.web.struts.form.KualiDocumentFormBase)
-     */
     @Override
     protected void createDocument(KualiDocumentFormBase form)
             throws WorkflowException {
@@ -551,8 +546,16 @@ public class IdentityManagementRoleDocumentAction extends IdentityManagementDocu
 
     public ActionForward deleteDelegationMember(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
         IdentityManagementRoleDocumentForm roleDocumentForm = (IdentityManagementRoleDocumentForm) form;
-        // Removing, not inactivating -- is this what we really want?
-        roleDocumentForm.getRoleDocument().getDelegationMembers().remove(getLineToDelete(request));
+
+        RoleDocumentDelegationMember memberToDelete = roleDocumentForm.getRoleDocument().getDelegationMembers().get(getLineToDelete(request));
+        // if it's a new member that hasn't been saved yet, just allow them to delete it, otherwise inactivate it
+        if (memberToDelete.getDelegationMemberId() == null) {
+            roleDocumentForm.getRoleDocument().getDelegationMembers().remove(getLineToDelete(request));
+        } else {
+            Calendar cal = Calendar.getInstance();
+            memberToDelete.setActiveToDate(new Timestamp(cal.getTimeInMillis()));
+        }
+
         roleDocumentForm.setDelegationMember(roleDocumentForm.getRoleDocument().getBlankDelegationMember());
         return mapping.findForward(RiceConstants.MAPPING_BASIC);
     }
