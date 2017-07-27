@@ -17,13 +17,17 @@ package org.kuali.rice.krad;
 
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.config.property.ConfigContext;
+import org.kuali.rice.kim.api.KimConstants;
 import org.kuali.rice.kim.api.identity.Person;
+import org.kuali.rice.kim.api.permission.Permission;
 import org.kuali.rice.kim.api.services.KimApiServiceLocator;
+import org.kuali.rice.krad.util.KRADConstants;
 import org.kuali.rice.krad.util.SessionTicket;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -36,6 +40,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class UserSession implements Serializable {
     private static final long serialVersionUID = 4532616762540067557L;
+
+    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(UserSession.class);
 
     private static final String NULL_VALUE = "NULL";
 
@@ -160,9 +166,37 @@ public class UserSession implements Serializable {
      */
     public void setBackdoorUser(String principalName) {
         // only allow backdoor in non-production environments
-        if (!isProductionEnvironment()) {
+        if (!isProductionEnvironment() && isBackdoorAuthorized()) {
             this.backdoorUser = KimApiServiceLocator.getPersonService().getPersonByPrincipalName(principalName);
         }
+    }
+
+    public boolean isBackdoorAuthorized() {
+        boolean isAuthorized = true;
+
+        //we should check to see if a kim permission exists for the requested application first
+        Map<String, String> permissionDetails = new HashMap<String, String>();
+        String requestAppCode = ConfigContext.getCurrentContextConfig().getProperty("app.code");
+        permissionDetails.put(KimConstants.AttributeConstants.APP_CODE, requestAppCode);
+        List<Permission> perms = KimApiServiceLocator.getPermissionService().findPermissionsByTemplate(
+                KRADConstants.KUALI_RICE_SYSTEM_NAMESPACE, KimConstants.PermissionTemplateNames.BACKDOOR_RESTRICTION);
+        for (Permission kpi : perms) {
+            if (kpi.getAttributes().values().contains(requestAppCode)) {
+                //if a permission exists, is the user granted permission to use backdoor?
+                isAuthorized = KimApiServiceLocator.getPermissionService().isAuthorizedByTemplate(
+                        getActualPerson().getPrincipalId(), KRADConstants.KUALI_RICE_SYSTEM_NAMESPACE,
+                        KimConstants.PermissionTemplateNames.BACKDOOR_RESTRICTION, permissionDetails,
+                        Collections.<String, String>emptyMap());
+            }
+        }
+        if (!isAuthorized) {
+            LOG.warn("Attempt to backdoor was made by user: "
+                    + getPerson().getPrincipalId()
+                    + " into application with app code: "
+                    + requestAppCode
+                    + " but they do not have appropriate permissions.");
+        }
+        return isAuthorized;
     }
 
     /**

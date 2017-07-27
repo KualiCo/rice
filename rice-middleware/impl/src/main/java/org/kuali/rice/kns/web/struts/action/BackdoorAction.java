@@ -114,7 +114,7 @@ public class BackdoorAction extends KualiAction {
 
         uSession.clearObjectMap();
 
-        if (!isBackdoorAuthorized(uSession, request)) {
+        if (!uSession.isBackdoorAuthorized()) {
             request.setAttribute("backdoorRestriction", "User " + uSession.getActualPerson().getPrincipalName()
                     + " not permitted to use backdoor functionality inside application: "
                     + ConfigContext.getCurrentContextConfig().getProperty("app.code") + ".");
@@ -169,31 +169,4 @@ public class BackdoorAction extends KualiAction {
         return GlobalVariables.getUserSession();
     }
 
-    public boolean isBackdoorAuthorized(UserSession uSession, HttpServletRequest request) {
-        boolean isAuthorized = true;
-
-        //we should check to see if a kim permission exists for the requested application first
-        Map<String, String> permissionDetails = new HashMap<String, String>();
-        String requestAppCode = ConfigContext.getCurrentContextConfig().getProperty("app.code");
-        permissionDetails.put(KimConstants.AttributeConstants.APP_CODE, requestAppCode);
-        List<Permission> perms = KimApiServiceLocator.getPermissionService().findPermissionsByTemplate(
-                KRADConstants.KUALI_RICE_SYSTEM_NAMESPACE, KimConstants.PermissionTemplateNames.BACKDOOR_RESTRICTION);
-        for (Permission kpi : perms) {
-            if (kpi.getAttributes().values().contains(requestAppCode)) {
-                //if a permission exists, is the user granted permission to use backdoor?
-                isAuthorized = KimApiServiceLocator.getPermissionService().isAuthorizedByTemplate(
-                        uSession.getActualPerson().getPrincipalId(), KRADConstants.KUALI_RICE_SYSTEM_NAMESPACE,
-                        KimConstants.PermissionTemplateNames.BACKDOOR_RESTRICTION, permissionDetails,
-                        Collections.<String, String>emptyMap());
-            }
-        }
-        if (!isAuthorized) {
-            LOG.warn("Attempt to backdoor was made by user: "
-                    + uSession.getPerson().getPrincipalId()
-                    + " into application with app code: "
-                    + requestAppCode
-                    + " but they do not have appropriate permissions. Backdoor processing aborted.");
-        }
-        return isAuthorized;
-    }
 }
