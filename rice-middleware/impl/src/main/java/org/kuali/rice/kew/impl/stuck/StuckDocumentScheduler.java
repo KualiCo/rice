@@ -86,7 +86,7 @@ public class StuckDocumentScheduler implements ApplicationListener<ContextRefres
                     .forJob(job)
                     .startNow()
                     .withSchedule(scheduleBuilder).build();
-            scheduler.scheduleJob(job, trigger);
+            scheduler().scheduleJob(job, trigger);
         } else {
             LOG.info("Stuck Documents Notification job is disabled.");
         }
@@ -108,19 +108,29 @@ public class StuckDocumentScheduler implements ApplicationListener<ContextRefres
                     .forJob(job)
                     .startNow()
                     .withSchedule(scheduleBuilder).build();
-            scheduler.scheduleJob(job, trigger);
+            scheduler().scheduleJob(job, trigger);
         } else {
             LOG.info("Stuck Documents Autofix job is disabled.");
         }
     }
 
     private void unscheduleJobIfExists(JobKey jobKey) throws SchedulerException {
-       if (scheduler.checkExists(jobKey)) {
-            scheduler.deleteJob(jobKey);
+       if (scheduler != null && scheduler().checkExists(jobKey)) {
+            scheduler().deleteJob(jobKey);
         }
     }
 
-    @Required
+    private Scheduler scheduler() {
+        if (this.scheduler == null) {
+            throw new IllegalStateException("StuckDocumentScheduler is trying to use the Scheduler but none exists!");
+        }
+        return this.scheduler;
+    }
+
+    /**
+     * Not marked as required because it may be null if running KSB in THIN mode. This is mostly to accomodate the way
+     * that KFS has Rice wired up in their integration tests.
+     */
     public void setScheduler(Scheduler scheduler) {
         this.scheduler = scheduler;
     }

@@ -313,7 +313,8 @@
 
   <bean id="rice.ksb.import.scheduler"
         class="org.kuali.rice.core.framework.resourceloader.GlobalResourceLoaderServiceFactoryBean"
-        p:serviceName="rice.ksb.scheduler"/>
+        p:serviceName="rice.ksb.scheduler"
+        p:mustExist="false"/>
 
   <bean id="rice.kew.stuckDocumentScheduler"
         class="org.kuali.rice.kew.impl.stuck.StuckDocumentScheduler"
