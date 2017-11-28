@@ -193,6 +193,7 @@
     <!-- Plugin versions: -->
 
     <plugin.build-helper.version>1.8</plugin.build-helper.version>
+    <plugin.github-site.version>0.12</plugin.github-site.version>
     <plugin.gmavenplus.version>1.5</plugin.gmavenplus.version>
     <plugin.http.version>1.0.5</plugin.http.version>
     <plugin.jetty.version>9.3.6.v20151106</plugin.jetty.version>
@@ -294,9 +295,8 @@
   <distributionManagement>
     <downloadUrl>${kuali.site.download.url}</downloadUrl>
     <site>
-      <id>${kuali.site.server.id}</id>
-      <name>Kuali Maven Site</name>
-      <url>${kuali.site.publish.url}</url>
+      <id>github-pages</id>
+      <url>scm:git:https://github.com/KualiCo/rice.git</url>
     </site>
     <repository>
       <id>${kuali.repo.release.id}</id>
@@ -535,6 +535,30 @@
       </properties>
       <build>
         <plugins>
+          <plugin>
+            <groupId>com.github.github</groupId>
+            <artifactId>site-maven-plugin</artifactId>
+            <version>${plugin.github-site.version}</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>site</goal>
+                </goals>
+                <phase>site-deploy</phase>
+                <configuration>
+                  <server>github-pages</server>
+                  <message>Updating documentation</message>
+                  <merge>true</merge>
+                  <host>https://github.com</host>
+                  <includes>
+                    <include>apidocs/**/*</include>
+                    <include>reference/**/*</include>
+                  </includes>
+                  <path>${project.version}</path>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
           <plugin>
             <groupId>com.mycila.maven-license-plugin</groupId>
             <artifactId>maven-license-plugin</artifactId>

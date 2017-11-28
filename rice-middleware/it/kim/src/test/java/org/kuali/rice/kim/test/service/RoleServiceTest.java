@@ -17,6 +17,9 @@ package org.kuali.rice.kim.test.service;
 
 import com.google.common.collect.Maps;
 import org.junit.Test;
+import org.kuali.rice.core.api.membership.MemberType;
+import org.kuali.rice.kim.api.role.Role;
+import org.kuali.rice.kim.api.role.RoleMember;
 import org.kuali.rice.kim.api.role.RoleService;
 import org.kuali.rice.kim.api.services.KimApiServiceLocator;
 import org.kuali.rice.kim.test.KIMTestCase;
@@ -28,6 +31,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import static org.junit.Assert.*;
 
@@ -91,6 +95,26 @@ public class RoleServiceTest extends KIMTestCase {
                 .<String, String>emptyMap());
 		assertNotNull(rolePrincipalIds);
 		assertEquals("RoleTwo should have 6 principal ids", 5, rolePrincipalIds.size());
+	}
+
+	/**
+	 * This test will verify proper behavior when switching from a primary to a secondary delegation via the API.
+	 */
+	@Test
+	public void testSwitchFromPrimaryToSecondaryDelegation() {
+		// first let's create a new Role with a delegation
+		String roleId = UUID.randomUUID().toString();
+		Role.Builder roleBuilder = Role.Builder.create(roleId, "testSwitchFromPrimaryToSecondaryDelegation", "TEST", "test role", "1");
+		Role role = getRoleService().createRole(roleBuilder.build());
+
+		// now assign a member
+		String roleMemberId = UUID.randomUUID().toString();
+		RoleMember.Builder roleMemberBuilder = RoleMember.Builder.create(roleId, roleMemberId, "p10", MemberType.PRINCIPAL, null, null, null, null, null);
+		RoleMember roleMember = getRoleService().createRoleMember(roleMemberBuilder.build());
+
+		// now create a delegation
+		getRoleService().createDelegateType()
+
 	}
 	
 	public RoleService getRoleService() {
