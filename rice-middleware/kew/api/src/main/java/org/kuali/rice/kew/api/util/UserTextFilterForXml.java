@@ -16,9 +16,9 @@
 package org.kuali.rice.kew.api.util;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.xml.utils.XMLChar;
 
 public class UserTextFilterForXml {
+
     /**
      * Removes invalid XML 1.0 Unicode characters
      * @param text The String to clean
@@ -46,4 +46,5 @@ public class UserTextFilterForXml {
             }
         }
     }
+
 }

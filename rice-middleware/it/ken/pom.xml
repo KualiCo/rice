@@ -124,11 +124,6 @@
 	      <artifactId>spring-web</artifactId>
 	      <scope>test</scope>
 	    </dependency>
-            <dependency>
-	      <groupId>xerces</groupId>
-	      <artifactId>xercesImpl</artifactId>
-	      <scope>test</scope>
-	    </dependency>
 
       <!-- CXF 3.0.4 API -->
       <dependency>
