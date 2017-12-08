@@ -48,6 +48,7 @@
     <param name="datasource.pool.maxWait" override="false">30000</param>
 
     <param name="datasource.ojb.platform" override="false">Oracle9i</param>
+    <param name="krad.datasource.ojb.platform" override="false">${datasource.ojb.platform}</param>
 
     <param name="datasource.driver.name.Oracle" override="false">oracle.jdbc.OracleDriver</param>
     <param name="datasource.platform.Oracle" override="false">org.kuali.rice.core.framework.persistence.platform.OracleDatabasePlatform</param>
@@ -59,12 +60,16 @@
     <param name="datasource.platform.Oracle9i" override="false">org.kuali.rice.core.framework.persistence.platform.OracleDatabasePlatform</param>
     <param name="datasource.ojb.sequenceManager.Oracle9i" override="false"></param>
     <param name="datasource.ojb.sequenceManager.className.Oracle9i" override="false"></param>
+    <param name="krad.datasource.ojb.sequenceManager.Oracle9i" override="false"></param>
+    <param name="krad.datasource.ojb.sequenceManager.className.Oracle9i" override="false"></param>
     <param name="datasource.pool.validationQuery.Oracle9i" override="false">select 1 from dual</param>
 
     <param name="datasource.driver.name.MySQL" override="false">com.mysql.jdbc.Driver</param>
     <param name="datasource.platform.MySQL" override="false">org.kuali.rice.core.framework.persistence.platform.MySQLDatabasePlatform</param>
     <param name="datasource.ojb.sequenceManager.MySQL" override="false">org.apache.ojb.broker.platforms.KualiMySQLSequenceManagerImpl</param>
     <param name="datasource.ojb.sequenceManager.className.MySQL" override="false">org.apache.ojb.broker.platforms.KualiMySQLSequenceManagerImpl</param>
+    <param name="krad.datasource.ojb.sequenceManager.MySQL" override="false">org.apache.ojb.broker.platforms.KualiMySQLSequenceManagerImpl</param>
+    <param name="krad.datasource.ojb.sequenceManager.className.MySQL" override="false">org.apache.ojb.broker.platforms.KualiMySQLSequenceManagerImpl</param>
     <param name="datasource.pool.validationQuery.MySQL" override="false">select 1</param>
 
     <param name="datasource.driver.name.Derby" override="false">org.apache.derby.jdbc.EmbeddedDriver</param>
@@ -77,6 +82,8 @@
     <param name="datasource.platform" override="false">${datasource.platform.${datasource.ojb.platform}}</param>
     <param name="datasource.ojb.sequenceManager" override="false">${datasource.ojb.sequenceManager.${datasource.ojb.platform}}</param>
     <param name="datasource.ojb.sequenceManager.className" override="false">${datasource.ojb.sequenceManager.className.${datasource.ojb.platform}}</param>
+    <param name="krad.datasource.ojb.sequenceManager" override="false">${krad.datasource.ojb.sequenceManager.${krad.datasource.ojb.platform}}</param>
+    <param name="krad.datasource.ojb.sequenceManager.className" override="false">${krad.datasource.ojb.sequenceManager.className.${krad.datasource.ojb.platform}}</param>
     <param name="datasource.pool.validationQuery" override="false">${datasource.pool.validationQuery.${datasource.ojb.platform}}</param>
 
     <!-- datasource.btm.journal can be "null", "disk", or a class name -->
