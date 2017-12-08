@@ -17,6 +17,7 @@ package org.kuali.rice.krad.dao.proxy;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.ojb.broker.core.proxy.ProxyHelper;
+import org.kuali.rice.core.framework.persistence.dao.PlatformAwareDao;
 import org.kuali.rice.krad.bo.ModuleConfiguration;
 import org.kuali.rice.krad.dao.PersistenceDao;
 import org.kuali.rice.krad.dao.impl.PersistenceDaoOjb;
@@ -56,6 +57,8 @@ public class PersistenceDaoProxy implements PersistenceDao {
                     //using OJB
                     PersistenceDaoOjb persistDaoOjb = new PersistenceDaoOjb();
                     persistDaoOjb.setJcdAlias(dataSourceName);
+                    // now we need to make sure we set the platform properly by grabbing the one from the OJB platform...
+                    persistDaoOjb.setDbPlatform(((PlatformAwareDao)persistenceDaoOjb).getDbPlatform());
 
                     persistenceDaoValues.put(dataSourceName, persistDaoOjb);
                     return persistDaoOjb;

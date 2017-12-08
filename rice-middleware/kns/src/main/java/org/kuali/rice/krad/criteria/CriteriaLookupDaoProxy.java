@@ -19,6 +19,7 @@ import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.criteria.GenericQueryResults;
 import org.kuali.rice.core.api.criteria.LookupCustomizer;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
+import org.kuali.rice.core.framework.persistence.dao.PlatformAwareDao;
 import org.kuali.rice.krad.bo.ModuleConfiguration;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.kuali.rice.krad.service.KualiModuleService;
@@ -30,6 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CriteriaLookupDaoProxy implements CriteriaLookupDao {
+
     CriteriaLookupDao criteriaLookupDaoOjb;
 
     private static KualiModuleService kualiModuleService;
@@ -54,6 +56,8 @@ public class CriteriaLookupDaoProxy implements CriteriaLookupDao {
                 } else {
         			CriteriaLookupDaoOjb classSpecificLookupDaoOjb = new CriteriaLookupDaoOjb();
                     classSpecificLookupDaoOjb.setJcdAlias(dataSourceName);
+                    // now we need to make sure we set the platform properly by grabbing the one from the OJB platform...
+                    classSpecificLookupDaoOjb.setDbPlatform(((PlatformAwareDao)criteriaLookupDaoOjb).getDbPlatform());
                     lookupDaoValues.put(dataSourceName, classSpecificLookupDaoOjb);
                     return classSpecificLookupDaoOjb;
                 }

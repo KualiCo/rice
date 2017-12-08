@@ -16,6 +16,7 @@
 package org.kuali.rice.krad.dao.proxy;
 
 import org.apache.commons.lang.StringUtils;
+import org.kuali.rice.core.framework.persistence.dao.PlatformAwareDao;
 import org.kuali.rice.kns.service.KNSServiceLocator;
 import org.kuali.rice.krad.bo.BusinessObject;
 import org.kuali.rice.krad.bo.ModuleConfiguration;
@@ -63,6 +64,8 @@ public class BusinessObjectDaoProxy implements BusinessObjectDao {
                     BusinessObjectDaoOjb boDaoOjb = new BusinessObjectDaoOjb(
                             KNSServiceLocator.getPersistenceStructureService());
                     boDaoOjb.setJcdAlias(dataSourceName);
+					// now we need to make sure we set the platform properly by grabbing the one from the OJB platform...
+					boDaoOjb.setDbPlatform(((PlatformAwareDao)businessObjectDaoOjb).getDbPlatform());
                     // add to our cache of bo daos
                     boDaoValues.put(dataSourceName, boDaoOjb);
                     return boDaoOjb;

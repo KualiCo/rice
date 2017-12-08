@@ -17,6 +17,7 @@ package org.kuali.rice.krad.dao.proxy;
 
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
+import org.kuali.rice.core.framework.persistence.dao.PlatformAwareDao;
 import org.kuali.rice.kns.service.KNSServiceLocator;
 import org.kuali.rice.krad.bo.ModuleConfiguration;
 import org.kuali.rice.krad.dao.LookupDao;
@@ -64,6 +65,8 @@ public class LookupDaoProxy implements LookupDao {
                     classSpecificLookupDaoOjb.setDateTimeService(CoreApiServiceLocator.getDateTimeService());
                     classSpecificLookupDaoOjb.setDataDictionaryService(
                             KRADServiceLocatorWeb.getDataDictionaryService());
+                    // now we need to make sure we set the platform properly by grabbing the one from the OJB platform...
+                    classSpecificLookupDaoOjb.setDbPlatform(((PlatformAwareDao)lookupDaoOjb).getDbPlatform());
                     lookupDaoValues.put(dataSourceName, classSpecificLookupDaoOjb);
                     return classSpecificLookupDaoOjb;
                 }

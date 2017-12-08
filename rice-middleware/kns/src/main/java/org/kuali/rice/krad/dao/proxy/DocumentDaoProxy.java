@@ -16,6 +16,7 @@
 package org.kuali.rice.krad.dao.proxy;
 
 import org.apache.commons.lang.StringUtils;
+import org.kuali.rice.core.framework.persistence.dao.PlatformAwareDao;
 import org.kuali.rice.krad.bo.ModuleConfiguration;
 import org.kuali.rice.krad.dao.BusinessObjectDao;
 import org.kuali.rice.krad.dao.DocumentDao;
@@ -61,6 +62,8 @@ public class DocumentDaoProxy implements DocumentDao {
 
                 // set the data source alias
                 documentDaoOjbInstance.setJcdAlias(dataSourceName);
+                // now we need to make sure we set the platform properly by grabbing the one from the OJB platform...
+                documentDaoOjbInstance.setDbPlatform(((PlatformAwareDao)documentDaoOjb).getDbPlatform());
 
                 documentDaoValues.put(dataSourceName, documentDaoOjbInstance);
                 return documentDaoOjbInstance;
