@@ -78,6 +78,12 @@
 			value="false" />
 	</bean>
 
+	<bean id="kradDbPlatform" class="org.kuali.rice.core.framework.persistence.platform.ConfigurableDatabasePlatform">
+		<property name="configProperty" value="krad.datasource.platform"/>
+		<property name="defaultPlatform" ref="dbPlatform"/>
+	</bean>
+
+
 	<bean
 		id="platformAwareDaoJdbc"
 		abstract="true"
@@ -87,7 +93,7 @@
 			ref="kradApplicationDataSource" />
 		<property
 			name="dbPlatform"
-			ref="dbPlatform" />
+			ref="kradDbPlatform" />
 	</bean>
 
 	<import resource="KRADSpringBeans-jpa.xml" />

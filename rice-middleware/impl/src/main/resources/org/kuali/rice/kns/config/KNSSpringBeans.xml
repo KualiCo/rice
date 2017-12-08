@@ -369,7 +369,7 @@
         p:dataDictionaryService-ref="dataDictionaryService"
         p:dataObjectMetaDataService-ref="dataObjectMetaDataService"
         p:kualiConfigurationService-ref="kualiConfigurationService"
-        p:databasePlatform-ref="dbPlatform"
+        p:databasePlatform-ref="kradDbPlatform"
         p:documentDao-ref="documentDao"
         p:dateTimeService-ref="dateTimeService"
         p:viewDictionaryService-ref="viewDictionaryService"/>
@@ -407,6 +407,7 @@
       </list>
     </property>
     <property name="metadataLocation" value="classpath:org/kuali/rice/kns/config/OJB-repository-kns.xml"/>
+    <property name="platformConfigProperty" value="krad.datasource.ojb.platform" />
   </bean>
 
   <bean id="ojbCollectionHelper" class="org.kuali.rice.krad.service.util.OjbCollectionHelper"/>
@@ -414,13 +415,13 @@
   <bean id="platformAwareDao" abstract="true"
         class="org.kuali.rice.core.framework.persistence.ojb.dao.PlatformAwareDaoBaseOjb">
     <property name="jcdAlias" value="kradApplicationDataSource"/>
-    <property name="dbPlatform" ref="dbPlatform"/>
+    <property name="dbPlatform" ref="kradDbPlatform"/>
   </bean>
 
   <bean id="platformAwareDaoJdbc" abstract="true"
         class="org.kuali.rice.core.framework.persistence.jdbc.dao.PlatformAwareDaoBaseJdbc">
     <property name="dataSource" ref="kradApplicationDataSource"/>
-    <property name="dbPlatform" ref="dbPlatform"/>
+    <property name="dbPlatform" ref="kradDbPlatform"/>
   </bean>
 
   <bean id="persistenceStructureServiceOjb"
@@ -432,7 +433,7 @@
 
   <bean id="persistenceDaoOjb" parent="platformAwareDao" class="org.kuali.rice.krad.dao.impl.PersistenceDaoOjb">
     <property name="jcdAlias" value="kradApplicationDataSource"/>
-    <property name="dbPlatform" ref="dbPlatform"/>
+    <property name="dbPlatform" ref="kradDbPlatform"/>
   </bean>
 
   <bean id="documentDaoOjb" parent="platformAwareDao" class="org.kuali.rice.krad.dao.impl.DocumentDaoOjb">

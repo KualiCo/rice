@@ -674,7 +674,7 @@
   <bean id="lookupCriteriaGenerator" class="org.kuali.rice.krad.service.impl.LookupCriteriaGeneratorImpl"
         p:dateTimeService-ref="dateTimeService"
         p:dataDictionaryService-ref="dataDictionaryService"
-        p:dbPlatform-ref="dbPlatform"
+        p:dbPlatform-ref="kradDbPlatform"
         p:dataObjectService-ref="dataObjectService"/>
 
   <!-- Legacy Data Adapter Beans -->

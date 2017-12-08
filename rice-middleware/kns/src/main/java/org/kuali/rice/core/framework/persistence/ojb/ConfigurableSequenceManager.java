@@ -116,15 +116,17 @@ public class ConfigurableSequenceManager implements SequenceManager {
 		return this.broker;
 	}
 
-	public String getPropertyPrefix() {
+	private String getPropertyPrefix() {
+		String propertyPrefix = DEFAULT_PROPERTY_PREFIX;
+		// check the sequence descriptor
 		SequenceDescriptor sd = getBroker().serviceConnectionManager().getConnectionDescriptor().getSequenceDescriptor();
-		String propertyPrefix = null;
 		if (sd != null) {
-			propertyPrefix = sd.getConfigurationProperties().getProperty(PROPERTY_PREFIX_ATTRIBUTE);
-		}
-		if (StringUtils.isBlank(propertyPrefix)) {
-			propertyPrefix = DEFAULT_PROPERTY_PREFIX;
+			String configuredPropertyPrefix = sd.getConfigurationProperties().getProperty(PROPERTY_PREFIX_ATTRIBUTE);
+			if (!StringUtils.isBlank(ConfigContext.getCurrentContextConfig().getProperty(getSequenceManagerClassNameProperty(configuredPropertyPrefix)))) {
+				propertyPrefix = configuredPropertyPrefix;
+			}
 		}
 		return propertyPrefix;
 	}
+
 }

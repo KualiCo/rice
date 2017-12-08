@@ -74,6 +74,12 @@ public class BaseOjbConfigurer extends BaseLifecycle implements InitializingBean
     protected List<String> additionalMetadataLocations;
 
     /**
+     * Defines the config property to use to determine the database platform for this OJB Configurer, configurer will
+     * check this first then fall back to the default of {@link Config#OJB_PLATFORM}
+     */
+    private String platformConfigProperty;
+
+    /**
      * No-arg constructor
      */
     public BaseOjbConfigurer() {
@@ -165,9 +171,9 @@ public class BaseOjbConfigurer extends BaseLifecycle implements InitializingBean
             Element descriptor = (Element)connectionDescriptors.item(index);
             String currentPlatform = descriptor.getAttribute("platform");
             if (StringUtils.isBlank(currentPlatform)) {
-                String ojbPlatform = ConfigContext.getCurrentContextConfig().getProperty(Config.OJB_PLATFORM);
+                String ojbPlatform = ConfigContext.getCurrentContextConfig().getProperty(identifyValidPlatformConfigProperty());
                 if (StringUtils.isEmpty(ojbPlatform)) {
-                    throw new ConfigurationException("Could not configure OJB, the '" + Config.OJB_PLATFORM + "' configuration property was not set.");
+                    throw new ConfigurationException("Could not configure OJB, the '" + identifyValidPlatformConfigProperty() + "' configuration property was not set.");
                 }
                 LOG.info("Setting OJB connection descriptor database platform to '" + ojbPlatform + "'");
                 descriptor.setAttribute("platform", ojbPlatform);
@@ -290,5 +296,24 @@ public class BaseOjbConfigurer extends BaseLifecycle implements InitializingBean
      */
     public void setAdditionalMetadataLocations(List<String> additionalMetadataLocations) {
         this.additionalMetadataLocations = additionalMetadataLocations;
+    }
+
+    public String getPlatformConfigProperty() {
+        return platformConfigProperty;
+    }
+
+    public void setPlatformConfigProperty(String platformConfigProperty) {
+        this.platformConfigProperty = platformConfigProperty;
+    }
+
+    private String identifyValidPlatformConfigProperty() {
+        String validPlatformConfigProperty = Config.OJB_PLATFORM;
+        if (!StringUtils.isBlank(getPlatformConfigProperty())) {
+            String ojbPlatform = ConfigContext.getCurrentContextConfig().getProperty(getPlatformConfigProperty());
+            if (!StringUtils.isBlank(ojbPlatform)) {
+                validPlatformConfigProperty = getPlatformConfigProperty();
+            }
+        }
+        return validPlatformConfigProperty;
     }
 }
