@@ -74,7 +74,7 @@ public class RoleBo extends DataObjectBase implements RoleEbo {
 
     @JoinFetch(value= JoinFetchType.OUTER)
     @OneToMany(targetEntity = RoleMemberBo.class, orphanRemoval = true, cascade = CascadeType.ALL)
-    @JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID", insertable = false, updatable = false)
+    @JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID")
     private List<RoleMemberBo> members = new AutoPopulatingList<RoleMemberBo>(RoleMemberBo.class);
 
     @Transient
