@@ -14,6 +14,25 @@
 -- limitations under the License.
 --
 
+-- Setup a Kim Type with some attributes
+INSERT INTO KRIM_TYP_T(KIM_TYP_ID, OBJ_ID, VER_NBR, NM, SRVC_NM, ACTV_IND, NMSPC_CD)
+	VALUES('type-with-attributes', 'type-with-attributes', 1, 'type-with-attributes', null, 'Y', 'TEST')
+/
+INSERT INTO KRIM_ATTR_DEFN_T (kim_attr_defn_id, obj_id, ver_nbr, nmspc_cd, nm, lbl, actv_ind, cmpnt_nm)
+  VALUES ('attr1', 'attr1', 1, 'TEST', 'attr1', 'attr1', 'Y', NULL)
+/
+INSERT INTO KRIM_ATTR_DEFN_T (kim_attr_defn_id, obj_id, ver_nbr, nmspc_cd, nm, lbl, actv_ind, cmpnt_nm)
+  VALUES ('attr2', 'attr2', 1, 'TEST', 'attr2', 'attr2', 'Y', NULL)
+/
+INSERT INTO KRIM_TYP_ATTR_T(KIM_TYP_ATTR_ID, OBJ_ID, VER_NBR, SORT_CD, KIM_TYP_ID, KIM_ATTR_DEFN_ID, ACTV_IND)
+	VALUES('type-with-attributes-attr1', 'type-with-attributes-attr1', 1, 'a', 'type-with-attributes', 'attr1', 'Y')
+/
+INSERT INTO KRIM_TYP_ATTR_T(KIM_TYP_ATTR_ID, OBJ_ID, VER_NBR, SORT_CD, KIM_TYP_ID, KIM_ATTR_DEFN_ID, ACTV_IND)
+	VALUES('type-with-attributes-attr2', 'type-with-attributes-attr2', 1, 'b', 'type-with-attributes', 'attr2', 'Y')
+/
+
+-- Set Create Role "r1"
+
 INSERT INTO KRIM_ROLE_T (ACTV_IND,KIM_TYP_ID,NMSPC_CD,OBJ_ID,ROLE_ID,ROLE_NM,VER_NBR, DESC_TXT)
   VALUES ('Y','1','AUTH_SVC_TEST1','ea9ed94a-7e6b-102c-97b6-ed716fdaf540','r1','RoleOne',1, 'Role 1 Description')
 /
