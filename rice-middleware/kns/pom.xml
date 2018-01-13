@@ -26,10 +26,6 @@
   </parent>
   <artifactId>rice-kns</artifactId>
 
-  <properties>
-    <db-ojb.version>1.0.4-patch9</db-ojb.version>
-  </properties>
-
   <build>
   	<plugins>
 	  <!-- Enable static weaving using META-INF/persistence-weaving.xml for this module -->
