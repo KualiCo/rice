@@ -117,7 +117,7 @@
     <commons-pool.version>1.6</commons-pool.version>
     <commons-digester.version>2.1</commons-digester.version>
     <commons-validator.version>1.6</commons-validator.version>
-    <cxf.version>3.1.10</cxf.version>
+    <cxf.version>3.2.6</cxf.version>
     <db-ojb.version>1.0.4-patch9</db-ojb.version>
     <displaytag.version>1.2</displaytag.version>
     <dom4j.version>1.6.1</dom4j.version>
@@ -130,7 +130,7 @@
     <lesscss.version>1.3.3</lesscss.version>
     <glassfish-javax-json.version>1.0.4</glassfish-javax-json.version>
     <groovy.version>2.4.7</groovy.version>
-    <guava.version>21.0</guava.version>
+    <guava.version>23.6.1-jre</guava.version>
     <httpclient.version>4.5.3</httpclient.version>
 
     <!-- Can't get rid of this dependency until the JAXB RI in our current JDK is >= this version.
@@ -139,6 +139,7 @@
 
     <jackson.version>2.9.4</jackson.version>
     <javassist.version>3.21.0-GA</javassist.version>
+    <javax.ws.rs-api.version>2.0.1</javax.ws.rs-api.version>
     <jdom.version>1.1.3</jdom.version>
     <jetty.version>9.4.12.v20180830</jetty.version>
     <joda-time.version>2.9.7</joda-time.version>
@@ -146,9 +147,7 @@
     <jotm.version>2.1.10-kuali-1</jotm.version>
     <jpa.version>2.1.1</jpa.version>
     <jsch.version>0.1.54</jsch.version>
-    <json-api.version>1.0</json-api.version>
     <jsp-api.version>2.2</jsp-api.version>
-    <jsr311-api.version>1.1.1</jsr311-api.version>
 
     <!--
       KULRICE-7262: Bad jstl version in maven repository
@@ -184,7 +183,7 @@
     <validation.version>1.1.0.Final</validation.version>
     <velocity.version>1.7</velocity.version>
     <velocity.tools.version>2.0</velocity.tools.version>
-    <wss4j.version>2.1.8</wss4j.version>
+    <wss4j.version>2.2.2</wss4j.version>
     <xapool.version>1.5.0-patch6</xapool.version>
     <xmlunit.version>2.3.0</xmlunit.version>
     <xstream.version>1.4.9</xstream.version>
@@ -204,6 +203,7 @@
     <!-- Pin the tomcat7 plugin to an explicit version -->
     <plugin.tomcat7.version>2.1</plugin.tomcat7.version>
     <plugin.dependency-check.version>3.3.1</plugin.dependency-check.version>
+    <plugin.duplicate-finder-maven-plugin.version>1.3.0</plugin.duplicate-finder-maven-plugin.version>
 
     <!-- Saucelabs settings (aside from version, which is above): -->
 
@@ -1579,6 +1579,51 @@
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
       </plugin>
+
+      <plugin>
+        <groupId>org.basepom.maven</groupId>
+        <artifactId>duplicate-finder-maven-plugin</artifactId>
+        <version>${plugin.duplicate-finder-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>default</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
+          <ignoredDependencies>
+            <dependency>
+              <groupId>xmlpull</groupId>
+              <artifactId>xmlpull</artifactId>
+            </dependency>
+            <dependency>
+              <groupId>com.yahoo.platform.yui</groupId>
+              <artifactId>yuicompressor</artifactId>
+            </dependency>
+            <dependency>
+              <groupId>org.kuali.rice</groupId>
+              <artifactId>rice-krad-web-framework</artifactId>
+              <classifier>tests</classifier>
+            </dependency>
+            <dependency>
+              <groupId>org.kuali.rice</groupId>
+              <artifactId>rice-it-krad</artifactId>
+              <classifier>tests</classifier>
+            </dependency>
+          </ignoredDependencies>
+          <ignoredResourcePatterns>
+            <ignoredResourcePattern>(.+?)(\\.dtd)?</ignoredResourcePattern>
+            <ignoredResourcePattern>(.+?)(\\.xsd)?</ignoredResourcePattern>
+            <ignoredResourcePattern>.html</ignoredResourcePattern>
+            <ignoredResourcePattern>.txt</ignoredResourcePattern>
+          </ignoredResourcePatterns>
+        </configuration>
+      </plugin>
+
     </plugins>
 
   </build>
@@ -1883,12 +1928,6 @@
       </dependency>
 
       <dependency>
-        <groupId>javax.json</groupId>
-        <artifactId>javax.json-api</artifactId>
-        <version>${json-api.version}</version>
-      </dependency>
-
-      <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>
         <version>${servlet-api.version}</version>
@@ -1910,8 +1949,8 @@
 
       <dependency>
         <groupId>javax.ws.rs</groupId>
-        <artifactId>jsr311-api</artifactId>
-        <version>${jsr311-api.version}</version>
+        <artifactId>javax.ws.rs-api</artifactId>
+        <version>${javax.ws.rs-api.version}</version>
       </dependency>
 
       <dependency>
@@ -2182,11 +2221,27 @@
         <groupId>org.apache.wss4j</groupId>
         <artifactId>wss4j-policy</artifactId>
         <version>${wss4j.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>javax.xml.stream</groupId>
+            <artifactId>stax-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.codehaus.woodstox</groupId>
+            <artifactId>woodstox-core-asl</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.apache.wss4j</groupId>
         <artifactId>wss4j-ws-security-common</artifactId>
         <version>${wss4j.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.apache.geronimo.javamail</groupId>
+            <artifactId>geronimo-javamail_1.4_mail</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.apache.wss4j</groupId>
@@ -2401,6 +2456,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
           </exclusion>
+          <!-- We can exclude aopalliance because spring-aop has the classes in it, and spring-security-core also depends on spring-aop -->
+          <exclusion>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+          </exclusion>
         </exclusions>
       </dependency>
       
@@ -2424,6 +2484,10 @@
           <exclusion>
             <groupId>javax.activation</groupId>
             <artifactId>activation</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
           </exclusion>
         </exclusions>
         <scope>test</scope>
@@ -2449,6 +2513,11 @@
           <exclusion>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
+          </exclusion>
+          <!-- jar already contains all of the Howl classes -->
+          <exclusion>
+            <groupId>org.objectweb.howl</groupId>
+            <artifactId>howl</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
@@ -2486,6 +2555,13 @@
         <artifactId>soa-model-core</artifactId>
         <version>${soa.model.core.version}</version>
         <scope>test</scope>
+        <exclusions>
+          <!-- excluding these because we get them from groovy-all -->
+          <exclusion>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>*</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
@@ -2516,11 +2592,17 @@
         <groupId>com.yahoo.platform.yui</groupId>
         <artifactId>yuicompressor</artifactId>
         <version>${yuicompressor.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>rhino</groupId>
+            <artifactId>js</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>com.google.javascript</groupId>
-        <artifactId>closure-compiler</artifactId>
+        <artifactId>closure-compiler-unshaded</artifactId>
         <version>${closure.version}</version>
       </dependency>
 
@@ -2569,6 +2651,13 @@
         <groupId>co.kuali</groupId>
         <artifactId>core-filter</artifactId>
         <version>${core-auth-servlet-filter.version}</version>
+        <exclusions>
+          <!-- exclude because of conflict with spring-aop and duplicated classes -->
+          <exclusion>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>aopalliance-repackaged</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <!-- Jetty dependencies -->
       <dependency>
