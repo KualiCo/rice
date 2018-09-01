@@ -123,7 +123,7 @@
     <dom4j.version>1.6.1</dom4j.version>
     <dwr.version>3.0.RC2</dwr.version>
     <eclipselink.version>2.6.4</eclipselink.version>
-    <ehcache.version>2.10.4</ehcache.version>
+    <ehcache.version>2.10.5</ehcache.version>
     <esapi.version>2.1.0.1</esapi.version>
     <filemonitor.version>1.0-kuali</filemonitor.version>
     <freemarker.version>2.3.25-incubating</freemarker.version>
@@ -140,7 +140,7 @@
     <jackson.version>2.9.4</jackson.version>
     <javassist.version>3.21.0-GA</javassist.version>
     <jdom.version>1.1.3</jdom.version>
-    <jetty.version>9.4.2.v20170220</jetty.version>
+    <jetty.version>9.4.12.v20180830</jetty.version>
     <joda-time.version>2.9.7</joda-time.version>
     <joda-time-jsptags.version>1.1.1</joda-time-jsptags.version>
     <jotm.version>2.1.10-kuali-1</jotm.version>
@@ -203,7 +203,7 @@
     <plugin.selenium.version>2.3</plugin.selenium.version>
     <!-- Pin the tomcat7 plugin to an explicit version -->
     <plugin.tomcat7.version>2.1</plugin.tomcat7.version>
-    <plugin.dependency-check.version>3.2.1</plugin.dependency-check.version>
+    <plugin.dependency-check.version>3.3.1</plugin.dependency-check.version>
 
     <!-- Saucelabs settings (aside from version, which is above): -->
 
@@ -2573,6 +2573,11 @@
       <!-- Jetty dependencies -->
       <dependency>
         <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-client</artifactId>
+        <version>${jetty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-server</artifactId>
         <version>${jetty.version}</version>
       </dependency>
@@ -2609,6 +2614,16 @@
       <dependency>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-security</artifactId>
+        <version>${jetty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-continuation</artifactId>
+        <version>${jetty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.jetty.websocket</groupId>
+        <artifactId>websocket-client</artifactId>
         <version>${jetty.version}</version>
       </dependency>
       <dependency>
