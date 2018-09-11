@@ -1614,6 +1614,11 @@
               <artifactId>rice-it-krad</artifactId>
               <classifier>tests</classifier>
             </dependency>
+            <dependency>
+              <groupId>org.kuali.rice</groupId>
+              <artifactId>rice-krad-data</artifactId>
+              <classifier>tests</classifier>
+            </dependency>
           </ignoredDependencies>
           <ignoredResourcePatterns>
             <ignoredResourcePattern>(.+?)(\\.dtd)?</ignoredResourcePattern>
