@@ -48,7 +48,7 @@ public class StuckDocumentDaoJpa implements StuckDocumentDao {
     private static final String NEW_STUCK_DOCUMENT_ACTION_REQUEST_SQL =
             "select DH.DOC_HDR_ID from KREW_DOC_HDR_T DH " +
                     "left outer join (select DOC_HDR_ID, STAT_CD from KREW_ACTN_RQST_T AR where AR.STAT_CD='A') AR on DH.DOC_HDR_ID=AR.DOC_HDR_ID " +
-                    "left outer join (select DOC_HDR_ID, STATUS, START_DT, END_DT from KREW_STUCK_DOC_INCIDENT_T where (DOC_HDR_ID, START_DT) in (select DOC_HDR_ID, MAX(START_DT) from KREW_STUCK_DOC_INCIDENT_T group by DOC_HDR_ID)) as SD " +
+                    "left outer join (select DOC_HDR_ID, STATUS, START_DT, END_DT from KREW_STUCK_DOC_INCIDENT_T where (DOC_HDR_ID, START_DT) in (select DOC_HDR_ID, MAX(START_DT) from KREW_STUCK_DOC_INCIDENT_T group by DOC_HDR_ID)) SD " +
                     "on DH.DOC_HDR_ID=SD.DOC_HDR_ID " +
                     "where DH.DOC_HDR_STAT_CD='R' and AR.DOC_HDR_ID IS NULL and " +
                     "(SD.DOC_HDR_ID IS NULL OR SD.STATUS='FIXED' OR (SD.STATUS='FAILED' AND DH.STAT_MDFN_DT > SD.END_DT))";
