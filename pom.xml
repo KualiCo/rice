@@ -100,7 +100,7 @@
     <antlr.version>2.7.7</antlr.version>
     <asm.version>5.2</asm.version>
     <aspectj.version>1.8.10</aspectj.version>
-    <bcprov.version>1.56</bcprov.version>
+    <bcprov.version>1.60</bcprov.version>
     <bitronix.version>2.1.4</bitronix.version>
     <core-auth-servlet-filter.version>1.7</core-auth-servlet-filter.version>
     <closure.version>v20170218</closure.version>
@@ -202,7 +202,7 @@
     <plugin.selenium.version>2.3</plugin.selenium.version>
     <!-- Pin the tomcat7 plugin to an explicit version -->
     <plugin.tomcat7.version>2.1</plugin.tomcat7.version>
-    <plugin.dependency-check.version>3.3.1</plugin.dependency-check.version>
+    <plugin.dependency-check.version>3.3.2</plugin.dependency-check.version>
     <plugin.duplicate-finder-maven-plugin.version>1.3.0</plugin.duplicate-finder-maven-plugin.version>
 
     <!-- Saucelabs settings (aside from version, which is above): -->
