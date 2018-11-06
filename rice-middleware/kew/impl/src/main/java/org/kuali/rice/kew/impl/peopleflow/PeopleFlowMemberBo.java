@@ -52,7 +52,7 @@ import java.util.List;
 public class PeopleFlowMemberBo implements Serializable, PeopleFlowMemberContract,BusinessObject {
 
     @Id
-    @GeneratedValue(generator = "KREW_PPL_FLW_S")
+    @GeneratedValue(generator = "KREW_PPL_FLW_MBR_S")
     @PortableSequenceGenerator(name = "KREW_PPL_FLW_MBR_S")
     @Column(name = "PPL_FLW_MBR_ID", nullable = false)
     private String id;
