@@ -30,10 +30,6 @@
   <name>Rice KRAD Theme Builder</name>
 
   <dependencies>
-    <dependency>
-      <groupId>org.kuali.common</groupId>
-      <artifactId>kuali-util</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>org.codehaus.plexus</groupId>

@@ -27,9 +27,6 @@
 
   <artifactId>rice-client-contrib</artifactId>
 
-  <properties>
-    <casclient.version>2.1.1</casclient.version>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
@@ -67,28 +64,13 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-        <!-- groupid was changed to org.jasig.cas in later versions -->
-      <groupId>cas</groupId>
-      <artifactId>casclient</artifactId>
-      <version>${casclient.version}</version>
-      <exclusions>
-        <exclusion>
-          <artifactId>commons-logging</artifactId>
-          <groupId>commons-logging</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>servlet-api</artifactId>
-          <groupId>javax.servlet</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 

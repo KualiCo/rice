@@ -31,21 +31,6 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.kuali.common</groupId>
-      <artifactId>kuali-util</artifactId>
-      <version>${kuali-util.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.kuali.common</groupId>
-      <artifactId>kuali-jdbc</artifactId>
-      <version>${kuali-jdbc.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.kuali.common</groupId>
-      <artifactId>kuali-deploy</artifactId>
-      <version>${kuali-deploy.version}</version>
-    </dependency>
-    <dependency>
       <groupId>org.kuali.rice</groupId>
       <artifactId>rice-db-config</artifactId>
       <version>${project.version}</version>
@@ -105,11 +90,6 @@
             <groupId>org.kuali.rice</groupId>
             <artifactId>rice-db-config</artifactId>
             <version>${project.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>org.kuali.common</groupId>
-            <artifactId>kuali-deploy</artifactId>
-            <version>${kuali-deploy.version}</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -181,21 +161,6 @@
                 <groupId>org.kuali.rice</groupId>
                 <artifactId>rice-sql</artifactId>
                 <version>${project.version}</version>
-              </dependency>
-              <dependency>
-                <groupId>org.kuali.common</groupId>
-                <artifactId>kuali-sql</artifactId>
-                <version>${kuali-sql.version}</version>
-              </dependency>
-              <dependency>
-                <groupId>org.kuali.common</groupId>
-                <artifactId>kuali-util</artifactId>
-                <version>${kuali-util.version}</version>
-              </dependency>
-              <dependency>
-                <groupId>org.kuali.common</groupId>
-                <artifactId>kuali-jdbc</artifactId>
-                <version>${kuali-jdbc.version}</version>
               </dependency>
               <dependency>
                 <groupId>org.springframework</groupId>
