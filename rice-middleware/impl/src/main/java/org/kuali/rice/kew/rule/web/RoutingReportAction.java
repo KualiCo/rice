@@ -73,7 +73,7 @@ import java.util.Set;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class RoutingReportAction extends KewKualiAction {
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(RoutingReportAction.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RoutingReportAction.class);
 
 	public static final String DOC_TYPE_REPORTING = "documentType";
 	public static final String TEMPLATE_REPORTING = "template";

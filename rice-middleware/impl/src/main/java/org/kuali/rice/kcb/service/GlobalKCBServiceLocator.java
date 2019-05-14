@@ -17,7 +17,7 @@ package org.kuali.rice.kcb.service;
 
 import java.lang.reflect.Proxy;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kcb.util.BeanFactoryInvocationHandler;
 import org.springframework.beans.factory.BeanFactory;
 

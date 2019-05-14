@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kcb.quartz;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.framework.persistence.dao.GenericDao;
 import org.kuali.rice.kcb.bo.Message;
 import org.kuali.rice.kcb.bo.MessageDelivery;

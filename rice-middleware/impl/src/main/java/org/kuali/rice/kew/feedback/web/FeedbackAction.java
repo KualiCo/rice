@@ -46,7 +46,7 @@ import org.kuali.rice.krad.util.GlobalVariables;
  */
 public class FeedbackAction extends KewKualiAction {
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(FeedbackAction.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(FeedbackAction.class);
 
     @Override
 	public ActionForward start(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {

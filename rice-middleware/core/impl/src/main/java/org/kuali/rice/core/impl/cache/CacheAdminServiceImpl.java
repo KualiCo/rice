@@ -17,7 +17,7 @@ package org.kuali.rice.core.impl.cache;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.cache.CacheAdminService;
 import org.kuali.rice.core.api.cache.CacheTarget;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;

@@ -32,7 +32,7 @@ import org.kuali.rice.krad.web.bind.RequestAccessible;
 public class DocumentFormBase extends UifFormBase {
 	private static final long serialVersionUID = 2190268505427404480L;
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DocumentFormBase.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentFormBase.class);
 
 	private String annotation = "";
 

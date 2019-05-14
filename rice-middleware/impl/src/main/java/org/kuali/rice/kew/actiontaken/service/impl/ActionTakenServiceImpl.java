@@ -43,7 +43,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.equal;
  */
 public class ActionTakenServiceImpl implements ActionTakenService {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ActionTakenServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ActionTakenServiceImpl.class);
 
     private static final String DOCUMENT_ID = "documentId";
     private static final String PRINCIPAL_ID = "principalId";

@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 import javax.xml.namespace.QName;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.lifecycle.BaseLifecycle;

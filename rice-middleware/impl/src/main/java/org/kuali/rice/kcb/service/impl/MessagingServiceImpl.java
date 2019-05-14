@@ -20,7 +20,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.kcb.bo.Message;

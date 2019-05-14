@@ -48,7 +48,7 @@ import org.kuali.rice.krad.util.BeanPropertyComparator;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class AttributeQueryServiceImpl implements AttributeQueryService {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
             AttributeQueryServiceImpl.class);
 
     private LookupService lookupService;

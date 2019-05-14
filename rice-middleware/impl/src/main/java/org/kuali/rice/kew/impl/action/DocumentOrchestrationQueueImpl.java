@@ -36,7 +36,7 @@ import org.kuali.rice.kim.api.identity.principal.Principal;
  */
 public class DocumentOrchestrationQueueImpl implements DocumentOrchestrationQueue {
 	
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DocumentOrchestrationQueueImpl.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentOrchestrationQueueImpl.class);
 
     @Override
     public void orchestrateDocument(String documentId, String principalId, OrchestrationConfig orchestrationConfig,

@@ -22,7 +22,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.freemarker.LifecycleRenderingContext;

@@ -32,7 +32,7 @@ import javax.xml.namespace.QName;
  */
 public class BaseResourceLoader extends ResourceLoaderContainer implements ResourceLoader {
 
-	protected static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(BaseResourceLoader.class);
+	protected static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(BaseResourceLoader.class);
 
 	private ServiceLocator serviceLocator;
 

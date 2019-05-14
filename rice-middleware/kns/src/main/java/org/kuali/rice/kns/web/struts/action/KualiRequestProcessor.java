@@ -17,7 +17,7 @@ package org.kuali.rice.kns.web.struts.action;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.log4j.MDC;
 import org.apache.struts.Globals;
 import org.apache.struts.action.*;

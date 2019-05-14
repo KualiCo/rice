@@ -36,7 +36,7 @@ import java.util.Set;
  */
 @Deprecated
 public class MultipleValueLookupForm extends LookupForm {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(MultipleValueLookupForm.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MultipleValueLookupForm.class);
     
     private KualiTableRenderFormMetadata tableMetadata;
     

@@ -21,7 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 
 import org.apache.commons.validator.EmailValidator;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kcb.bo.MessageDelivery;
 import org.kuali.rice.kcb.deliverer.MessageDeliverer;
 import org.kuali.rice.kcb.exception.ErrorList;

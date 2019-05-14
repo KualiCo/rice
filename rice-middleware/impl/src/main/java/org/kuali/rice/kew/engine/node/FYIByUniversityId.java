@@ -16,8 +16,8 @@
 package org.kuali.rice.kew.engine.node;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
-import org.jdom.Element;
+import org.apache.logging.log4j.Logger;
+import org.jdom2.Element;
 import org.kuali.rice.core.api.util.xml.XmlHelper;
 import org.kuali.rice.kew.api.WorkflowRuntimeException;
 import org.kuali.rice.kew.engine.RouteContext;

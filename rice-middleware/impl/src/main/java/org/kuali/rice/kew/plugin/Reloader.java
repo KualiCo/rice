@@ -27,7 +27,7 @@ import java.util.Set;
  */
 public class Reloader implements Runnable {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(Reloader.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(Reloader.class);
 
     private final Set<Reloadable> reloadables = Collections.synchronizedSet(new HashSet<Reloadable>());
 

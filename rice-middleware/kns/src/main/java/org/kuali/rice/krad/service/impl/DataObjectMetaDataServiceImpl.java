@@ -55,7 +55,7 @@ import org.springframework.beans.PropertyAccessorUtils;
 @Deprecated
 @LegacyDataFramework
 public class DataObjectMetaDataServiceImpl implements DataObjectMetaDataService {
-    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
             DataObjectMetaDataServiceImpl.class);
 
     private DataDictionaryService dataDictionaryService;

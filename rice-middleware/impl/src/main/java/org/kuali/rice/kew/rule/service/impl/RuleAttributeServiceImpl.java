@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kew.rule.service.impl;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 import org.kuali.rice.core.api.impex.ExportDataSet;
 import org.kuali.rice.core.api.reflect.ObjectDefinition;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
@@ -35,7 +35,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class RuleAttributeServiceImpl implements RuleAttributeService {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(RuleAttributeServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RuleAttributeServiceImpl.class);
 
     private static final String RULE_ATTRIBUTE_NAME_REQUIRED = "rule.attribute.name.required";
     private static final String RULE_ATTRIBUTE_CLASS_REQUIRED = "rule.attribute.className.required";

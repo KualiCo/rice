@@ -17,7 +17,7 @@ package org.kuali.rice.krad.dao.proxy;
 
 import java.sql.Timestamp;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.bo.SessionDocument;
 import org.kuali.rice.krad.dao.SessionDocumentDao;
 import org.kuali.rice.krad.util.LegacyUtils;

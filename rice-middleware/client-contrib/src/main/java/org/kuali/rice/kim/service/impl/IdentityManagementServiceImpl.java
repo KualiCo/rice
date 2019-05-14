@@ -16,7 +16,7 @@
 package org.kuali.rice.kim.service.impl;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.kim.api.common.assignee.Assignee;
 import org.kuali.rice.kim.api.group.Group;

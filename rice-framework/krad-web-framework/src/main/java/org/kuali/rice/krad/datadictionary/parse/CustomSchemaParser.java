@@ -50,7 +50,7 @@ import java.util.Set;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class CustomSchemaParser extends AbstractSingleBeanDefinitionParser {
-    private static final Log LOG = LogFactory.getLog(CustomSchemaParser.class);
+    private static final Log LOG = LogManager.getLogger(CustomSchemaParser.class);
 
     private static final String INC_TAG = "inc";
 

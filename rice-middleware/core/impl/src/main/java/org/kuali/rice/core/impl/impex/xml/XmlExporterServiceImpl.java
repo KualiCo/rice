@@ -24,10 +24,10 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.WORKFLOW_SCHEMA_LOC
 import java.io.IOException;
 import java.io.StringWriter;
 
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.output.Format;
-import org.jdom.output.XMLOutputter;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 import org.kuali.rice.core.api.impex.ExportDataSet;
 import org.kuali.rice.core.api.impex.xml.XmlExporterService;
 import org.kuali.rice.core.framework.impex.xml.XmlExporter;

@@ -34,7 +34,7 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class DataDictionaryIndex implements Runnable {
-    private static final Log LOG = LogFactory.getLog(DataDictionaryIndex.class);
+    private static final Log LOG = LogManager.getLogger(DataDictionaryIndex.class);
 
     private DefaultListableBeanFactory ddBeans;
 

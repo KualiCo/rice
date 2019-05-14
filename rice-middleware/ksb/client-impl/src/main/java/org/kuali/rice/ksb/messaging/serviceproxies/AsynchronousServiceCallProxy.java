@@ -16,7 +16,7 @@
 package org.kuali.rice.ksb.messaging.serviceproxies;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.core.api.util.ClassLoaderUtils;
 import org.kuali.rice.core.api.util.ContextClassLoaderProxy;

@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.ken.core;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.lifecycle.LifecycleBean;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;

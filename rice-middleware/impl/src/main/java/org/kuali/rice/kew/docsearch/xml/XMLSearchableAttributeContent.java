@@ -16,7 +16,7 @@
 package org.kuali.rice.kew.docsearch.xml;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.ConfigurationException;
 import org.kuali.rice.core.api.impex.xml.XmlConstants;
 import org.kuali.rice.core.api.util.ConcreteKeyValue;

@@ -48,7 +48,7 @@ class AbstractDataTransferObjectTest {
 
     private SampleDataTransferObject createDto() {
         List<String> values = [ "value1", "value2" ]
-        Map<String> attributes = [ attribute1:"attribute1Value", attribute2:"attribute2Value" ]
+        Map<String, String> attributes = [ attribute1:"attribute1Value", attribute2:"attribute2Value" ]
         return new SampleDataTransferObject("myName", values, attributes)
     }
 

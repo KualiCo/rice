@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kew.rule;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.engine.RouteContext;
 import org.kuali.rice.kew.engine.node.RouteNodeInstance;
 import org.kuali.rice.kew.engine.node.hierarchyrouting.HierarchyRoutingNode;

@@ -79,7 +79,7 @@ import org.kuali.rice.krad.uif.util.CopyUtils;
 @BeanTag(name = "remotableFieldsPlaceholder", parent = "Uif-RemotableFieldsPlaceholderConfig")
 public class RemoteFieldsHolder extends ComponentBase implements DataBinding {
     private static final long serialVersionUID = -8493923312021633727L;
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(RemoteFieldsHolder.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RemoteFieldsHolder.class);
 
     private String propertyName;
     private BindingInfo bindingInfo;

@@ -15,7 +15,8 @@
  */
 package org.kuali.rice.core.api.util;
 
-import org.kuali.rice.core.api.util.ClassLoaderUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.reflect.BaseTargetedInvocationHandler;
 
 import java.lang.reflect.InvocationTargetException;
@@ -30,7 +31,7 @@ import java.lang.reflect.Proxy;
  */
 public class ContextClassLoaderProxy extends BaseTargetedInvocationHandler<Object> {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ContextClassLoaderProxy.class);
+    private static final Logger LOG = LogManager.getLogger(ContextClassLoaderProxy.class);
 
     /**
      * Convenience method that wraps a specified object with a ContextClassLoaderProxy, with a specified

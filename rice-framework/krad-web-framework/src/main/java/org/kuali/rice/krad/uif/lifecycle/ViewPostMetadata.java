@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.krad.uif.lifecycle;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.web.bind.UifEncryptionPropertyEditorWrapper;
 

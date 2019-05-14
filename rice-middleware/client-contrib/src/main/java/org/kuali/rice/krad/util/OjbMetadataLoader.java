@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.krad.util;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.ojb.broker.metadata.ConnectionRepository;
 import org.apache.ojb.broker.metadata.DescriptorRepository;
 import org.apache.ojb.broker.metadata.MetadataManager;

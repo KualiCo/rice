@@ -47,7 +47,7 @@ import org.kuali.rice.krad.datadictionary.validator.ValidationTrace;
  */
 @BeanTag(name = "relationshipDefinition")
 public class RelationshipDefinition extends DataDictionaryDefinitionBase {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(RelationshipDefinition.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RelationshipDefinition.class);
     private static final long serialVersionUID = 2946722646095412576L;
 
     protected String objectAttributeName; //Same as parentAttributeName of DataObjectRelationship

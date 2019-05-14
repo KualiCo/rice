@@ -17,7 +17,7 @@ package org.kuali.rice.ken.util;
 
 import org.apache.commons.lang.time.DurationFormatUtils;
 import org.apache.commons.lang.time.StopWatch;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Wrapper for the Log4J performance log

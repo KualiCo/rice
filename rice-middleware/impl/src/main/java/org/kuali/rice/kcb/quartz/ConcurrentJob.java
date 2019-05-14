@@ -28,7 +28,7 @@ import java.util.concurrent.ThreadFactory;
 
 import javax.persistence.OptimisticLockException;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.RiceUtilities;
 import org.kuali.rice.kcb.quartz.ProcessingResult.Failure;
 import org.springframework.beans.factory.annotation.Required;

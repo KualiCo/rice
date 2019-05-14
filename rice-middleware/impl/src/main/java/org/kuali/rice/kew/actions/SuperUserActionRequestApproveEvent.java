@@ -53,7 +53,7 @@ public class SuperUserActionRequestApproveEvent extends SuperUserActionTakenEven
      */
     private static final String UNDEFINED_ACTION_TAKEN_CODE = null;
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(SuperUserActionRequestApproveEvent.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(SuperUserActionRequestApproveEvent.class);
     private String actionRequestId;
 
     public SuperUserActionRequestApproveEvent(DocumentRouteHeaderValue routeHeader, PrincipalContract principal) {

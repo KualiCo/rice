@@ -18,7 +18,7 @@ package org.kuali.rice.krad.util;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.net.URLCodec;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Properties;
 

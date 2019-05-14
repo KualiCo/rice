@@ -17,7 +17,7 @@ package org.kuali.rice.krad.data.jpa.eclipselink;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.persistence.descriptors.ClassDescriptor;
 import org.eclipse.persistence.internal.helper.DatabaseField;
 import org.eclipse.persistence.mappings.DatabaseMapping;

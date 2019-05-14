@@ -16,7 +16,8 @@
 package org.kuali.rice.core.api.util.collect;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -166,7 +167,7 @@ public final class PropertiesMap implements Map {
      *
      */
     static class PropertyTree implements Map {
-        private static final Logger LOG = Logger.getLogger(PropertyTree.class);
+        private static final Logger LOG = LogManager.getLogger(PropertyTree.class);
 
         final boolean flat;
         final PropertyTree parent;

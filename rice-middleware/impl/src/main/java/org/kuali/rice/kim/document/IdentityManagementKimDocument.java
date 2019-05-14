@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kim.document;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.delegation.DelegationType;
 import org.kuali.rice.kim.api.KimConstants;
 import org.kuali.rice.kim.api.type.KimAttributeField;

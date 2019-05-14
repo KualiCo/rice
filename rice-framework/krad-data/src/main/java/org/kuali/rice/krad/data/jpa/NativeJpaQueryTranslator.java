@@ -32,7 +32,7 @@ import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Subquery;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.persistence.internal.jpa.querydef.PathImpl;
 import org.kuali.rice.core.api.criteria.PropertyPath;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;

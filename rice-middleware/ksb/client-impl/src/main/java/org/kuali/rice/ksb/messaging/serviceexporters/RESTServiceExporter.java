@@ -24,7 +24,7 @@ import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxrs.JAXRSBindingFactory;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.ksb.api.bus.ServiceDefinition;
 import org.kuali.rice.ksb.api.bus.support.RestServiceDefinition;

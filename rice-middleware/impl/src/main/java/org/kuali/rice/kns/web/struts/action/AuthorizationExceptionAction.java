@@ -41,7 +41,7 @@ public class AuthorizationExceptionAction extends Action {
     
     private static final String MESSAGE_FIELD = "message";
     
-    private static final Log LOG = LogFactory.getLog(AuthorizationExceptionAction.class);
+    private static final Log LOG = LogManager.getLogger(AuthorizationExceptionAction.class);
 
     /**
      * Dispatches action to be taken during an AuthorizationException.

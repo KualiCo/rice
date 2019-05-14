@@ -21,7 +21,7 @@ import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxrs.JAXRSBindingFactory;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactoryBean;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.core.api.security.credentials.CredentialsSource;
 import org.kuali.rice.ksb.api.bus.support.RestServiceConfiguration;

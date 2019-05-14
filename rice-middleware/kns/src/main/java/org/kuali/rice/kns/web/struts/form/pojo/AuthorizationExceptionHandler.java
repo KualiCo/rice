@@ -37,7 +37,7 @@ public class AuthorizationExceptionHandler extends ExceptionHandler {
     
     private static final String AUTHORIZATION_EXCEPTION_HANDLER = "authorizationExceptionHandler";
 
-    private static final Log LOG = LogFactory.getLog(AuthorizationExceptionHandler.class);
+    private static final Log LOG = LogManager.getLogger(AuthorizationExceptionHandler.class);
     
     /**
      * Logs the AuthorizationException before forwarding the user to the explanation page.

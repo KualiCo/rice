@@ -25,7 +25,8 @@ import java.text.ParseException;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.RiceKeyConstants;
 import org.kuali.rice.core.api.util.type.KualiDecimal;
 import org.kuali.rice.core.api.util.type.KualiInteger;
@@ -44,6 +45,7 @@ public class CurrencyFormatter extends Formatter {
     // original code
     /*
     /** The default scale for currency values * /
+
     public final static int SCALE = 2;
 
     /** The key used to look up the currency error string * /
@@ -55,7 +57,7 @@ public class CurrencyFormatter extends Formatter {
 
     static final String FORMAT_MSG = "Unable to format a currency value from ";
     */
-    private static Logger LOG = Logger.getLogger(CurrencyFormatter.class);
+    private static Logger LOG = LogManager.getLogger(CurrencyFormatter.class);
     public static final String SHOW_SYMBOL = "showCurrencySymbol";
     private static final Pattern CURRENCY_PATTERN = Pattern.compile("[-\\(\\)\\$\\.,0-9]*");
     private static final Pattern TRAILING_DECIMAL_PATTERN = Pattern.compile("^(\\.[0-9]{0,2}){0,1}\\)?$");

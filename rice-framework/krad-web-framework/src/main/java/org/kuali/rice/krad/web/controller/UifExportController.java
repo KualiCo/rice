@@ -54,7 +54,7 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/export")
 public class UifExportController extends UifControllerBase {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(UifExportController.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(UifExportController.class);
 
     @Autowired
     protected HttpServletRequest request;

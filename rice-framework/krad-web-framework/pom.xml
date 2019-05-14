@@ -91,18 +91,42 @@
     </dependency>
 
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
     </dependency>
-
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>jcl-over-slf4j</artifactId>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-1.2-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-jcl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-jul</artifactId>
     </dependency>
 
     <dependency>
       <groupId>commons-beanutils</groupId>
       <artifactId>commons-beanutils</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
     </dependency>
 
     <dependency>
@@ -143,13 +167,48 @@
 
     <dependency>
       <groupId>javax.servlet.jsp</groupId>
-      <artifactId>jsp-api</artifactId>
+      <artifactId>javax.servlet.jsp-api</artifactId>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.antlr</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.asm</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
       <artifactId>org.eclipse.persistence.jpa</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.moxy</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.oracle</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>jakarta.persistence</artifactId>
     </dependency>
 
     <dependency>
@@ -171,12 +230,37 @@
 
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.glassfish</groupId>
-      <artifactId>javax.json</artifactId>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-joda</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.jaxrs</groupId>
+      <artifactId>jackson-jaxrs-json-provider</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
     </dependency>
 
     <dependency>
@@ -186,11 +270,28 @@
       <scope>runtime</scope>
     </dependency>
 
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.json</groupId>
+      <artifactId>javax.json-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish</groupId>
+      <artifactId>javax.json</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
     <!-- test dependencies: -->
 
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -199,7 +300,26 @@
       <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.objenesis</groupId>
+      <artifactId>objenesis</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy-agent</artifactId>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
@@ -207,15 +327,20 @@
     </dependency>
 
     <dependency>
-      <groupId>org.reflections</groupId>
-      <artifactId>reflections</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-all</artifactId>
       <scope>test</scope>
+      <type>pom</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.quartz-scheduler</groupId>
+      <artifactId>quartz</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
     </dependency>
 
   </dependencies>
@@ -230,7 +355,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.7</version>
+        <version>${plugin.antrun.version}</version>
         <executions>
           <execution>
             <id>krad-unpack-testresources</id>
@@ -247,39 +372,6 @@
         </executions>
       </plugin>
     </plugins>
-    <pluginManagement>
-    	<plugins>
-    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-    		<plugin>
-    			<groupId>org.eclipse.m2e</groupId>
-    			<artifactId>lifecycle-mapping</artifactId>
-    			<version>1.0.0</version>
-    			<configuration>
-    				<lifecycleMappingMetadata>
-    					<pluginExecutions>
-    						<pluginExecution>
-    							<pluginExecutionFilter>
-    								<groupId>
-    									org.apache.maven.plugins
-    								</groupId>
-    								<artifactId>
-    									maven-antrun-plugin
-    								</artifactId>
-    								<versionRange>[1.7,)</versionRange>
-    								<goals>
-    									<goal>run</goal>
-    								</goals>
-    							</pluginExecutionFilter>
-    							<action>
-    								<ignore />
-    							</action>
-    						</pluginExecution>
-    					</pluginExecutions>
-    				</lifecycleMappingMetadata>
-    			</configuration>
-    		</plugin>
-    	</plugins>
-    </pluginManagement>
   </build>
 
 </project>

@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kns.web.struts.form;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts.action.ActionMapping;
 import org.kuali.rice.krad.exception.ExceptionIncident;
 import org.kuali.rice.krad.util.KRADConstants;

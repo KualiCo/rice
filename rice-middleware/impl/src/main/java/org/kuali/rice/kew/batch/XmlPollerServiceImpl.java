@@ -56,7 +56,7 @@ import java.util.List;
  */
 public class XmlPollerServiceImpl implements XmlPollerService {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
             .getLogger(XmlPollerServiceImpl.class);
     private static final Format DIR_FORMAT = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS");
 

@@ -16,7 +16,7 @@
 package org.kuali.rice.ken.util;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.criteria.Predicate;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;

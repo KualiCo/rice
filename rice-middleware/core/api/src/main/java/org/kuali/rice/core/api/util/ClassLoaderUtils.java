@@ -17,6 +17,8 @@ package org.kuali.rice.core.api.util;
 
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.core.api.util.reflect.TargetedInvocationHandler;
 
@@ -32,7 +34,7 @@ import java.util.List;
  */
 public final class ClassLoaderUtils {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ClassLoaderUtils.class);
+    private static final Logger LOG = LogManager.getLogger(ClassLoaderUtils.class);
     
 	private ClassLoaderUtils() {
 		throw new UnsupportedOperationException("do not call");

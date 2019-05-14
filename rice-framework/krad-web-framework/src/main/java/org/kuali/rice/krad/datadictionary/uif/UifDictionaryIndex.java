@@ -54,7 +54,7 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class UifDictionaryIndex implements Runnable {
-    private static final Log LOG = LogFactory.getLog(UifDictionaryIndex.class);
+    private static final Log LOG = LogManager.getLogger(UifDictionaryIndex.class);
     
     private static final int VIEW_CACHE_SIZE = 1000;
 

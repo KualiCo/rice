@@ -24,7 +24,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.datadictionary.Copyable;
 import org.kuali.rice.krad.uif.util.ObjectPathExpressionParser.PathEntry;
 import org.kuali.rice.krad.util.KRADUtils;

@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.core.api.impex.xml;
 
-import org.jdom.Namespace;
+import org.jdom2.Namespace;
 
 /**
  * Constants for various XML namespaces, elements and attributes for the various parsers.
@@ -32,7 +32,6 @@ public final class XmlConstants {
     public static final Namespace GROUP_NAMESPACE = Namespace.getNamespace("", "ns:workflow/Group");
     public static final Namespace RULE_TEMPLATE_NAMESPACE = Namespace.getNamespace("", "ns:workflow/RuleTemplate");
     public static final Namespace RULE_ATTRIBUTE_NAMESPACE = Namespace.getNamespace("", "ns:workflow/RuleAttribute");
-    public static final Namespace EDL_NAMESPACE = Namespace.getNamespace("", "ns:workflow/EDocLite");
     public static final Namespace STYLE_NAMESPACE = Namespace.getNamespace("", "ns:workflow/Style");
 
     // schemas
@@ -43,7 +42,6 @@ public final class XmlConstants {
     public static final String DOCUMENT_TYPE_SCHEMA_LOCATION = "ns:workflow/DocumentType resource:DocumentType";
     public static final String RULE_TEMPLATE_SCHEMA_LOCATION = "ns:workflow/RuleTemplate resource:RuleTemplate";
     public static final String RULE_ATTRIBUTE_SCHEMA_LOCATION = "ns:workflow/RuleAttribute resource:RuleAttribute";
-    public static final String EDL_SCHEMA_LOCATION = "ns:workflow/EDocLite resource:EDocLite";
     public static final String STYLE_SCHEMA_LOCATION = "ns:workflow/Style resource:Style";
 
     // data

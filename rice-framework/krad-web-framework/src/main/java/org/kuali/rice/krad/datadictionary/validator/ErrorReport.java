@@ -26,7 +26,7 @@ import org.apache.commons.logging.LogFactory;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ErrorReport {
-    private static final Log LOG = LogFactory.getLog(ErrorReport.class);
+    private static final Log LOG = LogManager.getLogger(ErrorReport.class);
 
     // Constant identifiers of the type of error
     public static final int ERROR = 1;

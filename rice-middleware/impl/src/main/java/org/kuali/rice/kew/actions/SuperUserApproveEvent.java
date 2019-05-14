@@ -16,7 +16,7 @@
 package org.kuali.rice.kew.actions;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.actionrequest.ActionRequestFactory;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.actiontaken.ActionTakenValue;

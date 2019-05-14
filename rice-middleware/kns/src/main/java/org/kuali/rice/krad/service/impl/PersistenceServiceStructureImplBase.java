@@ -34,7 +34,7 @@ import java.util.List;
 @Deprecated
 @LegacyDataFramework
 public class PersistenceServiceStructureImplBase {
-    protected static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(PersistenceServiceStructureImplBase.class);
+    protected static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(PersistenceServiceStructureImplBase.class);
 	private DescriptorRepository descriptorRepository;
 
 	/**

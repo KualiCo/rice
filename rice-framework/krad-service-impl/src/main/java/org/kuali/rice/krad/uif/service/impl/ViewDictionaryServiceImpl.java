@@ -49,7 +49,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ViewDictionaryServiceImpl implements ViewDictionaryService {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
             ViewDictionaryServiceImpl.class);
 
     private DataDictionaryService dataDictionaryService;

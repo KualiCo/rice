@@ -47,7 +47,7 @@ import java.util.List;
  */
 @Deprecated
 public class MaintenanceDocumentDictionaryServiceImpl implements MaintenanceDocumentDictionaryService {
-    protected static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(MaintenanceDocumentDictionaryServiceImpl.class);
+    protected static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MaintenanceDocumentDictionaryServiceImpl.class);
 
     private DataDictionaryService dataDictionaryService;
 

@@ -64,21 +64,79 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.antlr</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.asm</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
       <artifactId>org.eclipse.persistence.jpa</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.moxy</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.oracle</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>jakarta.persistence</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>rice-krad-data</artifactId>
       <version>${project.version}</version>
     </dependency>
+
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>jcl-over-slf4j</artifactId>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-1.2-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-jcl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-jul</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
@@ -128,6 +186,12 @@
       <artifactId>spring-webmvc</artifactId>
     </dependency>
 
+    <!-- required for compilation, contrary to what dependency:analyze says -->
+    <dependency>
+      <groupId>aopalliance</groupId>
+      <artifactId>aopalliance</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>org.bouncycastle</groupId>
       <artifactId>bcprov-jdk15on</artifactId>
@@ -144,10 +208,22 @@
     <dependency>
       <groupId> org.apache.wss4j</groupId>
       <artifactId>wss4j-ws-security-common</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>geronimo-javamail_1.4_spec</artifactId>
+          <groupId>org.apache.geronimo.specs</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId> org.apache.wss4j</groupId>
       <artifactId>wss4j-ws-security-stax</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>ehcache</artifactId>
+          <groupId>net.sf.ehcache</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId> org.apache.wss4j</groupId>
@@ -156,24 +232,23 @@
     <dependency>
       <groupId> org.apache.wss4j</groupId>
       <artifactId>wss4j-ws-security-dom</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>ehcache</artifactId>
+          <groupId>net.sf.ehcache</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
-    <!-- ASM as an explicit dependency, see KULRICE-6353 -->
     <dependency>
-      <groupId>org.ow2.asm</groupId>
-      <artifactId>asm</artifactId>
+      <groupId>com.sun.xml.messaging.saaj</groupId>
+      <artifactId>saaj-impl</artifactId>
+      <version>${saaj-impl.version}</version>
     </dependency>
+
     <dependency>
-      <groupId>com.sun.xml.bind</groupId>
-      <artifactId>jaxb-impl</artifactId>
-      <version>${jaxb-impl.version}</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.sun.xml.bind</groupId>
-      <artifactId>jaxb-core</artifactId>
-      <version>${jaxb-impl.version}</version>
-      <scope>runtime</scope>
+      <groupId>org.glassfish.jaxb</groupId>
+      <artifactId>jaxb-runtime</artifactId>
     </dependency>
 
     <!-- CXF 3.0.4 API -->
@@ -181,13 +256,21 @@
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-frontend-jaxws</artifactId>
       <exclusions>
-      	<exclusion>
-      	  <artifactId>asm</artifactId>
-      	  <groupId>asm</groupId>
-      	</exclusion>
+        <exclusion>
+          <artifactId>asm</artifactId>
+          <groupId>asm</groupId>
+        </exclusion>
         <exclusion>
           <groupId>org.apache.geronimo.specs</groupId>
           <artifactId>geronimo-javamail_1.4_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -199,6 +282,26 @@
         <exclusion>
           <groupId>org.apache.geronimo.specs</groupId>
           <artifactId>geronimo-javamail_1.4_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.ws.rs</groupId>
+          <artifactId>javax.ws.rs-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.sun.xml.messaging.saaj</groupId>
+          <artifactId>saaj-impl</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -215,6 +318,14 @@
           <artifactId>geronimo-javamail_1.4_spec</artifactId>
         </exclusion>
         <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+        </exclusion>
+        <exclusion>
           <groupId>com.sum.xml.bind</groupId>
           <artifactId>jaxb-core</artifactId>
         </exclusion>
@@ -222,16 +333,32 @@
           <groupId>com.sum.xml.bind</groupId>
           <artifactId>jaxb-impl</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>org.glassfish.jaxb</groupId>
+          <artifactId>jaxb-xjc</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-databinding-aegis</artifactId>
       <exclusions>
-      	<exclusion>
-      		<artifactId>asm</artifactId>
-      		<groupId>asm</groupId>
-      	</exclusion>
+        <exclusion>
+          <artifactId>asm</artifactId>
+          <groupId>asm</groupId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.sun.xml.messaging.saaj</groupId>
+          <artifactId>saaj-impl</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -242,6 +369,14 @@
         <exclusion>
           <groupId>org.apache.geronimo.specs</groupId>
           <artifactId>geronimo-javamail_1.4_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
         </exclusion>
         <exclusion>
           <groupId>com.sun.xml.bind</groupId>
@@ -260,23 +395,75 @@
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-bindings-soap</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-frontend-simple</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-transports-http</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-rs-client</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.sun.xml.messaging.saaj</groupId>
+          <artifactId>saaj-impl</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-ws-security</artifactId>
       <exclusions>
+        <exclusion>
+          <artifactId>ehcache</artifactId>
+          <groupId>net.sf.ehcache</groupId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
         <exclusion>
           <groupId>commons-logging</groupId>
           <artifactId>commons-logging</artifactId>
@@ -285,19 +472,33 @@
           <groupId>org.bouncycastle</groupId>
           <artifactId>bcprov-jdk15</artifactId>
         </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.cxf</groupId>
-      <artifactId>cxf-rt-transports-http-jetty</artifactId>
-      <exclusions>
         <exclusion>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-security</artifactId>
+          <groupId>org.apache.wss4j</groupId>
+          <artifactId>wss4j-ws-security-dom</artifactId>
         </exclusion>
         <exclusion>
-        	<artifactId>geronimo-servlet_3.0_spec</artifactId>
-        	<groupId>org.apache.geronimo.specs</groupId>
+          <groupId>org.apache.wss4j</groupId>
+          <artifactId>wss4j-ws-security-stax</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.wss4j</groupId>
+          <artifactId>wss4j-ws-security-policy-stax</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.wss4j</groupId>
+          <artifactId>wss4j-policy</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.sun.xml.messaging.saaj</groupId>
+          <artifactId>saaj-impl</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -314,6 +515,12 @@
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
     </dependency>
+    <!-- ASM as an explicit dependency, see KULRICE-6353 -->
+    <dependency>
+      <groupId>${asm.group.string}</groupId>
+      <artifactId>asm</artifactId>
+      <scope>runtime</scope>
+    </dependency>
 
     <!-- test-scope dependencies: -->
 
@@ -321,21 +528,17 @@
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-all</artifactId>
       <scope>test</scope>
+      <type>pom</type>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>rice-core-impl</artifactId>
       <version>${project.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.reflections</groupId>
-      <artifactId>reflections</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

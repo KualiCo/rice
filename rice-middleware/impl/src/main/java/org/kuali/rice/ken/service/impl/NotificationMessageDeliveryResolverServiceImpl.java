@@ -49,7 +49,7 @@ import java.util.concurrent.ExecutorService;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class NotificationMessageDeliveryResolverServiceImpl extends ConcurrentJob<NotificationBo> implements NotificationMessageDeliveryResolverService {
-    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
 	.getLogger(NotificationMessageDeliveryResolverServiceImpl.class);
 
     private NotificationRecipientService notificationRecipientService;

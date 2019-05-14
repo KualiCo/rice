@@ -38,7 +38,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ValidationTrace {
-    private static final Log LOG = LogFactory.getLog(ValidationTrace.class);
+    private static final Log LOG = LogManager.getLogger(ValidationTrace.class);
 
     // Constant identifer for a trace entry where the bean has no identifier itself
     public static final String NO_BEAN_ID = "NOBEANID";

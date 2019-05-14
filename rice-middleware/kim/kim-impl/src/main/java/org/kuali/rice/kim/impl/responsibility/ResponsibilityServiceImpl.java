@@ -64,7 +64,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.or;
 public class ResponsibilityServiceImpl implements ResponsibilityService {
 
     private static final Integer DEFAULT_PRIORITY_NUMBER = Integer.valueOf(1);
-    private static final Log LOG = LogFactory.getLog(ResponsibilityServiceImpl.class);
+    private static final Log LOG = LogManager.getLogger(ResponsibilityServiceImpl.class);
 
     private ResponsibilityTypeService defaultResponsibilityTypeService;
     private KimTypeInfoService kimTypeInfoService;

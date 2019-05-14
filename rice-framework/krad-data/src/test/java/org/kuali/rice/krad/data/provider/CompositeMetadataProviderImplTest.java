@@ -17,7 +17,7 @@ package org.kuali.rice.krad.data.provider;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;

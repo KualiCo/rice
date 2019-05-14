@@ -32,7 +32,7 @@ import javax.xml.namespace.QName;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.cache.CacheKeyUtils;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.core.api.criteria.QueryResults;

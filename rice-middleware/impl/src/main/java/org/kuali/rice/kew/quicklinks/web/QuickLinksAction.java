@@ -38,7 +38,7 @@ import org.kuali.rice.krad.util.GlobalVariables;
  */
 public class QuickLinksAction extends KewKualiAction {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(QuickLinksAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(QuickLinksAction.class);
 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,

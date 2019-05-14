@@ -16,7 +16,7 @@
 package org.kuali.rice.kew.mail.service.impl;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.mail.EmailContent;
 import org.kuali.rice.core.api.util.ClasspathOrFileResourceLoader;
 import org.kuali.rice.core.api.util.RiceConstants;

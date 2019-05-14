@@ -47,7 +47,7 @@ public class SetResponseBufferSizeFilter implements Filter {
      * @see Filter#init
      */
     public void init(FilterConfig filterConfig) throws ServletException {
-        log = LogFactory.getLog(SetResponseBufferSizeFilter.class);
+        log = LogManager.getLogger(SetResponseBufferSizeFilter.class);
         String bufferSizeParam = filterConfig.getInitParameter("bufferSize");
         if (log.isDebugEnabled()) {
             log.debug("bufferSizeParam=" + bufferSizeParam);

@@ -60,7 +60,7 @@ import org.kuali.rice.krad.valuefinder.ValueFinder;
 @Deprecated // Replaced by new metadata provider
 @LegacyDataFramework
 public class BusinessObjectMetaDataServiceImpl extends DataObjectMetaDataServiceImpl implements BusinessObjectMetaDataService {
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
 			.getLogger(BusinessObjectMetaDataServiceImpl.class);
 
 	private BusinessObjectDictionaryService businessObjectDictionaryService;

@@ -34,8 +34,8 @@ import java.util.Set;
  */
 @Deprecated
 public class MaintenanceDocumentAuthorizerBase extends DocumentAuthorizerBase implements MaintenanceDocumentAuthorizer {
-	// private static final org.apache.log4j.Logger LOG =
-	// org.apache.log4j.Logger.getLogger(MaintenanceDocumentAuthorizerBase.class);
+	// private static final org.apache.logging.log4j.Logger LOG =
+	// org.apache.logging.log4j.Logger.getLogger(MaintenanceDocumentAuthorizerBase.class);
 
 	transient protected static DocumentDictionaryService documentDictionaryService;
 

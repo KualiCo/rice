@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

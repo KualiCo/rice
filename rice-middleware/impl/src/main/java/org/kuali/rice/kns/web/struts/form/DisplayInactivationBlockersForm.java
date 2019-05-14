@@ -39,7 +39,7 @@ import java.util.Map;
  */
 @Deprecated
 public class DisplayInactivationBlockersForm extends KualiForm {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DisplayInactivationBlockersForm.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DisplayInactivationBlockersForm.class);
 
 	private String businessObjectClassName;
 	private Map<String, String> primaryKeyFieldValues;

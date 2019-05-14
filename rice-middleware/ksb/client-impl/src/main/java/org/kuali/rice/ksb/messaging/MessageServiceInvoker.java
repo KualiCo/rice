@@ -21,7 +21,7 @@ import java.sql.Timestamp;
 
 import javax.xml.namespace.QName;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;

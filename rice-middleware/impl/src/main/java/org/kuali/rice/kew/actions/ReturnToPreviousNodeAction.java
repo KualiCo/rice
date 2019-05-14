@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kew.actions;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.log4j.MDC;
 import org.kuali.rice.kew.actionrequest.ActionRequestFactory;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;

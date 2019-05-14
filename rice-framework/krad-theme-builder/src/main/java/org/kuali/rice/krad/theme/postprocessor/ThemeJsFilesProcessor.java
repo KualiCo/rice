@@ -20,7 +20,7 @@ import com.google.javascript.jscomp.Compiler;
 import com.google.javascript.jscomp.CompilerOptions;
 import com.google.javascript.jscomp.SourceFile;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.theme.util.ThemeBuilderConstants;
 import org.kuali.rice.krad.theme.util.ThemeBuilderUtils;
 

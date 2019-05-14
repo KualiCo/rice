@@ -27,7 +27,7 @@ import org.kuali.rice.kew.api.actionlist.DisplayParameters;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ActionListDecorator extends TableDecorator {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ActionListDecorator.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ActionListDecorator.class);
     
     private int rowCounter = 0;
     

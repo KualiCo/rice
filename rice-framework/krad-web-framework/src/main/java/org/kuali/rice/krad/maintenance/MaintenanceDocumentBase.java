@@ -100,7 +100,7 @@ import com.thoughtworks.xstream.core.BaseException;
 public class MaintenanceDocumentBase extends DocumentBase implements MaintenanceDocument, SessionDocument {
     protected static final int SUB_OBJECT_MATERIALIZATION_DEPTH = 3;
     private static final long serialVersionUID = -505085142412593305L;
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(MaintenanceDocumentBase.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MaintenanceDocumentBase.class);
 
     public static final String MAINTAINABLE_IMPL_CLASS = "maintainableImplClass";
     public static final String OLD_MAINTAINABLE_TAG_NAME = "oldMaintainableObject";

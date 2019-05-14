@@ -16,8 +16,8 @@
 package org.kuali.rice.kew.rule;
 
 import org.apache.commons.lang.StringUtils;
-import org.jdom.Document;
-import org.jdom.Element;
+import org.jdom2.Document;
+import org.jdom2.Element;
 import org.kuali.rice.core.api.uif.RemotableAttributeError;
 import org.kuali.rice.core.api.util.xml.XmlHelper;
 import org.kuali.rice.kew.api.WorkflowRuntimeException;

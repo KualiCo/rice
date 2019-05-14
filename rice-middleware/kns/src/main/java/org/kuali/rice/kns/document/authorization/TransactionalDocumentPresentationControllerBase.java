@@ -29,7 +29,7 @@ import java.util.Set;
  */
 @Deprecated
 public class TransactionalDocumentPresentationControllerBase extends DocumentPresentationControllerBase implements TransactionalDocumentPresentationController {
-    private static Log LOG = LogFactory.getLog(TransactionalDocumentPresentationControllerBase.class);
+    private static Log LOG = LogManager.getLogger(TransactionalDocumentPresentationControllerBase.class);
     
     /**
      * 

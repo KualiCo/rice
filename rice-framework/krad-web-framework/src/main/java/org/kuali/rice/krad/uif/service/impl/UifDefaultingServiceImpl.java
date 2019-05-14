@@ -56,7 +56,7 @@ import java.util.List;
 import java.util.Map;
 
 public class UifDefaultingServiceImpl implements UifDefaultingService {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(UifDefaultingServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(UifDefaultingServiceImpl.class);
 
     protected DataDictionaryService dataDictionaryService;
     protected DataObjectService dataObjectService;

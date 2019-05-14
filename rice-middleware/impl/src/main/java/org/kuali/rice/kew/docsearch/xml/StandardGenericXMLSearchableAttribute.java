@@ -134,7 +134,7 @@ import com.google.common.base.Function;
  */
 public class StandardGenericXMLSearchableAttribute implements SearchableAttribute {
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(StandardGenericXMLSearchableAttribute.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(StandardGenericXMLSearchableAttribute.class);
     private static final String FIELD_DEF_E = "fieldDef";
     /**
      * Compile-time option that controls whether we check and return errors for field bounds options that conflict with searchable attribute configuration.

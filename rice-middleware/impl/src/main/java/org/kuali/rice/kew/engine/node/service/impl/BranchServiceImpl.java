@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kew.engine.node.service.impl;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.engine.node.Branch;
 import org.kuali.rice.kew.engine.node.BranchState;
 import org.kuali.rice.kew.engine.node.service.BranchService;

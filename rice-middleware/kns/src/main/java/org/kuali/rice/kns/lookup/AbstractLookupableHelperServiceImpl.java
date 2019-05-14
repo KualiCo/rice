@@ -92,7 +92,7 @@ public abstract class AbstractLookupableHelperServiceImpl implements LookupableH
     protected static final String ACTION_URLS_SEPARATOR = "&nbsp;&nbsp;";
     protected static final String ACTION_URLS_EMPTY = "&nbsp;";
 
-    protected static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(AbstractLookupableHelperServiceImpl.class);
+    protected static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(AbstractLookupableHelperServiceImpl.class);
 
     protected Class businessObjectClass;
     protected Map<String, String[]> parameters;

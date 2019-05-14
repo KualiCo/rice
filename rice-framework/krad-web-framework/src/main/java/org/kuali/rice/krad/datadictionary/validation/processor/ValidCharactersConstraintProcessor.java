@@ -16,7 +16,7 @@
 package org.kuali.rice.krad.datadictionary.validation.processor;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.search.SearchOperator;
 import org.kuali.rice.core.api.util.ClassLoaderUtils;

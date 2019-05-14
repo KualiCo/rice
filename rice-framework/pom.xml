@@ -31,9 +31,6 @@
   <modules>
     <module>krad-data</module>
     <module>krad-app-framework</module>
-    <module>krad-development-tools</module>
-    <module>krad-it</module>
-    <module>krad-sampleapp</module>
     <module>krad-service-impl</module>
     <module>krad-web</module>
     <module>krad-web-framework</module>

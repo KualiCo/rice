@@ -17,7 +17,7 @@ package org.kuali.rice.krad.uif.util;
 
 import static org.junit.Assert.assertEquals;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.Assume;
 import org.junit.BeforeClass;

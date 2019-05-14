@@ -17,7 +17,7 @@ package org.kuali.rice.krad.dao.impl;
 
 import java.sql.Timestamp;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.ojb.broker.query.Criteria;
 import org.apache.ojb.broker.query.QueryFactory;
 import org.kuali.rice.core.framework.persistence.ojb.dao.PlatformAwareDaoBaseOjb;

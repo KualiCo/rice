@@ -23,7 +23,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathVariableResolver;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.engine.RouteContext;
 import org.kuali.rice.kew.engine.node.BranchState;
 import org.kuali.rice.kew.engine.node.service.BranchService;

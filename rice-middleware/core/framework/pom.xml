@@ -123,6 +123,21 @@
       <artifactId>javax.servlet-api</artifactId>
     </dependency>
     <dependency>
+      <groupId>xapool</groupId>
+      <artifactId>xapool</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>jotm</groupId>
+      <artifactId>jotm</artifactId>
+      <version>2.0.10</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.resource</groupId>
+      <artifactId>connector</artifactId>
+      <version>1.0</version>
+      <type>pom</type>
+    </dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
       <scope>test</scope>

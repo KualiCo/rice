@@ -17,7 +17,7 @@ package org.kuali.rice.kew.docsearch;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;
 import org.kuali.rice.core.api.exception.RiceRemoteServiceConnectionException;
 import org.kuali.rice.core.api.uif.RemotableAttributeError;

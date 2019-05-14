@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.core.impl.impex.xml;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.ClassLoaderUtils;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;

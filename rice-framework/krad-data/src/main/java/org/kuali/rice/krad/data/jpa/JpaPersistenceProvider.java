@@ -85,7 +85,7 @@ import com.google.common.collect.Sets;
  */
 public class JpaPersistenceProvider implements PersistenceProvider, BeanFactoryAware {
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(JpaPersistenceProvider.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(JpaPersistenceProvider.class);
 
     /**
      * Indicates if a JPA {@code EntityManager} flush should be automatically executed when calling

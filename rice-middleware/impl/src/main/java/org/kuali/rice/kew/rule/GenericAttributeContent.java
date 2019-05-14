@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kew.rule;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.xml.XmlJotter;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

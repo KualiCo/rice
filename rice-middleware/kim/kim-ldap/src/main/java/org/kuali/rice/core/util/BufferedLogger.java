@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.core.util;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import static org.apache.log4j.Level.WARN;
 import static org.apache.log4j.Level.ERROR;
 import static org.apache.log4j.Level.FATAL;
@@ -31,7 +31,7 @@ import static org.apache.log4j.Level.FATAL;
  * import BufferedLogger.*
  * </code>
  * 
- * @see org.apache.log4j.Logger
+ * @see org.apache.logging.log4j.Logger
  */
 public class BufferedLogger {
     

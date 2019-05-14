@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kim.api.KimConstants;
 import org.kuali.rice.kim.api.services.KimApiServiceLocator;
 import org.kuali.rice.kim.impl.permission.GenericPermissionBo;

@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kew.notes.web;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.coreservice.framework.CoreFrameworkServiceLocator;
 import org.kuali.rice.kew.api.WorkflowRuntimeException;
 import org.kuali.rice.kew.doctype.SecuritySession;

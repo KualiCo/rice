@@ -19,7 +19,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.mail.EmailBody;
 import org.kuali.rice.core.api.mail.EmailFrom;
 import org.kuali.rice.core.api.mail.EmailSubject;

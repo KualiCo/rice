@@ -20,7 +20,7 @@ import java.util.List;
 import org.apache.cxf.Bus;
 import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.endpoint.ServerRegistry;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.ksb.api.bus.ServiceDefinition;
 import org.kuali.rice.ksb.messaging.bam.BAMServerProxy;
 import org.kuali.rice.ksb.messaging.servlet.CXFServletControllerAdapter;

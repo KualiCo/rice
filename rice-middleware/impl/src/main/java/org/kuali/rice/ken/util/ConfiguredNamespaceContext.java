@@ -22,7 +22,7 @@ import java.util.Map;
 
 import javax.xml.namespace.NamespaceContext;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 /**
  * XPath NamespaceContext that is configured with a predefined prefix->NS map.

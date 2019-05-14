@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.krad.util;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.ojb.broker.PBFactoryException;
 import org.apache.ojb.broker.PBKey;
 import org.apache.ojb.broker.PersistenceBrokerInternal;

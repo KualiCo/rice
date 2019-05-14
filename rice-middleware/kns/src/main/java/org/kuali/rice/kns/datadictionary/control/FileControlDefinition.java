@@ -28,7 +28,7 @@ public class FileControlDefinition extends ControlDefinitionBase {
     private static final long serialVersionUID = 8778523411471162513L;
     
 	// logger
-    private static Log LOG = LogFactory.getLog(FileControlDefinition.class);
+    private static Log LOG = LogManager.getLogger(FileControlDefinition.class);
 
     public FileControlDefinition() {
         LOG.debug("creating new FileControlDefinition");

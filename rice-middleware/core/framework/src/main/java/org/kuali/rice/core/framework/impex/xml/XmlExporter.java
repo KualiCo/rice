@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.core.framework.impex.xml;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 import org.kuali.rice.core.api.impex.ExportDataSet;
 
 

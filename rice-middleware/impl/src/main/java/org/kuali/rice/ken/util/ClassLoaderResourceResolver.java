@@ -17,7 +17,7 @@ package org.kuali.rice.ken.util;
 
 import javax.xml.XMLConstants;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Utility base class for Entity and LSResource Resolvers that should resolve

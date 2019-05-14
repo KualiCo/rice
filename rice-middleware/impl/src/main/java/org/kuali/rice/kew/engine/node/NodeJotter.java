@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class NodeJotter {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(NodeJotter.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(NodeJotter.class);
     private static final String INDENT = "   ";
 
     public static void jotNodeInstance(DocumentRouteHeaderValue document, RouteNodeInstance nodeInstance) {

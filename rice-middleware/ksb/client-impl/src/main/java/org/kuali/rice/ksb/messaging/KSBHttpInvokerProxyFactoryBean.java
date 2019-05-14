@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.ClassLoaderUtils;
 import org.kuali.rice.ksb.api.bus.support.JavaServiceConfiguration;
 import org.springframework.aop.framework.ProxyFactory;

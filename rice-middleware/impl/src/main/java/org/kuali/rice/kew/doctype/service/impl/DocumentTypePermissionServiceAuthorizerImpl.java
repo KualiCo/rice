@@ -16,7 +16,7 @@
 package org.kuali.rice.kew.doctype.service.impl;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.api.WorkflowRuntimeException;
 import org.kuali.rice.kew.api.action.ActionType;
 import org.kuali.rice.kew.api.document.Document;

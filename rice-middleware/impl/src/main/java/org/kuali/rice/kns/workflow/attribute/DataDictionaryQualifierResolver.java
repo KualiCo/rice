@@ -82,7 +82,7 @@ import java.util.Map;
  */
 @Deprecated
 public class DataDictionaryQualifierResolver extends QualifierResolverBase {
-//    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DataDictionaryQualifierResolver.class);
+//    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DataDictionaryQualifierResolver.class);
     
 
     /**

@@ -27,7 +27,7 @@ import org.kuali.rice.kim.api.KimConstants;
  *
  */
 public final class KimCommonUtilsInternal {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(KimCommonUtilsInternal.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KimCommonUtilsInternal.class);
 
 	private KimCommonUtilsInternal() {
 		throw new UnsupportedOperationException("do not call");

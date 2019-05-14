@@ -23,7 +23,7 @@ import org.apache.cxf.transport.http.DestinationRegistry;
 import org.apache.cxf.transport.http.HTTPTransportFactory;
 import org.apache.cxf.transport.servlet.ServletController;
 import org.apache.cxf.transport.servlet.servicelist.ServiceListGeneratorServlet;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.core.api.util.ClassLoaderUtils;

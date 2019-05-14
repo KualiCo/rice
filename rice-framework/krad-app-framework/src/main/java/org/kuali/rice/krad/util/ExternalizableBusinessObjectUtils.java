@@ -22,7 +22,7 @@ import org.kuali.rice.krad.bo.ExternalizableBusinessObject;
  * A class with utilities related to externalizable business objects
  */
 public final class ExternalizableBusinessObjectUtils {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ExternalizableBusinessObjectUtils.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ExternalizableBusinessObjectUtils.class);
 
 	private ExternalizableBusinessObjectUtils() {
 		throw new UnsupportedOperationException("do not call");

@@ -17,7 +17,7 @@ package org.kuali.rice.core.framework.resourceloader;
 
 import org.apache.commons.beanutils.ConstructorUtils;
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.reflect.DataDefinition;
 import org.kuali.rice.core.api.reflect.ObjectDefinition;
 import org.kuali.rice.core.api.reflect.PropertyDefinition;

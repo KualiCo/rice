@@ -95,7 +95,7 @@ import org.kuali.rice.krad.uif.widget.QuickFinder;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ComponentFactory {
-    private static Log LOG = LogFactory.getLog(ComponentFactory.class);
+    private static Log LOG = LogManager.getLogger(ComponentFactory.class);
 
     public static final String TEXT_CONTROL = "Uif-TextControl";
     public static final String CHECKBOX_CONTROL = "Uif-CheckboxControl";

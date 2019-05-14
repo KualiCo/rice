@@ -56,7 +56,7 @@ import java.util.Map;
  */
 @Deprecated
 public class KualiLookupAction extends KualiAction {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(KualiLookupAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiLookupAction.class);
 
     @Override
     protected void checkAuthorization(ActionForm form, String methodToCall) throws AuthorizationException {

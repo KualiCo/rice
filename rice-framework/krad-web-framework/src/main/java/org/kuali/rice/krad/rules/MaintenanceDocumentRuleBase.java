@@ -75,7 +75,7 @@ import org.springframework.util.AutoPopulatingList;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class MaintenanceDocumentRuleBase extends DocumentRuleBase implements MaintenanceDocumentRule {
-    protected static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(MaintenanceDocumentRuleBase.class);
+    protected static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MaintenanceDocumentRuleBase.class);
 
     // these two constants are used to correctly prefix errors added to
     // the global errors

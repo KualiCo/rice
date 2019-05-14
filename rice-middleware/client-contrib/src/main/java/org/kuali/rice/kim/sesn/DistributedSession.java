@@ -23,6 +23,8 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kim.sesn.timeouthandlers.TimeoutHandler;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -41,7 +43,7 @@ public class DistributedSession {
     private TimeoutHandler timeoutHandler;
     private boolean allowInsertOnTouch = false;
     
-    private static final Log logger = LogFactory.getLog(DistributedSession.class);
+    private static final Logger logger = LogManager.getLogger(DistributedSession.class);
 
     /**
      * @param timeoutHandler the timeoutHandler to set

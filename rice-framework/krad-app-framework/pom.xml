@@ -45,71 +45,100 @@
       </profile>
     </profiles>
 
-  <dependencies>
+    <dependencies>
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>rice-core-api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>rice-core-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>rice-kim-api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>rice-kim-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>rice-kew-api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>rice-kew-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>rice-core-framework</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>rice-core-framework</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>rice-krad-data</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>rice-krad-data</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-    <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-    </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+        </dependency>
 
-    <dependency>
-      <groupId>org.eclipse.persistence</groupId>
-      <artifactId>org.eclipse.persistence.jpa</artifactId>
-    </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.antlr</artifactId>
+        </dependency>
 
-    <!-- test-scoped dependencies: -->
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.asm</artifactId>
+        </dependency>
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.core</artifactId>
+        </dependency>
 
-    <dependency>
-      <groupId>org.reflections</groupId>
-      <artifactId>reflections</artifactId>
-      <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa</artifactId>
+        </dependency>
 
-  </dependencies>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
+        </dependency>
 
-  <build>
-    <plugins>
-      <!-- Enable static weaving using META-INF/persistence-weaving.xml for this module -->
-      <plugin>
-          <groupId>de.empulse.eclipselink</groupId>
-          <artifactId>staticweave-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.moxy</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.oracle</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>jakarta.persistence</artifactId>
+        </dependency>
+
+        <!-- test-scoped dependencies: -->
+
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Enable static weaving using META-INF/persistence-weaving.xml for this module -->
+            <plugin>
+                <groupId>de.empulse.eclipselink</groupId>
+                <artifactId>staticweave-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -59,7 +59,7 @@ import org.kuali.rice.krad.util.ObjectUtils;
  */
 @Deprecated
 public class KualiMaintenanceForm extends KualiDocumentFormBase {
-    protected static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(KualiMaintenanceForm.class);
+    protected static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiMaintenanceForm.class);
 
     protected static final long serialVersionUID = 1L;
 

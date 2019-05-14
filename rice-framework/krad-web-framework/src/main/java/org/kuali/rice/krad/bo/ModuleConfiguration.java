@@ -62,7 +62,7 @@ import java.util.Map;
  *
  */
 public class ModuleConfiguration implements InitializingBean, ApplicationContextAware {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ModuleConfiguration.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ModuleConfiguration.class);
     /**
      * the module's namespace.
      */

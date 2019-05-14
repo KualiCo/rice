@@ -29,7 +29,7 @@ import java.security.GeneralSecurityException;
  */
 public class UifEncryptionPropertyEditorWrapper extends PropertyEditorSupport{
 
-    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(UifEncryptionPropertyEditorWrapper.class);
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(UifEncryptionPropertyEditorWrapper.class);
 
     PropertyEditor propertyEditor;
 

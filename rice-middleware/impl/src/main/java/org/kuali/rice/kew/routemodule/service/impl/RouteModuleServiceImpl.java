@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kew.routemodule.service.impl;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.reflect.ObjectDefinition;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;

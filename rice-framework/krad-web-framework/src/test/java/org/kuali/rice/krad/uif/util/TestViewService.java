@@ -17,7 +17,7 @@ package org.kuali.rice.krad.uif.util;
 
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.lifecycle.Lifecycle;
 import org.kuali.rice.krad.datadictionary.DataDictionary;
 import org.kuali.rice.krad.datadictionary.DataDictionaryException;

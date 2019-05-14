@@ -82,7 +82,7 @@ import com.google.common.collect.Lists;
 @Deprecated
 public class DataDictionaryTypeServiceBase implements KimTypeService {
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DataDictionaryTypeServiceBase.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DataDictionaryTypeServiceBase.class);
     private static final String ANY_CHAR_PATTERN_S = ".*";
     private static final Pattern ANY_CHAR_PATTERN = Pattern.compile(ANY_CHAR_PATTERN_S);
 

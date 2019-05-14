@@ -19,7 +19,7 @@ package org.kuali.rice.kns.web.struts.form.pojo;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.StopWatch;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.kuali.rice.coreservice.framework.CoreFrameworkServiceLocator;
 import org.kuali.rice.core.web.format.FormatException;

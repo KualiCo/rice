@@ -28,7 +28,7 @@ import org.kuali.rice.kew.service.KEWServiceLocator;
  */
 public class ImmediateEmailReminderQueueImpl implements ImmediateEmailReminderQueue {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
             .getLogger(ImmediateEmailReminderQueueImpl.class);
 
     private ActionListEmailService actionListEmailService;

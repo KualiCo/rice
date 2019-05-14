@@ -48,7 +48,7 @@ import java.util.Set;
  */
 @Deprecated
 public class BusinessObjectDaoOjb extends PlatformAwareDaoBaseOjb implements BusinessObjectDao, OjbCollectionAware {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(BusinessObjectDaoOjb.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(BusinessObjectDaoOjb.class);
 
     private PersistenceStructureService persistenceStructureService;
     private OjbCollectionHelper ojbCollectionHelper;

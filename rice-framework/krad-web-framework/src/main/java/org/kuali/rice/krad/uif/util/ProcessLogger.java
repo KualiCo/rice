@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.Callable;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Performance monitoring log utility.

@@ -28,7 +28,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;

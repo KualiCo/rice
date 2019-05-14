@@ -111,6 +111,7 @@
     <kuali-util.version>4.4.16</kuali-util.version>
     <log4j.version>2.11.2</log4j.version>
     <mail.version>1.6.2</mail.version>
+    <metrics.version>3.2.1</metrics.version>
     <mockito.version>2.24.5</mockito.version>
     <objenesis.version>3.0.1</objenesis.version>
     <plexus-utils.version>3.1.1</plexus-utils.version>
@@ -119,6 +120,7 @@
     <servlet-api.version>3.0.1</servlet-api.version>
     <spring-modules-ojb.version>0.8a</spring-modules-ojb.version>
     <spring.version>4.3.22.RELEASE</spring.version>
+    <spring.security.version>4.2.7.RELEASE</spring.security.version>
     <struts.version>1.3.11-kuali-1</struts.version>
     <validation.version>2.0.1.Final</validation.version>
     <velocity.version>1.7</velocity.version>
@@ -126,6 +128,7 @@
     <wss4j.version>2.2.3</wss4j.version>
     <xmlsec.version>2.1.2</xmlsec.version>
     <xmlunit.version>2.6.2</xmlunit.version>
+    <xapool.version>1.5.0-patch6</xapool.version>
     <xstream.version>1.4.11.1</xstream.version>
     <yuicompressor.version>2.4.8</yuicompressor.version>
 
@@ -186,16 +189,33 @@
     <issueManagement.system>github</issueManagement.system>
     <issueManagement.url>https://github.com/kuali/kc-rice/issues</issueManagement.url>
 
-    <dm.snapshotRepository.id>kualico.nexus.snapshots</dm.snapshotRepository.id>
-    <dm.snapshotRepository.name>KualiCo Nexus Snapshots Repository</dm.snapshotRepository.name>
-    <dm.snapshotRepository.url>https://nexus.kuali.co/nexus/content/repositories/snapshots</dm.snapshotRepository.url>
+    <!-- Override properties from the parent pom for deploying to Maven repositories -->
+    <!-- These are the Kuali repository settings for an official release -->
+    <kuali.repo.release.id>kualico.nexus.core.releases</kuali.repo.release.id>
+    <kuali.repo.release.name>KualiCo Core Release Repository</kuali.repo.release.name>
+    <kuali.repo.release.url>https://nexus.kuali.co/nexus/content/repositories/core-releases-public/</kuali.repo.release.url>
+    <!-- These are the Kuali repository settings for snapshot builds -->
+    <kuali.repo.snapshot.id>kualico.nexus.core.releases</kuali.repo.snapshot.id>
+    <kuali.repo.snapshot.name>KualiCo Core Snapshot Repository</kuali.repo.snapshot.name>
+    <kuali.repo.snapshot.url>https://nexus.kuali.co/nexus/content/repositories/core-snapshots-public/</kuali.repo.snapshot.url>
 
-    <dm.repository.id>kualico.nexus.releases</dm.repository.id>
-    <dm.repository.name>KualiCo Nexus Releases Repository</dm.repository.name>
-    <dm.repository.url>https://nexus.kuali.co/nexus/content/repositories/releases</dm.repository.url>
+    <!-- set the kuali site url for publishing the documentation -->
 
-    <ciManagement.url>https://ci.kuali.org/</ciManagement.url>
   </properties>
+
+  <!-- duplicating distributionManagement from parent pom because site plugin doesn't properly allow overriding for the site url -->
+  <distributionManagement>
+    <repository>
+      <id>${kuali.repo.release.id}</id>
+      <name>${kuali.repo.release.name}</name>
+      <url>${kuali.repo.release.url}</url>
+    </repository>
+    <snapshotRepository>
+      <id>${kuali.repo.snapshot.id}</id>
+      <name>${kuali.repo.snapshot.name}</name>
+      <url>${kuali.repo.snapshot.url}</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <profiles>
     <profile>
@@ -240,90 +260,6 @@
           </plugin>
         </plugins>
       </build>
-    </profile>
-
-    <profile>
-      <id>grm</id>
-      <!-- comment out activation section to turn this profile off permanently -->
-      <activation>
-        <property>
-          <name>!grm.off</name>
-        </property>
-      </activation>
-
-      <properties>
-        <scm.connection>scm:git:https://github.com/kualico/kc-rice.git</scm.connection>
-        <scm.developerConnection>scm:git:https://github.com/kualico/kc-rice.git</scm.developerConnection>
-        <scm.url>scm:git:https://github.com/kualico/kc-rice</scm.url>
-
-        <issueManagement.system>github</issueManagement.system>
-        <issueManagement.url>https://github.com/kualico/kc-rice/issues</issueManagement.url>
-
-        <dm.snapshotRepository.id>kualico.nexus.research.snapshots</dm.snapshotRepository.id>
-        <dm.snapshotRepository.name>KualiCo Nexus Research Snapshots Repository</dm.snapshotRepository.name>
-        <dm.snapshotRepository.url>https://nexus.kuali.co/nexus/content/repositories/research-snapshots/</dm.snapshotRepository.url>
-
-        <dm.repository.id>kualico.nexus.research.releases</dm.repository.id>
-        <dm.repository.name>KualiCo Nexus Research Releases Repository</dm.repository.name>
-        <dm.repository.url>https://nexus.kuali.co/nexus/content/repositories/research-releases/</dm.repository.url>
-
-        <ciManagement.url>https://res-deploy.kuali.co/</ciManagement.url>
-
-        <kc-s3.version>1903.0001</kc-s3.version>
-      </properties>
-
-      <dependencyManagement>
-        <dependencies>
-          <dependency>
-            <groupId>co.kuali</groupId>
-            <artifactId>kc-s3</artifactId>
-            <version>${kc-s3.version}</version>
-            <scope>runtime</scope>
-            <exclusions>
-              <exclusion>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-              </exclusion>
-            </exclusions>
-          </dependency>
-        </dependencies>
-      </dependencyManagement>
-
-      <repositories>
-        <repository>
-          <id>kualico.nexus.research</id>
-          <name>KualiCo Nexus Research Group</name>
-          <url>https://nexus.kuali.co/nexus/content/groups/research-repos/</url>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-        </repository>
-      </repositories>
-
-      <pluginRepositories>
-        <pluginRepository>
-          <id>kualico.nexus.research</id>
-          <name>KualiCo Nexus Research Group</name>
-          <url>https://nexus.kuali.co/nexus/content/groups/research-repos/</url>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-        </pluginRepository>
-      </pluginRepositories>
     </profile>
 
     <profile>
@@ -2126,23 +2062,9 @@
       </dependency>
 
       <dependency>
-        <groupId>org.kuali.common</groupId>
-        <artifactId>kuali-util</artifactId>
-        <version>${kuali-util.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.kuali.commons</groupId>
-            <artifactId>commons-beanutils</artifactId>
-          </exclusion>
-        </exclusions>
+        <groupId>xapool</groupId>
+        <artifactId>xapool</artifactId>
+        <version>${xapool.version}</version>
       </dependency>
 
       <dependency>
@@ -2422,19 +2344,6 @@
     <tag>rice-2.5.3.1504.1-kckualico</tag>
   </scm>
 
-  <distributionManagement>
-    <snapshotRepository>
-      <id>${dm.snapshotRepository.id}</id>
-      <name>${dm.snapshotRepository.name}</name>
-      <url>${dm.snapshotRepository.url}</url>
-    </snapshotRepository>
-    <repository>
-      <id>${dm.repository.id}</id>
-      <name>${dm.repository.name}</name>
-      <url>${dm.repository.url}</url>
-    </repository>
-  </distributionManagement>
-
   <repositories>
     <repository>
       <id>kualico.nexus</id>
@@ -2463,13 +2372,5 @@
     </pluginRepository>
   </pluginRepositories>
 
-  <issueManagement>
-    <system>${issueManagement.system}</system>
-    <url>${issueManagement.url}</url>
-  </issueManagement>
-
-  <ciManagement>
-    <url>${ciManagement.url}</url>
-  </ciManagement>
 
 </project>

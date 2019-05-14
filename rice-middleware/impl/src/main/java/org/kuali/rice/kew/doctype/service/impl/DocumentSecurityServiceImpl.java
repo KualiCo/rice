@@ -63,7 +63,7 @@ import java.util.Set;
 
 public class DocumentSecurityServiceImpl implements DocumentSecurityService {
 
-    public static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(
+    public static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
             DocumentSecurityServiceImpl.class);
 
     private ExtensionRepositoryService extensionRepositoryService;

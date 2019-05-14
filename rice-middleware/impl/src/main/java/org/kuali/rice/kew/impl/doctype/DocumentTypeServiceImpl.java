@@ -17,7 +17,7 @@ package org.kuali.rice.kew.impl.doctype;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;
 import org.kuali.rice.kew.api.doctype.DocumentType;
 import org.kuali.rice.kew.api.doctype.DocumentTypeService;

@@ -49,7 +49,7 @@ import java.util.Map;
  */
 @Deprecated
 public class PessimisticLockLookupableHelperServiceImpl extends AbstractLookupableHelperServiceImpl {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(PessimisticLockLookupableHelperServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(PessimisticLockLookupableHelperServiceImpl.class);
 
     private static final long serialVersionUID = -5839142187907211804L;
     private static final String OWNER_PRINCIPAL_ID_PROPERTY_NAME = "ownedByPrincipalIdentifier";

@@ -16,14 +16,14 @@
 package org.kuali.rice.core.api.util.xml;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.Namespace;
-import org.jdom.input.DOMBuilder;
-import org.jdom.input.SAXBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.Namespace;
+import org.jdom2.input.DOMBuilder;
+import org.jdom2.input.SAXBuilder;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -32,17 +32,9 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMResult;
-import javax.xml.transform.stream.StreamSource;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
@@ -53,13 +45,13 @@ import java.util.Collection;
 
 
 /**
- * Provides a set of utilities for XML-related operations on org.jdom & org.w3c
+ * Provides a set of utilities for XML-related operations on org.jdom2 & org.w3c
  * xml Objects.
  *
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public final class XmlHelper {
-    private static final Log LOG = LogFactory.getLog(XmlHelper.class);
+    private static final Logger LOG = LogManager.getLogger(XmlHelper.class);
 
     private XmlHelper() {
         throw new UnsupportedOperationException("do not call");
@@ -71,7 +63,7 @@ public final class XmlHelper {
      * @param xmlStream the reader representing the xmlstream
      * @return jdom document
      */
-    public static org.jdom.Document buildJDocument(Reader xmlStream) {
+    public static org.jdom2.Document buildJDocument(Reader xmlStream) {
         // use SAX Builder
         // don't verify for speed reasons
         final SAXBuilder builder = new SAXBuilder(false);
@@ -90,7 +82,7 @@ public final class XmlHelper {
      * @param document the w3c document
      * @return jdom document
      */
-    public static org.jdom.Document buildJDocument(org.w3c.dom.Document document) {
+    public static org.jdom2.Document buildJDocument(org.w3c.dom.Document document) {
         return new DOMBuilder().build(document);
     }
 

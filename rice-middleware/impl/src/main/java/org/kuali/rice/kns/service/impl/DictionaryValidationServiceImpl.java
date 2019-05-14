@@ -49,7 +49,7 @@ import org.kuali.rice.krad.util.ObjectUtils;
  */
 @Deprecated
 public class DictionaryValidationServiceImpl extends org.kuali.rice.krad.service.impl.DictionaryValidationServiceImpl implements DictionaryValidationService {
-    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
             DictionaryValidationServiceImpl.class);
 
     protected WorkflowAttributePropertyResolutionService workflowAttributePropertyResolutionService;

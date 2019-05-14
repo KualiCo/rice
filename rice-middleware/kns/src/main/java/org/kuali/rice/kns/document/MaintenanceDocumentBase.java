@@ -53,7 +53,7 @@ import java.util.UUID;
  */
 @Deprecated
 public class MaintenanceDocumentBase extends org.kuali.rice.krad.maintenance.MaintenanceDocumentBase implements MaintenanceDocument {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(MaintenanceDocumentBase.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MaintenanceDocumentBase.class);
 
     @Transient
     protected transient FormFile fileAttachment;

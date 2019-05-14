@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.coreservice.impl.style;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.coreservice.api.style.Style;
 import org.kuali.rice.coreservice.api.style.StyleRepositoryService;
 import org.kuali.rice.coreservice.api.style.StyleService;

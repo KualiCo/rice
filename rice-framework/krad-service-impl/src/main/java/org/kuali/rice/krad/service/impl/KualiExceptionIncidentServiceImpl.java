@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.krad.service.impl;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.exception.ExceptionIncident;
 import org.kuali.rice.krad.exception.KualiExceptionIncident;
 import org.kuali.rice.krad.service.KualiExceptionIncidentService;

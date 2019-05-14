@@ -45,7 +45,7 @@ import org.kuali.rice.krad.util.KRADConstants;
  */
 public class RequestsNode extends RequestActivationNode {
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
 			.getLogger( RequestsNode.class );
 
 	protected static final String SUPPRESS_POLICY_ERRORS_KEY = "_suppressPolicyErrorsRequestActivationNode";

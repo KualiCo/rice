@@ -85,7 +85,7 @@ import java.util.List;
  */
 @TransactionalNoValidationExceptionRollback
 public class DocumentServiceImpl implements DocumentService {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DocumentServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentServiceImpl.class);
 
     protected DateTimeService dateTimeService;
     protected NoteService noteService;

@@ -68,7 +68,7 @@ import java.util.Set;
  * Provides an EclipseLink-specific implementation for the {@link JpaMetadataProviderImpl}.
  */
 public class EclipseLinkJpaMetadataProviderImpl extends JpaMetadataProviderImpl {
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
 			.getLogger(EclipseLinkJpaMetadataProviderImpl.class);
 
     /**

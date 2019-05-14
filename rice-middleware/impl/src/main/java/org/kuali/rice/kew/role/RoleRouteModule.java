@@ -53,7 +53,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class RoleRouteModule implements RouteModule {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(RoleRouteModule.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RoleRouteModule.class);
 	
 	protected static final String QUALIFIER_RESOLVER_ELEMENT = KewApiConstants.ROLEROUTE_QUALIFIER_RESOLVER_ELEMENT;
 	protected static final String QUALIFIER_RESOLVER_CLASS_ELEMENT = KewApiConstants.ROLEROUTE_QUALIFIER_RESOLVER_CLASS_ELEMENT;

@@ -15,8 +15,8 @@
  */
 package org.kuali.rice.core.api.util.xml;
 
-import org.jdom.output.Format;
-import org.jdom.output.XMLOutputter;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Result;
@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 
 /**
- * Utility class that helps retrieve string representations of org.jdom & org.w3c
+ * Utility class that helps retrieve string representations of org.jdom2 & org.w3c
  * xml Objects
  */
 public final class XmlJotter {
@@ -45,7 +45,7 @@ public final class XmlJotter {
      * @param document the document
      * @return document as a string
      */
-    public static String jotDocument(org.jdom.Document document) {
+    public static String jotDocument(org.jdom2.Document document) {
         return jotDocument(document, true);
     }
 
@@ -56,7 +56,7 @@ public final class XmlJotter {
      * @param indent   whether to use indented or raw format
      * @return document as a string
      */
-    public static String jotDocument(org.jdom.Document document, boolean indent) {
+    public static String jotDocument(org.jdom2.Document document, boolean indent) {
         XMLOutputter outputer = new XMLOutputter(getJdomFormat(indent));
         StringWriter writer = new StringWriter();
         try {
@@ -94,7 +94,7 @@ public final class XmlJotter {
      * @param node the node
      * @return node as a string
      */
-    public static String jotNode(org.jdom.Element node) {
+    public static String jotNode(org.jdom2.Element node) {
         return jotNode(node, true);
     }
 
@@ -105,7 +105,7 @@ public final class XmlJotter {
      * @param indent whether to use indented or raw format
      * @return node as a string
      */
-    public static String jotNode(org.jdom.Element node, boolean indent) {
+    public static String jotNode(org.jdom2.Element node, boolean indent) {
         XMLOutputter outputer = new XMLOutputter(getJdomFormat(indent));
         StringWriter writer = new StringWriter();
         try {

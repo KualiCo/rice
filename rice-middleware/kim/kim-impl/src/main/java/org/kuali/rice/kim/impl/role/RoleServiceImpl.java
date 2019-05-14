@@ -18,7 +18,7 @@ package org.kuali.rice.kim.impl.role;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
 import org.kuali.rice.core.api.CoreConstants;
 import org.kuali.rice.core.api.cache.CacheKeyUtils;

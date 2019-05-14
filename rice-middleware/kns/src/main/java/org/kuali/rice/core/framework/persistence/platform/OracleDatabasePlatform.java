@@ -32,7 +32,7 @@ import java.util.regex.Pattern;
  */
 public class OracleDatabasePlatform extends ANSISqlDatabasePlatform {
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(OracleDatabasePlatform.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(OracleDatabasePlatform.class);
 	private static final long DEFAULT_TIMEOUT_SECONDS = 60 * 60; // default to 1 hour
 	public static final long WAIT_FOREVER = -1;
 	

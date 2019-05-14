@@ -21,7 +21,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.mail.MailMessage;
 import org.kuali.rice.core.api.mail.Mailer;

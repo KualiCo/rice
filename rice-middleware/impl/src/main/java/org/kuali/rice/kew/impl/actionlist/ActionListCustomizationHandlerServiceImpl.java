@@ -38,7 +38,7 @@ import java.util.Map;
  */
 public class ActionListCustomizationHandlerServiceImpl implements ActionListCustomizationHandlerService {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ActionListCustomizationHandlerServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ActionListCustomizationHandlerServiceImpl.class);
 
     private DocumentTypeService documentTypeService;
 

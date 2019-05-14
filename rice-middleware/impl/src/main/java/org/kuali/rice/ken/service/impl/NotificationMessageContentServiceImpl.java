@@ -19,7 +19,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.xml.XmlException;
 import org.kuali.rice.core.api.util.xml.XmlJotter;
 import org.kuali.rice.ken.bo.NotificationBo;

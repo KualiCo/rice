@@ -26,7 +26,7 @@ import org.kuali.rice.krad.dao.PersistedLookupMetadataDao;
 import org.kuali.rice.krad.util.KRADPropertyConstants;
 
 public class PersistedLookupMetadataDaoOjb extends PlatformAwareDaoBaseOjb implements PersistedLookupMetadataDao {
-    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(PersistedLookupMetadataDaoOjb.class);
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(PersistedLookupMetadataDaoOjb.class);
     
     /**
      * @see org.kuali.rice.krad.dao.PersistedLookupMetadataDao#deleteOldLookupResults(java.sql.Timestamp)

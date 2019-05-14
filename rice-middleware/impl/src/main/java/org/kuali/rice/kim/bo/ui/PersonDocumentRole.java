@@ -32,7 +32,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.persistence.annotations.JoinFetch;
 import org.eclipse.persistence.annotations.JoinFetchType;
 import org.kuali.rice.kim.api.services.KimApiServiceLocator;

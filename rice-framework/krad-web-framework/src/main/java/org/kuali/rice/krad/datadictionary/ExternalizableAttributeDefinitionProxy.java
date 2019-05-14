@@ -36,7 +36,7 @@ public class ExternalizableAttributeDefinitionProxy extends AttributeDefinition 
     private static final long serialVersionUID = -3204870440281417429L;
 
     // logger
-    private static Log LOG = LogFactory.getLog(ExternalizableAttributeDefinitionProxy.class);
+    private static Log LOG = LogManager.getLogger(ExternalizableAttributeDefinitionProxy.class);
 
     private String sourceExternalizableBusinessObjectInterface;
     private String sourceAttributeName;

@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ExternalActnListNotificationLifecycle extends BaseLifecycle {
 
-	protected final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ExternalActnListNotificationLifecycle.class);
+	protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ExternalActnListNotificationLifecycle.class);
 
 	private ScheduledExecutorService scheduledExecutor;
 	private ScheduledFuture future;

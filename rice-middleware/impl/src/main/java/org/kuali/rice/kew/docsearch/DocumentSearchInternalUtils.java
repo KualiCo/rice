@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
 import org.kuali.rice.core.api.CoreApiServiceLocator;

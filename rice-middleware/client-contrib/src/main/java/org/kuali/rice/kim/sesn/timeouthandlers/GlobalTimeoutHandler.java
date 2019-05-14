@@ -29,7 +29,7 @@ import org.apache.commons.logging.LogFactory;
 public class GlobalTimeoutHandler extends AbstractTimeoutHandler {
     private int timeoutPeriod;
     
-    private static final Log logger = LogFactory.getLog(GlobalTimeoutHandler.class);
+    private static final Log logger = LogManager.getLogger(GlobalTimeoutHandler.class);
 
     /**
      * @return the timeoutPeriod

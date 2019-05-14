@@ -39,7 +39,7 @@ import java.util.concurrent.Executors;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class MaintenanceUtils {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(MaintenanceUtils.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MaintenanceUtils.class);
 
     /**
      * Determines if there is another maintenance document that has a lock on the same key as the given document, and

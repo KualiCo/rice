@@ -15,9 +15,9 @@
  */
 package org.kuali.rice.kew.routemodule;
 
-import org.apache.log4j.Logger;
-import org.jdom.Document;
-import org.jdom.Element;
+import org.apache.logging.log4j.Logger;
+import org.jdom2.Document;
+import org.jdom2.Element;
 import org.kuali.rice.core.api.impex.xml.XmlConstants;
 import org.kuali.rice.core.api.reflect.ObjectDefinition;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;

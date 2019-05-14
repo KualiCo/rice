@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.ksb.messaging.service.MessageQueueService;
 import org.kuali.rice.ksb.service.KSBServiceLocator;

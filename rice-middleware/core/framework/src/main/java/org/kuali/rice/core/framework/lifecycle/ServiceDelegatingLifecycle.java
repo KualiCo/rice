@@ -29,7 +29,7 @@ import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
  */
 public class ServiceDelegatingLifecycle extends BaseLifecycle {
 	
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(BaseLifecycle.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(BaseLifecycle.class);
 
 	private QName serviceName;
     private Lifecycle service;

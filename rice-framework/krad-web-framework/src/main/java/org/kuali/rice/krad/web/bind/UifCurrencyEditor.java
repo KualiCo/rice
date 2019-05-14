@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.krad.web.bind;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.RiceKeyConstants;
 import org.kuali.rice.core.api.util.type.KualiDecimal;
 import org.kuali.rice.core.api.util.type.KualiInteger;

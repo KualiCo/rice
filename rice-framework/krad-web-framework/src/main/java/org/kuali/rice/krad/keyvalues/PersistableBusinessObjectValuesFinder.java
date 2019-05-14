@@ -35,7 +35,7 @@ import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
  * @param <T> business object type
  */
 public class PersistableBusinessObjectValuesFinder extends KeyValuesBase {
-    private static final Log LOG = LogFactory.getLog(PersistableBusinessObjectValuesFinder.class);
+    private static final Log LOG = LogManager.getLogger(PersistableBusinessObjectValuesFinder.class);
     private static final long serialVersionUID = 1L;
 
     protected Class<?> businessObjectClass;

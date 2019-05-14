@@ -16,10 +16,10 @@
 package org.kuali.rice.kew.xml.export;
 
 import org.apache.commons.lang.StringUtils;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.input.SAXBuilder;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
 import org.kuali.rice.core.api.impex.ExportDataSet;
 import org.kuali.rice.core.api.util.xml.XmlException;
 import org.kuali.rice.core.api.util.xml.XmlHelper;
@@ -60,7 +60,7 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.*;
  */
 public class DocumentTypeXmlExporter implements XmlExporter {
 
-    protected final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(getClass());
+    protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(getClass());
 
     private XmlRenderer renderer = new XmlRenderer(DOCUMENT_TYPE_NAMESPACE);
 
@@ -224,7 +224,7 @@ public class DocumentTypeXmlExporter implements XmlExporter {
     private void exportSecurity(Element parent, String securityXML) {
       if (!org.apache.commons.lang.StringUtils.isEmpty(securityXML)) {
         try {
-          org.jdom.Document securityDoc = new SAXBuilder().build(new StringReader(securityXML));
+          org.jdom2.Document securityDoc = new SAXBuilder().build(new StringReader(securityXML));
           XmlHelper.propagateNamespace(securityDoc.getRootElement(), DOCUMENT_TYPE_NAMESPACE);
           parent.addContent(securityDoc.getRootElement().detach());
         } catch (IOException e) {

@@ -16,6 +16,8 @@
 package org.kuali.rice.core.api.util;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.FileSystemResource;
@@ -36,7 +38,7 @@ import java.util.Enumeration;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public final class RiceUtilities {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(RiceUtilities.class);
+    private static final Logger LOG = LogManager.getLogger(RiceUtilities.class);
 
 	private static String instanceIpAddress;
 	private static String instanceHostName;

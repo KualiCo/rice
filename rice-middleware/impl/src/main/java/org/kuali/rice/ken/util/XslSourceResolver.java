@@ -20,7 +20,7 @@ import java.io.File;
 
 import javax.xml.transform.stream.StreamSource;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 /**
  * This class is responsible for resolving Xsl from files and Strings.

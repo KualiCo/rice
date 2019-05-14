@@ -33,7 +33,7 @@ import java.util.UUID;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
-import org.jdom.Element;
+import org.jdom2.Element;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.impex.ExportDataSet;
 import org.kuali.rice.core.api.impex.xml.XmlConstants;
@@ -98,7 +98,7 @@ public class RuleServiceInternalImpl implements RuleServiceInternal {
 
     private static final String XML_PARSE_ERROR = "general.error.parsexml";
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(RuleServiceInternalImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RuleServiceInternalImpl.class);
 
     private RuleDAO ruleDAO;
     private RuleResponsibilityDAO ruleResponsibilityDAO;

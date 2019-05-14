@@ -40,7 +40,7 @@ import java.util.Set;
 
 public class DocumentRouteHeaderDAOJpa implements DocumentRouteHeaderDAO {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DocumentRouteHeaderDAOJpa.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentRouteHeaderDAOJpa.class);
 
     private static final String LOCK_TIMEOUT_HINT = "javax.persistence.lock.timeout";
     private static final Long DEFAULT_LOCK_TIMEOUT_SECONDS = Long.valueOf(60 * 60); // default to 1 hour

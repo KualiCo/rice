@@ -37,7 +37,7 @@ import java.io.IOException;
  */
 public class ThreadPoolAction extends KSBAction {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ThreadPoolAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ThreadPoolAction.class);
 
     public ActionForward start(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 	    HttpServletResponse response) throws IOException, ServletException {

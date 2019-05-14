@@ -18,7 +18,7 @@ package org.kuali.rice.coreservice.impl.component;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.CompareToBuilder;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.core.api.criteria.QueryResults;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;

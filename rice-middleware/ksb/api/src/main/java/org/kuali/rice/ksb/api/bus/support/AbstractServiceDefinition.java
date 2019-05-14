@@ -19,7 +19,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreConstants;
 import org.kuali.rice.core.api.config.ConfigurationException;
 import org.kuali.rice.core.api.config.CoreConfigHelper;

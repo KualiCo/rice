@@ -64,7 +64,7 @@ import java.util.Set;
  */
 public class RouteLogAction extends KewKualiAction {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(RouteLogAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RouteLogAction.class);
     private static Comparator<ActionRequestValue> ROUTE_LOG_ACTION_REQUEST_SORTER = new Utilities.RouteLogActionRequestSorter();
     
     @Override

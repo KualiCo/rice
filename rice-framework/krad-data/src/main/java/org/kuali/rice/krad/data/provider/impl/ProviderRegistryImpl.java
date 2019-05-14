@@ -20,7 +20,7 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.Validate;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.data.DataObjectService;
 import org.kuali.rice.krad.data.KradDataServiceLocator;
 import org.kuali.rice.krad.data.provider.MetadataProvider;

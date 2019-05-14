@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.krad.theme.util;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.mozilla.javascript.ErrorReporter;
 import org.mozilla.javascript.EvaluatorException;
 

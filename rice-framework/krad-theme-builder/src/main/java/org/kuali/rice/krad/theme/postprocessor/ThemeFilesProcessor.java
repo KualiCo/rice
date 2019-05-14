@@ -17,7 +17,7 @@ package org.kuali.rice.krad.theme.postprocessor;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.theme.util.ThemeBuilderConstants;
 import org.kuali.rice.krad.theme.util.ThemeBuilderUtils;
 

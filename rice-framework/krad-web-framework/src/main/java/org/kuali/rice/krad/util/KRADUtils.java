@@ -46,7 +46,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.net.URLCodec;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.encryption.EncryptionService;
 import org.kuali.rice.core.api.search.SearchOperator;

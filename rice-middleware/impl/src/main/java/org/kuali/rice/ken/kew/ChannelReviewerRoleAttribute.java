@@ -22,7 +22,7 @@ import java.util.Map;
 
 import javax.xml.xpath.XPathExpressionException;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.api.WorkflowRuntimeException;
 import org.kuali.rice.kew.api.identity.Id;
 import org.kuali.rice.kew.api.identity.PrincipalName;

@@ -16,7 +16,7 @@
 package org.kuali.rice.core.impl.config.property;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.framework.config.property.SimpleConfig;
 
 import java.io.IOException;

@@ -36,7 +36,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class NotificationWorkflowDocumentServiceImpl implements NotificationWorkflowDocumentService {
-    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
             .getLogger(NotificationWorkflowDocumentServiceImpl.class);
 
     private NotificationMessageContentService messageContentService;

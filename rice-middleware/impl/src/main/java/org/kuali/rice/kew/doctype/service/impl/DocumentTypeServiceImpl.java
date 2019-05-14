@@ -16,7 +16,7 @@
 package org.kuali.rice.kew.doctype.service.impl;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.jdom.Element;
+import org.jdom2.Element;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.core.api.criteria.QueryResults;
 import org.kuali.rice.core.api.impex.ExportDataSet;
@@ -50,7 +50,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.*;
  */
 public class DocumentTypeServiceImpl implements DocumentTypeService {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DocumentTypeServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentTypeServiceImpl.class);
     protected static final String XML_FILE_PARSE_ERROR = "general.error.parsexml";
 
     private DocumentTypeDAO documentTypeDAO;

@@ -45,7 +45,7 @@ public class ParameterLookupableHelperServiceImpl extends KualiLookupableHelperS
 
     private static final long serialVersionUID = 4381873774407301041L;
 
-    private static final Log LOG = LogFactory.getLog(ParameterLookupableHelperServiceImpl.class);
+    private static final Log LOG = LogManager.getLogger(ParameterLookupableHelperServiceImpl.class);
     private static final String COMPONENT_NAME = "component.name";
     private static final String COMPONENT_CODE = "componentCode";
 

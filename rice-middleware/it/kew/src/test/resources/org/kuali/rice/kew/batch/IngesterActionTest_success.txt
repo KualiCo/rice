@@ -1,4 +1,0 @@
-classpath\:org/kuali/rice/kew/batch/data/RuleAttributeContent.xml=true
-classpath\:org/kuali/rice/kew/batch/data/EDocLiteContent.xml=true
-classpath\:org/kuali/rice/kew/batch/data/EDocLiteRouting.xml=true
-classpath\:org/kuali/rice/kew/batch/data/EDocLiteStyle.xml=true

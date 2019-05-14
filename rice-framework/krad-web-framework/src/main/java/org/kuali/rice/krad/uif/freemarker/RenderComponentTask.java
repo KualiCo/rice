@@ -17,7 +17,7 @@ package org.kuali.rice.krad.uif.freemarker;
 
 import java.util.Collections;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecyclePhase;

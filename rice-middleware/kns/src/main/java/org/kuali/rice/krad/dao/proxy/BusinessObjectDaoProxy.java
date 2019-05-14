@@ -40,7 +40,7 @@ import java.util.Map;
 @Transactional
 public class BusinessObjectDaoProxy implements BusinessObjectDao {
 
-	private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(BusinessObjectDaoProxy.class);
+	private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(BusinessObjectDaoProxy.class);
 
 	private BusinessObjectDao businessObjectDaoOjb;
     private static KualiModuleService kualiModuleService;

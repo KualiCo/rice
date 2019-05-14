@@ -16,7 +16,7 @@
 package org.kuali.rice.core.framework.persistence.ojb;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.ojb.broker.metadata.ConnectionRepository;
 import org.apache.ojb.broker.metadata.DescriptorRepository;
 import org.apache.ojb.broker.metadata.JdbcConnectionDescriptor;

@@ -46,7 +46,7 @@ import java.util.Set;
  */
 @Deprecated
 public class DocumentAuthorizerBase extends BusinessObjectAuthorizerBase implements DocumentAuthorizer {
-    protected static Log LOG = LogFactory.getLog(DocumentAuthorizerBase.class);
+    protected static Log LOG = LogManager.getLogger(DocumentAuthorizerBase.class);
 
     public static final String PRE_ROUTING_ROUTE_NAME = "PreRoute";
     public static final String EDIT_MODE_DEFAULT_TRUE_VALUE = "TRUE";

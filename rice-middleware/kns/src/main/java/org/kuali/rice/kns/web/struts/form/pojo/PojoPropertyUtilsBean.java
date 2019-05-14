@@ -26,7 +26,7 @@ import org.apache.commons.beanutils.PropertyUtilsBean;
 import org.apache.commons.beanutils.WrapDynaBean;
 import org.apache.commons.beanutils.expression.Resolver;
 import org.apache.commons.collections.FastHashMap;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.web.format.Formatter;
 import org.kuali.rice.kns.service.KNSServiceLocator;
 import org.kuali.rice.krad.bo.PersistableBusinessObject;

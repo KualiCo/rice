@@ -41,7 +41,7 @@ import org.kuali.rice.kim.api.services.KimApiServiceLocator;
  */
 public class IdentityHelperServiceImpl implements IdentityHelperService {
 
-	private static final Log logger = LogFactory.getLog(IdentityHelperServiceImpl.class);
+	private static final Log logger = LogManager.getLogger(IdentityHelperServiceImpl.class);
 
 		public String getIdForPrincipalName(String principalName) {
 		if (principalName == null) {

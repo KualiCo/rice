@@ -45,7 +45,7 @@ import org.kuali.rice.krad.rules.rule.BusinessRule;
 public abstract class DocumentEntry extends DataDictionaryEntryBase {
     private static final long serialVersionUID = 8231730871830055356L;
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DocumentEntry.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentEntry.class);
 
     protected String documentTypeName;
 

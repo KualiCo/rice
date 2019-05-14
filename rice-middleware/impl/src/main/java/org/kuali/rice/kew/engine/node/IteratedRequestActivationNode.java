@@ -62,7 +62,7 @@ import java.util.List;
  */
 public class IteratedRequestActivationNode implements SimpleNode {
 
-    protected final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(getClass());
+    protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(getClass());
     private static long generatedRequestPriority = 0;
 
     protected static interface RequestFulfillmentCriteria {

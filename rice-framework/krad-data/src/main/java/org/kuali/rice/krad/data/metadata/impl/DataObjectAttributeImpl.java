@@ -43,7 +43,7 @@ import com.google.common.annotations.Beta;
  */
 public class DataObjectAttributeImpl extends MetadataCommonBase implements DataObjectAttributeInternal {
 	private static final long serialVersionUID = -5241499559388935579L;
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DataObjectAttributeImpl.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DataObjectAttributeImpl.class);
 
 	protected DataObjectAttribute embeddedAttribute;
 

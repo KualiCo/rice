@@ -15,6 +15,8 @@
  */
 package org.kuali.rice.core.api.util.jaxb;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;
 import org.kuali.rice.core.api.mo.common.Coded;
 
@@ -45,7 +47,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
  */
 public abstract class EnumStringAdapter<T extends Enum<T>> extends XmlAdapter<String, String> {	
 		
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(EnumStringAdapter.class);
+	private static final Logger LOG = LogManager.getLogger(EnumStringAdapter.class);
 	
 	@Override
 	public String marshal(String value) throws Exception {

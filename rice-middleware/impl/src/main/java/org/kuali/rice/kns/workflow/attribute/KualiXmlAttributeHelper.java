@@ -49,7 +49,7 @@ import java.util.regex.Pattern;
  */
 @Deprecated
 public class KualiXmlAttributeHelper {
-    private static Log LOG = LogFactory.getLog(KualiXmlAttributeHelper.class);
+    private static Log LOG = LogManager.getLogger(KualiXmlAttributeHelper.class);
     private static XPath xpath = XPathHelper.newXPath();
     private static final String testVal = "\'/[^\']*\'";// get the individual xpath tests.
     private static final String testVal2 = "/[^/]+/" + "*";// have to do this or the compiler gets confused by end comment.

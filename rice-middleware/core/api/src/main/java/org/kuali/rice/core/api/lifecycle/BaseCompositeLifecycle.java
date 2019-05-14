@@ -15,12 +15,15 @@
  */
 package org.kuali.rice.core.api.lifecycle;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public abstract class BaseCompositeLifecycle extends BaseLifecycle {
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(BaseCompositeLifecycle.class);
+	private static final Logger LOG = LogManager.getLogger(BaseCompositeLifecycle.class);
 
 	private List<Lifecycle> lifecycles;
 

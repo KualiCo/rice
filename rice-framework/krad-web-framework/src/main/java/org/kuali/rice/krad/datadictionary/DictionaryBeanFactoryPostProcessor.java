@@ -51,7 +51,7 @@ import java.util.Stack;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class DictionaryBeanFactoryPostProcessor {
-    private static final Log LOG = LogFactory.getLog(DictionaryBeanFactoryPostProcessor.class);
+    private static final Log LOG = LogManager.getLogger(DictionaryBeanFactoryPostProcessor.class);
 
     private DataDictionary dataDictionary;
     private ConfigurableListableBeanFactory beanFactory;

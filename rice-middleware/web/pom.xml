@@ -27,9 +27,6 @@
   <packaging>war</packaging>
 
   <properties>
-    <monitoring.filter />
-    <monitoring.mapping />
-    <monitoring.listener />
     <war.overlay.exclude.2>DO_NOT_MATCH_ANYTHING_PATTERN</war.overlay.exclude.2>
   </properties>
 
@@ -39,12 +36,6 @@
       <artifactId>rice-krad-web</artifactId>
       <version>${project.version}</version>
       <type>war</type>
-    </dependency>
-
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>rice-krms-impl</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
@@ -81,14 +72,10 @@
       <artifactId>rice-kns</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>rice-edl-impl</artifactId>
-      <version>${project.version}</version>
-    </dependency>
       <dependency>
         <groupId>co.kuali</groupId>
         <artifactId>core-filter</artifactId>
+          <version>1.7</version>
         <exclusions>
           <exclusion>
             <groupId>org.slf4j</groupId>
@@ -98,7 +85,8 @@
       </dependency>
     <dependency>
       <groupId>mysql</groupId>
-      <artifactId>${mysql.jdbc.artifactId}</artifactId>
+      <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.45</version>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -117,22 +105,25 @@
     <dependency>
       <groupId>io.dropwizard.metrics</groupId>
       <artifactId>metrics-core</artifactId>
+        <version>${metrics.version}</version>
     </dependency>
     <dependency>
       <groupId>io.dropwizard.metrics</groupId>
       <artifactId>metrics-jvm</artifactId>
+        <version>${metrics.version}</version>
     </dependency>
     <dependency>
       <groupId>io.dropwizard.metrics</groupId>
       <artifactId>metrics-healthchecks</artifactId>
+        <version>${metrics.version}</version>
     </dependency>
     <dependency>
       <groupId>org.codehaus.btm</groupId>
       <artifactId>btm</artifactId>
     </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+<dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>

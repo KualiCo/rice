@@ -33,7 +33,7 @@ import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
  */
 @BeanTag(name = "dataObjectEntry")
 public class DataObjectEntry extends DataDictionaryEntryBase implements MustOccurConstrainable {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DataObjectEntry.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DataObjectEntry.class);
     private static final long serialVersionUID = 1L;
 
     protected String name;

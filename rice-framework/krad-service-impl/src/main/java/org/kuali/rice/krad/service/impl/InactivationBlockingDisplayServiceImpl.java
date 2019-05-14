@@ -46,7 +46,7 @@ import java.util.Map;
  *
  */
 public class InactivationBlockingDisplayServiceImpl implements InactivationBlockingDisplayService {
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(InactivationBlockingDetectionServiceImpl.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(InactivationBlockingDetectionServiceImpl.class);
 
 	private DataDictionaryService dataDictionaryService;
 	private BusinessObjectAuthorizationService businessObjectAuthorizationService;

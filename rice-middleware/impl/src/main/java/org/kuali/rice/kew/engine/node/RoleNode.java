@@ -57,7 +57,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.equal;
  */
 public class RoleNode extends RequestsNode {
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
 			.getLogger( RoleNode.class );
 
 	@Override

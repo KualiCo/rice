@@ -23,7 +23,7 @@ import java.sql.Timestamp;
 
 @Deprecated
 public class PersistedLookupMetadataDaoJpa implements PersistedLookupMetadataDao {
-    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(PersistedLookupMetadataDaoJpa.class);
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(PersistedLookupMetadataDaoJpa.class);
     
 	private EntityManager entityManager;
     

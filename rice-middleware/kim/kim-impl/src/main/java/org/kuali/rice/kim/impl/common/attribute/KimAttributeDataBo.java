@@ -46,7 +46,7 @@ import org.kuali.rice.krad.data.jpa.PortableSequenceGenerator;
 @PortableSequenceGenerator(name = "KRIM_ATTR_DATA_ID_S")
 public abstract class KimAttributeDataBo extends DataObjectBase implements KimAttributeDataContract {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(KimAttributeDataBo.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KimAttributeDataBo.class);
     private static final long serialVersionUID = 1L;
 
     private static KimTypeInfoService kimTypeInfoService;

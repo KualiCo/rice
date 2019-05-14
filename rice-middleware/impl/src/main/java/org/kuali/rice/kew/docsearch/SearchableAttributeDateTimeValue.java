@@ -61,7 +61,7 @@ import java.util.Calendar;
         @AttributeOverride(name="searchableAttributeValueId", column=@Column(name="DOC_HDR_EXT_DT_ID"))
 })
 public class SearchableAttributeDateTimeValue extends SearchableAttributeBase implements SearchableAttributeValue, Serializable {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(SearchableAttributeDateTimeValue.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(SearchableAttributeDateTimeValue.class);
 
     private static final long serialVersionUID = 3045621112943214772L;
 

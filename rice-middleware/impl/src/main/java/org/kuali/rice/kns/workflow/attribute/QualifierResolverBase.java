@@ -34,7 +34,7 @@ import java.util.Map;
  */
 @Deprecated
 public abstract class QualifierResolverBase implements QualifierResolver {
-    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(QualifierResolverBase.class);
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(QualifierResolverBase.class);
 
     protected static final String KIM_ATTRIBUTE_DOCUMENT_TYPE_NAME = KimConstants.AttributeConstants.DOCUMENT_TYPE_NAME;
     protected static final String KIM_ATTRIBUTE_DOCUMENT_NUMBER = KimConstants.AttributeConstants.DOCUMENT_NUMBER;

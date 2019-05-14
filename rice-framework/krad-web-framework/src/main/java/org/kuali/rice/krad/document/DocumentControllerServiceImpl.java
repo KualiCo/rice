@@ -91,7 +91,7 @@ import java.util.Set;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class DocumentControllerServiceImpl extends ControllerServiceImpl implements DocumentControllerService {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
             DocumentControllerServiceImpl.class);
 
     // COMMAND constants which cause docHandler to load an existing document instead of creating a new one

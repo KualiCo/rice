@@ -40,7 +40,7 @@ import java.util.List;
  */
 abstract class SuperUserActionTakenEvent extends ActionTakenEvent {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(SuperUserActionTakenEvent.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(SuperUserActionTakenEvent.class);
 
     protected final String superUserAction;
     //protected DocumentRouteStatusChange event;

@@ -18,7 +18,7 @@ package org.kuali.rice.core.impl.services;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.config.property.ConfigurationService;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
@@ -313,7 +313,7 @@ public class ConfigurationServiceImpl implements ConfigurationService {
      * Used to obtain properties from a properties file
      */
     protected static class FilePropertySource implements PropertySource {
-        private static Log log = LogFactory.getLog(FilePropertySource.class);
+        private static Log log = LogManager.getLogger(FilePropertySource.class);
 
         private String fileName;
         private boolean allowOverrides;

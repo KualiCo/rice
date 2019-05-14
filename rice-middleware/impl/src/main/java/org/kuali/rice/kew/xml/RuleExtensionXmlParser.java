@@ -15,8 +15,8 @@
  */
 package org.kuali.rice.kew.xml;
 
-import org.jdom.Element;
-import org.jdom.Namespace;
+import org.jdom2.Element;
+import org.jdom2.Namespace;
 import org.kuali.rice.core.api.util.xml.XmlException;
 import org.kuali.rice.core.api.util.xml.XmlHelper;
 import org.kuali.rice.kew.rule.RuleBaseValues;

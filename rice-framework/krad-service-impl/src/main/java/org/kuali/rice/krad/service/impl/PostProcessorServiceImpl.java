@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.api.KewApiConstants;
 import org.kuali.rice.kew.api.action.ActionType;
 import org.kuali.rice.kew.api.exception.WorkflowException;

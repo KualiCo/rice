@@ -45,7 +45,7 @@ import java.util.List;
  */
 public class DocumentSearchDAOJdbcImpl implements DocumentSearchDAO {
 
-    public static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DocumentSearchDAOJdbcImpl.class);
+    public static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentSearchDAOJdbcImpl.class);
     private static final int DEFAULT_FETCH_MORE_ITERATION_LIMIT = 10;
     
     private DataSource dataSource;

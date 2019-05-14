@@ -21,7 +21,7 @@ import javax.transaction.UserTransaction;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.springframework.transaction.jta.JtaTransactionManager;
 
 /**

@@ -21,7 +21,7 @@ import com.codahale.metrics.Metric;
 import com.codahale.metrics.MetricSet;
 import com.codahale.metrics.RatioGauge;
 import org.apache.commons.dbcp.BasicDataSource;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.enhydra.jdbc.pool.StandardXAPoolDataSource;
 
 import javax.sql.DataSource;

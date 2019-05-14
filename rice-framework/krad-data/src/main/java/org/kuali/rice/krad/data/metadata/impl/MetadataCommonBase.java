@@ -32,7 +32,7 @@ import org.kuali.rice.krad.data.metadata.MetadataMergeAction;
  */
 public abstract class MetadataCommonBase implements MetadataCommonInternal {
 	private static final long serialVersionUID = 2610090812919046672L;
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(MetadataCommonBase.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MetadataCommonBase.class);
 
 	protected MetadataCommon embeddedCommonMetadata;
 	protected MetadataMergeAction mergeAction = MetadataMergeAction.MERGE;

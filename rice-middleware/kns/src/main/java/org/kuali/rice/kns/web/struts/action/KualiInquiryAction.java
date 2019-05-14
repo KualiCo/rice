@@ -63,7 +63,7 @@ import java.util.Map;
  */
 @Deprecated
 public class KualiInquiryAction extends KualiAction {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(KualiInquiryAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiInquiryAction.class);
     private NoteService noteService;
 
     @Override

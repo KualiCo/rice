@@ -44,7 +44,7 @@ import com.google.common.base.Optional;
  */
 public class KualiInitializeListener implements ServletContextListener {
 
-    private static final Log LOG = LogFactory.getLog(KualiInitializeListener.class);
+    private static final Log LOG = LogManager.getLogger(KualiInitializeListener.class);
 
     private static final String DEFAULT_SPRING_BEANS_REPLACEMENT_VALUE = "${bootstrap.spring.file}";
     private static final String WEB_BOOTSTRAP_SPRING_FILE = "web.bootstrap.spring.file";

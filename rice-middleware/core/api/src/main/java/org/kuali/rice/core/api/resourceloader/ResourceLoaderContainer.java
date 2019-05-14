@@ -22,7 +22,8 @@ import java.util.List;
 import javax.xml.namespace.QName;
 
 import org.apache.commons.lang.ObjectUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.lifecycle.BaseLifecycle;
 import org.kuali.rice.core.api.reflect.ObjectDefinition;
 
@@ -36,7 +37,7 @@ import org.kuali.rice.core.api.reflect.ObjectDefinition;
  */
 public class ResourceLoaderContainer extends BaseLifecycle implements ResourceLoader {
 
-	private static final Logger LOG = Logger.getLogger(ResourceLoaderContainer.class);
+	private static final Logger LOG = LogManager.getLogger(ResourceLoaderContainer.class);
 
 	private QName name;
 

@@ -18,7 +18,7 @@ package org.kuali.rice.krad.uif.service.impl;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.service.DataDictionaryService;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.UifConstants.ViewType;

@@ -47,7 +47,7 @@ import org.kuali.rice.krad.util.KRADUtils;
  */
 public class UserPreferencesFilter implements Filter {
 	
-	private static final Log LOG = LogFactory.getLog(UserPreferencesFilter.class);
+	private static final Log LOG = LogManager.getLogger(UserPreferencesFilter.class);
 
 	private FilterConfig filterConfig;
 	private PreferencesService preferencesService;

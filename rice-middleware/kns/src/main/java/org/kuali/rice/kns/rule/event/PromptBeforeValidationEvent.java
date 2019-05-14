@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kns.rule.event;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kns.rule.PromptBeforeValidation;
 import org.kuali.rice.krad.document.Document;
 import org.kuali.rice.krad.rules.rule.BusinessRule;

@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.ken.web.spring;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.ken.bo.NotificationBo;
 import org.kuali.rice.ken.bo.NotificationContentTypeBo;
 import org.kuali.rice.ken.exception.ErrorList;

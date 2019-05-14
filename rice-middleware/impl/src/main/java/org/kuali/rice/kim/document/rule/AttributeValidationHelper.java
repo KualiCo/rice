@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.core.api.uif.RemotableAttributeError;
 import org.kuali.rice.core.impl.services.CoreImplServiceLocator;

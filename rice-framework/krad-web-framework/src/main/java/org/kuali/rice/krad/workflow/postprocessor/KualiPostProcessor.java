@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.krad.workflow.postprocessor;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.api.action.ActionType;
 import org.kuali.rice.kew.framework.postprocessor.ActionTakenEvent;
 import org.kuali.rice.kew.framework.postprocessor.AfterProcessEvent;

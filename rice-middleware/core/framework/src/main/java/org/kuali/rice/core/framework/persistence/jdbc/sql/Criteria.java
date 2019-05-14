@@ -45,7 +45,7 @@ import java.util.Map;
  */
 @SuppressWarnings("unchecked")
 public class Criteria {
-	private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(Criteria.class);
+	private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(Criteria.class);
 
 	private Integer searchLimit;
 

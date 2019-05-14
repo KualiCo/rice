@@ -45,7 +45,7 @@ import org.kuali.rice.kew.api.KewApiConstants;
  */
 public class DefaultNotificationService implements NotificationService {
 
-	protected final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(getClass());
+	protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(getClass());
 
 	private static final Comparator notificationPriorityComparator = ComparatorUtils.reversedComparator(new ActionItemComparator());
 

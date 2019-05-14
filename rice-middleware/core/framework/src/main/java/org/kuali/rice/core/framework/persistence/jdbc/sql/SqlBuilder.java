@@ -39,7 +39,7 @@ import java.text.SimpleDateFormat;
  *
  */
 public class SqlBuilder {
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(SqlBuilder.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(SqlBuilder.class);
 
 	private DateTimeService dateTimeService;
 	private DatabasePlatform dbPlatform;

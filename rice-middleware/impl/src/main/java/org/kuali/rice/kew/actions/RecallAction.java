@@ -18,8 +18,8 @@ package org.kuali.rice.kew.actions;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
-import org.jdom.input.DOMBuilder;
+import org.apache.logging.log4j.Logger;
+import org.jdom2.input.DOMBuilder;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.core.api.util.xml.XmlHelper;
@@ -147,7 +147,7 @@ public class RecallAction extends ReturnToPreviousNodeAction {
                             } else {
                                 // parseResponsibilityNameAndType parses a single responsibility choice from a parent element
                                 // wrap the element with a parent so we can use this method
-                                org.jdom.Element parent = new org.jdom.Element("parent");
+                                org.jdom2.Element parent = new org.jdom2.Element("parent");
                                 parent.addContent(jdom.build((Element) e.cloneNode(true)).detach());
                                 toNotify.add(CommonXmlParser.parseResponsibilityNameAndType(parent).getRecipient());
                             }

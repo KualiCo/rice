@@ -23,7 +23,7 @@ import java.util.Map;
 import javax.xml.xpath.XPathExpressionException;
 
 import org.apache.commons.lang.ObjectUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.api.rule.RuleExtension;
 import org.kuali.rice.kew.routeheader.DocumentContent;
 

@@ -36,7 +36,7 @@ import org.kuali.rice.krad.util.ExternalizableBusinessObjectUtils;
  */
 @BeanTag(name = "supportAttributeDefinition")
 public class SupportAttributeDefinition extends PrimitiveAttributeDefinition {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(SupportAttributeDefinition.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(SupportAttributeDefinition.class);
     private static final long serialVersionUID = -1719022365280776405L;
 
     protected boolean identifier;

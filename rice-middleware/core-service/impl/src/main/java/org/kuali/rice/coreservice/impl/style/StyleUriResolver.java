@@ -21,7 +21,7 @@ import javax.xml.transform.Source;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.coreservice.api.style.Style;
 import org.kuali.rice.coreservice.api.style.StyleService;
 

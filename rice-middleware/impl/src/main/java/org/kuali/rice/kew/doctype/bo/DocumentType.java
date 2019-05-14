@@ -98,7 +98,7 @@ import static org.kuali.rice.kew.api.doctype.DocumentTypePolicy.*;
                         "WHERE dt.docTypeParentId=pdt.documentTypeId AND dt.name = :docTypeName AND dt.currentInd = true")
 })
 public class DocumentType extends PersistableBusinessObjectBase implements MutableInactivatable, DocumentTypeEBO, DocumentTypeContract {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DocumentType.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentType.class);
 
     private static final long serialVersionUID = 1312830153583125069L;
 

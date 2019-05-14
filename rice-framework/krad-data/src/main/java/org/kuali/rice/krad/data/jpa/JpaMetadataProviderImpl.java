@@ -56,7 +56,7 @@ import java.util.Set;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public abstract class JpaMetadataProviderImpl extends MetadataProviderBase implements JpaMetadataProvider {
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(JpaMetadataProviderImpl.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(JpaMetadataProviderImpl.class);
 
     /**
      * The entity manager used in interacting with the database.

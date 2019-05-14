@@ -17,7 +17,7 @@ package org.kuali.rice.ksb.security.soap;
 
 import org.apache.cxf.binding.soap.SoapMessage;
 import org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.wss4j.common.crypto.Crypto;
 import org.apache.wss4j.common.crypto.Merlin;
 import org.apache.wss4j.common.crypto.PasswordEncryptor;

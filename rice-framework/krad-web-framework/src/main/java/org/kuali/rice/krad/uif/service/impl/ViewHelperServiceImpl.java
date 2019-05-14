@@ -18,7 +18,7 @@ package org.kuali.rice.krad.uif.service.impl;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.config.property.ConfigurationService;
 import org.kuali.rice.core.api.util.RiceKeyConstants;

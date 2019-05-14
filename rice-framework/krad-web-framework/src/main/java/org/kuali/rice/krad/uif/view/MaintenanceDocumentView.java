@@ -46,7 +46,7 @@ import org.kuali.rice.krad.uif.component.RequestParameter;
 public class MaintenanceDocumentView extends DocumentView {
     private static final long serialVersionUID = -3382802967703882341L;
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(MaintenanceDocumentView.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MaintenanceDocumentView.class);
 
     private Class<?> dataObjectClassName;
 

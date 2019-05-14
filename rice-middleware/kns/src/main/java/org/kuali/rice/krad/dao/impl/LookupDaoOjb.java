@@ -60,7 +60,7 @@ import java.util.Map;
  */
 @Deprecated
 public class LookupDaoOjb extends PlatformAwareDaoBaseOjb implements LookupDao {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(LookupDaoOjb.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(LookupDaoOjb.class);
     private DateTimeService dateTimeService;
     private PersistenceStructureService persistenceStructureService;
     private DataDictionaryService dataDictionaryService;

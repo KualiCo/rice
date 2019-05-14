@@ -75,7 +75,7 @@ import java.util.Map;
 public abstract class DocumentRuleBase implements SaveDocumentRule, RouteDocumentRule, ApproveDocumentRule, AddNoteRule,
         AddAdHocRoutePersonRule, AddAdHocRouteWorkgroupRule, SendAdHocRequestsRule, CompleteDocumentRule,
         AddCollectionLineRule {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DocumentRuleBase.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentRuleBase.class);
 
     private static PersonService personService;
     private static DictionaryValidationService dictionaryValidationService;

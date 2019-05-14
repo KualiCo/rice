@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kns.web.struts.action;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts.config.ModuleConfig;
 import org.apache.struts.upload.CommonsMultipartRequestHandler;
 

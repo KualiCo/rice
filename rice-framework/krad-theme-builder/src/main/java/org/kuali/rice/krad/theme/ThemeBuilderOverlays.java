@@ -16,7 +16,7 @@
 package org.kuali.rice.krad.theme;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.codehaus.plexus.util.FileUtils;
 import org.kuali.common.util.Assert;
 import org.kuali.rice.krad.theme.util.ThemeBuilderConstants;

@@ -54,7 +54,7 @@ public class MaintainableCollectionDefinition extends MaintainableItemDefinition
     private static final long serialVersionUID = -5617868782623587053L;
 
 	// logger
-    //private static Log LOG = LogFactory.getLog(MaintainableCollectionDefinition.class);
+    //private static Log LOG = LogManager.getLogger(MaintainableCollectionDefinition.class);
 
 	protected Class<? extends BusinessObject> businessObjectClass;
 

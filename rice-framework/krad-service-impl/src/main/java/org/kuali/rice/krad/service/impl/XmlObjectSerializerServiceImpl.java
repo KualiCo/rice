@@ -43,7 +43,7 @@ import com.thoughtworks.xstream.mapper.Mapper;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class XmlObjectSerializerServiceImpl implements XmlObjectSerializerService {
-	private static final Log LOG = LogFactory.getLog(XmlObjectSerializerServiceImpl.class);
+	private static final Log LOG = LogManager.getLogger(XmlObjectSerializerServiceImpl.class);
 
 	protected LegacyDataAdapter lda;
 

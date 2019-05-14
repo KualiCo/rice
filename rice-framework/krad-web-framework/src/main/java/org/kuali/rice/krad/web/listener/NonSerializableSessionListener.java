@@ -33,7 +33,7 @@ import java.io.Serializable;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class NonSerializableSessionListener implements HttpSessionAttributeListener {
-    private static final Log LOG = LogFactory.getLog(NonSerializableSessionListener.class);
+    private static final Log LOG = LogManager.getLogger(NonSerializableSessionListener.class);
     private static final String ENABLE_SERIALIZATION_CHECK = "enableSerializationCheck";
     private Boolean serializationCheckEnabled;
 

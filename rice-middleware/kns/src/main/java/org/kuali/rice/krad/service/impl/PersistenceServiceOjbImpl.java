@@ -17,7 +17,7 @@ package org.kuali.rice.krad.service.impl;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.ojb.broker.metadata.ClassDescriptor;
 import org.apache.ojb.broker.metadata.ConnectionRepository;
 import org.apache.ojb.broker.metadata.DescriptorRepository;

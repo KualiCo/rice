@@ -39,7 +39,7 @@ import javax.xml.xpath.XPathFactory;
  */
 public class EmailStyleHelper {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(EmailStyleHelper.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(EmailStyleHelper.class);
     
     public EmailContent generateEmailContent(Templates style, Document document) {
 	DOMResult result = new DOMResult();

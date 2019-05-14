@@ -37,7 +37,7 @@ import org.kuali.rice.kim.api.identity.principal.PrincipalContract;
  *
  */
 public class RouteDocumentAction extends ActionTakenEvent {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(RouteDocumentAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RouteDocumentAction.class);
 
     public RouteDocumentAction(DocumentRouteHeaderValue rh, PrincipalContract principal) {
         super(KewApiConstants.ACTION_TAKEN_COMPLETED_CD, rh, principal);

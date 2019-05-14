@@ -38,15 +38,16 @@
 
     <!-- test-scoped dependencies: -->
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+<dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-all</artifactId>
       <scope>test</scope>
+      <type>pom</type>
     </dependency>
   </dependencies>
   <properties>

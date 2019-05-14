@@ -64,11 +64,6 @@
     </dependency>
 
     <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-    </dependency>
-    
-    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
     </dependency>
@@ -82,11 +77,6 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
       <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjweaver</artifactId>
     </dependency>
 
     <dependency>
@@ -116,31 +106,12 @@
       <artifactId>spring-jdbc</artifactId>
       <scope>runtime</scope>
     </dependency>
-    
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-aws-context</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-        </exclusion>
-      </exclusions>      
-    </dependency>    
 
     <!-- test-scoped dependencies: -->
 
     <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>rice-core-framework</artifactId>
-      <version>${project.version}</version>
-      <type>test-jar</type>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -155,6 +126,26 @@
       <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.objenesis</groupId>
+      <artifactId>objenesis</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy-agent</artifactId>
+      <scope>test</scope>
+    </dependency>
 
     <dependency>
       <groupId>org.xmlunit</groupId>
@@ -164,10 +155,9 @@
 
     <dependency>
       <groupId>org.xmlunit</groupId>
-      <artifactId>xmlunit-legacy</artifactId>
+      <artifactId>xmlunit-assertj</artifactId>
       <scope>test</scope>
     </dependency>
 
   </dependencies>
-
 </project>

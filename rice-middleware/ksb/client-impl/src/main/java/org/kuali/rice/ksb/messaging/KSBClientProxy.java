@@ -17,7 +17,7 @@ package org.kuali.rice.ksb.messaging;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
 
 import javax.xml.namespace.QName;

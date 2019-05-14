@@ -47,7 +47,7 @@ import org.kuali.rice.krad.uif.view.ExpressionEvaluator;
 public class Help extends WidgetBase {
 	private static final long serialVersionUID = -1514436681476297241L;
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(Help.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(Help.class);
 
     private Action helpAction;
     private HelpDefinition helpDefinition;

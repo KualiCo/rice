@@ -18,7 +18,7 @@ package org.kuali.rice.kew.mail.service.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.mail.EmailBody;
 import org.kuali.rice.core.api.mail.EmailContent;
 import org.kuali.rice.core.api.mail.EmailSubject;

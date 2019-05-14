@@ -56,7 +56,7 @@ import java.util.regex.Pattern;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class UifViewBeanWrapper extends UifBeanWrapper {
-    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(UifViewBeanWrapper.class);
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(UifViewBeanWrapper.class);
 
     // this stores all properties this wrapper has already checked
     // with the view so the service isn't called again

@@ -35,7 +35,7 @@ import org.springframework.util.Assert;
  */
 public class XAPoolDataSource extends StandardXAPoolDataSource implements InitializingBean, DisposableBean {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(XAPoolDataSource.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(XAPoolDataSource.class);
 
     private static final long serialVersionUID = -3698043954102287887L;
     public static final String DRIVER_CLASS_NAME = "driverClassName";

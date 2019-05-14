@@ -46,7 +46,7 @@ import org.springframework.beans.BeanUtils;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 abstract public class DataDictionaryEntryBase extends DictionaryBeanBase implements DataDictionaryEntry, Serializable {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DataDictionaryEntryBase.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DataDictionaryEntryBase.class);
     private static final long serialVersionUID = 5133059101016080533L;
 
     protected DataObjectMetadata dataObjectMetadata;

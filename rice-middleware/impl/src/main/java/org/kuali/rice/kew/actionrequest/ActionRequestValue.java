@@ -90,7 +90,7 @@ public class ActionRequestValue implements Serializable {
 
 	private static final long serialVersionUID = 8781414791855848385L;
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ActionRequestValue.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ActionRequestValue.class);
 
     private static final String ACTION_CODE_RANK = "FKACB";//B is a hack for allowing blanket approves to count for approve and complete requests in findPreviousAction in ActionTakenService this is a hack and accounts for the -3 on compareActionCode
     private static final String RECIPIENT_TYPE_RANK = "RWU";

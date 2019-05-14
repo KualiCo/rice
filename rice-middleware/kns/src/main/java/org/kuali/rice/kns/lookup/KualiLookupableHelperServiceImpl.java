@@ -49,7 +49,7 @@ import java.util.Set;
 @Transactional
 public class KualiLookupableHelperServiceImpl extends AbstractLookupableHelperServiceImpl {
 
-    protected static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(KualiLookupableHelperServiceImpl.class);
+    protected static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiLookupableHelperServiceImpl.class);
     protected boolean searchUsingOnlyPrimaryKeyValues = false;
 
 

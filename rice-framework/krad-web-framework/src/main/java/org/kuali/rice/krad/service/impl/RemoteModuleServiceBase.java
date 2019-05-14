@@ -18,7 +18,7 @@ package org.kuali.rice.krad.service.impl;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.config.property.ConfigurationService;
 import org.kuali.rice.coreservice.framework.CoreFrameworkServiceLocator;

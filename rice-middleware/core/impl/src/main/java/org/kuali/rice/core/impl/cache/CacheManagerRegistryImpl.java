@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.core.impl.cache;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.cache.CacheManagerRegistry;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;
 import org.springframework.beans.factory.NamedBean;

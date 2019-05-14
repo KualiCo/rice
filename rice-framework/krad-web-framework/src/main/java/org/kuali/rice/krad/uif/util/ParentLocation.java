@@ -44,7 +44,7 @@ import java.util.Map;
 public class ParentLocation extends UifDictionaryBeanBase implements Serializable {
 
     private static final long serialVersionUID = -6242148809697931126L;
-    //private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ParentLocation.class);
+    //private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ParentLocation.class);
 
     private UrlInfo parentViewUrl;
     private UrlInfo parentPageUrl;

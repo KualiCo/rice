@@ -31,7 +31,7 @@ import org.kuali.rice.kew.api.WorkflowRuntimeException;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class SendNotificationServiceKewXmlImpl implements SendNotificationService {
-    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
     .getLogger(SendNotificationServiceKewXmlImpl.class);
 
     private final NotificationService notificationService;

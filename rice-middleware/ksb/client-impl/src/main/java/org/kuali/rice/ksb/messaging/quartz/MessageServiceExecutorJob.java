@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging.quartz;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.ksb.messaging.MessageServiceInvoker;
 import org.kuali.rice.ksb.messaging.PersistedMessageBO;
 import org.kuali.rice.ksb.messaging.threadpool.KSBThreadPool;

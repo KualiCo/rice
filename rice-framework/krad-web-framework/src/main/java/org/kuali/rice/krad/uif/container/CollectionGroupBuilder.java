@@ -57,7 +57,7 @@ import java.util.Map;
 public class CollectionGroupBuilder implements Serializable {
 
     private static final long serialVersionUID = -4762031957079895244L;
-    private static Log LOG = LogFactory.getLog(CollectionGroupBuilder.class);
+    private static Log LOG = LogManager.getLogger(CollectionGroupBuilder.class);
 
     /**
      * Invoked within the lifecycle to carry out the collection build process.

@@ -33,7 +33,7 @@ import java.util.List;
  */
 public class LogDocumentActionAction extends ActionTakenEvent {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(LogDocumentActionAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(LogDocumentActionAction.class);
 
     /**
      * @param rh RouteHeader for the document upon which the action is taken.

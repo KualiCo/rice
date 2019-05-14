@@ -88,7 +88,7 @@ import org.kuali.rice.krad.data.provider.impl.MetadataProviderBase;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class AnnotationMetadataProviderImpl extends MetadataProviderBase {
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
 			.getLogger(AnnotationMetadataProviderImpl.class);
 
 	private boolean initializationAttempted = false;

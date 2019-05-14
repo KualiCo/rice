@@ -56,7 +56,7 @@ import java.util.Set;
  */
 public class DocumentViewAuthorizerBase extends ViewAuthorizerBase implements DocumentAuthorizer {
     private static final long serialVersionUID = 3800780934223224565L;
-    protected static Log LOG = LogFactory.getLog(DocumentViewAuthorizerBase.class);
+    protected static Log LOG = LogManager.getLogger(DocumentViewAuthorizerBase.class);
 
     public static final String PRE_ROUTING_ROUTE_NAME = "PreRoute";
 

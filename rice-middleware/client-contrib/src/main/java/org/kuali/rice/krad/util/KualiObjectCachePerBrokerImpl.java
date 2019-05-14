@@ -17,7 +17,7 @@ package org.kuali.rice.krad.util;
 
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.ojb.broker.Identity;
 import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.cache.ObjectCachePerBrokerImpl;

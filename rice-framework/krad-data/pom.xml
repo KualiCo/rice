@@ -90,6 +90,12 @@
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>com.google.errorprone</groupId>
+      <artifactId>error_prone_annotations</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
@@ -98,36 +104,81 @@
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
     </dependency>
+
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-1.2-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-jcl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-jul</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>javax.validation</groupId>
       <artifactId>validation-api</artifactId>
     </dependency>
 
-    <!-- Optional EclipseLink Dependencies -->
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.antlr</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
-      <artifactId>javax.persistence</artifactId>
-      <optional>true</optional>
+      <artifactId>org.eclipse.persistence.asm</artifactId>
     </dependency>
+
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
       <artifactId>org.eclipse.persistence.core</artifactId>
-      <optional>true</optional>
     </dependency>
+
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
       <artifactId>org.eclipse.persistence.jpa</artifactId>
-      <optional>true</optional>
     </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.moxy</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.oracle</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>jakarta.persistence</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>javax.transaction</groupId>
       <artifactId>jta</artifactId>
@@ -146,13 +197,33 @@
     <!-- test-scoped dependencies: -->
 
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.objenesis</groupId>
+      <artifactId>objenesis</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy-agent</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -163,7 +234,7 @@
     <dependency>
       <groupId>org.hsqldb</groupId>
       <artifactId>hsqldb</artifactId>
-      <version>2.2.9</version>
+      <version>2.4.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>

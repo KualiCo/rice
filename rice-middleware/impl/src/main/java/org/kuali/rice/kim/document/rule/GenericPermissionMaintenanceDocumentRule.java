@@ -43,7 +43,7 @@ import org.kuali.rice.krad.util.GlobalVariables;
  *
  */
 public class GenericPermissionMaintenanceDocumentRule extends MaintenanceDocumentRuleBase {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(GenericPermissionMaintenanceDocumentRule.class);    
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(GenericPermissionMaintenanceDocumentRule.class);
     
 	protected static final String DETAIL_VALUES_PROPERTY = "detailValues";
     protected static final String NAMESPACE_CODE_PROPERTY = "namespaceCode";

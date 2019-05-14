@@ -16,7 +16,7 @@
 package org.kuali.rice.kns.datadictionary.validation.charlevel;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.datadictionary.exporter.ExportMap;
 import org.kuali.rice.krad.datadictionary.validation.CharacterLevelValidationPattern;
 

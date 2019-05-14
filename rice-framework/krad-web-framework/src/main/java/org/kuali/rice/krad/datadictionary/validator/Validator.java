@@ -46,7 +46,7 @@ import org.springframework.core.io.ResourceLoader;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class Validator {
-    private static final Log LOG = LogFactory.getLog(Validator.class);
+    private static final Log LOG = LogManager.getLogger(Validator.class);
 
     private static ArrayList<ErrorReport> errorReports = new ArrayList<ErrorReport>();
 

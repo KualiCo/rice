@@ -17,7 +17,7 @@ package org.kuali.rice.kns.service.impl;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.api.KewApiServiceLocator;
 import org.kuali.rice.kns.datadictionary.BusinessObjectEntry;
 import org.kuali.rice.kns.datadictionary.FieldDefinition;

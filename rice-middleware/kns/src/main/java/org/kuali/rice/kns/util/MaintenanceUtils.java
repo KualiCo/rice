@@ -55,7 +55,7 @@ import java.util.StringTokenizer;
  */
 @Deprecated
 public final class MaintenanceUtils {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(MaintenanceUtils.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MaintenanceUtils.class);
 
     private static MaintenanceDocumentService maintenanceDocumentService;
     private static WorkflowDocumentService workflowDocumentService;

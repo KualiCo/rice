@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kew.rule;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceIllegalStateException;
 import org.kuali.rice.kew.api.KewApiServiceLocator;
 import org.kuali.rice.kew.api.WorkflowRuntimeException;

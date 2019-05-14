@@ -73,7 +73,7 @@ import java.util.TreeSet;
  */
 public class DocumentSearchGeneratorImpl implements DocumentSearchGenerator {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DocumentSearchGeneratorImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentSearchGeneratorImpl.class);
 
     private static final String ROUTE_NODE_TABLE = "KREW_RTE_NODE_T";
     private static final String ROUTE_NODE_INST_TABLE = "KREW_RTE_NODE_INSTN_T";

@@ -19,7 +19,7 @@ package org.kuali.rice.krad.web.form;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.inquiry.Inquirable;
 import org.kuali.rice.krad.uif.UifConstants.ViewType;
 import org.kuali.rice.krad.uif.view.InquiryView;

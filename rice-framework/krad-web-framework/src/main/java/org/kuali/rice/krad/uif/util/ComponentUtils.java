@@ -51,7 +51,7 @@ import org.springframework.core.OrderComparator;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ComponentUtils {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ComponentUtils.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ComponentUtils.class);
 
     private ComponentUtils() {}
 

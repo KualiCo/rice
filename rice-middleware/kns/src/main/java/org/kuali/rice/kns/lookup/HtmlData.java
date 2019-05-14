@@ -44,7 +44,7 @@ import java.util.Map;
 @Deprecated
 public abstract class HtmlData implements Serializable {
 
-	protected static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(HtmlData.class);
+	protected static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(HtmlData.class);
 
 	public static final String ANCHOR_HTML_DATA_TYPE = AnchorHtmlData.class.getName();
 	public static final String INPUT_HTML_DATA_TYPE = InputHtmlData.class.getName();

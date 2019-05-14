@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.ken.postprocessor.kew;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.ken.bo.NotificationMessageDelivery;
 import org.kuali.rice.ken.core.GlobalNotificationServiceLocator;
 import org.kuali.rice.ken.deliverer.impl.KEWActionListMessageDeliverer;

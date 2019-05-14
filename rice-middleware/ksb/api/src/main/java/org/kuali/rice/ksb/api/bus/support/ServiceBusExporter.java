@@ -27,7 +27,7 @@ import org.springframework.beans.factory.InitializingBean;
  */
 public class ServiceBusExporter implements InitializingBean {
 	
-	private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ServiceBusExporter.class);
+	private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ServiceBusExporter.class);
 	
 	private ServiceDefinition serviceDefinition;
 	private boolean forceSync = false;

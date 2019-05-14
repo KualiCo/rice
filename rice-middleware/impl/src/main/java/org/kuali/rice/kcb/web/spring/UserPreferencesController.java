@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kcb.web.spring;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kcb.bo.RecipientDelivererConfig;
 import org.kuali.rice.kcb.deliverer.MessageDeliverer;
 import org.kuali.rice.kcb.exception.ErrorList;

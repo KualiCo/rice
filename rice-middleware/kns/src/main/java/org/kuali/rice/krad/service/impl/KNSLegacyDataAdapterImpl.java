@@ -91,7 +91,7 @@ import org.springframework.beans.factory.annotation.Required;
  */
 @Deprecated
 public class KNSLegacyDataAdapterImpl implements LegacyDataAdapter {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
             KNSLegacyDataAdapterImpl.class);
 
     private static final Pattern VALUE_HOLDER_FIELD_PATTERN = Pattern.compile("^_persistence_(.*)_vh$");

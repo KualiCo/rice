@@ -17,7 +17,7 @@ package org.kuali.rice.core.framework.config.module;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.ConfigurationException;
 import org.kuali.rice.core.api.config.CoreConfigHelper;
 import org.kuali.rice.core.api.config.module.Configurer;

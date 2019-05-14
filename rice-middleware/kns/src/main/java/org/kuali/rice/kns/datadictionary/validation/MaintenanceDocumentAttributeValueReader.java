@@ -17,7 +17,7 @@ package org.kuali.rice.kns.datadictionary.validation;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.type.TypeUtils;
 import org.kuali.rice.kns.datadictionary.MaintainableFieldDefinition;
 import org.kuali.rice.kns.datadictionary.MaintainableItemDefinition;

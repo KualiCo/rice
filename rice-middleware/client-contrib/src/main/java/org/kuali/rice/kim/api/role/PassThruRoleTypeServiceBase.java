@@ -28,7 +28,7 @@ import java.util.Map;
 
 public abstract class PassThruRoleTypeServiceBase implements RoleTypeService {
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(PassThruRoleTypeServiceBase.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(PassThruRoleTypeServiceBase.class);
 	
 	public static final String UNMATCHABLE_QUALIFICATION = "!~!~!~!~!~";
 

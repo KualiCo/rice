@@ -16,7 +16,7 @@
 package org.kuali.rice.kew.doctype.dao.impl;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.criteria.Predicate;
 import org.kuali.rice.core.api.criteria.QueryResults;
 import org.kuali.rice.kew.doctype.bo.DocumentType;

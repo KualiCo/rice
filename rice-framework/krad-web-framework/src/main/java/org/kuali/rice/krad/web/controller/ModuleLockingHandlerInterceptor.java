@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kim.api.KimConstants;
 import org.kuali.rice.kim.api.services.KimApiServiceLocator;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;

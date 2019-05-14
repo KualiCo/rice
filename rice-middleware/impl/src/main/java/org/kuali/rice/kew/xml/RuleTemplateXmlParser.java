@@ -17,10 +17,10 @@ package org.kuali.rice.kew.xml;
 
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
-import org.jdom.Attribute;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
+import org.jdom2.Attribute;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
 import org.kuali.rice.core.api.delegation.DelegationType;
 import org.kuali.rice.core.api.util.RiceConstants;
 import org.kuali.rice.core.api.util.xml.XmlException;
@@ -55,7 +55,7 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.*;
  */
 public class RuleTemplateXmlParser {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(RuleTemplateXmlParser.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RuleTemplateXmlParser.class);
 
     /**
      * By default make attributes defined without a &lt;required&gt; element

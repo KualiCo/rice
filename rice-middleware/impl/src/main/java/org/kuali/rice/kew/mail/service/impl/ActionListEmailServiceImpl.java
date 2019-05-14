@@ -79,7 +79,7 @@ import org.quartz.impl.triggers.CronTriggerImpl;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ActionListEmailServiceImpl implements ActionListEmailService {
-    private static org.apache.log4j.Logger LOG = org.apache.log4j.Logger
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
             .getLogger(ActionListEmailServiceImpl.class);
 
     private static final String DEFAULT_EMAIL_FROM_ADDRESS = "admin@localhost";

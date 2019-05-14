@@ -38,7 +38,7 @@ import java.util.Map;
 public abstract class KualiGlobalMaintainableImpl extends KualiMaintainableImpl {
     private static final long serialVersionUID = 4814145799502207182L;
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(KualiGlobalMaintainableImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiGlobalMaintainableImpl.class);
 
     /**
      * @see org.kuali.rice.krad.maintenance.Maintainable#prepareForSave()

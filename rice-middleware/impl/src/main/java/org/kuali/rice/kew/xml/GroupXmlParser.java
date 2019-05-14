@@ -15,9 +15,9 @@
  */
 package org.kuali.rice.kew.xml;
 
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
 import org.kuali.rice.core.api.util.xml.XmlException;
 import org.kuali.rice.core.api.util.xml.XmlHelper;
 import org.kuali.rice.kew.api.KewApiConstants;
@@ -52,7 +52,7 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.*;
  *
  */
 public class GroupXmlParser {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(GroupXmlParser.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(GroupXmlParser.class);
     private static final boolean DEFAULT_ACTIVE_VALUE = true;
     private static final String DEFAULT_GROUP_DESCRIPTION = "";
     private HashMap<String, List<String>> memberGroupIds = new HashMap<String, List<String>>();

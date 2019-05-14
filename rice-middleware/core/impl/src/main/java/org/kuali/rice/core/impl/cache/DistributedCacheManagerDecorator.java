@@ -61,7 +61,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public final class DistributedCacheManagerDecorator implements CacheManager, InitializingBean, BeanNameAware, NamedBean {
 
-    private static final Log LOG = LogFactory.getLog(DistributedCacheManagerDecorator.class);
+    private static final Log LOG = LogManager.getLogger(DistributedCacheManagerDecorator.class);
 
     private static final String DISABLE_ALL_CACHES_PARAM = "rice.cache.disableAllCaches";
     private static final String DISABLE_DISTRIBUTED_CACHE_FLUSH_PARAM = "rice.cache.disableDistributedCacheFlush";

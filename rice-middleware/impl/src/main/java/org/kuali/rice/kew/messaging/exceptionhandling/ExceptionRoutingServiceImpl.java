@@ -48,7 +48,7 @@ import org.kuali.rice.ksb.service.KSBServiceLocator;
 
 public class ExceptionRoutingServiceImpl implements WorkflowDocumentExceptionRoutingService {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ExceptionRoutingServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ExceptionRoutingServiceImpl.class);
 
     public DocumentRouteHeaderValue placeInExceptionRouting(String errorMessage, PersistedMessageBO persistedMessage, String documentId) throws Exception {
  	 	RouteNodeInstance nodeInstance = null;

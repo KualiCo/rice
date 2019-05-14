@@ -55,7 +55,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Deprecated
 public class KualiHelpAction extends KualiAction {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(KualiHelpAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiHelpAction.class);
 
     private static final String VALIDATION_PATTERN_STRING = "ValidationPattern";
     private static final String NO = "No";

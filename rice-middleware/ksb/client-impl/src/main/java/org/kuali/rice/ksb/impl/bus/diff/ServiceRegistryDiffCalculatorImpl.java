@@ -23,7 +23,7 @@ import java.util.Map;
 import javax.xml.namespace.QName;
 
 import org.apache.commons.collections.MapUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.ksb.api.registry.ServiceInfo;
 import org.kuali.rice.ksb.api.registry.ServiceRegistry;
 import org.kuali.rice.ksb.impl.bus.LocalService;

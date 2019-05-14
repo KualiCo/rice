@@ -41,7 +41,7 @@ import org.kuali.rice.kew.useroptions.UserOptionsService;
  */
 public class PreferencesServiceImpl implements PreferencesService {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(PreferencesServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(PreferencesServiceImpl.class);
 
     private static Map<String, String> USER_OPTION_KEY_DEFAULT_MAP;
 

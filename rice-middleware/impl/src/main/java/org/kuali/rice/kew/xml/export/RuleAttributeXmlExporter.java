@@ -15,9 +15,9 @@
  */
 package org.kuali.rice.kew.xml.export;
 
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
 import org.kuali.rice.core.api.impex.ExportDataSet;
 import org.kuali.rice.core.api.util.xml.XmlHelper;
 import org.kuali.rice.core.api.util.xml.XmlRenderer;
@@ -40,7 +40,7 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.*;
  */
 public class RuleAttributeXmlExporter implements XmlExporter {
 
-    protected final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(getClass());
+    protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(getClass());
     
     private XmlRenderer renderer = new XmlRenderer(RULE_ATTRIBUTE_NAMESPACE);
     

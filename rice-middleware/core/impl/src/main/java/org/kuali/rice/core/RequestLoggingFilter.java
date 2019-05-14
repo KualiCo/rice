@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.core;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.util.ThreadLocalTimer;
 import org.springframework.web.filter.AbstractRequestLoggingFilter;
 

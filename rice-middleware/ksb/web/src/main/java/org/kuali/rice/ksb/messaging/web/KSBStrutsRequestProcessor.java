@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging.web;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.InvalidCancelException;

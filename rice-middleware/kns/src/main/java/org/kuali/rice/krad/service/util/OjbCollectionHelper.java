@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.krad.service.util;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.bo.PersistableBusinessObject;
 import org.kuali.rice.krad.util.ObjectUtils;
 import org.springframework.orm.ObjectRetrievalFailureException;

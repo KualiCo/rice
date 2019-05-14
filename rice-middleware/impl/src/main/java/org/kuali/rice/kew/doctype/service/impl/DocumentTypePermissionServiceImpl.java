@@ -34,7 +34,7 @@ import java.util.*;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class DocumentTypePermissionServiceImpl extends DocumentActionsPermissionBase implements DocumentTypePermissionService {
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(DocumentTypePermissionServiceImpl.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentTypePermissionServiceImpl.class);
 
     @Override
     public boolean canReceiveAdHocRequest(String principalId, DocumentRouteHeaderValue document, String actionRequestType) {

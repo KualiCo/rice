@@ -32,7 +32,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ExpressionUtils {
-    private static final Log LOG = LogFactory.getLog(ExpressionUtils.class);
+    private static final Log LOG = LogManager.getLogger(ExpressionUtils.class);
 
     /**
      * Pulls expressions within the expressionConfigurable's expression graph and moves them to the property

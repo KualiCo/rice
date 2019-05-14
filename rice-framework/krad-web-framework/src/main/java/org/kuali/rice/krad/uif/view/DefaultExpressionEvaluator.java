@@ -52,7 +52,7 @@ import java.util.regex.Pattern;
  */
 public class DefaultExpressionEvaluator implements ExpressionEvaluator {
 
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
             DefaultExpressionEvaluator.class);
 
     protected static final Pattern SERVER_EVALUATION_PATTERN = Pattern.compile(

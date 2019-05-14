@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kcb.service.impl;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.criteria.Predicate;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.kcb.bo.Message;

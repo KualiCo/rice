@@ -43,7 +43,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ServerPluginRegistry extends BasePluginRegistry {
 
-	private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(ServerPluginRegistry.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ServerPluginRegistry.class);
 
 	private List<String> pluginDirectories = new ArrayList<String>();
 	private File sharedPluginDirectory;

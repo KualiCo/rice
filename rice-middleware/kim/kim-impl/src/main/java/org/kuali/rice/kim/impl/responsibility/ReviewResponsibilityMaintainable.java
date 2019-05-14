@@ -16,7 +16,7 @@
 package org.kuali.rice.kim.impl.responsibility;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.api.KewApiConstants;
 import org.kuali.rice.kim.api.KimConstants;
 import org.kuali.rice.kim.api.common.template.Template;

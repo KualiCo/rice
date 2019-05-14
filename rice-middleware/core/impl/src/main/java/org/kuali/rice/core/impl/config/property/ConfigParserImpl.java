@@ -18,7 +18,7 @@ package org.kuali.rice.core.impl.config.property;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.text.StrLookup;
 import org.apache.commons.lang.text.StrSubstitutor;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.RiceUtilities;
 import org.kuali.rice.core.api.util.xml.XmlException;
 import org.kuali.rice.core.api.util.xml.XmlJotter;

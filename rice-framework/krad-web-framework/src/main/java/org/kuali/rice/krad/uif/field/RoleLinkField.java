@@ -16,7 +16,7 @@
 package org.kuali.rice.krad.uif.field;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kim.api.role.Role;
 import org.kuali.rice.kim.api.services.KimApiServiceLocator;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;

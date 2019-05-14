@@ -56,7 +56,7 @@ import java.util.Set;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class CustomTagAnnotations {
-    private static final Log LOG = LogFactory.getLog(CustomTagAnnotations.class);
+    private static final Log LOG = LogManager.getLogger(CustomTagAnnotations.class);
 
     private static Map<String, Map<String, BeanTagAttributeInfo>> attributeProperties;
     private static Map<String, BeanTagInfo> beanTags;

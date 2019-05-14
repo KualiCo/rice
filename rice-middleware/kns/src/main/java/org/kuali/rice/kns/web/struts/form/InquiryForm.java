@@ -48,7 +48,7 @@ import java.util.Map;
  */
 @Deprecated
 public class InquiryForm extends KualiForm {
-    private static final org.apache.log4j.Logger LOG = org.apache.log4j.Logger.getLogger(InquiryForm.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(InquiryForm.class);
 
     private static final long serialVersionUID = 1L;
     private String fieldConversions;

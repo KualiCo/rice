@@ -17,7 +17,7 @@ package org.kuali.rice.core.framework.persistence.ojb;
 
 import javax.transaction.TransactionManager;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;

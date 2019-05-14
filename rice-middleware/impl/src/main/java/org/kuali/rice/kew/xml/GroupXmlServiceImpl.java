@@ -17,7 +17,7 @@ package org.kuali.rice.kew.xml;
 
 import java.io.InputStream;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 import org.kuali.rice.core.api.impex.ExportDataSet;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.core.framework.impex.xml.XmlExporter;
