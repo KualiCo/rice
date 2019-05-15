@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kim.web.struts.form;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.coreservice.api.parameter.Parameter;
 import org.kuali.rice.coreservice.framework.CoreFrameworkServiceLocator;

@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kew.actions;
 
-import org.apache.log4j.MDC;
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.kew.actionrequest.ActionRequestFactory;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.actionrequest.KimPrincipalRecipient;
@@ -105,7 +105,7 @@ public class SuperUserActionRequestApproveEvent extends SuperUserActionTakenEven
 
         this.setActionTaken();
 
-        MDC.put("docId", getRouteHeader().getDocumentId());
+        ThreadContext.put("docId", getRouteHeader().getDocumentId());
 
         LOG.debug("Super User Delegation Action on action request: " + annotation);
         KimPrincipalRecipient superUserRecipient = null;

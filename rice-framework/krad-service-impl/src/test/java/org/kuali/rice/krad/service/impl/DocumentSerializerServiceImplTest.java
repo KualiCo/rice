@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.service.impl;
 
-import org.custommonkey.xmlunit.XMLAssert;
-import org.custommonkey.xmlunit.XMLUnit;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kuali.rice.core.api.util.type.KualiDecimal;
@@ -32,11 +29,17 @@ import org.kuali.rice.krad.workflow.KualiTransactionalDocumentInformation;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.xmlunit.builder.DiffBuilder;
+import org.xmlunit.diff.DefaultNodeMatcher;
+import org.xmlunit.diff.Diff;
+import org.xmlunit.diff.ElementSelectors;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.junit.Assert.assertFalse;
 
 /**
  * Unit test for {@link DocumentSerializerServiceImpl}
@@ -54,9 +57,13 @@ public class DocumentSerializerServiceImplTest {
     @InjectMocks
     private DocumentSerializerServiceImpl serializerService = new DocumentSerializerServiceImpl();
 
-    @Before
-    public void setup() {
-        XMLUnit.setIgnoreWhitespace(true);
+    private static void assertXMLEqual(Object expected, Object actual) {
+        Diff diffSimilar = DiffBuilder.compare(expected).withTest(actual)
+                .withNodeMatcher(new DefaultNodeMatcher(ElementSelectors.byName))
+                .ignoreWhitespace()
+                .checkForSimilar()
+                .build();
+        assertFalse(diffSimilar.toString(), diffSimilar.hasDifferences());
     }
 
     @Test
@@ -69,7 +76,7 @@ public class DocumentSerializerServiceImplTest {
         // now serialize it
 
         String xml = serializerService.serializeDocumentToXmlForRouting(document);
-        XMLAssert.assertXMLEqual(SIMPLE_DOCUMENT_FULL_XML, xml);
+        assertXMLEqual(SIMPLE_DOCUMENT_FULL_XML, xml);
 
         // now let's try again with a partial set of things to serialize
 
@@ -81,7 +88,7 @@ public class DocumentSerializerServiceImplTest {
         document.setDocumentProperty2(2);
 
         xml = serializerService.serializeDocumentToXmlForRouting(document);
-        XMLAssert.assertXMLEqual(SIMPLE_DOCUMENT_PROPERTY_1, xml);
+        assertXMLEqual(SIMPLE_DOCUMENT_PROPERTY_1, xml);
     }
 
     @Test
@@ -92,7 +99,7 @@ public class DocumentSerializerServiceImplTest {
         // now serialize it
 
         String xml = serializerService.serializeDocumentToXmlForRouting(document);
-        XMLAssert.assertXMLEqual(DEEP_DOCUMENT_FULL_XML, xml);
+        assertXMLEqual(DEEP_DOCUMENT_FULL_XML, xml);
 
         // now let's try again with a partial set of things to serialize
 
@@ -104,7 +111,7 @@ public class DocumentSerializerServiceImplTest {
         document.setEvaluator(evaluator);
 
         xml = serializerService.serializeDocumentToXmlForRouting(document);
-        XMLAssert.assertXMLEqual(DEEP_DOCUMENT_PARTIAL_XML, xml);
+        assertXMLEqual(DEEP_DOCUMENT_PARTIAL_XML, xml);
     }
 
     @Test
@@ -115,7 +122,7 @@ public class DocumentSerializerServiceImplTest {
         // now serialize it
 
         String xml = serializerService.serializeDocumentToXmlForRouting(document);
-        XMLAssert.assertXMLEqual(COLLECTION_DOCUMENT_FULL_XML, xml);
+        assertXMLEqual(COLLECTION_DOCUMENT_FULL_XML, xml);
 
         // now let's try again and only serialize the document
 
@@ -125,7 +132,7 @@ public class DocumentSerializerServiceImplTest {
         document.setEvaluator(evaluator);
 
         xml = serializerService.serializeDocumentToXmlForRouting(document);
-        XMLAssert.assertXMLEqual(COLLECTION_DOCUMENT_PARTIAL_XML_1, xml);
+        assertXMLEqual(COLLECTION_DOCUMENT_PARTIAL_XML_1, xml);
 
         // now lets dig into some of these collections
         metadata = new PropertySerializerTrie();
@@ -136,7 +143,7 @@ public class DocumentSerializerServiceImplTest {
 
         xml = serializerService.serializeDocumentToXmlForRouting(document);
         System.out.println(xml);
-        XMLAssert.assertXMLEqual(COLLECTION_DOCUMENT_PARTIAL_XML_2, xml);
+        assertXMLEqual(COLLECTION_DOCUMENT_PARTIAL_XML_2, xml);
     }
 
     private WrappedDocument setupDeepDocument() {

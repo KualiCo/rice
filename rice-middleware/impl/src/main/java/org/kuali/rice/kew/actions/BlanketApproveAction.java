@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.log4j.MDC;
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.actionrequest.Recipient;
 import org.kuali.rice.kew.actions.ActionTakenEvent;
@@ -129,7 +129,7 @@ public class BlanketApproveAction extends ActionTakenEvent {
     }
 
     public void recordAction() throws InvalidActionTakenException {
-        MDC.put("docId", getRouteHeader().getDocumentId());
+        ThreadContext.put("docId", getRouteHeader().getDocumentId());
         updateSearchableAttributesIfPossible();
 
         List<ActionRequestValue> actionRequests = getActionRequestService().findAllValidRequests(getPrincipal().getPrincipalId(), getDocumentId(), KewApiConstants.ACTION_REQUEST_COMPLETE_REQ);

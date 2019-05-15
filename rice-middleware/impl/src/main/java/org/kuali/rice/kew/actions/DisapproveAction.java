@@ -16,7 +16,6 @@
 package org.kuali.rice.kew.actions;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.MDC;
 import org.kuali.rice.coreservice.framework.CoreFrameworkServiceLocator;
 import org.kuali.rice.kew.actionrequest.ActionRequestFactory;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;

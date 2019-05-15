@@ -16,7 +16,6 @@
 package org.kuali.rice.kew.engine.node;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.MDC;
 import org.kuali.rice.core.api.criteria.Predicate;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.kew.actionitem.ActionItem;

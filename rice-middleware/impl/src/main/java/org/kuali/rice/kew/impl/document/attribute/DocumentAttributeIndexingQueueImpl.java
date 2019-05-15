@@ -17,7 +17,6 @@ package org.kuali.rice.kew.impl.document.attribute;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.Logger;
-import org.apache.log4j.MDC;
 import org.joda.time.DateTime;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;
 import org.kuali.rice.kew.api.KewApiServiceLocator;

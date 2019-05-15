@@ -15,7 +15,7 @@
  */
 package org.kuali.rice.kew.actions;
 
-import org.apache.log4j.MDC;
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.actiontaken.ActionTakenValue;
 import org.kuali.rice.kew.api.exception.InvalidActionTakenException;
@@ -116,7 +116,7 @@ public class ClearFYIAction extends ActionTakenEvent {
      * @throws ResourceUnavailableException
      */
     public void recordAction() throws InvalidActionTakenException {
-        MDC.put("docId", getRouteHeader().getDocumentId());
+        ThreadContext.put("docId", getRouteHeader().getDocumentId());
         updateSearchableAttributesIfPossible();
 
         LOG.debug("Clear FYI for document : " + annotation);

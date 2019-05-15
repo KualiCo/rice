@@ -15,7 +15,6 @@
  */
 package org.kuali.rice.kew.engine.node;
 
-import org.apache.log4j.MDC;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.api.exception.WorkflowException;
 import org.kuali.rice.kew.engine.RouteContext;

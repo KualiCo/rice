@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.krad.service.impl;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.exception.ExceptionIncident;
 import org.kuali.rice.krad.exception.KualiExceptionIncident;
@@ -35,7 +36,7 @@ import java.util.Map;
  *
  */
 public class KualiExceptionIncidentServiceImpl extends KualiFeedbackServiceImpl implements KualiExceptionIncidentService {
-    private Logger LOG=LogManager.getLogger(KualiExceptionIncidentServiceImpl.class);
+    private Logger LOG= LogManager.getLogger(KualiExceptionIncidentServiceImpl.class);
     
     /**
      * An list to send incident emails to.

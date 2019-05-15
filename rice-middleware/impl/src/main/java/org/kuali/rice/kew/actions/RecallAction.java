@@ -18,6 +18,7 @@ package org.kuali.rice.kew.actions;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.input.DOMBuilder;
 import org.kuali.rice.core.api.CoreApiServiceLocator;

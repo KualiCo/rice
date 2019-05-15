@@ -15,11 +15,11 @@
  */
 package org.kuali.rice.kew.service;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.module.RunMode;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
-import org.kuali.rice.edl.framework.extract.ExtractService;
 import org.kuali.rice.kew.actionlist.service.ActionListService;
 import org.kuali.rice.kew.actionrequest.service.ActionRequestService;
 import org.kuali.rice.kew.actions.ActionRegistry;
@@ -375,10 +375,6 @@ public final class KEWServiceLocator {
 
     public static DocumentSearchService getDocumentSearchService() {
     	return (DocumentSearchService) getBean(DOCUMENT_SEARCH_SERVICE);
-    }
-
-    public static ExtractService getExtractService() {
-	return (ExtractService) getBean(EXTRACT_SERVICE);
     }
 
     public static IdentityHelperService getIdentityHelperService() {

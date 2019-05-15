@@ -15,7 +15,6 @@
  */
 package org.kuali.rice.kew.actions;
 
-import org.apache.log4j.MDC;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.actiontaken.ActionTakenValue;
 import org.kuali.rice.kew.api.action.ActionType;
@@ -113,7 +112,7 @@ public class CancelAction extends ActionTakenEvent {
     }
 
     public void recordAction() throws InvalidActionTakenException {
-        MDC.put("docId", getRouteHeader().getDocumentId());
+        ThreadContext.put("docId", getRouteHeader().getDocumentId());
         updateSearchableAttributesIfPossible();
 
         LOG.debug("Canceling document : " + annotation);

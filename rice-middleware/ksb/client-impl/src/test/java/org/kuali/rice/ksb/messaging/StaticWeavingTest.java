@@ -16,15 +16,21 @@
 package org.kuali.rice.ksb.messaging;
 
 import org.junit.Test;
-import org.reflections.Reflections;
+import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
+import org.springframework.core.type.filter.AnnotationTypeFilter;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 import java.lang.reflect.Method;
+import java.util.Collections;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertTrue;
 
 /**
  * This test verifies that all of the JPA objects in this module are statically weaved.
@@ -38,43 +44,90 @@ import static org.junit.Assert.fail;
  */
 public class StaticWeavingTest {
 
+    private static final String PACKAGE = StaticWeavingTest.class.getPackage().getName();
+    private static final String CLASS_PERSISTENCE_OBJECT = "org.eclipse.persistence.internal.descriptors.PersistenceObject";
+    private static final String CLASS_PERSISTENCE_ENTITY = "org.eclipse.persistence.internal.descriptors.PersistenceEntity";
+    private static final String WEAVED_METHOD_PREFIX = "_persistence_";
+
     @Test
     public void testStaticWeaving() {
-        // first, scan for all files on the classpath with an @Entity or @MappedSuperClass annotation
-        Reflections reflections = new Reflections(getClass().getPackage().getName());
-        Set<Class<?>> entityTypes = reflections.getTypesAnnotatedWith(Entity.class);
-        Set<Class<?>> superTypes = reflections.getTypesAnnotatedWith(MappedSuperclass.class);
-        Set<Class<?>> embeddableTypes = reflections.getTypesAnnotatedWith(Embeddable.class);
 
-        // next, let's assert that they have been statically weaved
-        assertStaticWeaved(entityTypes, superTypes, embeddableTypes);
+        final ClassPathScanningCandidateComponentProvider entityScanner =
+                new AllClassPathScanningCandidateComponentProvider(false);
+        entityScanner.addIncludeFilter(new AnnotationTypeFilter(Entity.class));
+
+        final ClassPathScanningCandidateComponentProvider mscScanner =
+                new AllClassPathScanningCandidateComponentProvider(false);
+        mscScanner.addIncludeFilter(new AnnotationTypeFilter(MappedSuperclass.class));
+
+        final ClassPathScanningCandidateComponentProvider embeddableScanner =
+                new AllClassPathScanningCandidateComponentProvider(false);
+        embeddableScanner.addIncludeFilter(new AnnotationTypeFilter(Embeddable.class));
+
+        final Class<?> persistenceObject;
+        final Class<?> persistenceEntity;
+        try {
+            persistenceObject = Class.forName(CLASS_PERSISTENCE_OBJECT);
+            persistenceEntity = Class.forName(CLASS_PERSISTENCE_ENTITY);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        final Set<Class<?>> notWeaved = Stream.concat(
+                findNotWeaved(Stream.of(persistenceObject, persistenceEntity).collect(Collectors.toSet()),
+                        entityScanner.findCandidateComponents(PACKAGE),
+                        mscScanner.findCandidateComponents(PACKAGE)),
+                findNotWeaved(Collections.singleton(persistenceObject),
+                        embeddableScanner.findCandidateComponents(PACKAGE)))
+                .collect(Collectors.toSet());
+
+        assertTrue( "(NOTE: it is expected this test may fail if executed from the IDE instead of command line "
+                + "since the IDE will not execute the static weaving automatically). Found a class which is "
+                + "not bytecode weaved (contains no methods starting with '_persistence'): " + notWeaved + " "
+                + "In order to resolve this, please ensure that this type is included in "
+                + "META-INF/persistence-weaving.xml", notWeaved.isEmpty());
     }
 
-    private void assertStaticWeaved(Set<Class<?>>... types) {
-        for (Set<Class<?>> typeSet : types) {
-            for (Class<?> type : typeSet) {
-                if (!hasValidAnnotation(type)) continue;
-                boolean foundWeaved = false;
-                Method[] methods = type.getDeclaredMethods();
-                for (Method method : methods) {
-                    if (method.getName().startsWith("_persistence")) {
-                        foundWeaved = true;
-                        break;
+    /**
+     * If JPA weaving is enabled then all annotated classes should implement an interface called PersistenceObject and sometimes PersistenceEntity
+     */
+    @SafeVarargs
+    private final Stream<Class<?>> findNotWeaved(Set<Class<?>> isAssignableFrom, Set<BeanDefinition>... types) {
+
+        final Set<Class<?>> classes = Stream.of(types)
+                .flatMap(Set::stream)
+                .map(BeanDefinition::getBeanClassName)
+                .map(className -> {
+                    try {
+                        return Class.forName(className);
+                    } catch (ClassNotFoundException e) {
+                        throw new RuntimeException(e);
                     }
-                }
-                if (!foundWeaved) {
-                    fail("(NOTE: it is expected this test may fail if executed from the IDE instead of command line "
-                            + "since the IDE will not execute the static weaving automatically). Found a class which is "
-                            + "not bytecode weaved (contains no methods starting with '_persistence'): " + type + " "
-                            + "In order to resolve this, please ensure that this type is included in "
-                            + "META-INF/persistence-weaving.xml");
-                }
-            }
+                }).collect(Collectors.toSet());
+
+        return classes.stream()
+                .filter(type -> {
+                    //checking if the objects have "declared" methods because just implementing an interface on a superclass is not enough.
+                    //They must also have these methods implemented.
+                    //Since rice statically weaves, all classes extended from a rice base class will implement these weaved in interfaces.
+                    final boolean weavedMethod = Stream.of(type.getDeclaredMethods())
+                            .map(Method::getName)
+                            .anyMatch(methodName -> methodName.startsWith(WEAVED_METHOD_PREFIX));
+
+                    return !isAssignableFrom.stream().allMatch(intr -> intr.isAssignableFrom(type)) || !weavedMethod;
+                });
+    }
+
+
+    private static final class AllClassPathScanningCandidateComponentProvider extends ClassPathScanningCandidateComponentProvider {
+
+        public AllClassPathScanningCandidateComponentProvider(boolean useDefaultFilters) {
+            super(useDefaultFilters);
+        }
+
+        @Override
+        protected boolean isCandidateComponent(AnnotatedBeanDefinition beanDefinition) {
+            return true;
         }
     }
-
-    private boolean hasValidAnnotation(Class<?> type) {
-        return type.isAnnotationPresent(Entity.class) || type.isAnnotationPresent(MappedSuperclass.class) || type.isAnnotationPresent(Embeddable.class);
-    }
-
 }
