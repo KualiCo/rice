@@ -15,8 +15,8 @@
  */
 package org.kuali.rice.kns.datadictionary.control;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 /**
  * A single HTML text control.
@@ -28,7 +28,7 @@ public class FileControlDefinition extends ControlDefinitionBase {
     private static final long serialVersionUID = 8778523411471162513L;
     
 	// logger
-    private static Log LOG = LogManager.getLogger(FileControlDefinition.class);
+    private static Logger LOG = LogManager.getLogger(FileControlDefinition.class);
 
     public FileControlDefinition() {
         LOG.debug("creating new FileControlDefinition");

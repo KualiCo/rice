@@ -54,7 +54,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class HierarchyRoutingNode implements DynamicNode {
-    protected final Logger LOG = Logger.getLogger(getClass());
+    protected final Logger LOG = LogManager.getLogger(getClass());
 
     /**
      * The RouteNode configuration parameter that specifies the hierarchy provider implementation

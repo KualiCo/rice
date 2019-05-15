@@ -35,7 +35,6 @@ import org.kuali.rice.krad.util.BeanPropertyComparator;
 
 import javax.jws.WebParam;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;

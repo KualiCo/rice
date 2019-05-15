@@ -53,7 +53,7 @@ import java.util.List;
  */
 public class DocumentAttributeIndexingQueueImpl implements DocumentAttributeIndexingQueue {
 
-	private static Logger LOG = Logger.getLogger(DocumentAttributeIndexingQueueImpl.class);
+	private static Logger LOG = LogManager.getLogger(DocumentAttributeIndexingQueueImpl.class);
 
     @Override
     public void indexDocument(String documentId) {

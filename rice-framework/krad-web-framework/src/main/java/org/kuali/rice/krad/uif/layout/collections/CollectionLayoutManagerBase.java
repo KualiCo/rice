@@ -19,13 +19,13 @@ import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.container.Group;
+import org.kuali.rice.krad.uif.element.Pager;
 import org.kuali.rice.krad.uif.field.Field;
 import org.kuali.rice.krad.uif.field.FieldGroup;
 import org.kuali.rice.krad.uif.layout.CollectionLayoutManager;
 import org.kuali.rice.krad.uif.layout.LayoutManagerBase;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycleRestriction;
 import org.kuali.rice.krad.uif.view.ExpressionEvaluator;
-import org.kuali.rice.krad.uif.element.Pager;
 import org.kuali.rice.krad.util.KRADUtils;
 
 import java.util.Map;

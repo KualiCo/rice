@@ -29,7 +29,7 @@ import org.apache.logging.log4j.Logger;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ConfiguredNamespaceContext implements NamespaceContext {
-    private static final Logger LOG = Logger.getLogger(ConfiguredNamespaceContext.class);
+    private static final Logger LOG = LogManager.getLogger(ConfiguredNamespaceContext.class);
 
     private Map<String, String> prefixToNamespace = new HashMap<String, String>();
     private Map<String, HashSet<String>> namespaceToPrefix = new HashMap<String, HashSet<String>>();

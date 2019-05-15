@@ -39,7 +39,7 @@ import java.util.Properties;
 @Deprecated
 @Transactional
 public class KualiLookupableImpl implements Lookupable {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiLookupableImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KualiLookupableImpl.class);
     protected static final String[] IGNORE_LIST = { KRADConstants.DOC_FORM_KEY, KRADConstants.BACK_LOCATION };
 
     protected Class businessObjectClass;

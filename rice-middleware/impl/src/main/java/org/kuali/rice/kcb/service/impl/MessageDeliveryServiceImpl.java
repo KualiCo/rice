@@ -37,7 +37,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.*;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class MessageDeliveryServiceImpl implements MessageDeliveryService {
-    private static final Logger LOG = Logger.getLogger(MessageDeliveryServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(MessageDeliveryServiceImpl.class);
 
     private DataObjectService dataObjectService;
 

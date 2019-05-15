@@ -36,7 +36,7 @@ import java.util.List;
  */
 @SuppressWarnings("serial")
 public abstract class IdentityManagementDocumentFormBase extends KualiTransactionalDocumentFormBase {
-	protected static final Logger LOG = Logger.getLogger(IdentityManagementDocumentFormBase.class);
+	protected static final Logger LOG = LogManager.getLogger(IdentityManagementDocumentFormBase.class);
     protected static final String MAX_MEMBERS_PER_PAGE_PARM = "MAX_MEMBERS_PER_PAGE";
 	protected transient KualiTableRenderFormMetadata memberTableMetadata;
     protected int recordsPerPage = -1;

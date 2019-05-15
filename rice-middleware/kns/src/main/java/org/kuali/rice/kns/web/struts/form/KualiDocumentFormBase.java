@@ -74,7 +74,7 @@ import java.util.Properties;
 public abstract class KualiDocumentFormBase extends KualiForm implements Serializable {
     private static final long serialVersionUID = 916061016201941821L;
 
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiDocumentFormBase.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KualiDocumentFormBase.class);
 
     private Document document;
     private String annotation = "";

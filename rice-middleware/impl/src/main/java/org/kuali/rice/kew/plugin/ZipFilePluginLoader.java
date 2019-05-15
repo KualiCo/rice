@@ -39,7 +39,7 @@ import java.util.zip.ZipFile;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ZipFilePluginLoader extends BasePluginLoader {
-	private static final Logger LOG = Logger.getLogger(ZipFilePluginLoader.class);
+	private static final Logger LOG = LogManager.getLogger(ZipFilePluginLoader.class);
 
 	private final File pluginZipFile;
     private final File extractionDirectory;

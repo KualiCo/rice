@@ -15,13 +15,13 @@
  */
 package org.kuali.rice.krad.messages;
 
+import org.kuali.rice.krad.bo.PersistableBusinessObjectBaseAdapter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-import org.kuali.rice.krad.bo.PersistableBusinessObjectBaseAdapter;
 
 /**
  * Holds the text and metadata for a message that will be given by the system, including validation

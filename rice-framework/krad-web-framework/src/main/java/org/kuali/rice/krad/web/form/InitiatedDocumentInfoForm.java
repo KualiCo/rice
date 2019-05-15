@@ -15,7 +15,6 @@
  */
 package org.kuali.rice.krad.web.form;
 
-import org.kuali.rice.krad.service.KRADServiceLocator;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.kuali.rice.krad.util.KRADConstants;
 

@@ -16,6 +16,8 @@
 package org.kuali.rice.krad.uif.view;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.krad.datadictionary.DataDictionary;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
@@ -51,7 +53,6 @@ import org.kuali.rice.krad.uif.util.ClientValidationUtils;
 import org.kuali.rice.krad.uif.util.ComponentFactory;
 import org.kuali.rice.krad.uif.util.CopyUtils;
 import org.kuali.rice.krad.uif.util.LifecycleAwareList;
-import org.kuali.rice.krad.uif.util.LifecycleAwareMap;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.util.ParentLocation;
 import org.kuali.rice.krad.uif.util.ScriptUtils;
@@ -63,8 +64,6 @@ import org.kuali.rice.krad.util.GlobalVariables;
 import org.kuali.rice.krad.util.KRADConstants;
 import org.kuali.rice.krad.util.KRADUtils;
 import org.kuali.rice.krad.web.form.UifFormBase;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -102,7 +101,7 @@ import java.util.Set;
  */
 public class View extends ContainerBase {
     private static final long serialVersionUID = -1220009725554576953L;
-    private static final Logger LOG = LoggerFactory.getLogger(ContainerBase.class);
+    private static final Logger LOG = LogManager.getLogger(ContainerBase.class);
 
     private String namespaceCode;
     private String viewName;

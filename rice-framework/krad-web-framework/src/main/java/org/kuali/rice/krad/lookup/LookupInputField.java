@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.lookup;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.util.ConcreteKeyValue;
 import org.kuali.rice.krad.datadictionary.AttributeDefinition;
@@ -29,7 +26,6 @@ import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.UifPropertyPaths;
 import org.kuali.rice.krad.uif.control.CheckboxControl;
 import org.kuali.rice.krad.uif.control.Control;
-import org.kuali.rice.krad.uif.control.FilterableLookupCriteriaControl;
 import org.kuali.rice.krad.uif.control.MultiValueControl;
 import org.kuali.rice.krad.uif.control.RadioGroupControl;
 import org.kuali.rice.krad.uif.control.TextAreaControl;
@@ -43,6 +39,9 @@ import org.kuali.rice.krad.uif.util.KeyMessage;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.util.KRADConstants;
 import org.kuali.rice.krad.util.KRADPropertyConstants;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Custom {@link InputField} for criteria fields within a lookup view that adds criteria specific options.

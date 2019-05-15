@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.ClassLoaderUtils;
 import org.kuali.rice.ksb.api.bus.support.JavaServiceConfiguration;
@@ -26,7 +27,7 @@ import java.util.List;
 
 
 public class KSBHttpInvokerProxyFactoryBean extends HttpInvokerProxyFactoryBean {
-	private static final Logger LOG = Logger.getLogger(KSBHttpInvokerProxyFactoryBean.class);
+	private static final Logger LOG = LogManager.getLogger(KSBHttpInvokerProxyFactoryBean.class);
 
 	private Object serviceProxy;
 

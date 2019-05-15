@@ -15,10 +15,10 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.util.List;
-
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
+
+import java.util.List;
 
 /**
  * This is a description of what this class does - mpham don't forget to fill this in.

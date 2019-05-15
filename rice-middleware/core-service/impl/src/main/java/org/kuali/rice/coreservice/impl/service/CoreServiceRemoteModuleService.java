@@ -51,7 +51,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.like;
 public class CoreServiceRemoteModuleService extends RemoteModuleServiceBase {
 
     private static final org.apache.logging.log4j.Logger LOG =
-            org.apache.logging.log4j.Logger.getLogger(CoreServiceRemoteModuleService.class);
+            org.apache.logging.log4j.LogManager.getLogger(CoreServiceRemoteModuleService.class);
 
     private static final String CODE = "code";
     private static final String NAMESPACE_CODE = "namespaceCode";

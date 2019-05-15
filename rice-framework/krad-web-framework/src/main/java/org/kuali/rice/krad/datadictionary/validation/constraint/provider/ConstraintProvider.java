@@ -15,12 +15,12 @@
  */
 package org.kuali.rice.krad.datadictionary.validation.constraint.provider;
 
-import java.util.List;
-
 import org.kuali.rice.krad.datadictionary.validation.capability.CaseConstrainable;
 import org.kuali.rice.krad.datadictionary.validation.capability.Constrainable;
 import org.kuali.rice.krad.datadictionary.validation.capability.LengthConstrainable;
 import org.kuali.rice.krad.datadictionary.validation.constraint.Constraint;
+
+import java.util.List;
 
 /**
  * ConstraintProvider determines a list of constraints for a given Constrainable definition for an attribute

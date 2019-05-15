@@ -15,10 +15,10 @@
  */
 package org.kuali.rice.krad.uif.service;
 
-import java.util.Map;
-
 import org.kuali.rice.krad.uif.field.AttributeQueryResult;
 import org.kuali.rice.krad.uif.lifecycle.ViewPostMetadata;
+
+import java.util.Map;
 
 /**
  * Provides methods for executing <code>AttributeQuery</code> instances

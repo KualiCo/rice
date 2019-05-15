@@ -15,8 +15,8 @@
  */
 package org.kuali.rice.kns.document.authorization;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.kuali.rice.krad.document.Document;
 
 import java.util.HashSet;
@@ -29,7 +29,7 @@ import java.util.Set;
  */
 @Deprecated
 public class TransactionalDocumentPresentationControllerBase extends DocumentPresentationControllerBase implements TransactionalDocumentPresentationController {
-    private static Log LOG = LogManager.getLogger(TransactionalDocumentPresentationControllerBase.class);
+    private static Logger LOG = LogManager.getLogger(TransactionalDocumentPresentationControllerBase.class);
     
     /**
      * 

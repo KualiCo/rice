@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.uif.container;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
@@ -28,6 +25,9 @@ import org.kuali.rice.krad.uif.component.ClientSideState;
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.widget.Tabs;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A group that presents its child Groups as tabs.  Items in this group's item list must be Groups

@@ -74,7 +74,7 @@ import java.util.Set;
 
 public class DocumentSearchServiceImpl implements DocumentSearchService {
 
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentSearchServiceImpl.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(DocumentSearchServiceImpl.class);
 
 	private static final int MAX_SEARCH_ITEMS = 5;
 	private static final String LAST_SEARCH_ORDER_OPTION = "DocSearch.LastSearch.Order";

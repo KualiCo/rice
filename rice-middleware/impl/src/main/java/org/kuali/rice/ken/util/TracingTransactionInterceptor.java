@@ -29,7 +29,7 @@ import org.springframework.transaction.jta.JtaTransactionManager;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class TracingTransactionInterceptor implements MethodInterceptor {
-    private static final Logger LOG = Logger.getLogger(TracingTransactionInterceptor.class);
+    private static final Logger LOG = LogManager.getLogger(TracingTransactionInterceptor.class);
 
     private Level level;
     private JtaTransactionManager txManager;

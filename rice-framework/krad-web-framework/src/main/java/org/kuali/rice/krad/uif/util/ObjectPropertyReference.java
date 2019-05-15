@@ -15,6 +15,12 @@
  */
 package org.kuali.rice.krad.uif.util;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.kuali.rice.krad.datadictionary.Copyable;
+import org.kuali.rice.krad.uif.util.ObjectPathExpressionParser.PathEntry;
+import org.kuali.rice.krad.util.KRADUtils;
+
 import java.beans.PropertyEditor;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
@@ -23,11 +29,6 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.logging.log4j.Logger;
-import org.kuali.rice.krad.datadictionary.Copyable;
-import org.kuali.rice.krad.uif.util.ObjectPathExpressionParser.PathEntry;
-import org.kuali.rice.krad.util.KRADUtils;
 
 /**
  * Represents a property reference in a path expression, for use in implementing
@@ -59,7 +60,7 @@ public class ObjectPropertyReference {
     /**
      * Log4j logger.
      */
-    private static final Logger LOG = Logger.getLogger(ObjectPropertyReference.class);
+    private static final Logger LOG = LogManager.getLogger(ObjectPropertyReference.class);
 
     /**
      * Reference for single use.

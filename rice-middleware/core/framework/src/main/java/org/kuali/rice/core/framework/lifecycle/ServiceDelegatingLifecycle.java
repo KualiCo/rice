@@ -17,6 +17,8 @@ package org.kuali.rice.core.framework.lifecycle;
 
 import javax.xml.namespace.QName;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.lifecycle.BaseLifecycle;
 import org.kuali.rice.core.api.lifecycle.Lifecycle;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
@@ -29,7 +31,7 @@ import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
  */
 public class ServiceDelegatingLifecycle extends BaseLifecycle {
 	
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(BaseLifecycle.class);
+	private static final Logger LOG = LogManager.getLogger(BaseLifecycle.class);
 
 	private QName serviceName;
     private Lifecycle service;

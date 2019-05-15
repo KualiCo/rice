@@ -38,7 +38,7 @@ import java.util.List;
  */
 public final class PluginUtils {
 
-    private static final Logger LOG = Logger.getLogger(PluginUtils.class);
+    private static final Logger LOG = LogManager.getLogger(PluginUtils.class);
     private static final String SHARED_DIR = "shared";
 
     // maximum time we should wait for a new plugin directory to stop being

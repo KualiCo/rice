@@ -38,7 +38,7 @@ import java.util.List;
  */
 public class CancelAction extends ActionTakenEvent {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(CancelAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(CancelAction.class);
 
     public CancelAction(DocumentRouteHeaderValue rh, PrincipalContract principal) {
         this(ActionType.CANCEL, rh, principal, null);

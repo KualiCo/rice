@@ -16,6 +16,7 @@
 package org.kuali.rice.krad.util;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +32,7 @@ import java.util.UUID;
  */
 public class CsrfValidator {
 
-    private static final Logger LOG = Logger.getLogger(CsrfValidator.class);
+    private static final Logger LOG = LogManager.getLogger(CsrfValidator.class);
 
     public static final String CSRF_PARAMETER = "csrfToken";
     public static final String CSRF_SESSION_TOKEN = "csrfSessionToken";

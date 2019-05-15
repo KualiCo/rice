@@ -33,7 +33,7 @@ import java.util.List;
 public class NotificationRecipientServiceKimImpl implements NotificationRecipientService
 {
     private static final Logger LOG =
-        Logger.getLogger(NotificationRecipientServiceKimImpl.class);
+        LogManager.getLogger(NotificationRecipientServiceKimImpl.class);
 
     protected GroupService getGroupService()
     {

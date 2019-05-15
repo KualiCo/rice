@@ -32,7 +32,7 @@ public class XFireWSS4JOutHandler {}
 /*
 public class XFireWSS4JOutHandler extends WSS4JOutHandler {
 
-	private static final Logger LOG = Logger.getLogger(XFireWSS4JOutHandler.class);
+	private static final Logger LOG = LogManager.getLogger(XFireWSS4JOutHandler.class);
 
 	private ServiceInfo serviceInfo;
 

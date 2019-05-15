@@ -15,8 +15,7 @@
  */
 package org.kuali.rice.core.web;
 
-import org.apache.log4j.MDC;
-import org.apache.log4j.NDC;
+import org.apache.logging.log4j.ThreadContext;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -24,7 +23,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.lang.reflect.Field;
 
 /**
  * Clears Log4J NDC and MDC at the end of each request
@@ -48,35 +46,6 @@ public class Log4JContextClearingFilter extends OncePerRequestFilter {
      * Clear Log4J threadlocals
      */
     protected static void clearLog4JThreadLocals() {
-        NDC.remove();
-        MDC.clear();
-        ThreadLocal tl = getMDCThreadLocal();
-        if (tl != null) {
-            tl.remove();
-        }
-    }
-
-    /**
-     * Get the Log4J MDC threadlocal via reflection
-     * @return the MDC ThreadLocalMap object or null if unset or error
-     */
-    protected static ThreadLocal getMDCThreadLocal() {
-        try {
-            Field mdcField = MDC.class.getDeclaredField("mdc");
-            if (mdcField != null) {
-                mdcField.setAccessible(true);
-                Object mdc = mdcField.get(null);
-                Field tlmField = MDC.class.getDeclaredField("tlm");
-                if (tlmField != null) {
-                    tlmField.setAccessible(true);
-                    return (ThreadLocal) tlmField.get(mdc);
-                }
-            }
-        } catch (NoSuchFieldException nsfe) {
-            nsfe.printStackTrace();
-        } catch (IllegalAccessException iae) {
-            iae.printStackTrace();
-        }
-        return null;
+        ThreadContext.clearAll();
     }
 }

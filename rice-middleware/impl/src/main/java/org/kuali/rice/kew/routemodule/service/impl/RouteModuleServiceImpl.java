@@ -36,7 +36,7 @@ import org.springframework.beans.factory.BeanFactoryAware;
  */
 public class RouteModuleServiceImpl implements RouteModuleService, BeanFactoryAware {
 
-    private static final Logger LOG = Logger.getLogger(RouteModuleServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(RouteModuleServiceImpl.class);
 
     private BeanFactory beanFactory;
     private String rulesEngineRouteModuleId;

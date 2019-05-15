@@ -56,7 +56,7 @@ import org.kuali.rice.krad.util.KRADUtils;
  */
 public class LookupCriteriaGeneratorImpl implements LookupCriteriaGenerator {
 
-    private static final Logger LOG = Logger.getLogger(LookupCriteriaGeneratorImpl.class);
+    private static final Logger LOG = LogManager.getLogger(LookupCriteriaGeneratorImpl.class);
 
     private DateTimeService dateTimeService;
     private DataDictionaryService dataDictionaryService;

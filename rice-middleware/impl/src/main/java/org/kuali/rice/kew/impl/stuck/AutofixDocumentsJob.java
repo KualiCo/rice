@@ -26,8 +26,8 @@ import org.quartz.JobExecutionException;
 import org.quartz.JobKey;
 import org.quartz.PersistJobDataAfterExecution;
 import org.quartz.SchedulerException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
 @PersistJobDataAfterExecution
 public class AutofixDocumentsJob implements Job {
 
-    private static final Logger LOG = LoggerFactory.getLogger(AutofixDocumentsJob.class);
+    private static final Logger LOG = LogManager.getLogger(AutofixDocumentsJob.class);
 
     static final String INCIDENT_IDS = "incidentIds";
     static final String CURRENT_AUTOFIX_COUNT = "currentAutofixCount";

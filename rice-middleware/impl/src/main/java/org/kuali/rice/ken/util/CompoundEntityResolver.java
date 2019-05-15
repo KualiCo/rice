@@ -30,7 +30,7 @@ import org.xml.sax.SAXException;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class CompoundEntityResolver implements EntityResolver {
-    private static final Logger LOG = Logger.getLogger(CompoundEntityResolver.class);
+    private static final Logger LOG = LogManager.getLogger(CompoundEntityResolver.class);
 
     private final List<EntityResolver> resolvers;
 

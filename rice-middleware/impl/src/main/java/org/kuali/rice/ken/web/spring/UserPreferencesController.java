@@ -42,7 +42,7 @@ public class UserPreferencesController extends MultiActionController {
    private static String view = "";
    
    /** Logger for this class and subclasses */
-   private static final Logger LOG = Logger.getLogger(UserPreferencesController.class);
+   private static final Logger LOG = LogManager.getLogger(UserPreferencesController.class);
    
    protected NotificationChannelService notificationChannelService;
    protected UserPreferenceService userPreferenceService;

@@ -38,7 +38,7 @@ import org.springframework.beans.factory.annotation.Required;
  */
 public class EmailServiceImpl implements EmailService {
 
-	private static Logger LOG = Logger.getLogger(EmailServiceImpl.class);
+	private static Logger LOG = LogManager.getLogger(EmailServiceImpl.class);
 
 	private static final String FORMAT_TEXT_HTML = "text/html";
 	private static final String FORMAT_TEXT_PLAIN = "text/plain";

@@ -19,8 +19,8 @@ import org.kuali.rice.kew.service.KEWServiceLocator;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class StuckDocumentNotificationJob implements Job {
 
-    private static final Logger LOG = LoggerFactory.getLogger(StuckDocumentNotificationJob.class);
+    private static final Logger LOG = LogManager.getLogger(StuckDocumentNotificationJob.class);
 
     private volatile StuckDocumentService stuckDocumentService;
     private volatile StuckDocumentNotifier notifier;

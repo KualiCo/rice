@@ -15,15 +15,9 @@
  */
 package org.kuali.rice.krad.uif.lifecycle;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.component.Component;
@@ -33,8 +27,14 @@ import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.util.ObjectPropertyUtils;
 import org.kuali.rice.krad.uif.util.ProcessLogger;
 import org.kuali.rice.krad.uif.util.RecycleUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 
 /**
  * Base abstract implementation for a lifecycle phase.
@@ -42,7 +42,7 @@ import org.slf4j.LoggerFactory;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public abstract class ViewLifecyclePhaseBase implements ViewLifecyclePhase {
-    private final Logger LOG = LoggerFactory.getLogger(ViewLifecyclePhaseBase.class);
+    private final Logger LOG = LogManager.getLogger(ViewLifecyclePhaseBase.class);
 
     private LifecycleElement element;
     private Component parent;

@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.uif.lifecycle.model;
 
-import java.util.List;
-import java.util.UUID;
-
 import org.kuali.rice.krad.uif.component.BindingInfo;
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.component.ComponentSecurity;
@@ -32,6 +29,9 @@ import org.kuali.rice.krad.uif.modifier.ComponentModifier;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.view.ExpressionEvaluator;
 import org.kuali.rice.krad.uif.view.View;
+
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Evaluate expressions for the component.

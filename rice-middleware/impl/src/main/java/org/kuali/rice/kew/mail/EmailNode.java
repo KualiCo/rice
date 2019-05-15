@@ -56,7 +56,7 @@ import java.io.StringReader;
  */
 public class EmailNode implements SimpleNode {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(EmailNode.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(EmailNode.class);
 
     private EmailStyleHelper emailStyleHelper = new EmailStyleHelper();
     private String styleName;

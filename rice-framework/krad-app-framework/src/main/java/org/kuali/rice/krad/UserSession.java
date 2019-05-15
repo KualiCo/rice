@@ -41,7 +41,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class UserSession implements Serializable {
     private static final long serialVersionUID = 4532616762540067557L;
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(UserSession.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(UserSession.class);
 
     private static final String NULL_VALUE = "NULL";
 

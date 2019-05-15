@@ -15,8 +15,8 @@
  */
 package org.kuali.rice.kns.document.authorization;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.kuali.rice.kew.api.KewApiConstants;
 import org.kuali.rice.kew.api.KewApiServiceLocator;
 import org.kuali.rice.kew.api.WorkflowDocument;
@@ -46,7 +46,7 @@ import java.util.Set;
  */
 @Deprecated
 public class DocumentAuthorizerBase extends BusinessObjectAuthorizerBase implements DocumentAuthorizer {
-    protected static Log LOG = LogManager.getLogger(DocumentAuthorizerBase.class);
+    protected static Logger LOG = LogManager.getLogger(DocumentAuthorizerBase.class);
 
     public static final String PRE_ROUTING_ROUTE_NAME = "PreRoute";
     public static final String EDIT_MODE_DEFAULT_TRUE_VALUE = "TRUE";

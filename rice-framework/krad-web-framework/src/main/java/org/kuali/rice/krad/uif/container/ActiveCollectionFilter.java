@@ -17,8 +17,8 @@ package org.kuali.rice.krad.uif.container;
 
 import org.kuali.rice.core.api.mo.common.active.Inactivatable;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
-import org.kuali.rice.krad.uif.view.View;
 import org.kuali.rice.krad.uif.util.ObjectPropertyUtils;
+import org.kuali.rice.krad.uif.view.View;
 
 import java.util.ArrayList;
 import java.util.List;

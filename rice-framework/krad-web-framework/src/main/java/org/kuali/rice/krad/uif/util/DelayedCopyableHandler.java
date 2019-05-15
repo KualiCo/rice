@@ -15,6 +15,8 @@
  */
 package org.kuali.rice.krad.uif.util;
 
+import org.kuali.rice.krad.datadictionary.Copyable;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -24,8 +26,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
-
-import org.kuali.rice.krad.datadictionary.Copyable;
 
 /**
  * Proxy invocation handler for delaying deep copy for framework objects that may not need to be

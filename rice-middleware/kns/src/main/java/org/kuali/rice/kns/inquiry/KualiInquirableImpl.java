@@ -74,7 +74,7 @@ import java.util.Properties;
  */
 @Deprecated
 public class KualiInquirableImpl extends InquirableImpl implements Inquirable {
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiInquirableImpl.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KualiInquirableImpl.class);
 
 	protected LookupService lookupService;
 	protected BusinessObjectAuthorizationService businessObjectAuthorizationService;

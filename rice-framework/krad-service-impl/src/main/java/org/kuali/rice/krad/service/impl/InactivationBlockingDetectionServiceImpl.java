@@ -53,7 +53,7 @@ import java.util.Map;
  */
 @Transactional
 public class InactivationBlockingDetectionServiceImpl implements InactivationBlockingDetectionService {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(InactivationBlockingDetectionServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(InactivationBlockingDetectionServiceImpl.class);
 
     protected DataObjectMetaDataService dataObjectMetaDataService;
     private volatile DataObjectService dataObjectService;

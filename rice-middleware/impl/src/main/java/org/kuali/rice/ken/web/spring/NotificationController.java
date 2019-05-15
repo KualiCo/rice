@@ -52,7 +52,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
  */
 public class NotificationController extends MultiActionController {
     /** Logger for this class and subclasses */
-    private static final Logger LOG = Logger.getLogger(NotificationController.class);
+    private static final Logger LOG = LogManager.getLogger(NotificationController.class);
     
     protected NotificationService notificationService;
     protected NotificationWorkflowDocumentService notificationWorkflowDocService;

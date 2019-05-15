@@ -35,7 +35,7 @@ import java.util.Map;
  */
 public class LookupViewAuthorizerBase extends ViewAuthorizerBase {
     private static final long serialVersionUID = 3755133641536256283L;
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(
             LookupViewAuthorizerBase.class);
 
     /**

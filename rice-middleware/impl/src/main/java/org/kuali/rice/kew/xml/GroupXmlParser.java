@@ -52,7 +52,7 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.*;
  *
  */
 public class GroupXmlParser {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(GroupXmlParser.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(GroupXmlParser.class);
     private static final boolean DEFAULT_ACTIVE_VALUE = true;
     private static final String DEFAULT_GROUP_DESCRIPTION = "";
     private HashMap<String, List<String>> memberGroupIds = new HashMap<String, List<String>>();

@@ -37,7 +37,7 @@ import java.rmi.RemoteException;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class NotificationWebServiceImpl /*extends ServletEndpointSupport*/ implements NotificationWebService {
-    private static final Logger LOG = Logger.getLogger(NotificationWebServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(NotificationWebServiceImpl.class);
 
     private NotificationService notificationService;
     private NotificationMessageContentService notificationMessageContentService;

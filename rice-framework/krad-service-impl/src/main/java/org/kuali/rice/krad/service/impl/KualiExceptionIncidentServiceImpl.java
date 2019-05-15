@@ -35,7 +35,7 @@ import java.util.Map;
  *
  */
 public class KualiExceptionIncidentServiceImpl extends KualiFeedbackServiceImpl implements KualiExceptionIncidentService {
-    private Logger LOG=Logger.getLogger(KualiExceptionIncidentServiceImpl.class);
+    private Logger LOG=LogManager.getLogger(KualiExceptionIncidentServiceImpl.class);
     
     /**
      * An list to send incident emails to.

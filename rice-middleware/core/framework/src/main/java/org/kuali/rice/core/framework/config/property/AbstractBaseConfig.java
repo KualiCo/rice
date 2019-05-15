@@ -16,6 +16,7 @@
 package org.kuali.rice.core.framework.config.property;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.config.property.ConfigContext;
@@ -36,7 +37,7 @@ import java.util.Properties;
  */
 public abstract class AbstractBaseConfig implements org.kuali.rice.core.api.config.property.Config {
 
-    private static final Logger LOG = Logger.getLogger(AbstractBaseConfig.class);
+    private static final Logger LOG = LogManager.getLogger(AbstractBaseConfig.class);
 
     public abstract Object getObject(String key);
 

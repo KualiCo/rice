@@ -49,7 +49,7 @@ import java.util.Map;
 public class ServiceRegistryAction extends KSBAction {
 
 	private static final String REMOVED_APPLICATION_ID_PARAM = "removedApplicationId";
-    private static final Logger LOG = Logger.getLogger(ServiceRegistryAction.class);
+    private static final Logger LOG = LogManager.getLogger(ServiceRegistryAction.class);
 
     public ActionForward start(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 	    HttpServletResponse response) throws IOException, ServletException {

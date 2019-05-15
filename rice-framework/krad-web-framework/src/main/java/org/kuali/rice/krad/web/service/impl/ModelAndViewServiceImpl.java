@@ -16,6 +16,7 @@
 package org.kuali.rice.krad.web.service.impl;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
@@ -47,7 +48,7 @@ import java.util.Properties;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ModelAndViewServiceImpl implements ModelAndViewService {
-    private static final Logger LOG = Logger.getLogger(ModelAndViewServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(ModelAndViewServiceImpl.class);
 
     private ViewService viewService;
     private ViewValidationService viewValidationService;

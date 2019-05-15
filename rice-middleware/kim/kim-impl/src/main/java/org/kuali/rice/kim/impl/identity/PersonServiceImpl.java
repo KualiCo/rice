@@ -28,6 +28,7 @@ import java.util.Set;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.criteria.CountFlag;
@@ -67,7 +68,7 @@ import org.springframework.beans.PropertyAccessorUtils;
  */
 public class PersonServiceImpl implements PersonService {
 
-	private static Logger LOG = Logger.getLogger( PersonServiceImpl.class );
+	private static Logger LOG = LogManager.getLogger( PersonServiceImpl.class );
 	protected static final String ENTITY_EXT_ID_PROPERTY_PREFIX = "externalIdentifiers.";
 	protected static final String ENTITY_AFFILIATION_PROPERTY_PREFIX = "affiliations.";
 	protected static final String ENTITY_TYPE_PROPERTY_PREFIX = "entityTypeContactInfos.";

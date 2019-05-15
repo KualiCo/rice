@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging.serviceproxies;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.core.api.util.ClassLoaderUtils;
@@ -52,7 +53,7 @@ import java.util.List;
  */
 public class DelayedAsynchronousServiceCallProxy extends BaseInvocationHandler implements TargetedInvocationHandler {
 
-    private static final Logger LOG = Logger.getLogger(DelayedAsynchronousServiceCallProxy.class);
+    private static final Logger LOG = LogManager.getLogger(DelayedAsynchronousServiceCallProxy.class);
 
     List<Endpoint> endpoints;
     private Serializable context;

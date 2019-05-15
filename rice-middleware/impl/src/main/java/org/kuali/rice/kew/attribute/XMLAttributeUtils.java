@@ -38,7 +38,7 @@ import java.util.Map;
  */
 public final class XMLAttributeUtils {
 
-    private static final Logger LOG = Logger.getLogger(XMLAttributeUtils.class);
+    private static final Logger LOG = LogManager.getLogger(XMLAttributeUtils.class);
 
 	private XMLAttributeUtils() {
 		throw new UnsupportedOperationException("do not call");

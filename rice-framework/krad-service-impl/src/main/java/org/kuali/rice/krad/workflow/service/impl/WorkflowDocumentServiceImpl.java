@@ -53,7 +53,7 @@ import java.util.Set;
  */
 @Transactional
 public class WorkflowDocumentServiceImpl implements WorkflowDocumentService {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(WorkflowDocumentServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(WorkflowDocumentServiceImpl.class);
 
     protected DataObjectService dataObjectService;
 

@@ -51,7 +51,7 @@ import java.io.StringReader;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class SetVarNode implements SimpleNode {
-    private static final Logger LOG = Logger.getLogger(SetVarNode.class);
+    private static final Logger LOG = LogManager.getLogger(SetVarNode.class);
 
     public SimpleResult process(RouteContext context, RouteHelper helper) throws Exception {
         LOG.debug("processing");

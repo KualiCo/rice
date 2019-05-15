@@ -38,7 +38,7 @@ import org.kuali.rice.krad.uif.view.View;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ViewServiceImpl implements ViewService {
-    private static final Logger LOG = Logger.getLogger(ViewServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(ViewServiceImpl.class);
 
     private DataDictionaryService dataDictionaryService;
 

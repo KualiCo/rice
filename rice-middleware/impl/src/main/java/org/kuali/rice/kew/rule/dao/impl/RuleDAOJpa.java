@@ -52,7 +52,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.*;
 
 public class RuleDAOJpa implements RuleDAO {
 
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RuleDAOJpa.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(RuleDAOJpa.class);
 
 	private EntityManager entityManager;
 

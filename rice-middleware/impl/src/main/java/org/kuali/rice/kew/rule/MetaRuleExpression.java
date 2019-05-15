@@ -43,7 +43,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class MetaRuleExpression extends AccumulatingBSFRuleExpression {
-    private static final Logger LOG = Logger.getLogger(MetaRuleExpression.class);
+    private static final Logger LOG = LogManager.getLogger(MetaRuleExpression.class);
 
     @Override
     public RuleExpressionResult evaluate(Rule rule, RouteContext context) {

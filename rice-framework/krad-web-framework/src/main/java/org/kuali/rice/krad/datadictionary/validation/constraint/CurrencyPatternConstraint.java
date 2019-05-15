@@ -15,13 +15,10 @@
  */
 package org.kuali.rice.krad.datadictionary.validation.constraint;
 
-import org.apache.commons.lang.StringUtils;
-import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.uif.UifConstants;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.HashSet;
 
 /**
  * Validation pattern for matching currency type. Extends the FloatingPointPatternConstraint and

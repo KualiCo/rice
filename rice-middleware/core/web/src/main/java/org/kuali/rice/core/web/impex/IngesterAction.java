@@ -55,7 +55,7 @@ import org.kuali.rice.krad.util.KRADUtils;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class IngesterAction extends KualiAction {
-    private static final Logger LOG = Logger.getLogger(IngesterAction.class);
+    private static final Logger LOG = LogManager.getLogger(IngesterAction.class);
 
     @Override
 	public ActionForward execute(

@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kim.impl.services;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.module.RunMode;
 import org.kuali.rice.core.api.config.property.ConfigContext;
@@ -32,7 +33,7 @@ import javax.sql.DataSource;
 import javax.xml.namespace.QName;
 
 public class KimImplServiceLocator {
-    private static final Logger LOG = Logger.getLogger(KimImplServiceLocator.class);
+    private static final Logger LOG = LogManager.getLogger(KimImplServiceLocator.class);
 
     public static final String KIM_RUN_MODE_PROPERTY = "kim.mode";
     public static final String RESPONSIBILITY_INTERNAL_SERVICE = "responsibilityInternalService";

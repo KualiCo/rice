@@ -16,6 +16,7 @@
 package org.kuali.rice.coreservice.impl.style;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
@@ -41,7 +42,7 @@ import java.util.HashMap;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class StyleRepositoryServiceImpl implements StyleRepositoryService {
-    private static final Logger LOG = Logger.getLogger(StyleRepositoryServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(StyleRepositoryServiceImpl.class);
 
     private static final String STYLE_CONFIG_PREFIX = "edl.style";
 

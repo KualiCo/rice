@@ -15,9 +15,9 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.io.Serializable;
-
 import org.kuali.rice.krad.datadictionary.validator.ValidationTrace;
+
+import java.io.Serializable;
 
 /**
  * Defines methods common to all DataDictionaryDefinition types.

@@ -16,6 +16,7 @@
 package org.kuali.rice.kns.web.struts.form;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.kim.api.KimConstants;
@@ -37,7 +38,7 @@ import java.util.Map;
  */
 @Deprecated
 public class KualiTransactionalDocumentFormBase extends KualiDocumentFormBase {
-	private static final Logger LOG = Logger.getLogger(KualiTransactionalDocumentFormBase.class);
+	private static final Logger LOG = LogManager.getLogger(KualiTransactionalDocumentFormBase.class);
     /**
 	 * 
 	 */

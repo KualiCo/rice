@@ -52,7 +52,7 @@ import com.amazonaws.services.s3.transfer.Upload;
 @Transactional
 public class AmazonS3AttachmentServiceImpl implements AttachmentService {
 
-	private static final Logger LOG = Logger.getLogger(AmazonS3AttachmentServiceImpl.class);
+	private static final Logger LOG = LogManager.getLogger(AmazonS3AttachmentServiceImpl.class);
 
 	private ResourceLoader resourceLoader;
 	private String bucketName;

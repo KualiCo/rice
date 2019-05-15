@@ -27,7 +27,7 @@ import org.apache.logging.log4j.Logger;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ClassDumper {
-    private static final Logger LOG = Logger.getLogger(ClassDumper.class);
+    private static final Logger LOG = LogManager.getLogger(ClassDumper.class);
 
     public static void dumpFieldsToLog(Object o) {
         if (LOG.isDebugEnabled()) {

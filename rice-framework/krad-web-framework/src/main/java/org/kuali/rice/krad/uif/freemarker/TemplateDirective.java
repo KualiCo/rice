@@ -21,7 +21,6 @@ import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
 import org.kuali.rice.krad.uif.component.Component;
-import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 import java.util.Map;

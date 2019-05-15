@@ -15,10 +15,10 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.util.List;
-
 import org.kuali.rice.krad.datadictionary.state.StateMapping;
 import org.kuali.rice.krad.datadictionary.validator.ValidationTrace;
+
+import java.util.List;
 
 /**
  * Defines methods common to all DataDictionaryDefinition types.

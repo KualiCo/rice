@@ -43,7 +43,7 @@ import java.util.Iterator;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class FYIByUniversityId extends RequestActivationNode {
-    private static final Logger LOG = Logger.getLogger(FYIByUniversityId.class);
+    private static final Logger LOG = LogManager.getLogger(FYIByUniversityId.class);
 
 	public SimpleResult process(RouteContext context, RouteHelper helper)
 			throws Exception {

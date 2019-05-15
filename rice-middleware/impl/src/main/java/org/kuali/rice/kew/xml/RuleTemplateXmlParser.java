@@ -55,7 +55,7 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.*;
  */
 public class RuleTemplateXmlParser {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RuleTemplateXmlParser.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(RuleTemplateXmlParser.class);
 
     /**
      * By default make attributes defined without a &lt;required&gt; element

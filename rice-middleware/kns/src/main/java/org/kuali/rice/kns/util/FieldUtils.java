@@ -111,7 +111,7 @@ import java.util.Map;
  */
 @Deprecated
 public final class FieldUtils {
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(FieldUtils.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(FieldUtils.class);
 	private static DataDictionaryService dataDictionaryService = null;
 	private static BusinessObjectMetaDataService businessObjectMetaDataService = null;
 	private static BusinessObjectDictionaryService businessObjectDictionaryService = null;

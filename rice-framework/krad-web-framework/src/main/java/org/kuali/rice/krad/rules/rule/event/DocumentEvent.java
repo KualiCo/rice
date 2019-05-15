@@ -16,9 +16,6 @@
 package org.kuali.rice.krad.rules.rule.event;
 
 import org.kuali.rice.krad.document.Document;
-import org.kuali.rice.krad.rules.rule.BusinessRule;
-
-import java.util.List;
 
 /**
  * Parent interface of all document-related events, which are used to drive the business rules evaluation process.

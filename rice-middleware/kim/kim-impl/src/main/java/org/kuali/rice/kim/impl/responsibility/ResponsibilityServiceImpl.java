@@ -17,8 +17,8 @@ package org.kuali.rice.kim.impl.responsibility;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.kuali.rice.core.api.criteria.Predicate;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.core.api.criteria.QueryResults;
@@ -64,7 +64,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.or;
 public class ResponsibilityServiceImpl implements ResponsibilityService {
 
     private static final Integer DEFAULT_PRIORITY_NUMBER = Integer.valueOf(1);
-    private static final Log LOG = LogManager.getLogger(ResponsibilityServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(ResponsibilityServiceImpl.class);
 
     private ResponsibilityTypeService defaultResponsibilityTypeService;
     private KimTypeInfoService kimTypeInfoService;

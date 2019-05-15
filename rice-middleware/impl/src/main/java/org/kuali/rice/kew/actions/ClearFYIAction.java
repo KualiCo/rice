@@ -42,7 +42,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ClearFYIAction extends ActionTakenEvent {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ClearFYIAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(ClearFYIAction.class);
 
     /**
      * @param rh

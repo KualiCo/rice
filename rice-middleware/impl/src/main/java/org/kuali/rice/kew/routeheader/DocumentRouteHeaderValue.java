@@ -156,7 +156,7 @@ import java.util.Map;
 public class DocumentRouteHeaderValue extends DataObjectBase implements DocumentContract, DocumentSearchCriteriaEbo {
 
     private static final long serialVersionUID = -4700736340527913220L;
-    private static final Logger LOG = Logger.getLogger(DocumentRouteHeaderValue.class);
+    private static final Logger LOG = LogManager.getLogger(DocumentRouteHeaderValue.class);
 
     private static final String TERMINAL = "";
     private static final boolean FINAL_STATE = true;

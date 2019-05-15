@@ -31,7 +31,7 @@ import java.util.Map;
  * @since 2.1.3
  */
 public class KimDocumentTypeAuthorizer extends DocumentActionsPermissionBase implements DocumentTypeAuthorizer {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KimDocumentTypeAuthorizer.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KimDocumentTypeAuthorizer.class);
 
     @Override
     public Authorization isActionAuthorized(AuthorizableAction action, String principalId, DocumentType documentType, Document document, Map<ActionArgument, Object> actionParameters) {

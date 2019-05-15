@@ -27,8 +27,8 @@ import org.quartz.SchedulerException;
 import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import java.util.List;
 import java.util.UUID;
@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
  */
 public class AutofixCollectorJob implements Job {
 
-    private static final Logger LOG = LoggerFactory.getLogger(AutofixCollectorJob.class);
+    private static final Logger LOG = LogManager.getLogger(AutofixCollectorJob.class);
     private static final int PARTITION_SIZE = 50;
     private static final String AUTOFIX_JOB_KEY_PREFIX = "Autofix Documents Job - ";
 

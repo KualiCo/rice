@@ -15,10 +15,10 @@
  */
 package org.kuali.rice.krad.datadictionary.uif;
 
+import org.kuali.rice.krad.datadictionary.DataDictionaryException;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import org.kuali.rice.krad.datadictionary.DataDictionaryException;
 
 /**
  * Holds view index information for a view type, where the index keys are built

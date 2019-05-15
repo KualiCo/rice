@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.beans.PropertyEditor;
-import java.util.List;
-
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.data.DataType;
@@ -45,6 +42,9 @@ import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.kuali.rice.krad.uif.control.Control;
 import org.kuali.rice.krad.util.KRADUtils;
 
+import java.beans.PropertyEditor;
+import java.util.List;
+
 /**
  * A single attribute definition in the DataDictionary, which contains
  * information relating to the display, validation, and general maintenance of a
@@ -55,7 +55,7 @@ import org.kuali.rice.krad.util.KRADUtils;
 @BeanTag(name = "attributeDefinition")
 public class AttributeDefinition extends AttributeDefinitionBase implements CaseConstrainable, PrerequisiteConstrainable, Formatable, HierarchicallyConstrainable, MustOccurConstrainable, ValidCharactersConstrainable {
     private static final long serialVersionUID = -2490613377818442742L;
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(AttributeDefinition.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(AttributeDefinition.class);
 
     protected Boolean forceUppercase;
 

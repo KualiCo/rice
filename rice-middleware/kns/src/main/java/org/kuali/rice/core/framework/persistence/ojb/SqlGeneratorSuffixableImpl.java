@@ -38,6 +38,7 @@ import org.apache.ojb.broker.util.logging.LoggerFactory;
  */
 @Deprecated
 public class SqlGeneratorSuffixableImpl extends SqlGeneratorDefaultImpl {
+
     private Logger logger = LoggerFactory.getLogger(SqlGeneratorSuffixableImpl.class);
 
     public SqlGeneratorSuffixableImpl(Platform platform) {

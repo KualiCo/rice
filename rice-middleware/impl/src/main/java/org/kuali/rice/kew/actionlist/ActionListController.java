@@ -78,7 +78,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value = "/kew/actionList")
 public class ActionListController extends UifControllerBase{
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ActionListController.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(ActionListController.class);
     protected static final String MAX_ACTION_ITEM_DATE_FORMAT = "yyyy-MM-dd hh:mm:ss.S";
 
     private static final ActionType [] actionListActionTypes =

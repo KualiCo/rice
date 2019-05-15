@@ -16,22 +16,18 @@
 package org.kuali.rice.coreservice.impl.component;
 
 import org.apache.commons.lang.StringUtils;
-import org.hamcrest.BaseMatcher;
-import org.hamcrest.Description;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kuali.rice.core.api.criteria.GenericQueryResults;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.coreservice.api.component.Component;
+import org.kuali.rice.coreservice.api.component.ComponentContract;
 import org.kuali.rice.coreservice.api.component.ComponentService;
 import org.kuali.rice.coreservice.api.namespace.Namespace;
 import org.kuali.rice.coreservice.api.namespace.NamespaceService;
 import org.kuali.rice.krad.data.DataObjectService;
-import org.mockito.ArgumentCaptor;
-import org.mockito.InjectMocks;
-import org.mockito.Matchers;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.*;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -40,8 +36,6 @@ import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.*;
 
 /**
@@ -95,7 +89,7 @@ public class ComponentServiceImplTest {
     }
 
     public void setComponentService(ComponentService componentService){
-         this.compService = componentService;
+        this.compService = componentService;
     }
 
     public ComponentService getComponentService(){
@@ -177,32 +171,32 @@ public class ComponentServiceImplTest {
     @Test
     public void test_getAllComponentsByNamespaceCode_exists() throws Exception{
         setupDataObjectServiceFetchComponent();
-        when(dataObjectService.findMatching(Matchers.argThat(
+        when(dataObjectService.findMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<DerivedComponentBo>(DerivedComponentBo.class)),
                 any(QueryByCriteria.class))).thenReturn(null);
         List<Component> components = getComponentService().getAllComponentsByNamespaceCode(NAMESPACE_CODE);
         assertTrue("getAllComponentsByNamespaceCode retrieved correctly", components != null && components.size() == 1);
         assertTrue("Component was returned", StringUtils.equals(component.getCode(), components.get(0).getCode()));
         assertImmutableList(components);
-        verify(dataObjectService,times(1)).findMatching(Matchers.argThat(
+        verify(dataObjectService,times(1)).findMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<ComponentBo>(ComponentBo.class)), any(QueryByCriteria.class));
-        verify(dataObjectService,times(1)).findMatching(Matchers.argThat(
+        verify(dataObjectService,times(1)).findMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<DerivedComponentBo>(DerivedComponentBo.class)), any(QueryByCriteria.class));
     }
 
     @Test
     public void test_getAllComponentsByNamespaceCode_not_exists() throws Exception{
-        when(dataObjectService.findMatching(Matchers.argThat(
+        when(dataObjectService.findMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<ComponentBo>(ComponentBo.class)),
                 any(QueryByCriteria.class))).thenReturn(null);
-        when(dataObjectService.findMatching(Matchers.argThat(
+        when(dataObjectService.findMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<DerivedComponentBo>(DerivedComponentBo.class)),
                 any(QueryByCriteria.class))).thenReturn(null);
         List<Component> components = getComponentService().getAllComponentsByNamespaceCode("blah");
         assertTrue("getAllComponentsByNamespaceCode not retrieved", components != null && components.isEmpty());
-        verify(dataObjectService,times(1)).findMatching(Matchers.argThat(
+        verify(dataObjectService,times(1)).findMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<ComponentBo>(ComponentBo.class)), any(QueryByCriteria.class));
-        verify(dataObjectService,times(1)).findMatching(Matchers.argThat(
+        verify(dataObjectService,times(1)).findMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<DerivedComponentBo>(DerivedComponentBo.class)), any(QueryByCriteria.class));
     }
 
@@ -213,10 +207,10 @@ public class ComponentServiceImplTest {
 
         List<Component> components = getComponentService().getAllComponentsByNamespaceCode(NAMESPACE_CODE);
         assertTrue("getAllComponentsByNamespaceCode retrieved correctly",
-                                    components != null && components.size() == 2);
+                components != null && components.size() == 2);
         assertTrue("Component was returned", StringUtils.equals(component.getCode(), components.get(0).getCode()));
         assertTrue("Component was returned", StringUtils.equals(derivedComponent.getCode(),
-                                components.get(1).getCode()));
+                components.get(1).getCode()));
         assertImmutableList(components);
     }
 
@@ -245,19 +239,19 @@ public class ComponentServiceImplTest {
         assertTrue("getActiveComponentsByNamespaceCode retrieved correctly", components != null && components.size() == 1);
         assertTrue("Component was returned", StringUtils.equals(component.getCode(), components.get(0).getCode()));
         assertImmutableList(components);
-        verify(dataObjectService,times(1)).findMatching(Matchers.argThat(
+        verify(dataObjectService,times(1)).findMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<ComponentBo>(ComponentBo.class)), any(QueryByCriteria.class));
     }
 
     @Test
     public void test_getActiveComponentsByNamespaceCode_not_exists() throws Exception{
         GenericQueryResults.Builder builder = GenericQueryResults.Builder.create();
-        when(dataObjectService.findMatching(Matchers.argThat(
+        when(dataObjectService.findMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<ComponentBo>(ComponentBo.class)), any(QueryByCriteria.class))).thenReturn(
                 builder.build());
         List<Component> components = getComponentService().getActiveComponentsByNamespaceCode("blah");
         assertTrue("getActiveComponentsByNamespaceCode retrieved correctly",
-                                    components != null && components.size() == 0);
+                components != null && components.size() == 0);
         assertImmutableList(components);
     }
 
@@ -295,7 +289,7 @@ public class ComponentServiceImplTest {
 
     @Test
     public void test_getDerivedComponentSet_not_exists() throws Exception{
-        when(dataObjectService.findMatching(Matchers.argThat(
+        when(dataObjectService.findMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<DerivedComponentBo>(DerivedComponentBo.class)),
                 any(QueryByCriteria.class))).thenReturn(null);
         List<Component> components = getComponentService().getDerivedComponentSet("blah");
@@ -335,20 +329,20 @@ public class ComponentServiceImplTest {
 
     @Test
     public void test_publishDerivedComponents_null_components() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(
                 ComponentSetBo.class)), any(Object.class))).thenReturn(null);
         ArgumentCaptor<ComponentSetBo> boArgumentCaptor = ArgumentCaptor.forClass(ComponentSetBo.class);
         when(componentSetDao.saveIgnoreLockingFailure(boArgumentCaptor.capture())).thenReturn(true);
 
-        when(dataObjectService.findMatching(Matchers.argThat(
-                new ClassOrSubclassMatcher<ComponentBo>(ComponentBo.class)),
-                any(QueryByCriteria.class))).thenReturn(null);
+//        when(dataObjectService.findMatching(ArgumentMatchers.argThat(
+//                new ClassOrSubclassMatcher<ComponentBo>(ComponentBo.class)),
+//                any(QueryByCriteria.class))).thenReturn(null);
 
         getComponentService().publishDerivedComponents("myComponentSet", null);
         getComponentService().getDerivedComponentSet("myComponentSet").isEmpty();
 
         ArgumentCaptor<QueryByCriteria> argument = ArgumentCaptor.forClass(QueryByCriteria.class);
-        verify(dataObjectService).deleteMatching(Matchers.argThat(
+        verify(dataObjectService).deleteMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<DerivedComponentBo>(DerivedComponentBo.class)),
                 argument.capture());
         ComponentSetBo compSetCaptured = boArgumentCaptor.getValue();
@@ -374,19 +368,19 @@ public class ComponentServiceImplTest {
         componentSetBo.setVersionNumber(500L);
 
         ComponentSetBo savedComponentSet = null;
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(ComponentSetBo.class))
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(ComponentSetBo.class))
                 ,any(Object.class))).thenReturn(componentSetBo);
 
         ArgumentCaptor<ComponentSetBo> boArgumentCaptor = ArgumentCaptor.forClass(ComponentSetBo.class);
         when(componentSetDao.saveIgnoreLockingFailure(boArgumentCaptor.capture())).thenReturn(true);
-        when(dataObjectService.findMatching(Matchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(
-                ComponentSetBo.class)), any(QueryByCriteria.class))).thenReturn(null);
+//        when(dataObjectService.findMatching(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(
+//                ComponentSetBo.class)), any(QueryByCriteria.class))).thenReturn(null);
 
         getComponentService().publishDerivedComponents("myComponentSet", new ArrayList<Component>());
         assertTrue(getComponentService().getDerivedComponentSet("myComponentSet").isEmpty());
 
         ArgumentCaptor<QueryByCriteria> argument = ArgumentCaptor.forClass(QueryByCriteria.class);
-        verify(dataObjectService).deleteMatching(Matchers.argThat(
+        verify(dataObjectService).deleteMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<DerivedComponentBo>(DerivedComponentBo.class)),
                 argument.capture());
         ComponentSetBo compSetCaptured = boArgumentCaptor.getValue();
@@ -406,7 +400,7 @@ public class ComponentServiceImplTest {
 
         setupDataObjectServiceFetchComponentSetEmptyList();
 
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(ComponentSetBo.class)),
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(ComponentSetBo.class)),
                 any(Object.class))).thenReturn(null);
 
         ArgumentCaptor<ComponentSetBo> boArgumentCaptor = ArgumentCaptor.forClass(ComponentSetBo.class);
@@ -417,7 +411,7 @@ public class ComponentServiceImplTest {
 
 
         getComponentService().publishDerivedComponents("myComponentSet", Arrays.asList(component));
-        verify(dataObjectService, times(1)).save(any(ComponentBo.class));
+        verify(dataObjectService, times(1)).save(any(ComponentContract.class));
         derivedComponentBo.setComponentSetId("myComponentSet");
         setupDataObjectServiceFetchDerivedComponent();
         components = getComponentService().getDerivedComponentSet("myComponentSet");
@@ -443,7 +437,7 @@ public class ComponentServiceImplTest {
 
         builder.setResults(componentBoList);
         ArgumentCaptor<QueryByCriteria> argument = ArgumentCaptor.forClass(QueryByCriteria.class);
-        when(dataObjectService.findMatching(Matchers.argThat(
+        when(dataObjectService.findMatching(ArgumentMatchers.argThat(
                 new ClassOrSubclassMatcher<ComponentBo>(ComponentBo.class)), argument.capture())).thenReturn(
                 builder.build());
         return argument;
@@ -455,7 +449,7 @@ public class ComponentServiceImplTest {
         GenericQueryResults.Builder builder = GenericQueryResults.Builder.create();
         builder.setResults(derivedComponentBoList);
 
-        when(dataObjectService.findMatching(Matchers.argThat(new ClassOrSubclassMatcher<DerivedComponentBo>(
+        when(dataObjectService.findMatching(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<DerivedComponentBo>(
                 DerivedComponentBo.class)), any(QueryByCriteria.class))).thenReturn(builder.build());
     }
 
@@ -465,7 +459,7 @@ public class ComponentServiceImplTest {
         GenericQueryResults.Builder builder = GenericQueryResults.Builder.create();
         builder.setResults(componentSetBoList);
 
-        when(dataObjectService.findMatching(Matchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(
+        when(dataObjectService.findMatching(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(
                 ComponentSetBo.class)), any(QueryByCriteria.class))).thenReturn(builder.build());
     }
 
@@ -474,8 +468,8 @@ public class ComponentServiceImplTest {
         GenericQueryResults.Builder builder = GenericQueryResults.Builder.create();
         builder.setResults(componentSetBoList);
 
-        when(dataObjectService.findMatching(Matchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(
-                ComponentSetBo.class)), any(QueryByCriteria.class))).thenReturn(builder.build());
+//        when(dataObjectService.findMatching(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ComponentSetBo>(
+        //               ComponentSetBo.class)), any(QueryByCriteria.class))).thenReturn(builder.build());
     }
 
 
@@ -589,7 +583,7 @@ public class ComponentServiceImplTest {
         assertImmutableList(components);
     }
 
-    class ClassOrSubclassMatcher<T> extends BaseMatcher<Class<T>> {
+    class ClassOrSubclassMatcher<T> implements ArgumentMatcher<Class<T>> {
 
         private final Class<T> targetClass;
 
@@ -598,22 +592,17 @@ public class ComponentServiceImplTest {
         }
 
         @SuppressWarnings("unchecked")
-        public boolean matches(Object obj) {
+        public boolean matches(Class<T> obj) {
             if (obj != null) {
-                if (obj instanceof Class) {
-                    return targetClass.isAssignableFrom((Class<T>) obj);
-                }
+                return targetClass.isAssignableFrom(obj);
+
             }
             return false;
         }
 
-        public void describeTo(Description desc) {
-            desc.appendText("Matches a class or subclass");
+        public String toString() {
+            return "Matches a class or subclass";
         }
     }
-
-
-
-
 
 }

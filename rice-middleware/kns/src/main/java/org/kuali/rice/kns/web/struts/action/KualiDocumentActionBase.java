@@ -131,7 +131,7 @@ import org.springmodules.orm.ojb.OjbOperationException;
  */
 @Deprecated
 public class KualiDocumentActionBase extends KualiAction {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiDocumentActionBase.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KualiDocumentActionBase.class);
 
     // COMMAND constants which cause docHandler to load an existing document instead of creating a new one
     protected static final String[] DOCUMENT_LOAD_COMMANDS = {

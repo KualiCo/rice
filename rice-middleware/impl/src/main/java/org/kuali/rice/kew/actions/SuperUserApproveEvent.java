@@ -50,7 +50,7 @@ import java.util.List;
  */
 public class SuperUserApproveEvent extends SuperUserActionTakenEvent {
 
-	private static final Logger LOG = Logger.getLogger(SuperUserApproveEvent.class);
+	private static final Logger LOG = LogManager.getLogger(SuperUserApproveEvent.class);
     private final boolean allowFinalApproval;
 
     public SuperUserApproveEvent(DocumentRouteHeaderValue routeHeader, PrincipalContract principal) {

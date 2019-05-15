@@ -50,7 +50,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class KualiRuleServiceImpl implements KualiRuleService {
-    private static final Logger LOG = Logger.getLogger(KualiRuleServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(KualiRuleServiceImpl.class);
 
     private DocumentDictionaryService documentDictionaryService;
     private DataDictionaryService dataDictionaryService;

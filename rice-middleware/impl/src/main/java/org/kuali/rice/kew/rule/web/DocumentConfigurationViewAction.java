@@ -71,7 +71,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.equal;
  */
 public class DocumentConfigurationViewAction extends KewKualiAction {
 
-	private static final Logger LOG = Logger.getLogger(DocumentConfigurationViewAction.class);
+	private static final Logger LOG = LogManager.getLogger(DocumentConfigurationViewAction.class);
 	
 	private PermissionService permissionService;
 	private RoleService roleService;

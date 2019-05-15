@@ -15,10 +15,6 @@
  */
 package org.kuali.rice.krad.uif.control;
 
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.kim.api.group.Group;
 import org.kuali.rice.kim.api.services.KimApiServiceLocator;
@@ -28,6 +24,10 @@ import org.kuali.rice.krad.uif.field.InputField;
 import org.kuali.rice.krad.uif.util.ComponentFactory;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.widget.QuickFinder;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Represents a group control, which is a special control to handle

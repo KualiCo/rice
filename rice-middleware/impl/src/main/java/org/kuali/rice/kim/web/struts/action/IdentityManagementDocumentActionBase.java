@@ -52,7 +52,7 @@ import javax.xml.namespace.QName;
  */
 abstract public class IdentityManagementDocumentActionBase extends KualiTransactionalDocumentActionBase {
 
-    private static final Logger LOG = Logger.getLogger( IdentityManagementDocumentActionBase.class );
+    private static final Logger LOG = LogManager.getLogger( IdentityManagementDocumentActionBase.class );
 
 	protected static final String CHANGE_MEMBER_TYPE_CODE_METHOD_TO_CALL = "changeMemberTypeCode";
 	protected static final String CHANGE_NAMESPACE_METHOD_TO_CALL = "changeNamespace";

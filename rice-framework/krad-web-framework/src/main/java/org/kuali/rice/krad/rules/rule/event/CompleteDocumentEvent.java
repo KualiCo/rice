@@ -17,7 +17,6 @@ package org.kuali.rice.krad.rules.rule.event;
 
 import org.kuali.rice.krad.document.Document;
 import org.kuali.rice.krad.rules.rule.BusinessRule;
-import org.kuali.rice.krad.rules.rule.BusinessRule;
 import org.kuali.rice.krad.rules.rule.CompleteDocumentRule;
 
 import java.util.ArrayList;

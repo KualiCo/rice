@@ -40,7 +40,7 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.*;
  */
 public class RuleTemplateXmlExporter implements XmlExporter {
 
-    protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(getClass());
+    protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(getClass());
     
     private XmlRenderer renderer = new XmlRenderer(RULE_TEMPLATE_NAMESPACE);
     

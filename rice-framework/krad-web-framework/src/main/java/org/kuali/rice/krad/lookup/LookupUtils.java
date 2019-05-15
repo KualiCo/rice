@@ -40,7 +40,6 @@ import org.kuali.rice.krad.web.form.UifFormBase;
 import org.springframework.beans.PropertyAccessorUtils;
 
 import javax.servlet.http.HttpServletRequest;
-
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -59,7 +58,7 @@ import java.util.Set;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class LookupUtils {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(LookupUtils.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(LookupUtils.class);
     private static final String[] searchList = new String[SearchOperator.QUERY_CHARACTERS.size()];
 
     static {

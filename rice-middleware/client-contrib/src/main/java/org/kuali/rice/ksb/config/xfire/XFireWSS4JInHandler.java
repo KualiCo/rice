@@ -32,7 +32,7 @@ public class XFireWSS4JInHandler{}
 /*
 public class XFireWSS4JInHandler extends WSS4JInHandler {
 
-	private static final Logger LOG = Logger.getLogger(XFireWSS4JInHandler.class);
+	private static final Logger LOG = LogManager.getLogger(XFireWSS4JInHandler.class);
 	private ServiceInfo serviceInfo;
 
 	public XFireWSS4JInHandler(ServiceInfo serviceInfo) {

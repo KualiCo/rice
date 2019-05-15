@@ -15,15 +15,6 @@
  */
 package org.kuali.rice.core.impl.impex.xml;
 
-import static org.kuali.rice.core.api.impex.xml.XmlConstants.DATA_ELEMENT;
-import static org.kuali.rice.core.api.impex.xml.XmlConstants.SCHEMA_LOCATION_ATTR;
-import static org.kuali.rice.core.api.impex.xml.XmlConstants.SCHEMA_NAMESPACE;
-import static org.kuali.rice.core.api.impex.xml.XmlConstants.WORKFLOW_NAMESPACE;
-import static org.kuali.rice.core.api.impex.xml.XmlConstants.WORKFLOW_SCHEMA_LOCATION;
-
-import java.io.IOException;
-import java.io.StringWriter;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.output.Format;
@@ -33,6 +24,15 @@ import org.kuali.rice.core.api.impex.xml.XmlExporterService;
 import org.kuali.rice.core.framework.impex.xml.XmlExporter;
 import org.kuali.rice.core.framework.impex.xml.XmlImpexRegistry;
 import org.kuali.rice.kew.api.WorkflowRuntimeException;
+
+import java.io.IOException;
+import java.io.StringWriter;
+
+import static org.kuali.rice.core.api.impex.xml.XmlConstants.DATA_ELEMENT;
+import static org.kuali.rice.core.api.impex.xml.XmlConstants.SCHEMA_LOCATION_ATTR;
+import static org.kuali.rice.core.api.impex.xml.XmlConstants.SCHEMA_NAMESPACE;
+import static org.kuali.rice.core.api.impex.xml.XmlConstants.WORKFLOW_NAMESPACE;
+import static org.kuali.rice.core.api.impex.xml.XmlConstants.WORKFLOW_SCHEMA_LOCATION;
 
 /**
  * An implementation of the XmlExporterService which can be configured with a set of

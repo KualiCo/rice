@@ -38,7 +38,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.isNull;
  */
 public class NotificationDaoJpa implements NotificationDao{
 
-	private static final Logger LOG = Logger.getLogger(NotificationDaoJpa.class);
+	private static final Logger LOG = LogManager.getLogger(NotificationDaoJpa.class);
 
 	/**
 	 * This overridden method ...

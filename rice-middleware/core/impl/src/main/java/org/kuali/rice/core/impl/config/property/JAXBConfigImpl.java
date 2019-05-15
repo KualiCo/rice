@@ -15,6 +15,26 @@
  */
 package org.kuali.rice.core.impl.config.property;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.kuali.rice.core.api.config.ConfigurationException;
+import org.kuali.rice.core.api.config.property.Config;
+import org.kuali.rice.core.api.util.RiceUtilities;
+import org.kuali.rice.core.framework.config.property.AbstractBaseConfig;
+import org.kuali.rice.core.util.ImmutableProperties;
+import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLFilter;
+import org.xml.sax.helpers.XMLFilterImpl;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.UnmarshallerHandler;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -31,26 +51,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.UnmarshallerHandler;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParserFactory;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.Logger;
-import org.kuali.rice.core.api.config.ConfigurationException;
-import org.kuali.rice.core.api.config.property.Config;
-import org.kuali.rice.core.api.util.RiceUtilities;
-import org.kuali.rice.core.framework.config.property.AbstractBaseConfig;
-import org.kuali.rice.core.util.ImmutableProperties;
-import org.xml.sax.Attributes;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.xml.sax.XMLFilter;
-import org.xml.sax.helpers.XMLFilterImpl;
-
 /**
  * This implementation of the Config interface uses JAXB to parse the config file and maintains an
  * internal copy of all properties in their "raw" form (without any nested properties resolved).
@@ -63,7 +63,7 @@ import org.xml.sax.helpers.XMLFilterImpl;
  */
 public class JAXBConfigImpl extends AbstractBaseConfig {
 
-    private static final Logger LOG = Logger.getLogger(JAXBConfigImpl.class);
+    private static final Logger LOG = LogManager.getLogger(JAXBConfigImpl.class);
 
     private static final String IMPORT_NAME = "config.location";
     private static final String INDENT = "  ";

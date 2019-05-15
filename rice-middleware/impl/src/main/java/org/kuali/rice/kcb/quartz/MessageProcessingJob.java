@@ -58,7 +58,7 @@ public class MessageProcessingJob extends ConcurrentJob<MessageDelivery> impleme
         DELIVER, REMOVE
     }
 
-    private static final Logger LOG = Logger.getLogger(MessageProcessingJob.class);
+    private static final Logger LOG = LogManager.getLogger(MessageProcessingJob.class);
     
     private DataObjectService dataObjectService;
     private MessageDelivererRegistryService registry;

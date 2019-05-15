@@ -55,7 +55,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Deprecated
 public class KualiHelpAction extends KualiAction {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiHelpAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KualiHelpAction.class);
 
     private static final String VALIDATION_PATTERN_STRING = "ValidationPattern";
     private static final String NO = "No";
@@ -185,8 +185,8 @@ public class KualiHelpAction extends KualiAction {
                 }
             }
             else {
-                if (log.isInfoEnabled()) {
-                    log.info("BO class " + boClass.getName() + " does not have a maint doc definition.  Defaulting to using DD for definition");
+                if (LOG.isInfoEnabled()) {
+                    LOG.info("BO class " + boClass.getName() + " does not have a maint doc definition.  Defaulting to using DD for definition");
                 }
             }
         } catch ( ClassNotFoundException ex ) {

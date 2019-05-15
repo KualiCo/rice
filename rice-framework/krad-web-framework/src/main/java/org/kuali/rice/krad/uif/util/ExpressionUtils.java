@@ -16,8 +16,8 @@
 package org.kuali.rice.krad.uif.util;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.krad.datadictionary.uif.UifDictionaryBean;
 
@@ -32,7 +32,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ExpressionUtils {
-    private static final Log LOG = LogManager.getLogger(ExpressionUtils.class);
+    private static final Logger LOG = LogManager.getLogger(ExpressionUtils.class);
 
     /**
      * Pulls expressions within the expressionConfigurable's expression graph and moves them to the property

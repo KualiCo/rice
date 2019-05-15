@@ -43,7 +43,7 @@ import java.util.List;
  */
 public class DocumentTypeServiceImpl implements DocumentTypeService {
 
-    private static final Logger LOG = Logger.getLogger(DocumentTypeServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(DocumentTypeServiceImpl.class);
 
     private DocumentTypeDAO documentTypeDao;
 

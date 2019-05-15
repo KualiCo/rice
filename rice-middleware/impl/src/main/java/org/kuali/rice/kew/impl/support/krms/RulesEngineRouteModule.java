@@ -51,7 +51,7 @@ import java.util.List;
  */
 public class RulesEngineRouteModule implements RouteModule {
 
-    private static final Logger LOG = Logger.getLogger(RulesEngineRouteModule.class);
+    private static final Logger LOG = LogManager.getLogger(RulesEngineRouteModule.class);
 
     private static final String RULES_ENGINE_ELEMENT = "rulesEngine";
     private static final String EXECUTOR_NAME_ATTRIBUTE = "executorName";

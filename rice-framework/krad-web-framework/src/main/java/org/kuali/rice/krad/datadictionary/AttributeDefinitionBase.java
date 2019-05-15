@@ -16,7 +16,6 @@
 package org.kuali.rice.krad.datadictionary;
 
 import org.apache.commons.lang.StringUtils;
-import org.kuali.rice.core.api.data.DataType;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
 import org.kuali.rice.krad.data.metadata.DataObjectAttribute;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;

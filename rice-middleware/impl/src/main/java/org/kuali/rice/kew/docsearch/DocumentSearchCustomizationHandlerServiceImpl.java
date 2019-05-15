@@ -49,7 +49,7 @@ import java.util.Set;
  */
 public class DocumentSearchCustomizationHandlerServiceImpl implements DocumentSearchCustomizationHandlerService {
 
-    private static final Logger LOG = Logger.getLogger(DocumentSearchCustomizationHandlerServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(DocumentSearchCustomizationHandlerServiceImpl.class);
 
     private ExtensionRepositoryService extensionRepositoryService;
 

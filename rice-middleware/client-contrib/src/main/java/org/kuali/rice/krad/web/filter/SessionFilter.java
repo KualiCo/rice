@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 public class SessionFilter implements Filter {
-    private static final Logger LOG = Logger.getLogger(SessionFilter.class);
+    private static final Logger LOG = LogManager.getLogger(SessionFilter.class);
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         try {

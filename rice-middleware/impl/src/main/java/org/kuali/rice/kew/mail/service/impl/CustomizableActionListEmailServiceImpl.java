@@ -38,7 +38,7 @@ import org.kuali.rice.kim.api.services.KimApiServiceLocator;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class CustomizableActionListEmailServiceImpl extends ActionListEmailServiceImpl {
-    private static final Logger LOG = Logger.getLogger(CustomizableActionListEmailServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(CustomizableActionListEmailServiceImpl.class);
 
     private EmailContentService contentService;
 

@@ -47,7 +47,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class NotificationSenderFormPostProcessor implements PostProcessor {
-    private static final Logger LOG = Logger.getLogger(NotificationSenderFormPostProcessor.class);
+    private static final Logger LOG = LogManager.getLogger(NotificationSenderFormPostProcessor.class);
     
     NotificationService notificationService;
     DataObjectService dataObjectService;

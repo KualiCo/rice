@@ -15,7 +15,6 @@
  */
 package org.kuali.rice.krad.datadictionary.validation.constraint;
 
-import org.kuali.rice.core.api.config.property.ConfigurationService;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.messages.MessageService;

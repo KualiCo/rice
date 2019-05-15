@@ -25,8 +25,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.impl.config.property.JAXBConfigImpl;
 import org.kuali.rice.core.web.util.PropertySources;
@@ -44,7 +44,7 @@ import com.google.common.base.Optional;
  */
 public class KualiInitializeListener implements ServletContextListener {
 
-    private static final Log LOG = LogManager.getLogger(KualiInitializeListener.class);
+    private static final Logger LOG = LogManager.getLogger(KualiInitializeListener.class);
 
     private static final String DEFAULT_SPRING_BEANS_REPLACEMENT_VALUE = "${bootstrap.spring.file}";
     private static final String WEB_BOOTSTRAP_SPRING_FILE = "web.bootstrap.spring.file";

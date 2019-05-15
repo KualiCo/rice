@@ -27,7 +27,6 @@ import org.kuali.rice.krad.uif.service.ViewService;
 import org.kuali.rice.krad.uif.view.ExpressionEvaluatorFactory;
 import org.kuali.rice.krad.web.service.ModelAndViewService;
 import org.kuali.rice.krad.workflow.service.WorkflowDocumentService;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Service locator for the KRAD Web module

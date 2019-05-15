@@ -15,8 +15,6 @@
  */
 package org.kuali.rice.krad.uif.service;
 
-import org.kuali.rice.krad.uif.UifConstants;
-import org.kuali.rice.krad.uif.view.View;
 import org.kuali.rice.krad.uif.UifConstants.ViewType;
 import org.springframework.beans.PropertyValues;
 

@@ -17,7 +17,6 @@ package org.kuali.rice.krad.uif.lifecycle;
 
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
-import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.view.View;
 
 import java.util.List;

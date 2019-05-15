@@ -56,7 +56,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.*;
  */
 public class RuleServiceImpl implements RuleService {
 
-    private static final Logger LOG = Logger.getLogger(RuleServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(RuleServiceImpl.class);
 
     private DataObjectService dataObjectService;
 

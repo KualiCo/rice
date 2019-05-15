@@ -32,7 +32,7 @@ import org.kuali.rice.kcb.api.exception.MessageDismissalException;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class AOLInstantMessageDeliverer implements MessageDeliverer {
-    private static Logger LOG = Logger.getLogger(AOLInstantMessageDeliverer.class);
+    private static Logger LOG = LogManager.getLogger(AOLInstantMessageDeliverer.class);
 
     private static final String SCREEN_NAME = "aim_screen_name";
 

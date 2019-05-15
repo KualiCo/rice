@@ -15,19 +15,7 @@
  */
 package org.kuali.rice.krad.uif.lifecycle;
 
-import java.util.Deque;
-import java.util.IdentityHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
@@ -43,6 +31,19 @@ import org.kuali.rice.krad.uif.view.ExpressionEvaluatorFactory;
 import org.kuali.rice.krad.util.GlobalVariables;
 import org.kuali.rice.krad.util.KRADConstants;
 
+import java.util.Deque;
+import java.util.IdentityHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Static utility class for handling executor configuration and spreading {@link ViewLifecycle}
  * across multiple threads.
@@ -51,7 +52,7 @@ import org.kuali.rice.krad.util.KRADConstants;
  */
 public final class AsynchronousViewLifecycleProcessor extends ViewLifecycleProcessorBase {
 
-    private static final Logger LOG = Logger.getLogger(AsynchronousViewLifecycleProcessor.class);
+    private static final Logger LOG = LogManager.getLogger(AsynchronousViewLifecycleProcessor.class);
 
     private static final ThreadFactory LIFECYCLE_THREAD_FACTORY = new LifecycleThreadFactory();
 

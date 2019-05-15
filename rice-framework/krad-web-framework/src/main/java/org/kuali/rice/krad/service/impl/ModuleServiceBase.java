@@ -16,6 +16,7 @@
 package org.kuali.rice.krad.service.impl;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.config.ConfigurationException;
@@ -38,7 +39,7 @@ import java.util.Properties;
  */
 public class ModuleServiceBase extends RemoteModuleServiceBase implements ModuleService {
 
-    protected static final Logger LOG = Logger.getLogger(ModuleServiceBase.class);
+    protected static final Logger LOG = LogManager.getLogger(ModuleServiceBase.class);
     /**
      * @see org.kuali.rice.krad.service.ModuleService#getExternalizableBusinessObject(java.lang.Class, java.util.Map)
      */

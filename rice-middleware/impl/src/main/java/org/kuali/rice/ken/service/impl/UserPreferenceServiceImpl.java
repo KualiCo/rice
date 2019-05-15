@@ -36,7 +36,7 @@ public class UserPreferenceServiceImpl implements UserPreferenceService {
     private NotificationChannelService notificationChannelService;
     private DataObjectService dataObjectService;
 
-    private static final Logger LOG = Logger.getLogger(UserPreferenceServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(UserPreferenceServiceImpl.class);
 
     /**
      * Constructs a UserPreferenceServiceImpl 

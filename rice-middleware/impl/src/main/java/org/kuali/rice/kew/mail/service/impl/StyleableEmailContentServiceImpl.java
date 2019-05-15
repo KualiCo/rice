@@ -70,7 +70,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class StyleableEmailContentServiceImpl extends BaseEmailContentServiceImpl {
-    private static final Logger LOG = Logger.getLogger(StyleableEmailContentServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(StyleableEmailContentServiceImpl.class);
 
     protected final String DEFAULT_EMAIL_STYLESHEET_RESOURCE_LOC = "defaultEmailStyle.xsl";
 

@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.uif.container;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.datadictionary.parse.BeanTags;
@@ -25,6 +22,9 @@ import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.widget.Accordion;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Accordion group class used to stack groups by there header titles in an accordion layout.

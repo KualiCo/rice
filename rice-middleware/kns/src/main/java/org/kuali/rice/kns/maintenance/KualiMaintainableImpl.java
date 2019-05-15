@@ -86,7 +86,7 @@ import com.sun.mail.imap.protocol.MODSEQ;
 public class KualiMaintainableImpl extends MaintainableImpl implements Maintainable {
 	private static final long serialVersionUID = 4814145799502207182L;
 
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiMaintainableImpl.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KualiMaintainableImpl.class);
 
 	protected PersistableBusinessObject businessObject;
 

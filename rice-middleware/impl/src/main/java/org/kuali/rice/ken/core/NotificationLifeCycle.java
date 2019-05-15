@@ -30,7 +30,7 @@ import javax.sql.DataSource;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class NotificationLifeCycle extends LifecycleBean implements BeanFactoryAware {
-    private static final Logger LOG = Logger.getLogger(NotificationLifeCycle.class);
+    private static final Logger LOG = LogManager.getLogger(NotificationLifeCycle.class);
 
     //private String ojbPlatform;
     private BeanFactory theFactory;

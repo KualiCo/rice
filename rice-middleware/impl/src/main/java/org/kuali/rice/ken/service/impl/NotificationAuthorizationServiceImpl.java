@@ -33,7 +33,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class NotificationAuthorizationServiceImpl implements NotificationAuthorizationService {
-    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(NotificationAuthorizationServiceImpl.class);
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(NotificationAuthorizationServiceImpl.class);
 
     /**
      * @see org.kuali.rice.ken.service.NotificationAuthorizationService#isProducerAuthorizedToSendNotificationForChannel(org.kuali.rice.ken.bo.NotificationProducerBo, org.kuali.rice.ken.bo.NotificationChannelBo)

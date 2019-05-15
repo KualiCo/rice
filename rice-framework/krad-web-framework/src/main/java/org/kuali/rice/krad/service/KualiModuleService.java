@@ -15,9 +15,9 @@
  */
 package org.kuali.rice.krad.service;
 
-import java.util.List;
-
 import org.kuali.rice.krad.exception.ModuleServiceNotFoundException;
+
+import java.util.List;
 
 public interface KualiModuleService {
 

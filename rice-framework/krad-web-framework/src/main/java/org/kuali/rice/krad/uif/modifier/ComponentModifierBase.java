@@ -15,13 +15,13 @@
  */
 package org.kuali.rice.krad.uif.modifier;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.datadictionary.uif.UifDictionaryBeanBase;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.component.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Base class for <code>ComponentModifier</code> implementations

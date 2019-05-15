@@ -68,7 +68,7 @@ public class ContentTypeController extends MultiActionController {
    }
 
    /** Logger for this class and subclasses */
-   private static final Logger LOG = Logger.getLogger(NotificationController.class);
+   private static final Logger LOG = LogManager.getLogger(NotificationController.class);
    
    @Override
    protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -15,7 +15,6 @@
  */
 package org.kuali.rice.krad.uif.view;
 
-import org.kuali.rice.krad.file.FileMetaBlob;
 import org.kuali.rice.krad.uif.UifConstants.ViewType;
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.lifecycle.ViewPostMetadata;

@@ -15,12 +15,6 @@
  */
 package org.kuali.rice.krad.lookup;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.mo.common.active.Inactivatable;
 import org.kuali.rice.coreservice.framework.CoreFrameworkServiceLocator;
@@ -58,6 +52,12 @@ import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.view.FormView;
 import org.kuali.rice.krad.util.GlobalVariables;
 import org.kuali.rice.krad.util.KRADConstants;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * View type for lookups.

@@ -15,11 +15,11 @@
  */
 package org.kuali.rice.krad.datadictionary.validation.constraint;
 
-import java.io.Serializable;
-
 import org.kuali.rice.krad.datadictionary.validation.capability.Constrainable;
 import org.kuali.rice.krad.datadictionary.validation.constraint.provider.ConstraintProvider;
 import org.kuali.rice.krad.datadictionary.validation.processor.ConstraintProcessor;
+
+import java.io.Serializable;
 
 /**
  * This is the marker interface for constraints. Constraints are a central concept in the Rice data dictionary

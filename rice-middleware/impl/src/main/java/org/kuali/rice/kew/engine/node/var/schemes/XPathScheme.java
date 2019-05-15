@@ -41,7 +41,7 @@ import org.xml.sax.InputSource;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class XPathScheme implements PropertyScheme {
-    private static final Logger LOG = Logger.getLogger(XPathScheme.class);
+    private static final Logger LOG = LogManager.getLogger(XPathScheme.class);
 
     public String getName() {
         return "xpath";

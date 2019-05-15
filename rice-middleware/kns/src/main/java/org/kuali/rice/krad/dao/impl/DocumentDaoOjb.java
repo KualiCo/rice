@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.ojb.broker.query.Criteria;
 import org.apache.ojb.broker.query.QueryByCriteria;
@@ -45,7 +46,7 @@ import org.springframework.dao.DataAccessException;
  */
 @Deprecated
 public class DocumentDaoOjb extends PlatformAwareDaoBaseOjb implements DocumentDao, OjbCollectionAware {
-    private static final Logger LOG = Logger.getLogger(DocumentDaoOjb.class);
+    private static final Logger LOG = LogManager.getLogger(DocumentDaoOjb.class);
 
     protected BusinessObjectDao businessObjectDao;
     protected DocumentAdHocService documentAdHocService;

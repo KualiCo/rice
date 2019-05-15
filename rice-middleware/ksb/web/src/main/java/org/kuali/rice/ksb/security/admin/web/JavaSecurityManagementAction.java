@@ -44,7 +44,7 @@ import org.kuali.rice.ksb.service.KSBServiceLocator;
  */
 public class JavaSecurityManagementAction extends KSBAction {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(JavaSecurityManagementAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(JavaSecurityManagementAction.class);
 
     /**
      * @see org.kuali.rice.ksb.messaging.web.KSBAction#establishRequiredState(javax.servlet.http.HttpServletRequest, org.apache.struts.action.ActionForm)

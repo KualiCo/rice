@@ -15,17 +15,15 @@
  */
 package org.kuali.rice.krad.web.listener;
 
-import java.util.List;
-
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.kim.api.identity.Person;
-import org.kuali.rice.krad.UserSession;
 import org.kuali.rice.krad.document.authorization.PessimisticLock;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.kuali.rice.krad.util.GlobalVariables;
+
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
+import java.util.List;
 
 /**
  * Used to handle session timeouts where {@link PessimisticLock} objects should

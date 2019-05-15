@@ -63,7 +63,7 @@ public abstract class PersistableBusinessObjectBase extends BusinessObjectBase i
     private static final class WeaveMe extends PersistableBusinessObjectBase {}
 
     private static final long serialVersionUID = 1451642350593233282L;
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(PersistableBusinessObjectBase.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(PersistableBusinessObjectBase.class);
 
 	@Version
     @Column(name = "VER_NBR", length = 8)

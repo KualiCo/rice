@@ -15,10 +15,8 @@
  */
 package org.kuali.rice.krad.uif.lifecycle.model;
 
-
 import org.kuali.rice.krad.uif.lifecycle.ApplyModelComponentPhase;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
-import org.kuali.rice.krad.uif.lifecycle.ViewLifecyclePhase;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycleTaskBase;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 

@@ -23,6 +23,7 @@ import org.apache.cxf.transport.http.DestinationRegistry;
 import org.apache.cxf.transport.http.HTTPTransportFactory;
 import org.apache.cxf.transport.servlet.ServletController;
 import org.apache.cxf.transport.servlet.servicelist.ServiceListGeneratorServlet;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
@@ -64,7 +65,7 @@ import java.util.Vector;
  */
 public class KSBDispatcherServlet extends DispatcherServlet {
 
-	private static final Logger LOG = Logger.getLogger(KSBDispatcherServlet.class);
+	private static final Logger LOG = LogManager.getLogger(KSBDispatcherServlet.class);
 	private static final long serialVersionUID = 6790121225857950019L;
     private static final String REMOTING_SERVLET_CONFIG_LOCATION = "classpath:org/kuali/rice/ksb/config/remoting-servlet.xml";
 

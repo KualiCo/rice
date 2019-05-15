@@ -39,7 +39,7 @@ import java.util.Map;
  */
 public class ActionListCustomizationMediatorImpl implements ActionListCustomizationMediator {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ActionListCustomizationMediatorImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(ActionListCustomizationMediatorImpl.class);
 
     private DocumentTypeService documentTypeService;
     private ActionListCustomizationHandlerServiceChooser actionListCustomizationHandlerServiceChooser =

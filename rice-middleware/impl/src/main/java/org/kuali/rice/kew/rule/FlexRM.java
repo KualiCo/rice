@@ -66,7 +66,7 @@ import java.util.Map;
  */
 public class FlexRM {
 
-	private static final Logger LOG = Logger.getLogger(FlexRM.class);
+	private static final Logger LOG = LogManager.getLogger(FlexRM.class);
 
 	/**
 	 * The default type of rule selector implementation to use if none is explicitly

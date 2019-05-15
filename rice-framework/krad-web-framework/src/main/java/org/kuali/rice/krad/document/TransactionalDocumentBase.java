@@ -15,11 +15,11 @@
  */
 package org.kuali.rice.krad.document;
 
+import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
+
 import javax.persistence.Embeddable;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
-
-import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 
 /**
  * Base class for transactional documents

@@ -79,7 +79,7 @@ import java.util.Set;
  * @since 2.1
  */
 public class RecallAction extends ReturnToPreviousNodeAction {
-    private static final Logger LOG = Logger.getLogger(RecallAction.class);
+    private static final Logger LOG = LogManager.getLogger(RecallAction.class);
 
     protected final boolean cancel;
     protected final Collection<Recipient> notificationRecipients;

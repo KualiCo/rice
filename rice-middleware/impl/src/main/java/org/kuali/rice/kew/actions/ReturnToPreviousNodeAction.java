@@ -59,7 +59,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ReturnToPreviousNodeAction extends ActionTakenEvent {
-    protected static final Logger LOG = Logger.getLogger(ReturnToPreviousNodeAction.class);
+    protected static final Logger LOG = LogManager.getLogger(ReturnToPreviousNodeAction.class);
 
     // ReturnToPrevious returns to initial node when sent a null node name
     protected static final String INITIAL_NODE_NAME = null;

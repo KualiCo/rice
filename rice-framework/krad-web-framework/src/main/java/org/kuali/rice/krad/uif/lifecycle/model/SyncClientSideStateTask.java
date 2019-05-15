@@ -15,10 +15,6 @@
  */
 package org.kuali.rice.krad.uif.lifecycle.model;
 
-import java.lang.annotation.Annotation;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.uif.component.ClientSideState;
 import org.kuali.rice.krad.uif.component.Component;
@@ -28,6 +24,10 @@ import org.kuali.rice.krad.uif.util.CopyUtils;
 import org.kuali.rice.krad.uif.util.ObjectPropertyUtils;
 import org.kuali.rice.krad.uif.view.View;
 import org.kuali.rice.krad.uif.view.ViewModel;
+
+import java.lang.annotation.Annotation;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * Synchronize client side state for the component.

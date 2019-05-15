@@ -16,8 +16,8 @@
 package org.kuali.rice.krad.web.controller;
 
 import org.apache.commons.lang.StringUtils;
-import org.kuali.rice.coreservice.framework.parameter.ParameterService;
 import org.kuali.rice.coreservice.framework.CoreFrameworkServiceLocator;
+import org.kuali.rice.coreservice.framework.parameter.ParameterService;
 import org.kuali.rice.krad.util.KRADConstants;
 import org.kuali.rice.krad.web.form.UifFormBase;
 import org.springframework.stereotype.Controller;
@@ -25,8 +25,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Loads the module locked view when a user accesses a module which has been locked for maintenance

@@ -28,7 +28,6 @@ import org.kuali.rice.krad.uif.element.Action;
 import org.kuali.rice.krad.uif.field.DataField;
 import org.kuali.rice.krad.uif.field.InputField;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycleUtils;
-import org.kuali.rice.krad.uif.util.ComponentUtils;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.util.ObjectPropertyUtils;
 import org.kuali.rice.krad.uif.view.FormView;

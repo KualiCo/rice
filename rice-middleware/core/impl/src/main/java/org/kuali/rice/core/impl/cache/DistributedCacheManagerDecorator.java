@@ -18,8 +18,8 @@ package org.kuali.rice.core.impl.cache;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.cache.CacheAdminService;
 import org.kuali.rice.core.api.cache.CacheTarget;
 import org.kuali.rice.core.api.config.property.ConfigContext;
@@ -61,7 +61,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public final class DistributedCacheManagerDecorator implements CacheManager, InitializingBean, BeanNameAware, NamedBean {
 
-    private static final Log LOG = LogManager.getLogger(DistributedCacheManagerDecorator.class);
+    private static final Logger LOG = LogManager.getLogger(DistributedCacheManagerDecorator.class);
 
     private static final String DISABLE_ALL_CACHES_PARAM = "rice.cache.disableAllCaches";
     private static final String DISABLE_DISTRIBUTED_CACHE_FLUSH_PARAM = "rice.cache.disableDistributedCacheFlush";

@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.krad.web.filter;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.config.property.ConfigContext;
@@ -56,7 +57,7 @@ import java.util.TreeSet;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class BootstrapFilter implements Filter {
-	private static final Logger LOG = Logger.getLogger(BootstrapFilter.class);
+	private static final Logger LOG = LogManager.getLogger(BootstrapFilter.class);
 
 	private static final String FILTER_PREFIX = "filter.";
 

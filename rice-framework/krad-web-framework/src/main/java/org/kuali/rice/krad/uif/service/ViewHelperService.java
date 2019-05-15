@@ -15,8 +15,6 @@
  */
 package org.kuali.rice.krad.uif.service;
 
-import java.util.Map;
-
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.container.CollectionGroup;
 import org.kuali.rice.krad.uif.container.Container;
@@ -27,6 +25,8 @@ import org.kuali.rice.krad.uif.view.ExpressionEvaluatorFactory;
 import org.kuali.rice.krad.uif.view.ViewModel;
 import org.kuali.rice.krad.uif.widget.Inquiry;
 import org.kuali.rice.krad.web.service.impl.CollectionControllerServiceImpl.CollectionActionParameters;
+
+import java.util.Map;
 
 /**
  * Provides customization methods at various points of the view lifecycle.

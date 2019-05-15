@@ -18,6 +18,8 @@ package org.kuali.rice.ksb.security.httpinvoker;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.security.credentials.CredentialsSource;
 import org.kuali.rice.ksb.api.bus.ServiceConfiguration;
 import org.kuali.rice.ksb.messaging.KSBHttpInvokerRequestExecutor;
@@ -39,6 +41,8 @@ import java.io.IOException;
  */
 public final class AuthenticationCommonsHttpInvokerRequestExecutor extends
     KSBHttpInvokerRequestExecutor {
+
+    private static final Logger LOG = LogManager.getLogger(AuthenticationCommonsHttpInvokerRequestExecutor.class);
 
     /**
      * Source of the credentials to pass via BASIC AUTH.
@@ -79,9 +83,8 @@ public final class AuthenticationCommonsHttpInvokerRequestExecutor extends
         + credentials.getPassword();
         httpPost.addHeader("Authorization", "Basic " + new String(Base64.encodeBase64(base64.getBytes())));
 
-        if (logger.isDebugEnabled()) {
-            logger
-                .debug("HttpInvocation now presenting via BASIC authentication CredentialsSource-derived: "
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("HttpInvocation now presenting via BASIC authentication CredentialsSource-derived: "
                     + credentials.getUsername());
         }
         

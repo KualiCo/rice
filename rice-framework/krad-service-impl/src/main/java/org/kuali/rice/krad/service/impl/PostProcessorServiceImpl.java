@@ -51,7 +51,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class PostProcessorServiceImpl implements PostProcessorService {
 
-    private static final Logger LOG = Logger.getLogger(PostProcessorServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(PostProcessorServiceImpl.class);
 
     private DocumentService documentService;
 

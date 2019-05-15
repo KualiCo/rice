@@ -15,16 +15,15 @@
  */
 package org.kuali.rice.krad.uif.view;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
-import org.kuali.rice.krad.datadictionary.parse.BeanTags;
 import org.kuali.rice.krad.uif.container.PageGroup;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.web.form.UifFormBase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Provides configuration for {@link View} instances that render an HTML form.

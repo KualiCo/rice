@@ -41,7 +41,7 @@ import java.util.Map;
  */
 public class UserPreferencesController extends MultiActionController {
     /** Logger for this class and subclasses */
-    private static final Logger LOG = Logger.getLogger(UserPreferencesController.class);
+    private static final Logger LOG = LogManager.getLogger(UserPreferencesController.class);
 
     private static final String VIEW = "DelivererPreferences";
     private static final String KEW_CHANNEL = "KEW"; 

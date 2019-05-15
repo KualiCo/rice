@@ -33,7 +33,7 @@ import java.util.Set;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class HotDeployer implements Runnable {
-	private static final Logger LOG = Logger.getLogger(HotDeployer.class);
+	private static final Logger LOG = LogManager.getLogger(HotDeployer.class);
 
 
 	private PluginRegistry registry;

@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kns.rule.event;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kns.rule.PromptBeforeValidation;
 import org.kuali.rice.krad.document.Document;
@@ -28,7 +29,7 @@ import org.kuali.rice.krad.rules.rule.event.DocumentEventBase;
  */
 @Deprecated
 public class PromptBeforeValidationEvent extends DocumentEventBase {
-    private static final Logger LOG = Logger.getLogger(PromptBeforeValidationEvent.class);
+    private static final Logger LOG = LogManager.getLogger(PromptBeforeValidationEvent.class);
 
     boolean performQuestion;
     String actionForwardName;

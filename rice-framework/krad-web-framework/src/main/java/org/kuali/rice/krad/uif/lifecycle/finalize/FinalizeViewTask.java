@@ -15,8 +15,6 @@
  */
 package org.kuali.rice.krad.uif.lifecycle.finalize;
 
-import java.util.Map;
-
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.lifecycle.FinalizeComponentPhase;
@@ -26,6 +24,8 @@ import org.kuali.rice.krad.uif.util.ScriptUtils;
 import org.kuali.rice.krad.uif.view.View;
 import org.kuali.rice.krad.uif.view.ViewModel;
 import org.kuali.rice.krad.util.KRADConstants;
+
+import java.util.Map;
 
 /**
  * Perform custom finalize behavior for the component defined by the helper.

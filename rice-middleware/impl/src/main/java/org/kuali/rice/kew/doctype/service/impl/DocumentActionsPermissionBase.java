@@ -45,7 +45,7 @@ import java.util.*;
  * @since 2.1.3
  */
 public class DocumentActionsPermissionBase {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentActionsPermissionBase.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(DocumentActionsPermissionBase.class);
 
     /**
      * Implements {@link org.kuali.rice.kew.doctype.service.DocumentTypePermissionService#canInitiate(String, org.kuali.rice.kew.doctype.bo.DocumentType)}

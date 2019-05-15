@@ -15,7 +15,6 @@
  */
 package org.kuali.rice.krad.uif.view;
 
-import org.kuali.rice.krad.datadictionary.DictionaryBeanBase;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.datadictionary.uif.UifDictionaryBeanBase;

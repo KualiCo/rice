@@ -15,23 +15,13 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.beans.PropertyDescriptor;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.collections.ListUtils;
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.util.ClassLoaderUtils;
 import org.kuali.rice.krad.data.provider.annotation.UifAutoCreateViewType;
@@ -56,8 +46,6 @@ import org.kuali.rice.krad.uif.util.ObjectPropertyUtils;
 import org.kuali.rice.krad.uif.view.InquiryView;
 import org.kuali.rice.krad.uif.view.View;
 import org.kuali.rice.krad.util.KRADConstants;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.PropertyValue;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -75,6 +63,18 @@ import org.springframework.core.io.Resource;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 import org.springframework.util.StopWatch;
 
+import java.beans.PropertyDescriptor;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
 /**
  * Encapsulates a bean factory and indexes to the beans within the factory for providing
  * framework metadata
@@ -83,7 +83,7 @@ import org.springframework.util.StopWatch;
  */
 public class DataDictionary {
 
-    private static final Logger LOG = LoggerFactory.getLogger(DataDictionary.class);
+    private static final Logger LOG = LogManager.getLogger(DataDictionary.class);
 
     protected static boolean validateEBOs = true;
 

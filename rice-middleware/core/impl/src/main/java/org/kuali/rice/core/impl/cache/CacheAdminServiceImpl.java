@@ -17,6 +17,7 @@ package org.kuali.rice.core.impl.cache;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.cache.CacheAdminService;
 import org.kuali.rice.core.api.cache.CacheTarget;
@@ -37,7 +38,7 @@ import java.util.List;
  */
 public class CacheAdminServiceImpl implements CacheAdminService, InitializingBean {
 
-    private static final Logger LOG = Logger.getLogger(CacheAdminServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(CacheAdminServiceImpl.class);
 
     private CacheManager cacheManager;
 

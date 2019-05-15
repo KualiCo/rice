@@ -52,7 +52,7 @@ import java.util.List;
 public class IdentityManagementKimDocument extends TransactionalDocumentBase {
 	private static final long serialVersionUID = 1L;
 
-	protected static final Logger LOG = Logger.getLogger(IdentityManagementKimDocument.class);
+	protected static final Logger LOG = LogManager.getLogger(IdentityManagementKimDocument.class);
 
 	@OneToMany(targetEntity=RoleDocumentDelegation.class, fetch=FetchType.EAGER, cascade={CascadeType.ALL})
 	@JoinColumn(name="FDOC_NBR",insertable=false,updatable=false)

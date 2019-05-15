@@ -74,7 +74,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.*;
  */
 public class ActionRequestServiceImpl implements ActionRequestService {
 
-    private static final Logger LOG = Logger.getLogger(ActionRequestServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(ActionRequestServiceImpl.class);
 
     private static final String STATUS = "status";
     private static final String DOCUMENT_ID = "documentId";

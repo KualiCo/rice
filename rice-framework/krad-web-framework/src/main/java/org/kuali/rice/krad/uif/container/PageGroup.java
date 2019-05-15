@@ -15,11 +15,11 @@
  */
 package org.kuali.rice.krad.uif.container;
 
-import java.util.List;
-
 import org.kuali.rice.krad.uif.element.BreadcrumbItem;
 import org.kuali.rice.krad.uif.element.BreadcrumbOptions;
 import org.kuali.rice.krad.uif.element.PageBreadcrumbOptions;
+
+import java.util.List;
 
 /**
  * Interface for top-level page components, to be used as items in a multi-page view. 

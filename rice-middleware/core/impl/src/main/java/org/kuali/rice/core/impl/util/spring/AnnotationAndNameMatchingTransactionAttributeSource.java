@@ -15,12 +15,12 @@
  */
 package org.kuali.rice.core.impl.util.spring;
 
-import java.lang.reflect.Method;
-
 import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.transaction.annotation.AnnotationTransactionAttributeSource;
 import org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource;
 import org.springframework.transaction.interceptor.TransactionAttribute;
+
+import java.lang.reflect.Method;
 
 /**
  * Classes are not considered for name matching, if they do not have the specified annotation on the class or method. However, the

@@ -15,15 +15,15 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import org.kuali.rice.krad.datadictionary.uif.UifDictionaryIndex;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.UifConstants.ViewType;
 import org.kuali.rice.krad.uif.view.View;
 import org.springframework.beans.PropertyValues;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Maps one Document type to other document Type.

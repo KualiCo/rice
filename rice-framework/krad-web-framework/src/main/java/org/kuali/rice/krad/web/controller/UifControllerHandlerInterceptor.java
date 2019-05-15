@@ -16,6 +16,7 @@
 package org.kuali.rice.krad.web.controller;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.UserSession;
 import org.kuali.rice.krad.service.CsrfService;
@@ -23,7 +24,6 @@ import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.UifParameters;
 import org.kuali.rice.krad.uif.util.ProcessLogger;
 import org.kuali.rice.krad.uif.view.ViewModel;
-import org.kuali.rice.krad.util.CsrfValidator;
 import org.kuali.rice.krad.util.GlobalVariables;
 import org.kuali.rice.krad.util.KRADUtils;
 import org.kuali.rice.krad.web.form.HistoryManager;
@@ -48,7 +48,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class UifControllerHandlerInterceptor implements HandlerInterceptor {
-    private static final Logger LOG = Logger.getLogger(UifControllerHandlerInterceptor.class);
+    private static final Logger LOG = LogManager.getLogger(UifControllerHandlerInterceptor.class);
 
     @Autowired
     private ModelAndViewService modelAndViewService;

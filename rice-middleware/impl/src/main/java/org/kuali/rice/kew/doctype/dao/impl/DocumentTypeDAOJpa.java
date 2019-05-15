@@ -41,7 +41,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.*;
  */
 public class DocumentTypeDAOJpa implements DocumentTypeDAO {
 
-	public static final Logger LOG = Logger.getLogger(DocumentTypeDAOJpa.class);
+	public static final Logger LOG = LogManager.getLogger(DocumentTypeDAOJpa.class);
 
 	private EntityManager entityManager;
     private DataObjectService dataObjectService;

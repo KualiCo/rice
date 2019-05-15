@@ -18,7 +18,6 @@ package org.kuali.rice.krad.document;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
-import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.config.property.ConfigurationService;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
@@ -91,7 +90,7 @@ import java.util.Set;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class DocumentControllerServiceImpl extends ControllerServiceImpl implements DocumentControllerService {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(
             DocumentControllerServiceImpl.class);
 
     // COMMAND constants which cause docHandler to load an existing document instead of creating a new one

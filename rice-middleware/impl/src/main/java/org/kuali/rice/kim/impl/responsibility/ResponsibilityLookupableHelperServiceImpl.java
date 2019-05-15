@@ -44,7 +44,7 @@ import java.util.Properties;
 
 public class ResponsibilityLookupableHelperServiceImpl extends RoleMemberLookupableHelperServiceImpl {
 
-	private static final Logger LOG = Logger.getLogger( ResponsibilityLookupableHelperServiceImpl.class );
+	private static final Logger LOG = LogManager.getLogger( ResponsibilityLookupableHelperServiceImpl.class );
 	
 	private static final long serialVersionUID = -2882500971924192124L;
 	

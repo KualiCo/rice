@@ -15,8 +15,8 @@
  */
 package org.kuali.rice.krad.web.filter;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

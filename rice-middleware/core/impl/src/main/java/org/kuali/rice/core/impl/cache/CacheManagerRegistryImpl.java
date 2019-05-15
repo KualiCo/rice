@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.core.impl.cache;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.cache.CacheManagerRegistry;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;
@@ -34,7 +35,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public final class CacheManagerRegistryImpl implements CacheManagerRegistry {
     private static final String GET_NAME = "getName";
-    private static final Logger LOG = Logger.getLogger(CacheManagerRegistryImpl.class);
+    private static final Logger LOG = LogManager.getLogger(CacheManagerRegistryImpl.class);
     private static final String GET_NAME_MSG = "unable to get the getName method on the cache manager";
 
     private static final List<CacheManager> CACHE_MANAGERS = new CopyOnWriteArrayList<CacheManager>();

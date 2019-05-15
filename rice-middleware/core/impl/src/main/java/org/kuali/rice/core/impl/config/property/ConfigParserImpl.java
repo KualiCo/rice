@@ -18,6 +18,7 @@ package org.kuali.rice.core.impl.config.property;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.text.StrLookup;
 import org.apache.commons.lang.text.StrSubstitutor;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.RiceUtilities;
 import org.kuali.rice.core.api.util.xml.XmlException;
@@ -51,7 +52,7 @@ public class ConfigParserImpl implements ConfigParser {
     // keep the same random
     private static final Random RANDOM = new Random();
 
-    private static final Logger LOG = Logger.getLogger(ConfigParserImpl.class);
+    private static final Logger LOG = LogManager.getLogger(ConfigParserImpl.class);
     private static final String IMPORT_NAME = "config.location";
     private static final String PARAM_NAME= "param";
     private static final String NAME_ATTR = "name";

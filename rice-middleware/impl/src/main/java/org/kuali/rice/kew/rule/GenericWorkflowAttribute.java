@@ -55,7 +55,7 @@ import org.kuali.rice.kew.routeheader.DocumentContent;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public abstract class GenericWorkflowAttribute extends AbstractWorkflowAttribute {
-    protected final Logger log = Logger.getLogger(getClass());
+    protected final Logger log = LogManager.getLogger(getClass());
     protected final String attributeName;
     protected final GenericAttributeContent content;
     

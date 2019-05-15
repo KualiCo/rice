@@ -23,7 +23,7 @@ import org.apache.ojb.broker.core.PersistenceBrokerFactoryDefaultImpl;
 import org.apache.ojb.broker.core.PersistenceBrokerHandle;
 
 public class KualiPersistenceBrokerFactoryImpl extends PersistenceBrokerFactoryDefaultImpl {
-    private static final Logger LOG = Logger.getLogger(KualiPersistenceBrokerFactoryImpl.class);
+    private static final Logger LOG = LogManager.getLogger(KualiPersistenceBrokerFactoryImpl.class);
 
     /**
      * @see org.apache.ojb.broker.core.PersistenceBrokerFactoryDefaultImpl#createPersistenceBroker(org.apache.ojb.broker.PBKey)

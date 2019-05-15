@@ -53,7 +53,7 @@ import java.util.Map;
  */
 @Deprecated
 public class KualiActionServlet extends ActionServlet {
-    private static final Logger LOG = Logger.getLogger(KualiActionServlet.class);
+    private static final Logger LOG = LogManager.getLogger(KualiActionServlet.class);
     
     // KULRICE-8176: KFS Notes/Attachments Tab Functionality for Note Text Error - Visible/Special characters, spaces, or tabs
     private String parameterEncoding = "";

@@ -15,10 +15,6 @@
  */
 package org.kuali.rice.krad.uif.layout;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.container.Group;
 import org.kuali.rice.krad.uif.element.Action;
@@ -27,6 +23,10 @@ import org.kuali.rice.krad.uif.field.Field;
 import org.kuali.rice.krad.uif.field.FieldGroup;
 import org.kuali.rice.krad.uif.util.ColumnCalculationInfo;
 import org.kuali.rice.krad.uif.widget.RichTable;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Layout manager that works with {@code CollectionGroup} components and renders the collection as a

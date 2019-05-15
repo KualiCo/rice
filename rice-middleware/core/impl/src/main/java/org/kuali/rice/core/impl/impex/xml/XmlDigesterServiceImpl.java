@@ -15,15 +15,16 @@
  */
 package org.kuali.rice.core.impl.impex.xml;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.impex.xml.XmlDoc;
 import org.kuali.rice.core.api.impex.xml.XmlDocCollection;
 import org.kuali.rice.core.framework.impex.xml.XmlLoader;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
@@ -33,7 +34,7 @@ import org.kuali.rice.core.framework.impex.xml.XmlLoader;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class XmlDigesterServiceImpl implements XmlDigesterService {
-    private static final Logger LOG = Logger.getLogger(XmlDigesterServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(XmlDigesterServiceImpl.class);
 
     private static void addProcessingException(XmlDoc xmlDoc, String message, Throwable t) {
         String msg = xmlDoc.getProcessingMessage();

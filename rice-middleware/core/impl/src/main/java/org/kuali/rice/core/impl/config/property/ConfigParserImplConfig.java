@@ -16,6 +16,7 @@
 package org.kuali.rice.core.impl.config.property;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.framework.config.property.SimpleConfig;
 
@@ -35,7 +36,7 @@ import java.util.TreeSet;
  */
 @Deprecated
 public class ConfigParserImplConfig extends SimpleConfig {
-    private static final Logger LOG = Logger.getLogger(ConfigParserImplConfig.class);
+    private static final Logger LOG = LogManager.getLogger(ConfigParserImplConfig.class);
 
     public ConfigParserImplConfig(String fileLoc) {
         super(fileLoc);

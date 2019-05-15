@@ -54,7 +54,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class InlineRequestsRouteModule extends FlexRMAdapter {
-    private static final Logger LOG = Logger.getLogger(InlineRequestsRouteModule.class);
+    private static final Logger LOG = LogManager.getLogger(InlineRequestsRouteModule.class);
 
     /**
      * This overridden method is used to decipher the inline xpath and responsibilities of a route node definition and use

@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.coreservice.impl.style;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.impex.xml.XmlConstants;
 import org.kuali.rice.core.api.impex.xml.XmlIngestionException;
@@ -44,7 +45,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class StyleXmlParserImpl implements StyleXmlParser {
-	private static final Logger LOG = Logger.getLogger(StyleXmlParserImpl.class);
+	private static final Logger LOG = LogManager.getLogger(StyleXmlParserImpl.class);
 
 	private StyleService styleService;
 	

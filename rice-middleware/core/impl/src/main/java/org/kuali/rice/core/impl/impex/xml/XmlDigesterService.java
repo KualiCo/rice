@@ -15,10 +15,10 @@
  */
 package org.kuali.rice.core.impl.impex.xml;
 
-import java.io.IOException;
-
 import org.kuali.rice.core.api.impex.xml.XmlDocCollection;
 import org.kuali.rice.core.framework.impex.xml.XmlLoader;
+
+import java.io.IOException;
 
 /**
  * A service which is responsible for digesting (by delegating to other target services)

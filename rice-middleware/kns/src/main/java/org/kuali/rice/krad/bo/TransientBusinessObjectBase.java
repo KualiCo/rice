@@ -22,7 +22,7 @@ package org.kuali.rice.krad.bo;
  */
 @Deprecated
 public abstract class TransientBusinessObjectBase extends BusinessObjectBase {
-    //private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(TransientBusinessObjectBase.class);
+    //private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(TransientBusinessObjectBase.class);
 
     /**
      * Constructs a TransientBusinessObjectBase.java.

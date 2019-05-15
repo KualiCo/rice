@@ -36,7 +36,7 @@ import java.util.Collections;
  */
 public class DocumentProcessingQueueImpl implements DocumentProcessingQueue {
 
-    private static final Logger LOG = Logger.getLogger(DocumentProcessingQueueImpl.class);
+    private static final Logger LOG = LogManager.getLogger(DocumentProcessingQueueImpl.class);
 
     private WorkflowEngineFactory workflowEngineFactory;
     private DocumentAttributeIndexingQueue documentAttributeIndexingQueue;

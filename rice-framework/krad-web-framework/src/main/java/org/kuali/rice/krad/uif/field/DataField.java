@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.uif.field;
 
-import java.beans.PropertyEditor;
-import java.util.List;
-
 import org.kuali.rice.krad.datadictionary.AttributeDefinition;
 import org.kuali.rice.krad.datadictionary.mask.MaskFormatter;
 import org.kuali.rice.krad.datadictionary.validator.ValidationTrace;
@@ -26,6 +23,9 @@ import org.kuali.rice.krad.uif.component.DataBinding;
 import org.kuali.rice.krad.uif.widget.Helpable;
 import org.kuali.rice.krad.uif.widget.Inquiry;
 import org.kuali.rice.krad.valuefinder.ValueFinder;
+
+import java.beans.PropertyEditor;
+import java.util.List;
 
 /**
  * Component interface for data fields. 

@@ -35,7 +35,7 @@ import javax.script.ScriptException;
  */
 //TODO: this should really be renamed since it is no longer using apache BSF
 public class BSFRuleExpression implements RuleExpression {
-    private static final Logger LOG = Logger.getLogger(BSFRuleExpression.class);
+    private static final Logger LOG = LogManager.getLogger(BSFRuleExpression.class);
 
     public RuleExpressionResult evaluate(Rule rule, RouteContext context) {
         org.kuali.rice.kew.api.rule.RuleContract ruleDefinition = rule.getDefinition();

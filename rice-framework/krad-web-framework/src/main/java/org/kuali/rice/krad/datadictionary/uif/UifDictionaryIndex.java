@@ -15,17 +15,9 @@
  */
 package org.kuali.rice.krad.datadictionary.uif;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.krad.datadictionary.DataDictionaryException;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
@@ -41,6 +33,14 @@ import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 
 /**
  * Indexes {@code View} bean entries for retrieval.
@@ -54,7 +54,7 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class UifDictionaryIndex implements Runnable {
-    private static final Log LOG = LogManager.getLogger(UifDictionaryIndex.class);
+    private static final Logger LOG = LogManager.getLogger(UifDictionaryIndex.class);
     
     private static final int VIEW_CACHE_SIZE = 1000;
 

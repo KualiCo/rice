@@ -15,8 +15,6 @@
  */
 package org.kuali.rice.krad.uif.view;
 
-import java.util.List;
-
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.uif.component.Component;
@@ -25,6 +23,8 @@ import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
 import org.kuali.rice.krad.uif.util.ComponentFactory;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.util.UrlInfo;
+
+import java.util.List;
 
 /**
  * IframeView is a View component that shows another website's content in an iframe.

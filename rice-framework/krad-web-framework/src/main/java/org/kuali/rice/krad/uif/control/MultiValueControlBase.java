@@ -15,7 +15,6 @@
  */
 package org.kuali.rice.krad.uif.control;
 
-import org.apache.commons.lang.ObjectUtils;
 import org.kuali.rice.core.api.util.AbstractKeyValue;
 import org.kuali.rice.core.api.util.KeyValue;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
@@ -26,7 +25,6 @@ import org.kuali.rice.krad.uif.element.Message;
 import org.kuali.rice.krad.uif.field.InputField;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
 import org.kuali.rice.krad.uif.util.ComponentFactory;
-import org.kuali.rice.krad.uif.util.ComponentUtils;
 import org.kuali.rice.krad.uif.util.KeyMessage;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.util.UifKeyValueLocation;

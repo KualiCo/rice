@@ -15,11 +15,11 @@
  */
 package org.kuali.rice.krad.uif.lifecycle;
 
-import java.util.List;
-
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle.LifecycleEvent;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
+
+import java.util.List;
 
 /**
  * Represents a phase in the view lifecycle.

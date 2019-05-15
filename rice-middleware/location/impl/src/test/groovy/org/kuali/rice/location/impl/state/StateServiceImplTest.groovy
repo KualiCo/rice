@@ -34,7 +34,7 @@ class StateServiceImplTest {
 
     private final shouldFail = new GroovyTestCase().&shouldFail
 
-    static sampleStates = new HashMap<List<String, String>, StateBo>()
+    static sampleStates = new HashMap<List<String>, StateBo>()
     static sampleStatesPerCountry = new HashMap<String, List<StateBo>>()
     
     private MockFor mockCountryService;

@@ -15,14 +15,9 @@
  */
 package org.kuali.rice.krad.datadictionary.validator;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.datadictionary.DataDictionary;
 import org.kuali.rice.krad.datadictionary.DataDictionaryEntry;
 import org.kuali.rice.krad.datadictionary.DataDictionaryException;
@@ -30,8 +25,8 @@ import org.kuali.rice.krad.datadictionary.uif.UifBeanFactoryPostProcessor;
 import org.kuali.rice.krad.datadictionary.uif.UifDictionaryBean;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.component.Component;
-import org.kuali.rice.krad.uif.lifecycle.ViewLifecycleUtils;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
+import org.kuali.rice.krad.uif.lifecycle.ViewLifecycleUtils;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.view.View;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -40,13 +35,18 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
 /**
  * A validator for Rice Dictionaries that stores the information found during its validation.
  *
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class Validator {
-    private static final Log LOG = LogManager.getLogger(Validator.class);
+    private static final Logger LOG = LogManager.getLogger(Validator.class);
 
     private static ArrayList<ErrorReport> errorReports = new ArrayList<ErrorReport>();
 

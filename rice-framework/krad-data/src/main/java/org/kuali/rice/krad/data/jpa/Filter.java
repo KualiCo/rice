@@ -22,8 +22,8 @@ import org.eclipse.persistence.expressions.ExpressionBuilder;
 import org.eclipse.persistence.mappings.ForeignReferenceMapping;
 import org.eclipse.persistence.mappings.OneToManyMapping;
 import org.eclipse.persistence.mappings.OneToOneMapping;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import javax.persistence.Convert;
 import java.lang.reflect.Field;
@@ -36,7 +36,7 @@ import java.util.List;
  */
 public class Filter {
 
-    private static final Logger LOG = LoggerFactory.getLogger(Filter.class);
+    private static final Logger LOG = LogManager.getLogger(Filter.class);
 
     /**
      * Takes a list of filter generators and executes the changes on the class descriptor for a field.

@@ -16,7 +16,6 @@
 package org.kuali.rice.krad.service;
 
 import org.kuali.rice.krad.datadictionary.validation.result.DictionaryValidationResult;
-import org.kuali.rice.krad.uif.view.View;
 import org.kuali.rice.krad.uif.view.ViewModel;
 
 /**

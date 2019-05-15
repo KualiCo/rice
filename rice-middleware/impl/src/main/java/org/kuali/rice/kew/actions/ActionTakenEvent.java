@@ -78,7 +78,7 @@ public abstract class ActionTakenEvent {
      */
     protected static final String DEFAULT_ANNOTATION = null;
 
-    private static final Logger LOG = Logger.getLogger(ActionTakenEvent.class);
+    private static final Logger LOG = LogManager.getLogger(ActionTakenEvent.class);
 
 
 	/**

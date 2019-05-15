@@ -49,7 +49,7 @@ import org.springframework.remoting.RemoteAccessException;
  *
  */
 public class KimTypeLookupableHelperServiceImpl extends KualiLookupableHelperServiceImpl {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KimTypeLookupableHelperServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KimTypeLookupableHelperServiceImpl.class);
     private static final long serialVersionUID = 1L;
 
 	@SuppressWarnings("unchecked")

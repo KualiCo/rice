@@ -17,10 +17,8 @@ package org.kuali.rice.krad.uif.element;
 
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
-import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.widget.RichTable;
 
-import java.util.List;
 import java.util.Set;
 
 /**

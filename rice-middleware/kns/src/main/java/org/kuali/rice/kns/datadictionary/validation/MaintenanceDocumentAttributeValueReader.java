@@ -17,6 +17,7 @@ package org.kuali.rice.kns.datadictionary.validation;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.type.TypeUtils;
 import org.kuali.rice.kns.datadictionary.MaintainableFieldDefinition;
@@ -50,7 +51,7 @@ public class MaintenanceDocumentAttributeValueReader extends DictionaryObjectAtt
 	protected Map<String, Object> attributeValueMap;
 	//protected Map<String, PropertyDescriptor> beanInfo;
 	
-	private final static Logger LOG = Logger.getLogger(MaintenanceDocumentAttributeValueReader.class);
+	private final static Logger LOG = LogManager.getLogger(MaintenanceDocumentAttributeValueReader.class);
 	
 	private List<Constrainable> attributeDefinitions;
 	private Map<String, AttributeDefinition> attributeDefinitionMap;

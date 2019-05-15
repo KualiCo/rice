@@ -15,16 +15,16 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.kuali.rice.kew.api.document.attribute.WorkflowAttributeDefinition;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.datadictionary.uif.UifDictionaryBeanBase;
 import org.kuali.rice.krad.datadictionary.validator.ValidationTrace;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A container that holds all of the {@link WorkflowAttributeDefinition} for a document for both document searches

@@ -17,6 +17,7 @@ package org.kuali.rice.ksb.messaging;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
 
@@ -36,7 +37,7 @@ import java.lang.reflect.Proxy;
  */
 public class KSBClientProxy implements InvocationHandler {
 
-private static final Logger LOG = Logger.getLogger(KSBClientProxy.class);
+private static final Logger LOG = LogManager.getLogger(KSBClientProxy.class);
     
     private QName serviceName;
     private volatile Object service;

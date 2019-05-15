@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.coreservice.impl.style;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jdom2.Element;
 import org.kuali.rice.core.api.impex.ExportDataSet;
@@ -39,7 +40,7 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.*;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class StyleXmlExporter implements XmlExporter {
-	private static final Logger LOG = Logger.getLogger(StyleXmlExporter.class);
+	private static final Logger LOG = LogManager.getLogger(StyleXmlExporter.class);
 
 	private XmlRenderer renderer = new XmlRenderer(STYLE_NAMESPACE);
 	

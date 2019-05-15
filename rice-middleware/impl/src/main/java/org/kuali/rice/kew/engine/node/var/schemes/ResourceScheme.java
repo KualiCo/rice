@@ -31,7 +31,7 @@ import org.kuali.rice.kew.engine.node.var.PropertyScheme;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ResourceScheme implements PropertyScheme {
-    private static final Logger LOG = Logger.getLogger(ResourceScheme.class);
+    private static final Logger LOG = LogManager.getLogger(ResourceScheme.class);
 
     public String getName() {
         return "resource";

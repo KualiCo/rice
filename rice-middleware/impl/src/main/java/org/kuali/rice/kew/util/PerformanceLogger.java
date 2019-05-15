@@ -25,7 +25,7 @@ import java.util.Formatter;
 public class PerformanceLogger {
 
     private static final org.apache.logging.log4j.Logger LOG =
-        org.apache.logging.log4j.Logger.getLogger(PerformanceLogger.class);
+        org.apache.logging.log4j.LogManager.getLogger(PerformanceLogger.class);
     private long startTime;
     private String documentId;
     

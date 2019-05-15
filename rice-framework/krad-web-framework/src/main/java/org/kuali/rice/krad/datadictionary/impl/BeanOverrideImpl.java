@@ -17,6 +17,7 @@ package org.kuali.rice.krad.datadictionary.impl;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.datadictionary.BeanOverride;
 import org.kuali.rice.krad.datadictionary.FieldOverride;
@@ -30,7 +31,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class BeanOverrideImpl implements BeanOverride {
-    private static final Logger LOG = Logger.getLogger(BeanOverrideImpl.class);
+    private static final Logger LOG = LogManager.getLogger(BeanOverrideImpl.class);
     private String beanName;
     private List<FieldOverride> fieldOverrides;
 

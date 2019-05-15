@@ -21,6 +21,7 @@ import java.sql.Timestamp;
 
 import javax.xml.namespace.QName;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.config.property.ConfigContext;
@@ -43,7 +44,7 @@ import org.springframework.transaction.support.TransactionCallback;
  */
 public class MessageServiceInvoker implements Runnable {
 
-    protected static final Logger LOG = Logger.getLogger(MessageServiceInvoker.class);
+    protected static final Logger LOG = LogManager.getLogger(MessageServiceInvoker.class);
 
     private PersistedMessageBO message;
     private Object service;

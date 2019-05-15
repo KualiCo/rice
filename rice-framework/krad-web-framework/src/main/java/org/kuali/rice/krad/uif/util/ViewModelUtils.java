@@ -15,15 +15,15 @@
  */
 package org.kuali.rice.krad.uif.util;
 
-import java.util.Collection;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.uif.component.BindingInfo;
 import org.kuali.rice.krad.uif.field.DataField;
 import org.kuali.rice.krad.uif.view.View;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.TypedStringValue;
+
+import java.util.Collection;
+import java.util.Map;
 
 /**
  * Provides methods for getting property values, types, and paths within the

@@ -64,7 +64,7 @@ import java.util.Properties;
 @BeanTag(name = "inquiry", parent = "Uif-Inquiry")
 public class Inquiry extends WidgetBase {
     private static final long serialVersionUID = -2154388007867302901L;
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(Inquiry.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(Inquiry.class);
 
     public static final String INQUIRY_TITLE_PREFIX = "title.inquiry.url.actiontext";
     public static final String INQUIRY_TITLE_POSTFIX = "title.inquiry.url.value.prependtext";

@@ -80,7 +80,7 @@ import javax.xml.namespace.QName;
  */
 public final class KEWServiceLocator {
 
-	private static final Logger LOG = Logger.getLogger(KEWServiceLocator.class);
+	private static final Logger LOG = LogManager.getLogger(KEWServiceLocator.class);
 
 	public static final String KEW_RUN_MODE_PROPERTY = "kew.mode";
 	

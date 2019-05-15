@@ -16,8 +16,8 @@
 package org.kuali.rice.krad.datadictionary.uif;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.UifPropertyPaths;
 import org.kuali.rice.krad.uif.view.ExpressionEvaluator;
@@ -62,7 +62,7 @@ import java.util.Set;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class UifBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
-    private static final Log LOG = LogManager.getLogger(UifBeanFactoryPostProcessor.class);
+    private static final Logger LOG = LogManager.getLogger(UifBeanFactoryPostProcessor.class);
 
     public UifBeanFactoryPostProcessor() {
     }

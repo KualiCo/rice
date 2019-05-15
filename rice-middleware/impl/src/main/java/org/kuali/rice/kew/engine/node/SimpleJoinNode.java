@@ -26,7 +26,7 @@ import org.kuali.rice.kew.engine.RouteHelper;
  */
 public class SimpleJoinNode implements JoinNode {
         
-    protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(getClass());
+    protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(getClass());
     
     public JoinResult process(RouteContext context, RouteHelper helper) throws Exception {
         RouteNodeInstance nodeInstance = context.getNodeInstance();

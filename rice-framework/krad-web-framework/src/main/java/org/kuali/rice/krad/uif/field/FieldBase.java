@@ -16,6 +16,7 @@
 package org.kuali.rice.krad.uif.field;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
@@ -53,7 +54,7 @@ import java.util.List;
 @BeanTag(name = "fieldBase", parent = "Uif-FieldBase")
 public class FieldBase extends ComponentBase implements Field {
     private static final long serialVersionUID = -5888414844802862760L;
-    private static final Logger LOG = Logger.getLogger(FieldBase.class);
+    private static final Logger LOG = LogManager.getLogger(FieldBase.class);
 
     private String shortLabel;
     

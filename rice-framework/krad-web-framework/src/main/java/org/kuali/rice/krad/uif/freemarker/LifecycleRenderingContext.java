@@ -15,35 +15,6 @@
  */
 package org.kuali.rice.krad.uif.freemarker;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.StringReader;
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletResponseWrapper;
-
-import org.kuali.rice.core.api.CoreApiServiceLocator;
-import org.kuali.rice.krad.uif.UifConstants;
-import org.kuali.rice.krad.uif.UifParameters;
-import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
-import org.kuali.rice.krad.uif.util.ProcessLogger;
-import org.kuali.rice.krad.uif.util.UifRenderHelperMethods;
-import org.kuali.rice.krad.util.GlobalVariables;
-import org.kuali.rice.krad.util.KRADConstants;
-import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.web.servlet.support.RequestContext;
-import org.springframework.web.servlet.view.AbstractTemplateView;
-
 import freemarker.cache.TemplateCache;
 import freemarker.core.Environment;
 import freemarker.core.ParseException;
@@ -58,6 +29,33 @@ import freemarker.template.Configuration;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.kuali.rice.core.api.CoreApiServiceLocator;
+import org.kuali.rice.krad.uif.UifConstants;
+import org.kuali.rice.krad.uif.UifParameters;
+import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
+import org.kuali.rice.krad.uif.util.ProcessLogger;
+import org.kuali.rice.krad.uif.util.UifRenderHelperMethods;
+import org.kuali.rice.krad.util.GlobalVariables;
+import org.kuali.rice.krad.util.KRADConstants;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.web.servlet.support.RequestContext;
+import org.springframework.web.servlet.view.AbstractTemplateView;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponseWrapper;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.StringReader;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Encapsulates a FreeMarker environment for rendering within the view lifecycle.

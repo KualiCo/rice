@@ -20,6 +20,7 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.Validate;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.data.DataObjectService;
 import org.kuali.rice.krad.data.KradDataServiceLocator;
@@ -45,7 +46,7 @@ import java.util.stream.Collectors;
  */
 public class ProviderRegistryImpl implements ProviderRegistry {
 
-    private static final Logger LOG = Logger.getLogger(ProviderRegistry.class);
+    private static final Logger LOG = LogManager.getLogger(ProviderRegistry.class);
 
     private static final String GET_DATA_OBJECT_SERVICE_METHOD_NAME = "getDataObjectService";
     private static final String SET_DATA_OBJECT_SERVICE_METHOD_NAME = "setDataObjectService";

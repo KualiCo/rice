@@ -15,12 +15,6 @@
  */
 package org.kuali.rice.krad.service;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Pattern;
-
 import org.kuali.rice.core.web.format.Formatter;
 import org.kuali.rice.krad.bo.BusinessObject;
 import org.kuali.rice.krad.datadictionary.AttributeDefinition;
@@ -32,6 +26,12 @@ import org.kuali.rice.krad.document.Document;
 import org.kuali.rice.krad.keyvalues.KeyValuesFinder;
 import org.kuali.rice.krad.uif.UifConstants.ViewType;
 import org.kuali.rice.krad.uif.view.View;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * Defines the API for interacting with the data dictionary

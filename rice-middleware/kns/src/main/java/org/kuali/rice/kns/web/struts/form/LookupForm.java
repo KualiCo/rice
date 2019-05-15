@@ -45,7 +45,7 @@ import java.util.TreeMap;
 public class LookupForm extends KualiForm {
     private static final long serialVersionUID = 1L;
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(LookupForm.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(LookupForm.class);
     protected static final String HEADER_BAR_ENABLED_PARAM = "headerBarEnabled";
     protected static final String SEARCH_CRITERIA_ENABLED_PARAM = "searchCriteriaEnabled";
 

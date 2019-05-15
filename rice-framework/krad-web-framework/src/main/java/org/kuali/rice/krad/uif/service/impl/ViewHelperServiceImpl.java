@@ -18,6 +18,7 @@ package org.kuali.rice.krad.uif.service.impl;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.config.property.ConfigurationService;
@@ -97,7 +98,7 @@ import java.util.Set;
  */
 public class ViewHelperServiceImpl implements ViewHelperService, Serializable {
     private static final long serialVersionUID = 1772618197133239852L;
-    private static final Logger LOG = Logger.getLogger(ViewHelperServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(ViewHelperServiceImpl.class);
 
     private transient ConfigurationService configurationService;
     private transient DataDictionaryService dataDictionaryService;

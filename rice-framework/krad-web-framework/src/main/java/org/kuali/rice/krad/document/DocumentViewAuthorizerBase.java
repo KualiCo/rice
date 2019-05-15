@@ -16,8 +16,8 @@
 package org.kuali.rice.krad.document;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.api.WorkflowDocument;
 import org.kuali.rice.kim.api.KimConstants;
 import org.kuali.rice.kim.api.identity.Person;
@@ -56,7 +56,7 @@ import java.util.Set;
  */
 public class DocumentViewAuthorizerBase extends ViewAuthorizerBase implements DocumentAuthorizer {
     private static final long serialVersionUID = 3800780934223224565L;
-    protected static Log LOG = LogManager.getLogger(DocumentViewAuthorizerBase.class);
+    protected static Logger LOG = LogManager.getLogger(DocumentViewAuthorizerBase.class);
 
     public static final String PRE_ROUTING_ROUTE_NAME = "PreRoute";
 

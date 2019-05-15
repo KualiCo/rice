@@ -16,6 +16,8 @@
 package org.kuali.rice.core.framework.persistence.jdbc.sql;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreConstants;
 import org.kuali.rice.core.api.datetime.DateTimeService;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
@@ -39,7 +41,7 @@ import java.text.SimpleDateFormat;
  *
  */
 public class SqlBuilder {
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(SqlBuilder.class);
+	private static final Logger LOG = LogManager.getLogger(SqlBuilder.class);
 
 	private DateTimeService dateTimeService;
 	private DatabasePlatform dbPlatform;

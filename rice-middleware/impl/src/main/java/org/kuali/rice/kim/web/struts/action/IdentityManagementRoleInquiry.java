@@ -41,7 +41,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  */
 public class IdentityManagementRoleInquiry extends IdentityManagementBaseInquiryAction {
-	private static final Logger LOG = Logger.getLogger(IdentityManagementRoleInquiry.class);	
+	private static final Logger LOG = LogManager.getLogger(IdentityManagementRoleInquiry.class);
 	
 	/**
 	 * This overridden method ...

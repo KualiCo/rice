@@ -67,7 +67,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.equal;
  */
 public class RuleQuickLinksAction extends KewKualiAction {
 
-	private static final Logger LOG = Logger.getLogger(RuleQuickLinksAction.class);
+	private static final Logger LOG = LogManager.getLogger(RuleQuickLinksAction.class);
 	
 	private MaintenanceDocumentDictionaryService maintenanceDocumentDictionaryService;
 	private DocumentHelperService documentHelperService;

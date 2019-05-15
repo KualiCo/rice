@@ -40,7 +40,7 @@ import org.kuali.rice.kim.api.identity.principal.Principal;
  */
 public class ActionInvocationQueueImpl implements ActionInvocationQueue {
 
-    private static final Logger LOG = Logger.getLogger(ActionInvocationQueueImpl.class);
+    private static final Logger LOG = LogManager.getLogger(ActionInvocationQueueImpl.class);
 
     @Override
     public void invokeAction(String principalId, String documentId, ActionInvocation invocation) {

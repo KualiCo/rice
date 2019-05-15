@@ -19,6 +19,7 @@ package org.kuali.rice.kns.web.struts.form.pojo;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.StopWatch;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.kuali.rice.coreservice.framework.CoreFrameworkServiceLocator;
@@ -55,7 +56,7 @@ public class PojoFormBase extends ActionForm implements PojoForm {
     private static final long serialVersionUID = 1L;
     
     // begin Kuali Foundation modification
-    private static final Logger LOG = Logger.getLogger(PojoFormBase.class);
+    private static final Logger LOG = LogManager.getLogger(PojoFormBase.class);
     
     private static final String PREVIOUS_REQUEST_EDITABLE_PROPERTIES_GUID = "editablePropertiesGuid";
 

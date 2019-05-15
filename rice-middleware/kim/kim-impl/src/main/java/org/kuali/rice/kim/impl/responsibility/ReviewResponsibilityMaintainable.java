@@ -16,6 +16,7 @@
 package org.kuali.rice.kim.impl.responsibility;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.api.KewApiConstants;
 import org.kuali.rice.kim.api.KimConstants;
@@ -46,7 +47,7 @@ import java.util.Map;
 
 public class ReviewResponsibilityMaintainable extends KualiMaintainableImpl {
 
-	private static final Logger LOG = Logger.getLogger( ReviewResponsibilityMaintainable.class );
+	private static final Logger LOG = LogManager.getLogger( ReviewResponsibilityMaintainable.class );
 	private static final long serialVersionUID = -8102504656976243468L;
 
     protected static final String DOCUMENT_TYPE_NAME = "documentTypeName";

@@ -51,7 +51,7 @@ public class ServiceBusAction extends KSBAction {
 
     private static final QName SERVICE_BUS_ADMIN_SERVICE_QUEUE = new QName(
             KsbApiConstants.Namespaces.KSB_NAMESPACE_2_0, "serviceBusAdminService");
-    private static final Logger LOG = Logger.getLogger(ServiceBusAction.class);
+    private static final Logger LOG = LogManager.getLogger(ServiceBusAction.class);
 
     public ActionForward start(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws IOException, ServletException {

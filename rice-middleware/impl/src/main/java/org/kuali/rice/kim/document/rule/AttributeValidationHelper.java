@@ -45,7 +45,7 @@ import org.springframework.cache.CacheManager;
  *
  */
 public class AttributeValidationHelper {
-	private static final Logger LOG = Logger.getLogger(AttributeValidationHelper.class);
+	private static final Logger LOG = LogManager.getLogger(AttributeValidationHelper.class);
 
     private static final String DOCUMENT_PROPERTY_PREFIX = KRADConstants.DOCUMENT_PROPERTY_NAME + ".";
 

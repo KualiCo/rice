@@ -15,19 +15,8 @@
  */
 package org.kuali.rice.core.impl.impex.xml;
 
-import java.io.IOException;
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-
-import javax.xml.XMLConstants;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.impex.xml.XmlDoc;
 import org.kuali.rice.core.api.impex.xml.XmlDocCollection;
@@ -38,6 +27,17 @@ import org.xml.sax.EntityResolver;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
+
+import javax.xml.XMLConstants;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -72,7 +72,7 @@ import org.xml.sax.SAXParseException;
  */
 public class XmlIngesterServiceImpl implements XmlIngesterService {
 	
-    private static final Logger LOG = Logger.getLogger(XmlIngesterServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(XmlIngesterServiceImpl.class);
 
     /**
      * The entity resolver to use during validation

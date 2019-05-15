@@ -19,7 +19,6 @@ import org.apache.commons.beanutils.MethodUtils;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
 import org.kuali.rice.krad.data.KradDataServiceLocator;
-import org.kuali.rice.krad.data.provider.MetadataProvider;
 import org.kuali.rice.krad.data.provider.Provider;
 import org.kuali.rice.krad.data.provider.ProviderRegistry;
 import org.kuali.rice.krad.service.DataDictionaryService;
@@ -27,7 +26,6 @@ import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-
 
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
@@ -62,7 +60,7 @@ import java.util.Map;
  *
  */
 public class ModuleConfiguration implements InitializingBean, ApplicationContextAware {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ModuleConfiguration.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(ModuleConfiguration.class);
     /**
      * the module's namespace.
      */

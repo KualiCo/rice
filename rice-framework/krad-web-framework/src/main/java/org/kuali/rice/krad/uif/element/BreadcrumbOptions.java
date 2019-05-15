@@ -15,10 +15,6 @@
  */
 package org.kuali.rice.krad.uif.element;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.Copyable;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
@@ -31,6 +27,10 @@ import org.kuali.rice.krad.uif.view.View;
 import org.kuali.rice.krad.util.KRADUtils;
 import org.kuali.rice.krad.web.form.HistoryFlow;
 import org.kuali.rice.krad.web.form.UifFormBase;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 /**
  * BreadcrumbOptions represents the options for the current view breadcrumbs that are displayed.

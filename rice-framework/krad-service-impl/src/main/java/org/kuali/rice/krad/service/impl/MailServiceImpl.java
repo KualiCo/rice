@@ -31,7 +31,7 @@ import org.kuali.rice.krad.util.KRADConstants;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class MailServiceImpl implements MailService {
-    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MailServiceImpl.class);
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(MailServiceImpl.class);
 
     private String batchMailingList;
     private Mailer mailer;

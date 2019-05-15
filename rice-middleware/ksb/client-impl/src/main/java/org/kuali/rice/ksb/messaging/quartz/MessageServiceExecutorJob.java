@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging.quartz;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.ksb.messaging.MessageServiceInvoker;
 import org.kuali.rice.ksb.messaging.PersistedMessageBO;
@@ -37,7 +38,7 @@ import java.io.Serializable;
  */
 public class MessageServiceExecutorJob implements Job, Serializable {
 
-    private static final Logger LOG = Logger.getLogger(MessageServiceExecutorJob.class);
+    private static final Logger LOG = LogManager.getLogger(MessageServiceExecutorJob.class);
 
     private static final long serialVersionUID = 6702139047380618522L;
 

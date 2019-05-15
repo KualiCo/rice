@@ -17,7 +17,7 @@ package org.kuali.rice.krad.uif.control;
 
 import org.kuali.rice.core.api.util.KeyValue;
 import org.kuali.rice.krad.uif.util.KeyMessage;
-import org.kuali.rice.krad.uif.view.View;
+
 import java.util.List;
 
 /**

@@ -59,7 +59,7 @@ import com.google.common.base.Function;
  */
 public class DocumentSearchInternalUtils {
 
-    private static final Logger LOG = Logger.getLogger(DocumentSearchInternalUtils.class);
+    private static final Logger LOG = LogManager.getLogger(DocumentSearchInternalUtils.class);
 
     private static final boolean CASE_SENSITIVE_DEFAULT = false;
 

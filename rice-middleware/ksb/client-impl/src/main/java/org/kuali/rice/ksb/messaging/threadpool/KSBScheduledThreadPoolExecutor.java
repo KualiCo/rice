@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging.threadpool;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.ksb.util.KSBConstants;
@@ -26,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 
 public class KSBScheduledThreadPoolExecutor extends ScheduledThreadPoolExecutor implements KSBScheduledPool {
 
-	private static final Logger LOG = Logger.getLogger(KSBScheduledThreadPoolExecutor.class);
+	private static final Logger LOG = LogManager.getLogger(KSBScheduledThreadPoolExecutor.class);
 
 	private boolean started;
 	private static final int DEFAULT_SIZE = 2;

@@ -15,12 +15,12 @@
  */
 package org.kuali.rice.krad.service;
 
-import java.util.List;
-
 import org.kuali.rice.krad.bo.AdHocRoutePerson;
 import org.kuali.rice.krad.bo.AdHocRouteRecipient;
 import org.kuali.rice.krad.bo.AdHocRouteWorkgroup;
 import org.kuali.rice.krad.document.Document;
+
+import java.util.List;
 
 /**
  * This service populates {@link Document}s with {@link AdHocRoutePerson}s and {@link AdHocRouteWorkgroup}s

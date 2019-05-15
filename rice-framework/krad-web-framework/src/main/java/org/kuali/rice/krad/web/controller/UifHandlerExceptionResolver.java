@@ -16,6 +16,7 @@
 package org.kuali.rice.krad.web.controller;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.UserSession;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
@@ -46,7 +47,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class UifHandlerExceptionResolver implements org.springframework.web.servlet.HandlerExceptionResolver {
-    private static final Logger LOG = Logger.getLogger(UifHandlerExceptionResolver.class);
+    private static final Logger LOG = LogManager.getLogger(UifHandlerExceptionResolver.class);
 
     /**
      * Builds the incident report model and view from the request that threw the exception

@@ -15,13 +15,13 @@
  */
 package org.kuali.rice.krad.service;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import org.kuali.rice.kim.api.identity.Person;
 import org.kuali.rice.krad.document.Document;
 import org.kuali.rice.krad.document.authorization.PessimisticLock;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Service interface for documents to use the Pessimistic Locking mechanism

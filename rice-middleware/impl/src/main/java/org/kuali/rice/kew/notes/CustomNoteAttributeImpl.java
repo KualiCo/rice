@@ -29,7 +29,7 @@ public class CustomNoteAttributeImpl implements CustomNoteAttribute {
 
     private Document routeHeaderVO;
     private UserSession userSession;
-    private static final Logger LOG = Logger.getLogger(CustomNoteAttributeImpl.class);
+    private static final Logger LOG = LogManager.getLogger(CustomNoteAttributeImpl.class);
 
     @Override
 	public boolean isAuthorizedToAddNotes() throws Exception {

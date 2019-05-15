@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kns.web.struts.form.pojo;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -39,7 +40,7 @@ import java.util.Map;
 @Deprecated
 public class StrutsExceptionIncidentHandler extends ExceptionHandler {
     private static final Logger LOG=
-        Logger.getLogger(StrutsExceptionIncidentHandler.class);
+        LogManager.getLogger(StrutsExceptionIncidentHandler.class);
     
     /**
      * This is defined in struts-config.xml for forwarding this exception to a specified

@@ -15,11 +15,11 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-
 import org.kuali.rice.core.api.util.type.KualiDecimal;
 import org.kuali.rice.core.api.util.type.KualiPercent;
+
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * Object for creating generic attribute definitions in the data dictionary

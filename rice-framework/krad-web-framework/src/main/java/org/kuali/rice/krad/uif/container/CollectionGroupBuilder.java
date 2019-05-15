@@ -17,8 +17,8 @@ package org.kuali.rice.krad.uif.container;
 
 import org.apache.commons.collections.ListUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.mo.common.active.Inactivatable;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.UifParameters;
@@ -57,7 +57,7 @@ import java.util.Map;
 public class CollectionGroupBuilder implements Serializable {
 
     private static final long serialVersionUID = -4762031957079895244L;
-    private static Log LOG = LogManager.getLogger(CollectionGroupBuilder.class);
+    private static Logger LOG = LogManager.getLogger(CollectionGroupBuilder.class);
 
     /**
      * Invoked within the lifecycle to carry out the collection build process.

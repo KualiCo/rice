@@ -15,14 +15,6 @@
  */
 package org.kuali.rice.krad.uif.service.impl;
 
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.config.property.ConfigurationService;
@@ -41,6 +33,14 @@ import org.kuali.rice.krad.uif.widget.LocationSuggest;
 import org.kuali.rice.krad.uif.widget.Suggest;
 import org.kuali.rice.krad.util.BeanPropertyComparator;
 
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Implementation of <code>AttributeQueryService</code> that prepares the attribute queries and
  * delegates to the <code>LookupService</code>
@@ -48,7 +48,7 @@ import org.kuali.rice.krad.util.BeanPropertyComparator;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class AttributeQueryServiceImpl implements AttributeQueryService {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(
             AttributeQueryServiceImpl.class);
 
     private LookupService lookupService;

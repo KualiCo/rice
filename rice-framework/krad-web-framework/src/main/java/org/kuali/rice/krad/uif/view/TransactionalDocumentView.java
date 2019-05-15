@@ -25,10 +25,10 @@ import org.kuali.rice.krad.document.authorization.PessimisticLock;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.kuali.rice.krad.service.PessimisticLockService;
 import org.kuali.rice.krad.uif.UifConstants;
+import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.util.GlobalVariables;
 import org.kuali.rice.krad.util.KRADConstants;
 import org.kuali.rice.krad.web.form.TransactionalDocumentFormBase;
-import org.kuali.rice.krad.uif.util.LifecycleElement;
 
 /**
  * View type for Transactional documents.

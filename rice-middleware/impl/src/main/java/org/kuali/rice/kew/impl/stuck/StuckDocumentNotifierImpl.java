@@ -27,8 +27,8 @@ import org.kuali.rice.core.api.mail.MailMessage;
 import org.kuali.rice.core.api.mail.Mailer;
 import org.kuali.rice.kew.service.KEWServiceLocator;
 import org.kuali.rice.krad.util.KRADConstants;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Required;
 
@@ -41,7 +41,7 @@ import java.util.Map;
 
 public class StuckDocumentNotifierImpl implements StuckDocumentNotifier, InitializingBean {
 
-    private static final Logger LOG = LoggerFactory.getLogger(StuckDocumentNotifierImpl.class);
+    private static final Logger LOG = LogManager.getLogger(StuckDocumentNotifierImpl.class);
 
     private static final String NOTIFICATION_SUBJECT_TEMPLATE_NAME = "notificationSubject";
     private static final String NOTIFICATION_EMAIL_TEMPLATE_NAME = "notificationEmail";

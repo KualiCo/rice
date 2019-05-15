@@ -18,6 +18,7 @@ package org.kuali.rice.kim.impl.role;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
 import org.kuali.rice.core.api.CoreConstants;
@@ -87,7 +88,7 @@ import java.util.Set;
 import static org.kuali.rice.core.api.criteria.PredicateFactory.equal;
 
 public class RoleServiceImpl extends RoleServiceBase implements RoleService {
-    private static final Logger LOG = Logger.getLogger(RoleServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(RoleServiceImpl.class);
 
     private static final Map<String, RoleDaoAction> memberTypeToRoleDaoActionMap = populateMemberTypeToRoleDaoActionMap();
 

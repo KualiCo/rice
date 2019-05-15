@@ -37,7 +37,7 @@ import java.util.List;
  */
 public class FutureRequestDocumentStateManager {
 
-    private static final Logger LOG = Logger.getLogger(FutureRequestDocumentStateManager.class);
+    private static final Logger LOG = LogManager.getLogger(FutureRequestDocumentStateManager.class);
 
     private boolean receiveFutureRequests;
     private boolean doNotReceiveFutureRequests;

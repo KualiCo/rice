@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.uif.component;
 
-import java.io.Serializable;
-import java.lang.reflect.Method;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.krad.datadictionary.Copyable;
@@ -25,6 +22,9 @@ import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.springframework.util.MethodInvoker;
 import org.springframework.util.ReflectionUtils;
+
+import java.io.Serializable;
+import java.lang.reflect.Method;
 
 /**
  * Extends <code>MethodInvoker</code> to add properties for specifying

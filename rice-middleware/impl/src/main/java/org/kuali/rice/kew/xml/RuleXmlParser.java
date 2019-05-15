@@ -59,7 +59,7 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.*;
  */
 public class RuleXmlParser {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RuleXmlParser.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(RuleXmlParser.class);
 
     /**
      * Priority to use if rule responsibility omits priority

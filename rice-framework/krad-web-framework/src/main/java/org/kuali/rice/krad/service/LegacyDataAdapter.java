@@ -15,10 +15,10 @@
  */
 package org.kuali.rice.krad.service;
 
-import java.util.List;
-
 import org.kuali.rice.krad.datadictionary.RelationshipDefinition;
 import org.kuali.rice.krad.document.Document;
+
+import java.util.List;
 
 /**
  * Adapter that supports "legacy" KNS/KRAD persistence, metadata, and object utility frameworks via runtime

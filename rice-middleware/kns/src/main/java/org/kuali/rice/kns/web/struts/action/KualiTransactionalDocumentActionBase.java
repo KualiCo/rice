@@ -43,7 +43,7 @@ import java.util.Set;
  */
 @Deprecated
 public class KualiTransactionalDocumentActionBase extends KualiDocumentActionBase {
-//    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiTransactionalDocumentActionBase.class);
+//    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KualiTransactionalDocumentActionBase.class);
 
     /**
      * Method that will take the current document and call its copy method if Copyable.

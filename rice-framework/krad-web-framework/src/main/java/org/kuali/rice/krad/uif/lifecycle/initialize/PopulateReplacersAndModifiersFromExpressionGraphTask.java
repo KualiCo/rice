@@ -15,13 +15,13 @@
  */
 package org.kuali.rice.krad.uif.lifecycle.initialize;
 
-import java.util.List;
-
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.component.PropertyReplacer;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycleTaskBase;
 import org.kuali.rice.krad.uif.modifier.ComponentModifier;
+
+import java.util.List;
 
 /**
  * Populate property values on the all property replacers and component modifiers from the

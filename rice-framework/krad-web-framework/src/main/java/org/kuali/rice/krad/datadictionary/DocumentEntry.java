@@ -15,11 +15,6 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.exception.DuplicateEntryException;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
@@ -31,6 +26,11 @@ import org.kuali.rice.krad.document.DocumentPresentationController;
 import org.kuali.rice.krad.document.DocumentPresentationControllerBase;
 import org.kuali.rice.krad.keyvalues.KeyValuesFinder;
 import org.kuali.rice.krad.rules.rule.BusinessRule;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A single Document entry in the DataDictionary, which contains information relating to the display, validation, and
@@ -45,7 +45,7 @@ import org.kuali.rice.krad.rules.rule.BusinessRule;
 public abstract class DocumentEntry extends DataDictionaryEntryBase {
     private static final long serialVersionUID = 8231730871830055356L;
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentEntry.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(DocumentEntry.class);
 
     protected String documentTypeName;
 

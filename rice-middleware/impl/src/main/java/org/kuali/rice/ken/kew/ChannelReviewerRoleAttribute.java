@@ -43,7 +43,7 @@ import org.kuali.rice.kew.workgroup.GroupNameId;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ChannelReviewerRoleAttribute extends GenericRoleAttribute {
-    private static final Logger LOG = Logger.getLogger(ChannelReviewerRoleAttribute.class);
+    private static final Logger LOG = LogManager.getLogger(ChannelReviewerRoleAttribute.class);
     private static final List<RoleName> SUPPORTED_ROLES;
     
     static {

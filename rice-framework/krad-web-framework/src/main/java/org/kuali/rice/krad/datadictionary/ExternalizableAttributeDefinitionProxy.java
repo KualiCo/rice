@@ -16,8 +16,8 @@
 package org.kuali.rice.krad.datadictionary;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.datadictionary.control.ControlDefinition;
 import org.kuali.rice.krad.datadictionary.exception.CompletionException;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
@@ -36,7 +36,7 @@ public class ExternalizableAttributeDefinitionProxy extends AttributeDefinition 
     private static final long serialVersionUID = -3204870440281417429L;
 
     // logger
-    private static Log LOG = LogManager.getLogger(ExternalizableAttributeDefinitionProxy.class);
+    private static Logger LOG = LogManager.getLogger(ExternalizableAttributeDefinitionProxy.class);
 
     private String sourceExternalizableBusinessObjectInterface;
     private String sourceAttributeName;

@@ -25,8 +25,8 @@ import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -36,7 +36,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
  */
 public class StuckDocumentScheduler implements ApplicationListener<ContextRefreshedEvent> {
 
-    private static final Logger LOG = LoggerFactory.getLogger(StuckDocumentScheduler.class);
+    private static final Logger LOG = LogManager.getLogger(StuckDocumentScheduler.class);
 
     protected static final JobKey NOTIFICATION_JOB_KEY = JobKey.jobKey("StuckDocuments", "Notification");
     protected static final JobKey AUTOFIX_COLLECTOR_JOB_KEY = JobKey.jobKey("StuckDocuments", "AutofixCollector");

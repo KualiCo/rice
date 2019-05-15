@@ -15,8 +15,6 @@
  */
 package org.kuali.rice.krad.document;
 
-import org.kuali.rice.krad.uif.view.RequestAuthorizationCache;
-
 /**
  * Determines what actions are applicable to the given document, irrespective of user
  * or other state.  These initial actions are used as inputs for further filtering depending

@@ -37,7 +37,7 @@ import org.kuali.rice.kcb.service.RecipientPreferenceService;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class EmailMessageDeliverer implements MessageDeliverer {
-    private static Logger LOG = Logger.getLogger(EmailMessageDeliverer.class);
+    private static Logger LOG = LogManager.getLogger(EmailMessageDeliverer.class);
 
     private EmailService emailService;
     private RecipientPreferenceService recipientPreferenceService;

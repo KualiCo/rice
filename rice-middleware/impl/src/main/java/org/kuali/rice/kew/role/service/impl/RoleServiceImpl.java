@@ -45,7 +45,7 @@ import java.util.Set;
  */
 public class RoleServiceImpl implements RoleService {
 
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RoleServiceImpl.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(RoleServiceImpl.class);
 
     public void reResolveRole(DocumentType documentType, String roleName) {
     	String infoString = "documentType="+(documentType == null ? null : documentType.getName())+", role="+roleName;

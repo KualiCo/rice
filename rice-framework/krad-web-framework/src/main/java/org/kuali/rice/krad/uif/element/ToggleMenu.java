@@ -15,8 +15,6 @@
  */
 package org.kuali.rice.krad.uif.element;
 
-import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
@@ -26,6 +24,8 @@ import org.kuali.rice.krad.uif.component.ListAware;
 import org.kuali.rice.krad.uif.container.Group;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycleRestriction;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
+
+import java.util.List;
 
 /**
  * Renders a toggle menu (aka sub menu, dropdown menu) of items.

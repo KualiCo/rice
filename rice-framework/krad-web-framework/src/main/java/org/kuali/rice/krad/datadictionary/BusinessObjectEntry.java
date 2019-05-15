@@ -31,7 +31,7 @@ import org.kuali.rice.krad.datadictionary.validator.ValidationTrace;
  */
 @BeanTag(name = "businessObjectEntry")
 public class BusinessObjectEntry extends DataObjectEntry {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(BusinessObjectEntry.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(BusinessObjectEntry.class);
 
     public void setBusinessObjectClass(Class<? extends BusinessObject> businessObjectClass) {
         super.setDataObjectClass(businessObjectClass);

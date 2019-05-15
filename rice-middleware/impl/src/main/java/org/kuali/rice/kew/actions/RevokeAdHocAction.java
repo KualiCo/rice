@@ -37,7 +37,7 @@ import org.kuali.rice.kim.api.identity.principal.PrincipalContract;
  */
 public class RevokeAdHocAction extends ActionTakenEvent {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RevokeAdHocAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(RevokeAdHocAction.class);
 
     private String actionRequestId;
     private AdHocRevoke revoke;

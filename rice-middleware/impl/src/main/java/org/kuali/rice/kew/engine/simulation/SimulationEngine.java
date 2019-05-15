@@ -81,7 +81,7 @@ public class SimulationEngine extends StandardWorkflowEngine implements Simulati
         super(routeNodeService, routeHeaderService, parameterService, config);
     }
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(SimulationEngine.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(SimulationEngine.class);
 
 	private SimulationCriteria criteria;
     private SimulationResults results;

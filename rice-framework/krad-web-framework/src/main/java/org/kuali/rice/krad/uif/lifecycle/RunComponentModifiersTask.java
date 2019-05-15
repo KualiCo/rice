@@ -15,14 +15,14 @@
  */
 package org.kuali.rice.krad.uif.lifecycle;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.modifier.ComponentModifier;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * View lifecycle task to run component modifiers based on the lifecycle phase.

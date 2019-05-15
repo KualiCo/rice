@@ -44,7 +44,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ActionRegistryImpl implements ActionRegistry {
-    private static final Logger LOG = Logger.getLogger(ActionRegistryImpl.class);
+    private static final Logger LOG = LogManager.getLogger(ActionRegistryImpl.class);
 
 	private static Map<String, String> actionMap = new HashMap<String, String>();
 	static {

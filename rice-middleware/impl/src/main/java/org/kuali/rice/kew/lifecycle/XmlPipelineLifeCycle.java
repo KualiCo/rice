@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 
 public class XmlPipelineLifeCycle extends BaseLifecycle {
 
-	protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(XmlPipelineLifeCycle.class);
+	protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(XmlPipelineLifeCycle.class);
 
 	private ScheduledExecutorService scheduledExecutor;
 	private ScheduledFuture future;

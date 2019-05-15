@@ -69,7 +69,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.*;
  */
 public class ActionListServiceImpl implements ActionListService {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ActionListServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(ActionListServiceImpl.class);
     private static final Integer DEFAULT_OUTBOX_ITEM_LIMIT = Integer.valueOf(10000);
 
     protected DataObjectService dataObjectService;

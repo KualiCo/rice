@@ -37,7 +37,7 @@ import java.util.Map;
  */
 public class LookupForm extends UifFormBase {
     private static final long serialVersionUID = -7323484966538685327L;
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(LookupForm.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(LookupForm.class);
 
     @RequestAccessible
     private String dataObjectClassName;

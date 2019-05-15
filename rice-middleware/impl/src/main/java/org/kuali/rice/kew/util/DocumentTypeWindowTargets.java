@@ -32,7 +32,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class DocumentTypeWindowTargets {
 
-    private static final Logger LOG = Logger.getLogger(DocumentTypeWindowTargets.class);
+    private static final Logger LOG = LogManager.getLogger(DocumentTypeWindowTargets.class);
     private static final String DEFAULT_KEY = "*";
 
     private final Map<String, String> documentTargetMappings;

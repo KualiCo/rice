@@ -51,7 +51,7 @@ import java.util.List;
  */
 public class XPathSplitNode implements SplitNode {
 
-    private static final Logger LOG = Logger.getLogger(XPathSplitNode.class);
+    private static final Logger LOG = LogManager.getLogger(XPathSplitNode.class);
 
     private XPath xPath;
     private NodeList xpathDecisions;

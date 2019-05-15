@@ -16,8 +16,8 @@
 package org.kuali.rice.kew.impl.stuck;
 
 import org.kuali.rice.core.api.config.property.RuntimeConfig;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Required;
 
 import java.sql.Timestamp;

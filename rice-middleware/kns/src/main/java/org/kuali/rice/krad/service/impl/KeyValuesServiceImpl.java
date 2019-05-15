@@ -32,7 +32,7 @@ import org.kuali.rice.krad.service.ModuleService;
  */
 @Deprecated
 public class KeyValuesServiceImpl implements KeyValuesService {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KeyValuesServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KeyValuesServiceImpl.class);
 
     /**
      * @see org.kuali.rice.krad.service.KeyValuesService#findAll(java.lang.Class)

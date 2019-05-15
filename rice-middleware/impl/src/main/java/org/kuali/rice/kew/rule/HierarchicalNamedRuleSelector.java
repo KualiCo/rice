@@ -41,7 +41,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class HierarchicalNamedRuleSelector extends NamedRuleSelector {
-    private static final Logger LOG = Logger.getLogger(HierarchicalNamedRuleSelector.class);
+    private static final Logger LOG = LogManager.getLogger(HierarchicalNamedRuleSelector.class);
     @Override
     protected String getName(RouteContext context, DocumentRouteHeaderValue routeHeader, RouteNodeInstance nodeInstance,
             String selectionCriterion, Timestamp effectiveDate) {

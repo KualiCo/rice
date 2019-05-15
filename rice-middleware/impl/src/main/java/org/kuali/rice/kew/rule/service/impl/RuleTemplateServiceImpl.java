@@ -44,7 +44,7 @@ import org.springframework.beans.factory.annotation.Required;
 
 public class RuleTemplateServiceImpl implements RuleTemplateService {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RuleTemplateServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(RuleTemplateServiceImpl.class);
 
     private static final String RULE_TEMPLATE_NAME_REQUIRED = "rule.template.name.required";
 

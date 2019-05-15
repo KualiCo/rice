@@ -15,8 +15,6 @@
  */
 package org.kuali.rice.krad.util;
 
-import org.kuali.rice.krad.util.GlobalVariables;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.concurrent.Callable;

@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kns.web.struts.action;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.struts.config.ModuleConfig;
 import org.apache.struts.upload.CommonsMultipartRequestHandler;
@@ -31,7 +32,7 @@ import java.util.List;
  */
 @Deprecated
 public class KualiMultipartRequestHandler extends CommonsMultipartRequestHandler {
-    private static final Logger LOG = Logger.getLogger(KualiMultipartRequestHandler.class);
+    private static final Logger LOG = LogManager.getLogger(KualiMultipartRequestHandler.class);
 
     private String sizeMax;
     

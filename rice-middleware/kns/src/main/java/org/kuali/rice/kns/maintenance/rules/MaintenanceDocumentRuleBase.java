@@ -83,7 +83,7 @@ import java.util.Set;
  */
 @Deprecated
 public class MaintenanceDocumentRuleBase extends DocumentRuleBase implements MaintenanceDocumentRule, AddCollectionLineRule {
-    protected static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MaintenanceDocumentRuleBase.class);
+    protected static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(MaintenanceDocumentRuleBase.class);
 
     // these two constants are used to correctly prefix errors added to
     // the global errors

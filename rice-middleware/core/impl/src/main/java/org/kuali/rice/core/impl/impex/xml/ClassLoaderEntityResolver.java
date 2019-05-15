@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.core.impl.impex.xml;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.ClassLoaderUtils;
 import org.xml.sax.EntityResolver;
@@ -34,7 +35,7 @@ import java.io.InputStream;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ClassLoaderEntityResolver implements EntityResolver {
-    private static final Logger LOG = Logger.getLogger(ClassLoaderEntityResolver.class);
+    private static final Logger LOG = LogManager.getLogger(ClassLoaderEntityResolver.class);
 
     /**
      * This contains definitions for items in the core "xml" schema, i.e. base, id, lang, and space attributes. 

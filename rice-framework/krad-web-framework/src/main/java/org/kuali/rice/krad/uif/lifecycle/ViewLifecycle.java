@@ -16,8 +16,7 @@
 package org.kuali.rice.krad.uif.lifecycle;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.config.property.Config;
@@ -57,7 +56,7 @@ import java.util.Set;
  */
 public class ViewLifecycle implements Serializable {
 
-    private static Logger LOG = Logger.getLogger(ViewLifecycle.class);
+    private static Logger LOG = LogManager.getLogger(ViewLifecycle.class);
     private static final long serialVersionUID = -4767600614111642241L;
 
     private static final ThreadLocal<ViewLifecycleProcessor> PROCESSOR = new ThreadLocal<ViewLifecycleProcessor>();
@@ -190,7 +189,7 @@ public class ViewLifecycle implements Serializable {
         if (CoreApiServiceLocator.getKualiConfigurationService().getPropertyValueAsBoolean(
                 UifConstants.VALIDATE_VIEWS_ONBUILD)) {
             ValidationController validator = new ValidationController(true, true, true, true, false);
-            Log tempLogger = LogManager.getLogger(ViewLifecycle.class);
+            Logger tempLogger = LogManager.getLogger(ViewLifecycle.class);
             validator.validate(view, tempLogger, false);
         }
 

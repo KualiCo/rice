@@ -20,8 +20,8 @@ import org.kuali.rice.krad.datadictionary.MaintenanceDocumentEntry;
 import org.kuali.rice.krad.document.Document;
 import org.kuali.rice.krad.document.DocumentAuthorizer;
 import org.kuali.rice.krad.document.DocumentPresentationController;
-import org.kuali.rice.krad.maintenance.MaintenanceDocument;
 import org.kuali.rice.krad.maintenance.Maintainable;
+import org.kuali.rice.krad.maintenance.MaintenanceDocument;
 import org.kuali.rice.krad.rules.rule.BusinessRule;
 
 import java.util.Collection;

@@ -19,6 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.bo.ExternalizableBusinessObject;
 import org.kuali.rice.krad.bo.PersistableBusinessObject;
@@ -43,7 +44,7 @@ import org.springframework.util.CollectionUtils;
 @LegacyDataFramework
 public class PersistenceServiceImpl extends PersistenceServiceImplBase implements PersistenceService {
 
-	private static Logger LOG = Logger.getLogger(PersistenceServiceImpl.class);
+	private static Logger LOG = LogManager.getLogger(PersistenceServiceImpl.class);
 
     private KualiModuleService kualiModuleService;
 

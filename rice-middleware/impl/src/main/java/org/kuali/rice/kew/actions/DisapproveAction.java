@@ -49,7 +49,7 @@ import java.util.Set;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class DisapproveAction extends ActionTakenEvent {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DisapproveAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(DisapproveAction.class);
 
     /**
      * @param rh RouteHeader for the document upon which the action is taken.

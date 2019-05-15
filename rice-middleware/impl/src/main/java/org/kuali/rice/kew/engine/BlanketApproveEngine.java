@@ -51,7 +51,7 @@ import java.util.Set;
  */
 public class BlanketApproveEngine extends StandardWorkflowEngine {
 	
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(BlanketApproveEngine.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(BlanketApproveEngine.class);
 
 
     BlanketApproveEngine(RouteNodeService routeNodeService, RouteHeaderService routeHeaderService, 

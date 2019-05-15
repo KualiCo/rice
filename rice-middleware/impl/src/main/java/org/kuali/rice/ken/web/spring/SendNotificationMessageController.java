@@ -38,7 +38,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.equal;
  */
 public class SendNotificationMessageController extends BaseSendNotificationController {
 
-    private static final Logger LOG = Logger.getLogger(SendNotificationMessageController.class);
+    private static final Logger LOG = LogManager.getLogger(SendNotificationMessageController.class);
 
     /**
      * Handles the display of the form for sending a simple notification message.

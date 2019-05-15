@@ -18,6 +18,7 @@ package org.kuali.rice.coreservice.impl.component;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.CompareToBuilder;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.core.api.criteria.QueryResults;
@@ -46,7 +47,7 @@ import java.util.Map;
 @Transactional(readOnly=true)
 public class ComponentServiceImpl implements ComponentService {
 
-    private static final Logger LOG = Logger.getLogger(ComponentServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(ComponentServiceImpl.class);
 
     private ComponentSetDao componentSetDao;
     private DataObjectService dataObjectService;

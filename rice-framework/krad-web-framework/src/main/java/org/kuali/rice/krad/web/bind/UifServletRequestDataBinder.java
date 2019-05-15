@@ -18,7 +18,6 @@ package org.kuali.rice.krad.web.bind;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;
-import org.kuali.rice.core.framework.persistence.jta.Jta;
 import org.kuali.rice.krad.data.DataObjectService;
 import org.kuali.rice.krad.data.DataObjectWrapper;
 import org.kuali.rice.krad.data.KradDataServiceLocator;
@@ -39,7 +38,6 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
-import javax.transaction.UserTransaction;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,7 +53,7 @@ import java.util.Set;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class UifServletRequestDataBinder extends ServletRequestDataBinder {
-    protected static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
+    protected static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(
             UifServletRequestDataBinder.class);
 
     private UifBeanPropertyBindingResult bindingResult;

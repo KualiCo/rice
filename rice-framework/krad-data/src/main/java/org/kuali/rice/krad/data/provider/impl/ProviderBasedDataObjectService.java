@@ -17,6 +17,8 @@ package org.kuali.rice.krad.data.provider.impl;
 
 import java.util.Set;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.core.api.criteria.QueryResults;
 import org.kuali.rice.krad.data.CompoundKey;
@@ -43,8 +45,7 @@ import com.google.common.collect.Sets;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ProviderBasedDataObjectService implements DataObjectService {
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
-			.getLogger(ProviderBasedDataObjectService.class);
+	private static final Logger LOG = LogManager.getLogger(ProviderBasedDataObjectService.class);
 
     /**
      * The provider registry.

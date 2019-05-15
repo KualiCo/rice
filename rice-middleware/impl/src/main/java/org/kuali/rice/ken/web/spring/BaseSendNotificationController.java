@@ -69,7 +69,7 @@ import java.util.Map;
  *
  */
 public class BaseSendNotificationController extends MultiActionController {
-    private static final Logger LOG = Logger.getLogger(BaseSendNotificationController.class);
+    private static final Logger LOG = LogManager.getLogger(BaseSendNotificationController.class);
 
     private static final String USER_RECIPS_PARAM = "userRecipients";
     private static final String WORKGROUP_RECIPS_PARAM = "workgroupRecipients";

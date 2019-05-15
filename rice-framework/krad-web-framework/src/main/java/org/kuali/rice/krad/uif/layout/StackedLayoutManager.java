@@ -15,9 +15,9 @@
  */
 package org.kuali.rice.krad.uif.layout;
 
-import java.util.List;
-
 import org.kuali.rice.krad.uif.container.Group;
+
+import java.util.List;
 
 /**
  * Layout manager interface for stacked collections. 

@@ -88,7 +88,7 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.*;
  */
 public class DocumentTypeXmlParser {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DocumentTypeXmlParser.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(DocumentTypeXmlParser.class);
 
     private static final String NEXT_NODE_EXP = "./@nextNode";
     private static final String PARENT_NEXT_NODE_EXP = "../@nextNode";

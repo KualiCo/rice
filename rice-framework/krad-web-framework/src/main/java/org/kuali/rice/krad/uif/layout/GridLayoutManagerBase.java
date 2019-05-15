@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.uif.layout;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
@@ -27,6 +24,9 @@ import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.container.Container;
 import org.kuali.rice.krad.uif.container.Group;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Layout manager that organizes its components in a table based grid

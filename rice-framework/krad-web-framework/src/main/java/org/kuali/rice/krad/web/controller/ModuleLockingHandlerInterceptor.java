@@ -15,13 +15,8 @@
  */
 package org.kuali.rice.krad.web.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kim.api.KimConstants;
 import org.kuali.rice.kim.api.services.KimApiServiceLocator;
@@ -33,6 +28,11 @@ import org.kuali.rice.krad.util.KRADConstants;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Interceptor which checks whether the module the request was made for is locked and if so forwards the
  * request to the module locked controller
@@ -40,7 +40,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ModuleLockingHandlerInterceptor implements HandlerInterceptor {
-    private static final Logger LOG = Logger.getLogger(ModuleLockingHandlerInterceptor.class);
+    private static final Logger LOG = LogManager.getLogger(ModuleLockingHandlerInterceptor.class);
 
     private KualiModuleService kualiModuleService;
     private String moduleLockedMapping;

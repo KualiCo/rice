@@ -109,6 +109,7 @@
     <junit.version>5.4.0</junit.version>
     <kuali-mvn.version>1.0.2</kuali-mvn.version>
     <kuali-util.version>4.4.16</kuali-util.version>
+    <jotm.version>2.1.10-kuali-1</jotm.version>
     <log4j.version>2.11.2</log4j.version>
     <mail.version>1.6.2</mail.version>
     <metrics.version>3.2.1</metrics.version>
@@ -120,6 +121,7 @@
     <servlet-api.version>3.0.1</servlet-api.version>
     <spring-modules-ojb.version>0.8a</spring-modules-ojb.version>
     <spring.version>4.3.22.RELEASE</spring.version>
+    <spring.cloud.version>1.1.3.RELEASE</spring.cloud.version>
     <spring.security.version>4.2.7.RELEASE</spring.security.version>
     <struts.version>1.3.11-kuali-1</struts.version>
     <validation.version>2.0.1.Final</validation.version>
@@ -128,7 +130,7 @@
     <wss4j.version>2.2.3</wss4j.version>
     <xmlsec.version>2.1.2</xmlsec.version>
     <xmlunit.version>2.6.2</xmlunit.version>
-    <xapool.version>1.5.0-patch6</xapool.version>
+    <xapool.version>1.5.0-patch7</xapool.version>
     <xstream.version>1.4.11.1</xstream.version>
     <yuicompressor.version>2.4.8</yuicompressor.version>
 
@@ -1158,7 +1160,6 @@
   </build>
 
   <modules>
-    <module>db</module>
     <module>rice-middleware</module>
     <module>rice-framework</module>
   </modules>
@@ -1497,6 +1498,45 @@
         <groupId>joda-time</groupId>
         <artifactId>joda-time-jsptags</artifactId>
         <version>${joda-time-jsptags.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kuali.jotm</groupId>
+        <artifactId>jotm-core</artifactId>
+        <version>${jotm.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.ow2.spec.ee</groupId>
+            <artifactId>ow2-jta-1.1-spec</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>avalon-framework</groupId>
+            <artifactId>avalon-framework</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.objectweb.howl</groupId>
+            <artifactId>howl</artifactId>
+          </exclusion>
+          <exclusion>
+            <artifactId>commons-collections</artifactId>
+            <groupId>commons-collections</groupId>
+          </exclusion>
+          <exclusion>
+            <artifactId>log4j</artifactId>
+            <groupId>log4j</groupId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
@@ -1903,6 +1943,8 @@
         <groupId>org.codehaus.groovy</groupId>
         <artifactId>groovy-all</artifactId>
         <version>${groovy.version}</version>
+        <scope>test</scope>
+        <type>pom</type>
         <exclusions>
           <exclusion>
             <groupId>org.codehaus.groovy</groupId>
@@ -1921,8 +1963,13 @@
             <artifactId>junit-platform-engine</artifactId>
           </exclusion>
         </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy</artifactId>
+        <version>2.5.6</version>
         <scope>test</scope>
-        <type>pom</type>
       </dependency>
 
       <dependency>
@@ -2037,34 +2084,49 @@
         <version>${jdom.version}</version>
       </dependency>
 
+      <!--<dependency>-->
+        <!--<groupId>org.kuali.common</groupId>-->
+        <!--<artifactId>kuali-mvn</artifactId>-->
+        <!--<version>${kuali-mvn.version}</version>-->
+        <!--<exclusions>-->
+          <!--<exclusion>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>slf4j-api</artifactId>-->
+          <!--</exclusion>-->
+          <!--<exclusion>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>jcl-over-slf4j</artifactId>-->
+          <!--</exclusion>-->
+          <!--<exclusion>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>slf4j-log4j12</artifactId>-->
+          <!--</exclusion>-->
+          <!--<exclusion>-->
+            <!--<groupId>log4j</groupId>-->
+            <!--<artifactId>log4j</artifactId>-->
+          <!--</exclusion>-->
+        <!--</exclusions>-->
+      <!--</dependency>-->
       <dependency>
-        <groupId>org.kuali.common</groupId>
-        <artifactId>kuali-mvn</artifactId>
-        <version>${kuali-mvn.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-          </exclusion>
-        </exclusions>
+        <groupId>javax.resource</groupId>
+        <artifactId>connector-api</artifactId>
+        <version>1.5</version>
+        <scope>runtime</scope>
       </dependency>
-
       <dependency>
-        <groupId>xapool</groupId>
+        <groupId>co.kuali</groupId>
         <artifactId>xapool</artifactId>
         <version>${xapool.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc7</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
@@ -2162,6 +2224,14 @@
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
         <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-aws</artifactId>
+        <version>${spring.cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
 
       <dependency>

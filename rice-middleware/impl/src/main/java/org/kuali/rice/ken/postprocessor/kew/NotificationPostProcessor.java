@@ -51,7 +51,7 @@ import java.util.Properties;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class NotificationPostProcessor implements PostProcessor {
-    private static final Logger LOG = Logger.getLogger(NotificationPostProcessor.class);
+    private static final Logger LOG = LogManager.getLogger(NotificationPostProcessor.class);
 
     NotificationService notificationService;
     NotificationMessageDeliveryService msgDeliverySvc;

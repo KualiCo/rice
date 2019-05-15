@@ -50,7 +50,7 @@ import java.util.HashMap;
 @Transactional
 @Deprecated
 public class SessionDocumentServiceImpl implements SessionDocumentService {
-    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(SessionDocumentServiceImpl.class);
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(SessionDocumentServiceImpl.class);
 
     protected static final String IP_ADDRESS = "ipAddress";
     protected static final String PRINCIPAL_ID = "principalId";

@@ -17,6 +17,7 @@ package org.kuali.rice.ksb.security.soap;
 
 import org.apache.cxf.binding.soap.SoapMessage;
 import org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.wss4j.common.crypto.Crypto;
 import org.apache.wss4j.common.crypto.Merlin;
@@ -46,7 +47,7 @@ import java.util.Properties;
 //TODO: Replace this class with cxf wss4j in interceptor
 public class CXFWSS4JInInterceptor extends WSS4JInInterceptor{
 
-	private static final Logger LOG = Logger.getLogger(CXFWSS4JInInterceptor.class);
+	private static final Logger LOG = LogManager.getLogger(CXFWSS4JInInterceptor.class);
 
 	private final boolean busSecurity;
 	

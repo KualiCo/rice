@@ -49,7 +49,7 @@ import java.util.Map;
 @Deprecated
 public class BackdoorAction extends KualiAction {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(BackdoorAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(BackdoorAction.class);
     private List<Permission> perms;
 
     @Override

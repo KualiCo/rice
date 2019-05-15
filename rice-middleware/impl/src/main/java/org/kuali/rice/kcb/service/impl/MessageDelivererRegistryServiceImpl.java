@@ -38,7 +38,7 @@ import org.kuali.rice.kcb.service.MessageDelivererRegistryService;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class MessageDelivererRegistryServiceImpl implements MessageDelivererRegistryService {
-    private static Logger LOG = Logger.getLogger(MessageDelivererRegistryServiceImpl.class);
+    private static Logger LOG = LogManager.getLogger(MessageDelivererRegistryServiceImpl.class);
 
     // holds information about the registered deliverer types
     private HashMap<String, Class<? extends MessageDeliverer>> messageDelivererTypes;

@@ -15,6 +15,8 @@
  */
 package org.kuali.rice.krad.web.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.method.HandlerMethod;
@@ -40,6 +42,8 @@ import java.util.Set;
  */
 public class UifRequestMappingHandlerMapping extends RequestMappingHandlerMapping {
 
+    private static final Logger LOG = LogManager.getLogger(UifRequestMappingHandlerMapping.class);
+
     private final Map<RequestMappingInfo, HandlerMethod> handlerMethods =
             new LinkedHashMap<RequestMappingInfo, HandlerMethod>();
 
@@ -64,8 +68,8 @@ public class UifRequestMappingHandlerMapping extends RequestMappingHandlerMappin
         HandlerMethod newHandlerMethod = super.createHandlerMethod(handler, method);
 
         this.handlerMethods.put(mapping, newHandlerMethod);
-        if (logger.isInfoEnabled()) {
-            logger.info("Mapped \"" + mapping + "\" onto " + newHandlerMethod);
+        if (LOG.isInfoEnabled()) {
+            LOG.info("Mapped \"" + mapping + "\" onto " + newHandlerMethod);
         }
 
         if (!this.handlerMethods.containsKey(mapping)) {
@@ -99,8 +103,8 @@ public class UifRequestMappingHandlerMapping extends RequestMappingHandlerMappin
             Comparator<Match> comparator = new MatchComparator(super.getMappingComparator(request));
             Collections.sort(matches, comparator);
 
-            if (logger.isTraceEnabled()) {
-                logger.trace("Found " + matches.size() + " matching mapping(s) for [" + lookupPath + "] : " + matches);
+            if (LOG.isTraceEnabled()) {
+                LOG.trace("Found " + matches.size() + " matching mapping(s) for [" + lookupPath + "] : " + matches);
             }
 
             Match bestMatch = matches.get(0);

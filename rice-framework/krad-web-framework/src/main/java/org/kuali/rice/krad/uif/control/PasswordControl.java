@@ -18,7 +18,6 @@ package org.kuali.rice.krad.uif.control;
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
-import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.field.InputField;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 

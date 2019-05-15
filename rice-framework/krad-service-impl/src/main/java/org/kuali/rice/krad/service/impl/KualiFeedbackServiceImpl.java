@@ -38,7 +38,7 @@ import org.kuali.rice.krad.util.KRADConstants;
  */
 public class KualiFeedbackServiceImpl implements KualiFeedbackService {
 	
-	private static final Logger LOG = Logger.getLogger(KualiFeedbackServiceImpl.class);
+	private static final Logger LOG = LogManager.getLogger(KualiFeedbackServiceImpl.class);
 	
 	private static final String FEEDBACK_EMAIL_SUBJECT_PARAM = "feedback.email.subject";
 	private static final String FEEDBACK_EMAIL_BODY_PARAM = "feedback.email.body";

@@ -15,21 +15,9 @@
  */
 package org.kuali.rice.krad.document;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PostLoad;
-import javax.persistence.PostRemove;
-import javax.persistence.PrePersist;
-import javax.persistence.Transient;
-
 import com.google.common.collect.Lists;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.mo.common.GloballyUnique;
 import org.kuali.rice.kew.api.KewApiConstants;
@@ -75,13 +63,25 @@ import org.kuali.rice.krad.workflow.KualiDocumentXmlMaterializer;
 import org.kuali.rice.krad.workflow.KualiTransactionalDocumentInformation;
 import org.springframework.util.CollectionUtils;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PostLoad;
+import javax.persistence.PostRemove;
+import javax.persistence.PrePersist;
+import javax.persistence.Transient;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @see Document
  */
 @MappedSuperclass
 public abstract class DocumentBase extends PersistableBusinessObjectBaseAdapter implements Document {
     private static final long serialVersionUID = 8530945307802647664L;
-    private static final Logger LOG = Logger.getLogger(DocumentBase.class);
+    private static final Logger LOG = LogManager.getLogger(DocumentBase.class);
 
     @Id
     @Column(name = "DOC_HDR_ID",length=14)

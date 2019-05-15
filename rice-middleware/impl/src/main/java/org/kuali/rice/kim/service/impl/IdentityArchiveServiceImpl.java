@@ -54,7 +54,7 @@ import org.springframework.transaction.support.TransactionTemplate;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class IdentityArchiveServiceImpl implements IdentityArchiveService, InitializingBean, DisposableBean {
-	private static final Logger LOG = Logger.getLogger( IdentityArchiveServiceImpl.class );
+	private static final Logger LOG = LogManager.getLogger( IdentityArchiveServiceImpl.class );
 
 	protected DataObjectService dataObjectService;
 	protected ConfigurationService kualiConfigurationService;

@@ -42,7 +42,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class AttachmentServiceImpl implements AttachmentService {
 	private static final int MAX_DIR_LEVELS = 6;
-    private static final Logger LOG = Logger.getLogger(AttachmentServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(AttachmentServiceImpl.class);
 
     protected ConfigurationService kualiConfigurationService;
     protected DataObjectService dataObjectService;

@@ -37,7 +37,7 @@ import org.xml.sax.InputSource;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class LogNode implements SimpleNode {
-    private static final Logger LOG = Logger.getLogger(LogNode.class);
+    private static final Logger LOG = LogManager.getLogger(LogNode.class);
 
     public SimpleResult process(RouteContext context, RouteHelper helper) throws Exception {
         LOG.error("processing");
@@ -64,7 +64,7 @@ public class LogNode implements SimpleNode {
         if (name == null) {
             l = LOG;
         } else {
-            l = Logger.getLogger(name);
+            l = LogManager.getLogger(name);
         }
         l.log(Level.toLevel(level), retrievedVal);
         return new SimpleResult(true);

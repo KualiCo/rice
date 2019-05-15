@@ -23,7 +23,7 @@ import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.cache.ObjectCachePerBrokerImpl;
 
 public class KualiObjectCachePerBrokerImpl extends ObjectCachePerBrokerImpl {
-    private static final Logger LOG = Logger.getLogger(KualiObjectCachePerBrokerImpl.class);
+    private static final Logger LOG = LogManager.getLogger(KualiObjectCachePerBrokerImpl.class);
 
 
     private final String brokerId;

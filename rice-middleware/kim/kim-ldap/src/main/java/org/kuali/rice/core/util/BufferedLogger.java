@@ -60,13 +60,13 @@ public class BufferedLogger {
      * 
      * @return Logger for the calling class
      */
-    private static final Logger getLogger() {
+    private static final LogManager.getLogger() {
         try {
-            return Logger.getLogger(Class.forName(new Throwable().getStackTrace()[2].getClassName()));
+            return LogManager.getLogger(Class.forName(new Throwable().getStackTrace()[2].getClassName()));
         }
         catch (Exception e) {
             // This will never happen unless Java is broken
-            return Logger.getLogger(BufferedLogger.class);
+            return LogManager.getLogger(BufferedLogger.class);
         }
     }
 
@@ -79,11 +79,11 @@ public class BufferedLogger {
      */
     public static final Logger logger() {
         try {
-            return Logger.getLogger(Class.forName(new Throwable().getStackTrace()[1].getClassName()));
+            return LogManager.getLogger(Class.forName(new Throwable().getStackTrace()[1].getClassName()));
         }
         catch (Exception e) {
             // This will never happen unless Java is broken
-            return Logger.getLogger(BufferedLogger.class);
+            return LogManager.getLogger(BufferedLogger.class);
         }
     }
 

@@ -15,13 +15,7 @@
  */
 package org.kuali.rice.krad.uif.lifecycle;
 
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
-
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.kuali.rice.krad.uif.component.Component;
@@ -33,13 +27,20 @@ import org.kuali.rice.krad.uif.view.ExpressionEvaluator;
 import org.kuali.rice.krad.uif.view.ExpressionEvaluatorFactory;
 import org.springframework.util.StringUtils;
 
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * Single-threaded view lifecycle processor implementation.
  * 
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class SynchronousViewLifecycleProcessor extends ViewLifecycleProcessorBase {
-    private static final Logger LOG = Logger.getLogger(SynchronousViewLifecycleProcessor.class);
+    private static final Logger LOG = LogManager.getLogger(SynchronousViewLifecycleProcessor.class);
 
     // pending lifecycle phases.
     private final Deque<ViewLifecyclePhase> pendingPhases = new LinkedList<ViewLifecyclePhase>();

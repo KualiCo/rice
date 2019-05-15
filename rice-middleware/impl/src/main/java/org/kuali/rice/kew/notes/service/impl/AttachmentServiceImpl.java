@@ -33,7 +33,7 @@ import org.springframework.core.io.UrlResource;
  */
 public class AttachmentServiceImpl implements AttachmentService {
 	
-	protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(AttachmentServiceImpl.class);
+	protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(AttachmentServiceImpl.class);
 	
 	private static final String ATTACHMENT_PREPEND = "wf_att_";
 	

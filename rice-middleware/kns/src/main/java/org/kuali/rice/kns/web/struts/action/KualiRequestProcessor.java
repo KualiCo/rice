@@ -17,8 +17,9 @@ package org.kuali.rice.kns.web.struts.action;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.log4j.MDC;
+import org.apache.logging.log4j.ThreadContext;
 import org.apache.struts.Globals;
 import org.apache.struts.action.*;
 import org.apache.struts.config.FormBeanConfig;
@@ -66,7 +67,7 @@ public class KualiRequestProcessor extends RequestProcessor {
 	private static final String MDC_DOC_ID = "docId";
 	private static final String PREVIOUS_REQUEST_EDITABLE_PROPERTIES_GUID_PARAMETER_NAME = "actionEditablePropertiesGuid";
 
-	private static Logger LOG = Logger.getLogger(KualiRequestProcessor.class);
+	private static Logger LOG = LogManager.getLogger(KualiRequestProcessor.class);
 
 	private SessionDocumentService sessionDocumentService;
 	private PlatformTransactionManager transactionManager;
@@ -99,7 +100,7 @@ public class KualiRequestProcessor extends RequestProcessor {
                 if (form != null && form instanceof KualiDocumentFormBase) {
                     String docId = ((KualiDocumentFormBase) form).getDocId();
                     if (docId != null) {
-                        MDC.put(MDC_DOC_ID, docId);
+                        ThreadContext.put(MDC_DOC_ID, docId);
                     }
                 }
 
@@ -134,7 +135,7 @@ public class KualiRequestProcessor extends RequestProcessor {
 
             } finally {
                 // MDC docId key is set above, and also during super.process() in the call to processActionForm
-                MDC.remove(MDC_DOC_ID);
+                ThreadContext.remove(MDC_DOC_ID);
             }
         } finally {
             LegacyUtils.endLegacyContext();
@@ -175,8 +176,8 @@ public class KualiRequestProcessor extends RequestProcessor {
             return;
         }
         
-        if (log.isDebugEnabled()) {
-            log.debug("Processing a '" + request.getMethod() +
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Processing a '" + request.getMethod() +
                       "' for path '" + path + "'");
         }
 
@@ -374,7 +375,7 @@ public class KualiRequestProcessor extends RequestProcessor {
 	protected ActionForm processActionForm(HttpServletRequest request, HttpServletResponse response, ActionMapping mapping) {
 		
 		String documentNumber = getDocumentNumber(request);
-		if (documentNumber != null) { MDC.put(MDC_DOC_ID, documentNumber); }
+		if (documentNumber != null) { ThreadContext.put(MDC_DOC_ID, documentNumber); }
 		
 		UserSession userSession = (UserSession) request.getSession().getAttribute(KRADConstants.USER_SESSION_KEY);
 
@@ -766,7 +767,7 @@ public class KualiRequestProcessor extends RequestProcessor {
         String name = mapping.getName();
         FormBeanConfig config = moduleConfig.findFormBeanConfig(name);
         if (config == null) {
-            log.warn("No FormBeanConfig found under '" + name + "'");
+            LOG.warn("No FormBeanConfig found under '" + name + "'");
             return (null);
         }
         ActionForm instance = RequestUtils.createActionForm(config, servlet);

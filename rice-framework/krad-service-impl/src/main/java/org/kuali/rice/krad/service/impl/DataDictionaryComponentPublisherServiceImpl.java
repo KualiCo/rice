@@ -46,7 +46,7 @@ import org.kuali.rice.krad.util.KRADUtils;
  */
 public class DataDictionaryComponentPublisherServiceImpl implements DataDictionaryComponentPublisherService {
 
-    private static final Logger LOG = Logger.getLogger(DataDictionaryComponentPublisherServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(DataDictionaryComponentPublisherServiceImpl.class);
 
     private static final String DEFAULT_COMPONENT_SET_ID_PREFIX = "DD:";
 

@@ -17,6 +17,7 @@ package org.kuali.rice.core.framework.resourceloader;
 
 import org.apache.commons.beanutils.ConstructorUtils;
 import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.reflect.DataDefinition;
 import org.kuali.rice.core.api.reflect.ObjectDefinition;
@@ -40,7 +41,7 @@ import java.util.concurrent.Callable;
  */
 public class ObjectDefinitionResolver {
 
-	private static final Logger LOG = Logger.getLogger(ObjectDefinitionResolver.class);
+	private static final Logger LOG = LogManager.getLogger(ObjectDefinitionResolver.class);
 
 	/**
 	 * Wraps the given object in a proxy which switches the context classloader appropriately.  The classloader

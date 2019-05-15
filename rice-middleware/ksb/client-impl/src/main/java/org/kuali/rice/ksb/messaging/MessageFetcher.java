@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.ksb.messaging.service.MessageQueueService;
@@ -30,7 +31,7 @@ import org.springframework.transaction.support.TransactionCallback;
  */
 public class MessageFetcher implements Runnable {
 
-    private static final Logger LOG = Logger.getLogger(MessageFetcher.class);
+    private static final Logger LOG = LogManager.getLogger(MessageFetcher.class);
 
     private Integer maxMessages;
     private Long routeQueueId;

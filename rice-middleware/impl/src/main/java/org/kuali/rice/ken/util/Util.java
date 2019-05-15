@@ -65,7 +65,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.equal;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public final class Util {
-    private static final Logger LOG = Logger.getLogger(Util.class);
+    private static final Logger LOG = LogManager.getLogger(Util.class);
     
     public static final java.lang.String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
     public static final java.lang.String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";

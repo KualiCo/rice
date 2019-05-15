@@ -15,14 +15,14 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.datadictionary.uif.UifDictionaryBean;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The help element provides the keys to obtain a

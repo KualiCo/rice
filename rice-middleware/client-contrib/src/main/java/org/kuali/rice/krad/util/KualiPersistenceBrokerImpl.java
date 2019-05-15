@@ -24,7 +24,7 @@ import org.apache.ojb.broker.core.PersistenceBrokerFactoryIF;
 import org.apache.ojb.broker.core.PersistenceBrokerImpl;
 
 public class KualiPersistenceBrokerImpl extends PersistenceBrokerImpl {
-    private static final Logger LOG = Logger.getLogger(KualiPersistenceBrokerImpl.class);
+    private static final Logger LOG = LogManager.getLogger(KualiPersistenceBrokerImpl.class);
 
 
     private boolean fresh = true;

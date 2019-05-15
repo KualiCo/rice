@@ -78,7 +78,7 @@ import java.util.regex.Pattern;
  */
 public class LookupableImpl extends ViewHelperServiceImpl implements Lookupable {
     private static final long serialVersionUID = 1885161468871327740L;
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(LookupableImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(LookupableImpl.class);
 
     private Class<?> dataObjectClass;
 

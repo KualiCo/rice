@@ -15,8 +15,6 @@
  */
 package org.kuali.rice.krad.uif.field;
 
-import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
@@ -26,6 +24,8 @@ import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.container.Group;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycleRestriction;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
+
+import java.util.List;
 
 /**
  * Field that contains a nested <code>Group</code>. Can be used to group

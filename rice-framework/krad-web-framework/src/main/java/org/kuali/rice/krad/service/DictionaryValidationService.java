@@ -15,8 +15,6 @@
  */
 package org.kuali.rice.krad.service;
 
-import java.beans.PropertyDescriptor;
-
 import org.kuali.rice.krad.datadictionary.DataDictionaryEntry;
 import org.kuali.rice.krad.datadictionary.ReferenceDefinition;
 import org.kuali.rice.krad.datadictionary.state.StateMapping;
@@ -24,6 +22,8 @@ import org.kuali.rice.krad.datadictionary.validation.AttributeValueReader;
 import org.kuali.rice.krad.datadictionary.validation.result.DictionaryValidationResult;
 import org.kuali.rice.krad.document.Document;
 import org.kuali.rice.krad.document.TransactionalDocument;
+
+import java.beans.PropertyDescriptor;
 
 /**
  * Defines the API for the validating against the data dictionary.

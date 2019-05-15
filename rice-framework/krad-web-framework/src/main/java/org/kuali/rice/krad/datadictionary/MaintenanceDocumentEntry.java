@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
@@ -28,6 +25,9 @@ import org.kuali.rice.krad.maintenance.MaintenanceDocumentAuthorizer;
 import org.kuali.rice.krad.maintenance.MaintenanceDocumentAuthorizerBase;
 import org.kuali.rice.krad.maintenance.MaintenanceDocumentBase;
 import org.kuali.rice.krad.maintenance.MaintenanceDocumentPresentationControllerBase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Data dictionary entry class for <code>MaintenanceDocument</code>

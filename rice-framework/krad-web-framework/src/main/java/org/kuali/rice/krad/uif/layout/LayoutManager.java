@@ -15,14 +15,13 @@
  */
 package org.kuali.rice.krad.uif.layout;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-
 import org.kuali.rice.krad.datadictionary.uif.UifDictionaryBean;
 import org.kuali.rice.krad.uif.component.PropertyReplacer;
 import org.kuali.rice.krad.uif.container.Container;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Manages the rendering of <code>Component</code> instances within a

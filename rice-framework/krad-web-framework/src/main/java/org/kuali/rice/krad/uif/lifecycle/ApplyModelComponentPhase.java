@@ -15,11 +15,11 @@
  */
 package org.kuali.rice.krad.uif.lifecycle;
 
-import java.util.Set;
-
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle.LifecycleEvent;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
+
+import java.util.Set;
 
 /**
  * Lifecycle phase processing task for applying the model to a component.

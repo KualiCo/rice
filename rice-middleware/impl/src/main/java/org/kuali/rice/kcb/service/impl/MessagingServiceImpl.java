@@ -50,7 +50,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class MessagingServiceImpl implements MessagingService {
-    private static final Logger LOG = Logger.getLogger(MessagingServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(MessagingServiceImpl.class);
 
     private MessageService messageService;
     private MessageDeliveryService messageDeliveryService;
@@ -261,7 +261,7 @@ public class MessagingServiceImpl implements MessagingService {
     }
     
     public static class QueueProcessingJobSynchronization extends TransactionSynchronizationAdapter {
-        private static final Logger LOG = Logger.getLogger(QueueProcessingJobSynchronization.class);
+        private static final Logger LOG = LogManager.getLogger(QueueProcessingJobSynchronization.class);
         private final String jobName;
         private final String jobGroup;
         private final MessageProcessingJob.Mode mode;

@@ -23,7 +23,7 @@ import org.springframework.beans.factory.BeanFactory;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class GlobalNotificationServiceLocator {
-    private static final Logger LOG = Logger.getLogger(GlobalNotificationServiceLocator.class);
+    private static final Logger LOG = LogManager.getLogger(GlobalNotificationServiceLocator.class);
 
     /**
      * The NotificationServiceLocator singleton

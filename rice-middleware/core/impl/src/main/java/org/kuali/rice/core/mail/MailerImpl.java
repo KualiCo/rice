@@ -46,7 +46,7 @@ import java.io.IOException;
  */
 public class MailerImpl implements Mailer {
 
-	    protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MailerImpl.class);
+	    protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(MailerImpl.class);
 
 	    private JavaMailSenderImpl mailSender;	  
 	    

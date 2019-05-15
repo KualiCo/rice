@@ -35,7 +35,7 @@ import org.apache.logging.log4j.Logger;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ContentTransformer {
-    private static final Logger LOG = Logger.getLogger(ContentTransformer.class);
+    private static final Logger LOG = LogManager.getLogger(ContentTransformer.class);
 
     private static final class LoggingErrorListener implements ErrorListener {
         private final ErrorListener delegate;

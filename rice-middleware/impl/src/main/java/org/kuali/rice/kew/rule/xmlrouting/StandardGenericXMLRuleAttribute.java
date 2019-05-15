@@ -92,7 +92,7 @@ import java.util.regex.Pattern;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class StandardGenericXMLRuleAttribute implements GenericXMLRuleAttribute, WorkflowAttributeXmlValidator {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(StandardGenericXMLRuleAttribute.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(StandardGenericXMLRuleAttribute.class);
 
     private static final String FIELD_DEF_E = "fieldDef";
 

@@ -62,7 +62,7 @@ import java.util.List;
  */
 public class NoteAction extends KewKualiAction {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(NoteAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(NoteAction.class);
     private DataObjectService dataObjectService;
 
     @Override

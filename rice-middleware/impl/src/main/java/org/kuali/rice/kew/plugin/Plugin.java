@@ -36,7 +36,7 @@ import java.util.concurrent.Callable;
  */
 public class Plugin extends BaseWrappingResourceLoader {
 
-	private static final Logger LOG = Logger.getLogger(Plugin.class);
+	private static final Logger LOG = LogManager.getLogger(Plugin.class);
     private Config config;
     private List<PluginListener> pluginListeners = new ArrayList<PluginListener>();
 

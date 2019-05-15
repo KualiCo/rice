@@ -15,8 +15,6 @@
  */
 package org.kuali.rice.krad.uif.element;
 
-import java.util.ArrayList;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
@@ -26,9 +24,9 @@ import org.kuali.rice.krad.datadictionary.validator.Validator;
 import org.kuali.rice.krad.messages.MessageService;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.kuali.rice.krad.uif.UifConstants;
-import org.kuali.rice.krad.uif.util.ComponentFactory;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
-import org.kuali.rice.krad.uif.widget.LightBox;
+
+import java.util.ArrayList;
 
 /**
  * Content element that renders a link

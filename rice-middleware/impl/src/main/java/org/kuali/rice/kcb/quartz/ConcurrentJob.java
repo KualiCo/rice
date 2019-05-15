@@ -46,7 +46,7 @@ import org.springframework.transaction.support.TransactionTemplate;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public abstract class ConcurrentJob<T> {
-    protected final Logger LOG = Logger.getLogger(getClass());
+    protected final Logger LOG = LogManager.getLogger(getClass());
 
     protected ExecutorService executor = Executors.newSingleThreadExecutor(new KCBThreadFactory());
     protected PlatformTransactionManager txManager;

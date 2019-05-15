@@ -24,7 +24,7 @@ import org.apache.logging.log4j.Logger;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public final class PerformanceLog {
-    private static final Logger LOG = Logger.getLogger("Performance");
+    private static final Logger LOG = LogManager.getLogger("Performance");
 
     /**
      * This class 

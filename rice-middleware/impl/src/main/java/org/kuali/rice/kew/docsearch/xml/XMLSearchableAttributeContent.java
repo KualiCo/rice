@@ -61,7 +61,7 @@ import java.util.Map;
  * Immutable object that encapsulates the XML searchable attribute content
  */
 class XMLSearchableAttributeContent {
-    private static final Logger LOG = Logger.getLogger(XMLSearchableAttributeContent.class);
+    private static final Logger LOG = LogManager.getLogger(XMLSearchableAttributeContent.class);
 
     private ExtensionDefinition def;
     private Element attributeConfig;

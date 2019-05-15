@@ -69,7 +69,7 @@
     </dependency>
 
     <dependency>
-      <groupId>xapool</groupId>
+      <groupId>co.kuali</groupId>
       <artifactId>xapool</artifactId>
     </dependency>
     <dependency>

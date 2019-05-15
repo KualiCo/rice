@@ -33,7 +33,7 @@ import org.kuali.rice.ksb.impl.bus.LocalService
 import org.kuali.rice.ksb.impl.bus.RemoteService
 
 class ServiceRegistryDiffCalculatorImplTest {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ServiceRegistryDiffCalculatorImplTest.class)
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(ServiceRegistryDiffCalculatorImplTest.class)
 	private static final String LOCALHOST_IP = "localhost"
 	private static final String TEST1_NAMESPACE = "TEST1"
 	private static final String TEST1_INSTANCE_ID = "${TEST1_NAMESPACE}-${LOCALHOST_IP}";

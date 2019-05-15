@@ -16,6 +16,7 @@
 package org.kuali.rice.ksb.messaging.serviceconnectors;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.config.property.ConfigContext;
@@ -54,7 +55,7 @@ import java.util.regex.Pattern;
  */
 public class ServiceConnectorFactory {
 
-	private static final Logger LOG = Logger.getLogger(ServiceConnectorFactory.class);
+	private static final Logger LOG = LogManager.getLogger(ServiceConnectorFactory.class);
 	
 	public static ServiceConnector getServiceConnector(
 			final ServiceConfiguration serviceConfiguration) {

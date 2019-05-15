@@ -16,6 +16,7 @@
 package org.kuali.rice.krad.keyvalues;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.ClassLoaderUtils;
 import org.kuali.rice.core.api.util.ConcreteKeyValue;
@@ -39,7 +40,7 @@ import java.util.List;
  */
 public class KimAttributeValuesFinder extends KeyValuesBase {
 
-	private static final Logger LOG = Logger.getLogger( KimAttributeValuesFinder.class );
+	private static final Logger LOG = LogManager.getLogger( KimAttributeValuesFinder.class );
 
 	protected String kimTypeId;
 	protected String kimAttributeName;

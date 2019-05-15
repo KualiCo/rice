@@ -16,6 +16,7 @@
 package org.kuali.rice.krad.uif.field;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kim.api.role.Role;
 import org.kuali.rice.kim.api.services.KimApiServiceLocator;
@@ -39,7 +40,7 @@ import java.util.Properties;
 @BeanTag(name = "roleLinkField", parent = "Uif-RoleLinkField")
 public class RoleLinkField extends LinkField {
     private static final long serialVersionUID = -7175947391547723712L;
-    private static final Logger LOG = Logger.getLogger(RoleLinkField.class);
+    private static final Logger LOG = LogManager.getLogger(RoleLinkField.class);
 
     private String roleId;
     private String roleName;

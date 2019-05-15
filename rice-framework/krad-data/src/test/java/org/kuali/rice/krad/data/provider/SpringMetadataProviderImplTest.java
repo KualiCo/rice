@@ -35,7 +35,7 @@ public class SpringMetadataProviderImplTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		BasicConfigurator.configure();
-		org.apache.logging.log4j.Logger.getLogger(SpringMetadataProviderImpl.class).setLevel(Level.DEBUG);
+		org.apache.logging.log4j.LogManager.getLogger(SpringMetadataProviderImpl.class);
 	}
 
 	@Before

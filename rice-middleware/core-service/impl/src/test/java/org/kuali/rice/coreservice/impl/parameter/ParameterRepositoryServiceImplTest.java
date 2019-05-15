@@ -15,35 +15,28 @@
  */
 package org.kuali.rice.coreservice.impl.parameter;
 
-import org.hamcrest.BaseMatcher;
-import org.hamcrest.Description;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.kuali.rice.core.api.criteria.QueryByCriteria;
-import org.kuali.rice.coreservice.api.component.Component;
 import org.kuali.rice.coreservice.api.parameter.EvaluationOperator;
 import org.kuali.rice.coreservice.api.parameter.Parameter;
 import org.kuali.rice.coreservice.api.parameter.ParameterContract;
 import org.kuali.rice.coreservice.api.parameter.ParameterKey;
 import org.kuali.rice.coreservice.api.parameter.ParameterRepositoryService;
-import org.kuali.rice.coreservice.api.parameter.ParameterType;
 import org.kuali.rice.coreservice.api.parameter.ParameterTypeContract;
-import org.kuali.rice.coreservice.impl.component.DerivedComponentBo;
+import org.kuali.rice.krad.data.CompoundKey;
 import org.kuali.rice.krad.data.DataObjectService;
 import org.kuali.rice.krad.data.PersistenceOption;
+import org.mockito.ArgumentMatcher;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
-import org.mockito.Matchers;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
 import static org.junit.Assert.*;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -69,7 +62,7 @@ public class ParameterRepositoryServiceImplTest {
 
     @Mock private DataObjectService dataObjectService;
     @InjectMocks private ParameterRepositoryServiceImpl parameterRepositoryService
-                                        = new ParameterRepositoryServiceImpl();
+            = new ParameterRepositoryServiceImpl();
 
     private ParameterRepositoryService parameterService = parameterRepositoryService;
 
@@ -80,21 +73,21 @@ public class ParameterRepositoryServiceImplTest {
 
     @Test(expected = IllegalStateException.class)
     public void test_create_parameter_exists() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
         getParameterRepositoryService().createParameter(parameter);
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_create_parameter_does_not_exist() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(null);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(null);
         when(dataObjectService.save(any(ParameterBo.class),any(PersistenceOption.FLUSH.getClass()))).thenReturn(bo);
         getParameterRepositoryService().createParameter(parameter);
-        verify(dataObjectService, times(2)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(2)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
         verify(dataObjectService, times(1)).save(any(ParameterBo.class), any(PersistenceOption.FLUSH.getClass()));
     }
 
@@ -105,24 +98,24 @@ public class ParameterRepositoryServiceImplTest {
 
     @Test
     public void test_update_parameter_exists() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
         when(dataObjectService.save(any(ParameterBo.class))).thenReturn(bo);
         Parameter param = getParameterRepositoryService().updateParameter(parameter);
         assertTrue("Parameter retrieved after update", param != null);
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
         verify(dataObjectService, times(1)).save(any(ParameterBo.class));
 
     }
 
     @Test(expected = IllegalStateException.class)
     public void test_update_parameter_does_not_exist() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(null);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(null);
         getParameterRepositoryService().updateParameter(parameter);
-        verify(dataObjectService, times(2)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(2)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -132,58 +125,58 @@ public class ParameterRepositoryServiceImplTest {
 
     @Test
     public void test_get_parameter_exists() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
         Parameter param = getParameterRepositoryService().getParameter(key);
         assertEquals("Parameters are equal",param,parameter);
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_get_parameter_does_not_exist() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(null);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(null);
         assertNull("Returned null parameter",getParameterRepositoryService().getParameter(key));
-        verify(dataObjectService, times(2)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(2)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_get_parameter_value_as_string_not_null() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
         assertEquals(parameter.getValue(), getParameterRepositoryService().getParameterValueAsString(key));
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_get_parameter_value_as_string_null() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(null);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(null);
         assertNull(getParameterRepositoryService().getParameterValueAsString(key));
-        verify(dataObjectService, times(2)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(2)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_get_parameter_value_as_boolean_null() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(null);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(null);
         assertNull(getParameterRepositoryService().getParameterValueAsBoolean(key));
-        verify(dataObjectService, times(2)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(2)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     private void test_get_parameter_value_as_boolean_not_null(String value, boolean bValue) {
         ParameterBo bo = ParameterBo.from(parameter);
         bo.setValue(value);
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
         assertEquals(bValue, getParameterRepositoryService().getParameterValueAsBoolean(key));
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
@@ -211,48 +204,48 @@ public class ParameterRepositoryServiceImplTest {
     @Test
     public void test_get_parameter_value_as_boolean_not_null_not_boolean() throws Exception{
         bo.setValue("not boolean");
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
         assertNull(getParameterRepositoryService().getParameterValueAsBoolean(key));
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_get_parameter_values_as_string_null() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(null);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(null);
         Collection<String> parameterList = getParameterRepositoryService().getParameterValuesAsString(key);
         assertTrue(parameterList.isEmpty());
         assertImmutableList(parameterList);
-        verify(dataObjectService, times(2)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(2)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_get_parameter_values_as_string_not_null_multiple_values() throws Exception{
         bo.setValue("foo; bar  ; baz ");
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
         Collection<String> paramValueList = getParameterRepositoryService().getParameterValuesAsString(key);
         assertTrue(paramValueList != null && paramValueList.size() == 3 && paramValueList.contains("foo") &&
                 paramValueList.contains("bar") && paramValueList.contains("baz"));
         assertImmutableList(paramValueList);
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_get_parameter_values_as_string_not_null_single_values() throws Exception{
         bo.setValue("a value ");
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
         Collection<String> paramValueList = getParameterRepositoryService().getParameterValuesAsString(key);
         assertTrue(paramValueList != null && paramValueList.size() == 1 &&
-                      paramValueList.contains("a value"));
+                paramValueList.contains("a value"));
         assertImmutableList(paramValueList);
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -272,33 +265,33 @@ public class ParameterRepositoryServiceImplTest {
 
     @Test
     public void test_get_sub_parameter_value_as_string_null() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(null);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(null);
         assertNull(getParameterRepositoryService().getSubParameterValueAsString(key, "foo"));
-        verify(dataObjectService, times(2)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(2)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_get_sub_parameter_value_as_string_single_match() throws Exception{
         //adding whitespace
         bo.setValue("foo= f1; bar=b1; baz=z1");
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
         assertEquals("f1", getParameterRepositoryService().getSubParameterValueAsString(key, "foo"));
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_get_sub_parameter_value_as_string_multiple_match() throws Exception{
         bo.setValue("foo=f1; bar=b1; foo=f2");
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
         //should return first match
         assertEquals("f1", getParameterRepositoryService().getSubParameterValueAsString(key, "foo"));
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -318,21 +311,21 @@ public class ParameterRepositoryServiceImplTest {
 
     @Test
     public void test_get_sub_parameter_values_as_string_null() throws Exception{
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(null);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(null);
         Collection<String> values = getParameterRepositoryService().getSubParameterValuesAsString(key, "foo");
         assertTrue(values.isEmpty());
         assertImmutableList(values);
-        verify(dataObjectService, times(2)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(2)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_get_sub_parameter_values_as_string_single_match() throws Exception {
         //adding whitespace
         bo.setValue("foo= f1, f2 , f3; bar=b1; baz=z1");
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
 
         Collection<String> values = getParameterRepositoryService().getSubParameterValuesAsString(key, "foo");
         assertTrue(values.size() == 3);
@@ -340,16 +333,16 @@ public class ParameterRepositoryServiceImplTest {
         assertTrue(values.contains("f2"));
         assertTrue(values.contains("f3"));
         assertImmutableList(values);
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
     @Test
     public void test_get_sub_parameter_values_as_string_multiple_match() throws Exception{
         //adding whitespace
         bo.setValue("foo= f1, f2 , f3; bar=b1; foo=f4,f5");
-        when(dataObjectService.find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class))).thenReturn(bo);
+        when(dataObjectService.find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class))).thenReturn(bo);
 
         Collection<String> values = getParameterRepositoryService().getSubParameterValuesAsString(key, "foo");
         assertTrue(values.size() == 3);
@@ -357,8 +350,8 @@ public class ParameterRepositoryServiceImplTest {
         assertTrue(values.contains("f2"));
         assertTrue(values.contains("f3"));
         assertImmutableList(values);
-        verify(dataObjectService, times(1)).find(Matchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
-                ParameterBo.class)), any(QueryByCriteria.class));
+        verify(dataObjectService, times(1)).find(ArgumentMatchers.argThat(new ClassOrSubclassMatcher<ParameterBo>(
+                ParameterBo.class)), any(CompoundKey.class));
     }
 
 
@@ -377,7 +370,7 @@ public class ParameterRepositoryServiceImplTest {
         }
     }
 
-    class ClassOrSubclassMatcher<T> extends BaseMatcher<Class<T>> {
+    class ClassOrSubclassMatcher<T> implements ArgumentMatcher<Class<T>> {
 
         private final Class<T> targetClass;
 
@@ -386,26 +379,18 @@ public class ParameterRepositoryServiceImplTest {
         }
 
         @SuppressWarnings("unchecked")
-        public boolean matches(Object obj) {
+        public boolean matches(Class<T> obj) {
             if (obj != null) {
-                if (obj instanceof Class) {
-                    return targetClass.isAssignableFrom((Class<T>) obj);
-                }
+                return targetClass.isAssignableFrom(obj);
+
             }
             return false;
         }
 
-        public void describeTo(Description desc) {
-            desc.appendText("Matches a class or subclass");
+        public String toString() {
+            return "Matches a class or subclass";
         }
     }
-
-
-
-
-
-
-
 
     private static Parameter createParameter() {
         final ParameterTypeContract parameterTypeContract = new ParameterTypeContract() {

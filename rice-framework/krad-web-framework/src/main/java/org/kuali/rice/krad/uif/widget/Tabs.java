@@ -15,17 +15,10 @@
  */
 package org.kuali.rice.krad.uif.widget;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.uif.CssConstants;
 import org.kuali.rice.krad.uif.UifConstants;
-import org.kuali.rice.krad.uif.component.ClientSideState;
-import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.container.TabGroup;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 

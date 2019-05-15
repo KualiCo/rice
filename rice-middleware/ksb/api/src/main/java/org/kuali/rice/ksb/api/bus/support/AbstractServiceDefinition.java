@@ -19,6 +19,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreConstants;
 import org.kuali.rice.core.api.config.ConfigurationException;
@@ -41,7 +42,7 @@ import java.net.URL;
  */
 public abstract class AbstractServiceDefinition implements ServiceDefinition {
 
-	private static final Logger LOG = Logger.getLogger(AbstractServiceDefinition.class);
+	private static final Logger LOG = LogManager.getLogger(AbstractServiceDefinition.class);
 		
 	// used internally to construct the service name
 	private String localServiceName;

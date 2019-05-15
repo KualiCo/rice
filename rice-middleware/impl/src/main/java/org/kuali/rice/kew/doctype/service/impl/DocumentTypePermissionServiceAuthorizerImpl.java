@@ -40,7 +40,7 @@ import java.util.*;
  * </ul>
  */
 public class DocumentTypePermissionServiceAuthorizerImpl extends DocumentTypePermissionServiceImpl {
-    private static final Logger LOG = Logger.getLogger(DocumentTypePermissionServiceAuthorizerImpl.class);
+    private static final Logger LOG = LogManager.getLogger(DocumentTypePermissionServiceAuthorizerImpl.class);
 
     /**
      * Arbitrary placeholder strings for Extension lookup.  We are simply using the Extension loading convention

@@ -30,7 +30,7 @@ import java.util.Map;
  */
 public class ConfigLogger {
 
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ConfigLogger.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(ConfigLogger.class);
 
 	/**
 	 * List of keys to suppress the values for and the associated values to print instead.

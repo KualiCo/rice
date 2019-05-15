@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.krad.web.bind;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.util.RiceKeyConstants;
 import org.kuali.rice.core.api.util.type.KualiDecimal;
@@ -36,7 +37,7 @@ import java.text.ParseException;
  */
 public class UifCurrencyEditor extends PropertyEditorSupport implements Serializable {
     private static final long serialVersionUID = 6692868638156609014L;
-    private static Logger LOG = Logger.getLogger(UifCurrencyEditor.class);
+    private static Logger LOG = LogManager.getLogger(UifCurrencyEditor.class);
 
     /**
      * This overridden method ...

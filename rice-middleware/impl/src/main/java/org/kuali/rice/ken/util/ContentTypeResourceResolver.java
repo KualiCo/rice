@@ -27,7 +27,7 @@ import org.kuali.rice.ken.service.NotificationContentTypeService;
 public class ContentTypeResourceResolver {
     protected static final String CONTENT_TYPE_PREFIX = "resource:notification/ContentType";
 
-    protected final Logger LOG = Logger.getLogger(getClass());
+    protected final Logger LOG = LogManager.getLogger(getClass());
     
     private NotificationContentTypeService notificationContentTypeService;
 

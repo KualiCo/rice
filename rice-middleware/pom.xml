@@ -29,11 +29,9 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>client-contrib</module>
     <module>core</module>
     <module>core-service</module>
     <module>impl</module>
-    <module>ken</module>
     <module>kew</module>
     <module>kim</module>
     <module>kns</module>

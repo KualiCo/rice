@@ -60,11 +60,6 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>rice-ken-api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
       <artifactId>rice-kew-impl</artifactId>
       <version>${project.version}</version>
     </dependency>
@@ -139,15 +134,6 @@
       <artifactId>rice-ksb-api</artifactId>
       <version>${project.version}</version>
     </dependency>
-
-    <!-- Optional dependency on KRMS api, only needed if wanting to execute KRMS engine from workflow -->
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>rice-krms-api</artifactId>
-      <version>${project.version}</version>
-      <optional>true</optional>
-    </dependency>
-
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>rice-krad-data</artifactId>

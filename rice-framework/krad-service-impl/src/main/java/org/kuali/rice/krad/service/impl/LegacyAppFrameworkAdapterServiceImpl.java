@@ -27,7 +27,7 @@ import org.kuali.rice.krad.service.LegacyDataAdapter;
 @Deprecated
 public class LegacyAppFrameworkAdapterServiceImpl implements LegacyAppFrameworkAdapterService{
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(LegacyAppFrameworkAdapterServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(LegacyAppFrameworkAdapterServiceImpl.class);
 
     private LegacyDataAdapter legacyDataAdapter;
 

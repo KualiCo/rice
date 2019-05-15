@@ -26,8 +26,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.kuali.rice.kew.api.KewApiServiceLocator;
 import org.kuali.rice.kew.api.preferences.Preferences;
 import org.kuali.rice.kew.api.preferences.PreferencesService;
@@ -47,7 +47,7 @@ import org.kuali.rice.krad.util.KRADUtils;
  */
 public class UserPreferencesFilter implements Filter {
 	
-	private static final Log LOG = LogManager.getLogger(UserPreferencesFilter.class);
+	private static final Logger LOG = LogManager.getLogger(UserPreferencesFilter.class);
 
 	private FilterConfig filterConfig;
 	private PreferencesService preferencesService;

@@ -31,8 +31,8 @@ import javax.xml.bind.Unmarshaller;
 import org.junit.Assert;
 import org.junit.Test;
 import org.kuali.rice.core.api.config.ConfigurationException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import com.google.common.collect.ImmutableList;
 
@@ -41,7 +41,7 @@ import com.google.common.collect.ImmutableList;
  */
 public class JAXBConfigImplTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(JAXBConfigImplTest.class);
+    private static final Logger logger = LogManager.getLogger(JAXBConfigImplTest.class);
     private static final String SIMPLE = "classpath:org/kuali/rice/core/impl/config/property/simple.xml";
     private static final String OTHER = "classpath:org/kuali/rice/core/impl/config/property/other.xml";
     private static final String BREAKFAST = "classpath:org/kuali/rice/core/impl/config/property/breakfast.xml";

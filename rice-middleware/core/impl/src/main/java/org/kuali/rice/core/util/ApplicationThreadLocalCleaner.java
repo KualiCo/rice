@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.core.util;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.framework.util.ApplicationThreadLocal;
 import org.springframework.beans.BeansException;
@@ -28,7 +29,7 @@ import org.springframework.context.event.ContextClosedEvent;
  * Bean which registers a listener that removes {@link ApplicationThreadLocal}s on context destruction.
  */
 public class ApplicationThreadLocalCleaner implements ApplicationContextAware {
-    private static final Logger LOG = Logger.getLogger(ApplicationThreadLocalCleaner.class);
+    private static final Logger LOG = LogManager.getLogger(ApplicationThreadLocalCleaner.class);
     
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {

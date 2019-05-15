@@ -30,7 +30,7 @@ import java.util.Map;
  * Finds and executes listeners in the config file.
  */
 public class BootstrapListener implements HttpSessionListener {
-    private static final Logger LOG = Logger.getLogger(BootstrapListener.class);  
+    private static final Logger LOG = LogManager.getLogger(BootstrapListener.class);
  
     private static final String LISTENER_PREFIX = "listener.";
     private static final String CLASS_SUFFIX = ".class";

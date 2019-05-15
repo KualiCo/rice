@@ -16,6 +16,8 @@
 package org.kuali.rice.core.framework.persistence.jdbc.sql;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreConstants;
 import org.kuali.rice.core.api.search.SearchOperator;
 
@@ -38,7 +40,7 @@ import java.util.regex.Pattern;
  */
 public final class SQLUtils {
 	
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(SQLUtils.class);
+	private static final Logger LOG = LogManager.getLogger(SQLUtils.class);
 
 	private static final String DATE_REGEX_SMALL_TWO_DIGIT_YEAR = "^\\d{1,2}/\\d{1,2}/\\d{2}$|^\\d{1,2}-\\d{1,2}-\\d{2}$"; // matches M/d/yy or MM/dd/yy or M-d-yy or MM-dd-yy
 	private static final String DATE_REGEX_SMALL_TWO_DIGIT_YEAR_SPLIT = "(\\d{1,2})[/,-](\\d{1,2})[/,-](\\d{2})";

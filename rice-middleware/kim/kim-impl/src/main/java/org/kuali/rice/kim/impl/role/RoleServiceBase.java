@@ -29,6 +29,7 @@ import javax.xml.namespace.QName;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
@@ -71,7 +72,7 @@ import org.kuali.rice.ksb.api.KsbApiServiceLocator;
 import org.kuali.rice.ksb.api.registry.ServiceInfo;
 
 abstract class RoleServiceBase {
-    private static final Logger LOG = Logger.getLogger( RoleServiceBase.class );
+    private static final Logger LOG = LogManager.getLogger( RoleServiceBase.class );
 
     protected DataObjectService dataObjectService;
     protected IdentityService identityService;

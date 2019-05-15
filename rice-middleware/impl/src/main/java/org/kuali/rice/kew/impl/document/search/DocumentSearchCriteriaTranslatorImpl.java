@@ -56,7 +56,7 @@ import java.util.Set;
  */
 public class DocumentSearchCriteriaTranslatorImpl implements DocumentSearchCriteriaTranslator {
 
-    private static final Logger LOG = Logger.getLogger(DocumentSearchCriteriaTranslatorImpl.class);
+    private static final Logger LOG = LogManager.getLogger(DocumentSearchCriteriaTranslatorImpl.class);
 
     private static final String DOCUMENT_STATUSES = "documentStatuses";
     private static final String ROUTE_NODE_LOOKUP_LOGIC = "routeNodeLookupLogic";

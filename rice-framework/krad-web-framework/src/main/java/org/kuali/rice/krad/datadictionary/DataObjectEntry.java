@@ -15,8 +15,6 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
-import java.util.List;
-
 import org.kuali.rice.krad.bo.Exporter;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
@@ -24,6 +22,8 @@ import org.kuali.rice.krad.datadictionary.validation.capability.MustOccurConstra
 import org.kuali.rice.krad.datadictionary.validation.constraint.MustOccurConstraint;
 import org.kuali.rice.krad.datadictionary.validator.ValidationTrace;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
+
+import java.util.List;
 
 /**
  * Generic dictionary entry for an object that does not have to implement BusinessObject. It provides support
@@ -33,7 +33,7 @@ import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
  */
 @BeanTag(name = "dataObjectEntry")
 public class DataObjectEntry extends DataDictionaryEntryBase implements MustOccurConstrainable {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(DataObjectEntry.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(DataObjectEntry.class);
     private static final long serialVersionUID = 1L;
 
     protected String name;

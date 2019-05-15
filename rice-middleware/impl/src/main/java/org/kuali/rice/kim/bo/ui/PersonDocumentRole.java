@@ -56,7 +56,7 @@ import org.springframework.util.StringUtils;
 @Entity
 @Table(name = "KRIM_PND_ROLE_MT")
 public class PersonDocumentRole extends KimDocumentBoActivatableEditableBase {
-    private static final Logger LOG = Logger.getLogger(PersonDocumentRole.class);
+    private static final Logger LOG = LogManager.getLogger(PersonDocumentRole.class);
     private static final long serialVersionUID = 4908044213007222739L;
 
     @Id

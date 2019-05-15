@@ -41,7 +41,7 @@ import org.kuali.rice.krad.util.KRADConstants;
 public class StatsForm extends KualiForm {
 
 	private static final long serialVersionUID = 4587377779133823858L;
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(StatsForm.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(StatsForm.class);
 	private static final String BEGIN_DATE = "begDate";
 	private static final String END_DATE = "endDate";
 

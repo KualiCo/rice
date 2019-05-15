@@ -15,20 +15,19 @@
  */
 package org.kuali.rice.krad.uif.lifecycle;
 
-import java.util.List;
-import java.util.Map;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.container.PageGroup;
 import org.kuali.rice.krad.uif.service.ViewHelperService;
-import org.kuali.rice.krad.uif.util.BooleanMap;
 import org.kuali.rice.krad.uif.util.ProcessLogger;
 import org.kuali.rice.krad.uif.view.View;
 import org.kuali.rice.krad.uif.view.ViewModel;
 import org.kuali.rice.krad.web.form.UifFormBase;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Perform the lifecycle process for the view or a component.
@@ -36,7 +35,7 @@ import org.slf4j.LoggerFactory;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ViewLifecycleBuild implements Runnable {
-    private static final Logger LOG = LoggerFactory.getLogger(ViewLifecycleBuild.class);
+    private static final Logger LOG = LogManager.getLogger(ViewLifecycleBuild.class);
 
     private final Map<String, String> parameters;
     private final Map<String, List<String>> refreshPathMappings;

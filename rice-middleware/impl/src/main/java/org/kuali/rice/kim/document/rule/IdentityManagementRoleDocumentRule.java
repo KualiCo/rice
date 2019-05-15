@@ -89,7 +89,7 @@ import org.kuali.rice.ksb.api.bus.ServiceBus;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class IdentityManagementRoleDocumentRule extends TransactionalDocumentRuleBase implements AddPermissionRule, AddResponsibilityRule, AddMemberRule, AddDelegationRule, AddDelegationMemberRule {
-//	protected static final Logger LOG = Logger.getLogger( IdentityManagementRoleDocumentRule.class );
+//	protected static final Logger LOG = LogManager.getLogger( IdentityManagementRoleDocumentRule.class );
 
     public static final int PRIORITY_NUMBER_MIN_VALUE = 1;
     public static final int PRIORITY_NUMBER_MAX_VALUE = 11;

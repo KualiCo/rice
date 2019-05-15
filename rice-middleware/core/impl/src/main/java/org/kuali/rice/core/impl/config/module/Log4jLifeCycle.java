@@ -16,104 +16,53 @@
 package org.kuali.rice.core.impl.config.module;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.log4j.xml.DOMConfigurator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.LoggerContext;
+import org.apache.logging.log4j.core.config.ConfigurationSource;
+import org.apache.logging.log4j.core.config.builder.api.Component;
+import org.apache.logging.log4j.core.config.properties.PropertiesConfiguration;
+import org.apache.logging.log4j.core.config.xml.XmlConfiguration;
 import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.lifecycle.BaseLifecycle;
-import org.springframework.util.Log4jConfigurer;
 import org.springframework.util.ResourceUtils;
-import org.w3c.dom.Document;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
+
 
 /**
  * Lifecycle implementation that initializes and shuts down Log4J logging
  */
 class Log4jLifeCycle extends BaseLifecycle {
 
-    private static final String LOG4J_FILE_NOT_FOUND = "log4j settings file not found at location: ";
+	private static final String LOG4J_FILE_NOT_FOUND = "log4j settings file not found at location: ";
 
-	/**
-     * Convenience constant representing a minute in milliseconds
-     */
-    private static final int MINUTE = 60 * 1000;
-
-    /**
-     * Location of default/automatic Log4J configuration properties, in Spring ResourceUtils resource/url syntax
-     */
-    private static final String AUTOMATIC_LOGGING_CONFIG_URL = "classpath:org/kuali/rice/core/logging/default-log4j.properties";
-
-    /**
-     * Default settings reload interval to use in the case that the settings are reloadable (i.e. they originate from a file)
-     */
-    private static final int DEFAULT_RELOAD_INTERVAL = 5 * MINUTE; // 5 minutes
-
-    /**
-     * Non-static and non-final so that it can be reset after configuration is read
-     */
-    private Logger log = Logger.getLogger(getClass());
-
-    @Override
+	@Override
 	public void start() throws Exception {
-        // obtain the root workflow config
-		Config config = ConfigContext.getCurrentContextConfig();
 
-        boolean log4jFileExists = checkPropertiesFileExists(config.getProperty(Config.LOG4J_SETTINGS_PATH));
+		final Config config = ConfigContext.getCurrentContextConfig();
 
-        // first check for in-line xml configuration
-		String log4jconfig = config.getProperty(Config.LOG4J_SETTINGS_XML);
-		if (log4jconfig != null) {
-			try {
-				DocumentBuilder b = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-				Document doc = b.parse(new ByteArrayInputStream(log4jconfig.getBytes()));
-				DOMConfigurator.configure(doc.getDocumentElement());
-				// now get the reconfigured log instance
-				log = Logger.getLogger(getClass());
-			} catch (Exception e) {
-				log.error("Error parsing Log4J configuration settings: " + log4jconfig, e);
-			}
-        // next check for in-line properties configuration
-		} else if ((log4jconfig = config.getProperty(Config.LOG4J_SETTINGS_PROPS)) != null) {
-			Properties p = new Properties(config.getProperties());
-			try {
-				p.load(new ByteArrayInputStream(log4jconfig.getBytes()));
-				PropertyConfigurator.configure(p);
-				log = Logger.getLogger(getClass());
-			} catch (IOException ioe) {
-				log.error("Error loading Log4J configuration settings: " + log4jconfig, ioe);
-			}
-        // check for an external file location specification
+		final String log4jFilePath =  config.getProperty(Config.LOG4J_SETTINGS_PATH);
+		boolean log4jFileExists = checkPropertiesFileExists(log4jFilePath);
+
+		final String log4jConfigXml = config.getProperty(Config.LOG4J_SETTINGS_XML);
+		final String log4jConfigProps = config.getProperty(Config.LOG4J_SETTINGS_PROPS);
+
+		if (StringUtils.isNotBlank(log4jConfigXml)) {
+			LoggerContext context = (LoggerContext) LogManager.getContext(false);
+			context.start(new XmlConfiguration(context, new ConfigurationSource(new ByteArrayInputStream(log4jConfigXml.getBytes()))));
+		} else if (StringUtils.isNotBlank(log4jConfigProps)) {
+			LoggerContext context = (LoggerContext) LogManager.getContext(false);
+			context.start(new PropertiesConfiguration(context, new ConfigurationSource(new ByteArrayInputStream(log4jConfigProps.getBytes())), new Component()));
 		} else if (log4jFileExists) {
-			log.info("Configuring Log4J logging.");
-			log4jconfig = config.getProperty(Config.LOG4J_SETTINGS_PATH);
-
-            int reloadInterval = DEFAULT_RELOAD_INTERVAL;
-
-            String log4jReloadInterval = config.getProperty(Config.LOG4J_SETTINGS_RELOADINTERVAL_MINS);
-			if (log4jReloadInterval != null) {
-				try {
-                    reloadInterval = Integer.parseInt(log4jReloadInterval) * MINUTE;
-				} catch (NumberFormatException nfe) {
-					log.warn("Invalid reload interval: " + log4jReloadInterval + ", using default: " + DEFAULT_RELOAD_INTERVAL + " milliseconds");
-				}
-			}
-            Log4jConfigurer.initLogging(log4jconfig, reloadInterval);
-			log = Logger.getLogger(getClass());
-		} else {
-            Log4jConfigurer.initLogging(AUTOMATIC_LOGGING_CONFIG_URL);
-            log = Logger.getLogger(getClass());
+			LoggerContext context = (LoggerContext) LogManager.getContext(false);
+			context.setConfigLocation(ResourceUtils.getFile(log4jFilePath).toURI());
 		}
 		super.start();
 	}
 
-    /**
+	/**
 	 * Checks if the passed in file exists.
 	 *
 	 * @param log4jSettingsPath the file
@@ -123,7 +72,7 @@ class Log4jLifeCycle extends BaseLifecycle {
 		if (StringUtils.isBlank(log4jSettingsPath)) {
 			return false;
 		}
-		
+
 		boolean exists;
 
 		try {

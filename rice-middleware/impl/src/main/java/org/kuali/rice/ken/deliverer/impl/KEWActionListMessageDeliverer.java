@@ -35,7 +35,7 @@ import org.kuali.rice.kew.api.WorkflowDocument;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class KEWActionListMessageDeliverer implements NotificationMessageDeliverer {
-    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KEWActionListMessageDeliverer.class);
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KEWActionListMessageDeliverer.class);
 
     /**
      * Property set in the attribute content that indicates the action received by workflow was

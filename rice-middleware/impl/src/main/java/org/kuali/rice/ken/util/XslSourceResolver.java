@@ -27,7 +27,7 @@ import org.apache.logging.log4j.Logger;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class XslSourceResolver {
-    protected final Logger LOG = Logger.getLogger(getClass());
+    protected final Logger LOG = LogManager.getLogger(getClass());
 
     /**
      * Constructs a XslSourceResolver.java.

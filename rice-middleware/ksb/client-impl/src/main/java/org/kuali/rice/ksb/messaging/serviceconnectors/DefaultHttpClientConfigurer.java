@@ -35,8 +35,8 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.ksb.util.KSBConstants;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.InitializingBean;
 
 import java.nio.charset.Charset;
@@ -63,7 +63,7 @@ import static org.kuali.rice.ksb.messaging.serviceconnectors.HttpClientParams.*;
  */
 public class DefaultHttpClientConfigurer implements HttpClientConfigurer, InitializingBean {
 
-    static final Logger LOG = LoggerFactory.getLogger(DefaultHttpClientConfigurer.class);
+    static final Logger LOG = LogManager.getLogger(DefaultHttpClientConfigurer.class);
 
     private static final String RETRY_SOCKET_EXCEPTION_PROPERTY = "ksb.thinClient.retrySocketException";
     private static final int DEFAULT_SOCKET_TIMEOUT = 2 * 60 * 1000; // two minutes in milliseconds

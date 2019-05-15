@@ -15,8 +15,8 @@
  */
 package org.kuali.rice.kew.identity.service.impl;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;
 import org.kuali.rice.kew.actionrequest.KimPrincipalRecipient;
 import org.kuali.rice.kew.actionrequest.Recipient;
@@ -41,7 +41,7 @@ import org.kuali.rice.kim.api.services.KimApiServiceLocator;
  */
 public class IdentityHelperServiceImpl implements IdentityHelperService {
 
-	private static final Log logger = LogManager.getLogger(IdentityHelperServiceImpl.class);
+	private static final Logger LOGger = LogManager.getLogger(IdentityHelperServiceImpl.class);
 
 		public String getIdForPrincipalName(String principalName) {
 		if (principalName == null) {

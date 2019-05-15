@@ -32,7 +32,7 @@ import org.kuali.rice.kim.impl.group.GroupInternalService;
  */
 public final class KIMServiceLocatorInternal {
 
-	private static final Logger LOG = Logger.getLogger(KIMServiceLocatorInternal.class);
+	private static final Logger LOG = LogManager.getLogger(KIMServiceLocatorInternal.class);
 
 	public static final String KIM_RUN_MODE_PROPERTY = "kim.mode";
 

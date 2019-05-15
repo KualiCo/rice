@@ -17,8 +17,8 @@ package org.kuali.rice.kim.sesn.timeouthandlers;
 
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 /**
  * This class uses the same timeout for all authentication methods and applications
@@ -29,7 +29,7 @@ import org.apache.commons.logging.LogFactory;
 public class GlobalTimeoutHandler extends AbstractTimeoutHandler {
     private int timeoutPeriod;
     
-    private static final Log logger = LogManager.getLogger(GlobalTimeoutHandler.class);
+    private static final Logger LOGger = LogManager.getLogger(GlobalTimeoutHandler.class);
 
     /**
      * @return the timeoutPeriod

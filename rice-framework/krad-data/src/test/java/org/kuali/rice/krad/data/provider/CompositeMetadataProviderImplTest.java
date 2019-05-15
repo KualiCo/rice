@@ -17,6 +17,7 @@ package org.kuali.rice.krad.data.provider;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Before;
@@ -43,8 +44,8 @@ public class CompositeMetadataProviderImplTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		BasicConfigurator.configure();
-		Logger.getLogger(CompositeMetadataProviderImpl.class).setLevel(Level.DEBUG);
-		Logger.getLogger(SpringMetadataProviderImpl.class).setLevel(Level.DEBUG);
+		LogManager.getLogger(CompositeMetadataProviderImpl.class);
+		LogManager.getLogger(SpringMetadataProviderImpl.class);
 		metadataProvider = new EclipseLinkJpaMetadataProviderImpl();
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("krad-data-unit-test");
 		metadataProvider.setEntityManager(entityManagerFactory.createEntityManager());

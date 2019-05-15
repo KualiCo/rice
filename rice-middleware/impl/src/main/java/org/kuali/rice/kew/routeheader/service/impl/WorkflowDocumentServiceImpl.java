@@ -85,7 +85,7 @@ import java.util.Set;
 
 public class WorkflowDocumentServiceImpl implements WorkflowDocumentService {
 
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(WorkflowDocumentServiceImpl.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(WorkflowDocumentServiceImpl.class);
 
 	private void init(DocumentRouteHeaderValue routeHeader) {
 		KEWServiceLocator.getRouteHeaderService().lockRouteHeader(routeHeader.getDocumentId());

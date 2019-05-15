@@ -16,6 +16,7 @@
 package org.kuali.rice.ksb.messaging.bam.service.impl;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.config.property.ConfigContext;
@@ -41,7 +42,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.like;
 
 public class BAMServiceImpl implements BAMService {
 
-	private static final Logger LOG = Logger.getLogger(BAMServiceImpl.class);
+	private static final Logger LOG = LogManager.getLogger(BAMServiceImpl.class);
 
     private DataObjectService dataObjectService;
 

@@ -16,6 +16,7 @@
 package org.kuali.rice.krad.uif.view;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.config.property.ConfigurationService;
@@ -26,7 +27,6 @@ import org.kuali.rice.krad.datadictionary.uif.UifDictionaryBeanBase;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.util.KRADConstants;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -71,7 +71,7 @@ import java.util.Properties;
         @BeanTag(name = "kbootTheme", parent = "Uif-KbootTheme")})
 public class ViewTheme extends UifDictionaryBeanBase implements Serializable {
     private static final long serialVersionUID = 7063256242857896580L;
-    private static final Logger LOG = Logger.getLogger(ViewTheme.class);
+    private static final Logger LOG = LogManager.getLogger(ViewTheme.class);
 
     private String name;
 

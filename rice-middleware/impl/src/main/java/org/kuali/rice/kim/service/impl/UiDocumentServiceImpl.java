@@ -164,7 +164,7 @@ import java.util.Set;
  */
 @SuppressWarnings("deprecation")
 public class UiDocumentServiceImpl implements UiDocumentService {
-	private static final Logger LOG = Logger.getLogger(UiDocumentServiceImpl.class);
+	private static final Logger LOG = LogManager.getLogger(UiDocumentServiceImpl.class);
 	private static final String SHOW_BLANK_QUALIFIERS = "kim.show.blank.qualifiers";
 	private static final String KIM_IDENTITY_ARCHIVE_SERVICE = "kimIdentityArchiveService";
 

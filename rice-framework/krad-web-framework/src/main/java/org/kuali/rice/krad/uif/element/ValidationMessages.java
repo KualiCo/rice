@@ -15,15 +15,6 @@
  */
 package org.kuali.rice.krad.uif.element;
 
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
@@ -36,7 +27,6 @@ import org.kuali.rice.krad.uif.component.DataBinding;
 import org.kuali.rice.krad.uif.container.Container;
 import org.kuali.rice.krad.uif.container.ContainerBase;
 import org.kuali.rice.krad.uif.field.FieldGroup;
-import org.kuali.rice.krad.uif.field.InputField;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycleUtils;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.util.MessageStructureUtils;
@@ -49,6 +39,15 @@ import org.kuali.rice.krad.util.GlobalVariables;
 import org.kuali.rice.krad.util.KRADConstants;
 import org.kuali.rice.krad.util.KRADUtils;
 import org.kuali.rice.krad.util.MessageMap;
+
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 
 /**
  * Field that displays error, warning, and info messages for the keys that are

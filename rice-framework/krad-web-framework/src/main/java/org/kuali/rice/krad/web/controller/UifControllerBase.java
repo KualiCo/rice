@@ -17,7 +17,6 @@ package org.kuali.rice.krad.web.controller;
 
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.field.AttributeQueryResult;
-import org.kuali.rice.krad.util.GlobalVariables;
 import org.kuali.rice.krad.web.form.UifFormBase;
 import org.kuali.rice.krad.web.service.CollectionControllerService;
 import org.kuali.rice.krad.web.service.ControllerService;
@@ -28,14 +27,12 @@ import org.kuali.rice.krad.web.service.QueryControllerService;
 import org.kuali.rice.krad.web.service.RefreshControllerService;
 import org.kuali.rice.krad.web.service.SaveControllerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 import java.util.Properties;

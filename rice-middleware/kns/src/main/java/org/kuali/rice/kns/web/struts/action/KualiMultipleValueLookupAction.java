@@ -56,7 +56,7 @@ import java.util.Set;
  */
 @Deprecated
 public class KualiMultipleValueLookupAction extends KualiLookupAction implements KualiTableRenderAction {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiMultipleValueLookupAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KualiMultipleValueLookupAction.class);
 
     /**
      * If there is no app param defined for the # rows/page, then this value

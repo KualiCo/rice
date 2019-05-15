@@ -18,7 +18,6 @@ package org.kuali.rice.krad.uif.field;
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
-import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.element.Header;
 import org.kuali.rice.krad.uif.element.Image;
 import org.kuali.rice.krad.uif.element.Message;

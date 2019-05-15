@@ -16,7 +16,6 @@
 package org.kuali.rice.krad.document;
 
 import org.kuali.rice.core.api.mo.common.GloballyUnique;
-import org.kuali.rice.kew.api.KewApiServiceLocator;
 import org.kuali.rice.kew.api.action.ActionRequest;
 import org.kuali.rice.kew.api.action.ActionType;
 import org.kuali.rice.kew.framework.postprocessor.ActionTakenEvent;

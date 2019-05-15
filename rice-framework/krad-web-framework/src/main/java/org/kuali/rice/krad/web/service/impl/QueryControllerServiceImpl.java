@@ -41,7 +41,7 @@ import java.util.Properties;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class QueryControllerServiceImpl implements QueryControllerService {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(
             QueryControllerServiceImpl.class);
 
     private ModelAndViewService modelAndViewService;

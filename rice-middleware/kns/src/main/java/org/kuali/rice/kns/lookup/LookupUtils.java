@@ -61,7 +61,7 @@ import java.util.StringTokenizer;
  */
 @Deprecated
 public class LookupUtils {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(LookupUtils.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(LookupUtils.class);
 
     public LookupUtils() {
         // default constructor for Spring to call to start up initialization process

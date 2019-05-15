@@ -15,10 +15,10 @@
  */
 package org.kuali.rice.krad.datadictionary.validator;
 
-import java.util.ArrayList;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import java.util.ArrayList;
 
 /**
  * Collection of information regarding a single error detected within a dictionary bean
@@ -26,7 +26,7 @@ import org.apache.commons.logging.LogFactory;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ErrorReport {
-    private static final Log LOG = LogManager.getLogger(ErrorReport.class);
+    private static final Logger LOG = LogManager.getLogger(ErrorReport.class);
 
     // Constant identifiers of the type of error
     public static final int ERROR = 1;

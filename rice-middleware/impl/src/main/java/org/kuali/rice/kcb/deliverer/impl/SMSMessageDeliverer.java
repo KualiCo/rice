@@ -32,7 +32,7 @@ import org.kuali.rice.kcb.api.exception.MessageDismissalException;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class SMSMessageDeliverer implements MessageDeliverer {
-    private static Logger LOG = Logger.getLogger(SMSMessageDeliverer.class);
+    private static Logger LOG = LogManager.getLogger(SMSMessageDeliverer.class);
 
     private static final String MOBILE_NUMBER = "sms_mobile_number";
 

@@ -17,6 +17,7 @@ package org.kuali.rice.core.framework.persistence.ojb;
 
 import javax.transaction.TransactionManager;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -31,7 +32,7 @@ import org.springmodules.orm.ojb.support.LocalOjbConfigurer;
  */
 @Deprecated
 public class JtaOjbConfigurer extends LocalOjbConfigurer implements InitializingBean, DisposableBean {
-    private static final Logger LOG = Logger.getLogger(JtaOjbConfigurer.class);
+    private static final Logger LOG = LogManager.getLogger(JtaOjbConfigurer.class);
 
 	private TransactionManager transactionManager;
 

@@ -16,8 +16,8 @@
 package org.kuali.rice.kns.workflow.attribute;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.kuali.rice.core.api.util.KeyValue;
 import org.kuali.rice.core.api.util.xml.XmlJotter;
 import org.kuali.rice.kew.rule.xmlrouting.XPathHelper;
@@ -49,7 +49,7 @@ import java.util.regex.Pattern;
  */
 @Deprecated
 public class KualiXmlAttributeHelper {
-    private static Log LOG = LogManager.getLogger(KualiXmlAttributeHelper.class);
+    private static Logger LOG = LogManager.getLogger(KualiXmlAttributeHelper.class);
     private static XPath xpath = XPathHelper.newXPath();
     private static final String testVal = "\'/[^\']*\'";// get the individual xpath tests.
     private static final String testVal2 = "/[^/]+/" + "*";// have to do this or the compiler gets confused by end comment.

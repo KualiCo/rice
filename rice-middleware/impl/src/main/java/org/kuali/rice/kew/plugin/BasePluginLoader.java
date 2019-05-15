@@ -41,7 +41,7 @@ import java.util.concurrent.Callable;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public abstract class BasePluginLoader implements PluginLoader {
-    private static final Logger LOG = Logger.getLogger(BasePluginLoader.class);
+    private static final Logger LOG = LogManager.getLogger(BasePluginLoader.class);
 
     private static final String META_INF_PATH = "META-INF";
     private static final String PLUGIN_CONFIG_PATH = META_INF_PATH + "/workflow.xml";

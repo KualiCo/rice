@@ -15,7 +15,6 @@
  */
 package org.kuali.rice.krad.web.bind;
 
-import com.sun.accessibility.internal.resources.accessibility;
 import org.apache.commons.lang.ObjectUtils;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.encryption.EncryptionService;
@@ -43,8 +42,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Class is a top level BeanWrapper for a UIF View Model.
@@ -56,7 +53,7 @@ import java.util.regex.Pattern;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class UifViewBeanWrapper extends UifBeanWrapper {
-    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(UifViewBeanWrapper.class);
+    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(UifViewBeanWrapper.class);
 
     // this stores all properties this wrapper has already checked
     // with the view so the service isn't called again

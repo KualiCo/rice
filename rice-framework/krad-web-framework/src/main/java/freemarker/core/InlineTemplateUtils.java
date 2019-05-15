@@ -19,6 +19,7 @@ import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -51,7 +52,7 @@ public final class InlineTemplateUtils {
         }
 
         try {
-            env.invoke(macro, wrappedArgs, (List)null, (List)null, body == null?null: new TemplateElement[] { new TextBlock(body) });
+            env.visit(macro, wrappedArgs, (List)null, (List)null, body == null ? null:  new TextBlock(body));
         } catch (TemplateException var8) {
             throw new RuntimeException("Error invoking macro " + macro.getCanonicalForm(), var8);
         } catch (IOException var9) {

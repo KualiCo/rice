@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.uif.field;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.uif.RemotableAttributeField;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
@@ -30,6 +27,9 @@ import org.kuali.rice.krad.uif.container.Container;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
 import org.kuali.rice.krad.uif.util.ComponentFactory;
 import org.kuali.rice.krad.uif.util.CopyUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A placeholder in the configuration for a <code>Container</code> list of items that will be invoked to
@@ -79,7 +79,7 @@ import org.kuali.rice.krad.uif.util.CopyUtils;
 @BeanTag(name = "remotableFieldsPlaceholder", parent = "Uif-RemotableFieldsPlaceholderConfig")
 public class RemoteFieldsHolder extends ComponentBase implements DataBinding {
     private static final long serialVersionUID = -8493923312021633727L;
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RemoteFieldsHolder.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(RemoteFieldsHolder.class);
 
     private String propertyName;
     private BindingInfo bindingInfo;

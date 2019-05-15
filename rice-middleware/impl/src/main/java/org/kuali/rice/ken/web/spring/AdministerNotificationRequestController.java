@@ -51,7 +51,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class AdministerNotificationRequestController extends MultiActionController {
-    private static final Logger LOG = Logger.getLogger(AdministerNotificationRequestController.class);
+    private static final Logger LOG = LogManager.getLogger(AdministerNotificationRequestController.class);
 
     /**
      * Command object for this controller

@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.krad.workflow.postprocessor;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.api.action.ActionType;
 import org.kuali.rice.kew.framework.postprocessor.ActionTakenEvent;
@@ -46,7 +47,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class KualiPostProcessor implements PostProcessor {
-    private static Logger LOG = Logger.getLogger(KualiPostProcessor.class);
+    private static Logger LOG = LogManager.getLogger(KualiPostProcessor.class);
 
     /**
      * @see org.kuali.rice.kew.framework.postprocessor.PostProcessor#doRouteStatusChange(org.kuali.rice.kew.framework.postprocessor.DocumentRouteStatusChange)

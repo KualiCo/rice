@@ -74,7 +74,7 @@ import java.util.Set;
  */
 @Deprecated
 public abstract class KualiAction extends DispatchAction {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(KualiAction.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(KualiAction.class);
 
     private static KualiModuleService kualiModuleService = null;
     private static BusinessObjectAuthorizationService businessObjectAuthorizationService = null;

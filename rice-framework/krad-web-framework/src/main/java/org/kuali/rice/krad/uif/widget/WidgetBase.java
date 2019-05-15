@@ -16,7 +16,6 @@
 package org.kuali.rice.krad.uif.widget;
 
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
-import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.component.ComponentBase;
 
 /**

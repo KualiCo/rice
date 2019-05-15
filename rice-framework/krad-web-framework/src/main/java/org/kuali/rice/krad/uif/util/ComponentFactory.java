@@ -15,14 +15,9 @@
  */
 package org.kuali.rice.krad.uif.util;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.uif.RemotableAbstractWidget;
 import org.kuali.rice.core.api.uif.RemotableAttributeField;
 import org.kuali.rice.core.api.uif.RemotableCheckbox;
@@ -89,13 +84,18 @@ import org.kuali.rice.krad.uif.widget.Inquiry;
 import org.kuali.rice.krad.uif.widget.LightBox;
 import org.kuali.rice.krad.uif.widget.QuickFinder;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Factory class for creating new UIF components from their base definitions in the dictionary.
  *
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ComponentFactory {
-    private static Log LOG = LogManager.getLogger(ComponentFactory.class);
+    private static Logger LOG = LogManager.getLogger(ComponentFactory.class);
 
     public static final String TEXT_CONTROL = "Uif-TextControl";
     public static final String CHECKBOX_CONTROL = "Uif-CheckboxControl";

@@ -23,13 +23,14 @@ package org.kuali.rice.kns.web.struts.form.pojo;
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.ConvertUtilsBean;
 import org.apache.commons.beanutils.PropertyUtilsBean;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts.action.ActionServlet;
 import org.apache.struts.action.PlugIn;
 import org.apache.struts.config.ModuleConfig;
 import org.kuali.rice.kns.web.struts.config.KualiControllerConfig;
 
 import javax.servlet.ServletException;
-import java.util.logging.Logger;
 
 /**
  * begin Kuali Foundation modification
@@ -43,7 +44,7 @@ import java.util.logging.Logger;
 // Kuali Foundation modification: class originally named SL plugin
 @Deprecated
 public class PojoPlugin implements PlugIn {
-    static final Logger logger = Logger.getLogger(PojoPlugin.class.getName());
+    static final Logger logger = LogManager.getLogger(PojoPlugin.class.getName());
 
     public static void initBeanUtils() {
         // begin Kuali Foundation modification
@@ -52,7 +53,7 @@ public class PojoPlugin implements PlugIn {
         BeanUtilsBean pojoBeanUtils = new BeanUtilsBean(convUtils, propUtils);
 
         BeanUtilsBean.setInstance(pojoBeanUtils);
-        logger.fine("Initialized BeanUtilsBean with " + pojoBeanUtils);
+        logger.trace("Initialized BeanUtilsBean with " + pojoBeanUtils);
         // end Kuali Foundation modification
     }
 

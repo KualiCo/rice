@@ -57,7 +57,7 @@ import org.springframework.util.AutoPopulatingList;
 @Entity
 @Table(name = "KRIM_GRP_DOCUMENT_T")
 public class IdentityManagementGroupDocument extends IdentityManagementTypeAttributeTransactionalDocument {
-    private static final Logger LOG = Logger.getLogger(IdentityManagementGroupDocument.class);
+    private static final Logger LOG = LogManager.getLogger(IdentityManagementGroupDocument.class);
     private static final long serialVersionUID = 1L;
 
     // principal data                       

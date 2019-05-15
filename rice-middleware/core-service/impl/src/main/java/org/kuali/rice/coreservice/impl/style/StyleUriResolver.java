@@ -21,6 +21,7 @@ import javax.xml.transform.Source;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.coreservice.api.style.Style;
 import org.kuali.rice.coreservice.api.style.StyleService;
@@ -33,7 +34,7 @@ import org.kuali.rice.coreservice.api.style.StyleService;
  */
 class StyleUriResolver implements URIResolver {
 
-	private static final Logger LOG = Logger.getLogger(StyleUriResolver.class);
+	private static final Logger LOG = LogManager.getLogger(StyleUriResolver.class);
 	
 	private final StyleService styleService;
 	

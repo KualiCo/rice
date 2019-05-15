@@ -15,15 +15,6 @@
  */
 package org.kuali.rice.krad.rules;
 
-import java.security.GeneralSecurityException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.config.property.ConfigurationService;
@@ -31,7 +22,6 @@ import org.kuali.rice.core.api.datetime.DateTimeService;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;
 import org.kuali.rice.core.api.mo.common.active.MutableInactivatable;
 import org.kuali.rice.core.api.util.RiceKeyConstants;
-import org.kuali.rice.core.web.format.Formatter;
 import org.kuali.rice.kew.api.WorkflowDocument;
 import org.kuali.rice.kim.api.identity.PersonService;
 import org.kuali.rice.kim.api.role.RoleService;
@@ -65,9 +55,15 @@ import org.kuali.rice.krad.util.GlobalVariables;
 import org.kuali.rice.krad.util.KRADConstants;
 import org.kuali.rice.krad.util.KRADPropertyConstants;
 import org.kuali.rice.krad.util.RouteToCompletionUtil;
-import org.kuali.rice.krad.util.UrlFactory;
 import org.kuali.rice.krad.workflow.service.WorkflowDocumentService;
 import org.springframework.util.AutoPopulatingList;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Contains all of the business rules that are common to all maintenance documents.
@@ -75,7 +71,7 @@ import org.springframework.util.AutoPopulatingList;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class MaintenanceDocumentRuleBase extends DocumentRuleBase implements MaintenanceDocumentRule {
-    protected static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MaintenanceDocumentRuleBase.class);
+    protected static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(MaintenanceDocumentRuleBase.class);
 
     // these two constants are used to correctly prefix errors added to
     // the global errors

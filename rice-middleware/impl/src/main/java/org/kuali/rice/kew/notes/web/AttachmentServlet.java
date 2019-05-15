@@ -54,7 +54,7 @@ public class AttachmentServlet extends HttpServlet {
 
 	// TODO This should probably be put into KewApiConstants when contributed back
 	// to Rice 1.0.3
-	private static final Logger LOG = Logger.getLogger(AttachmentServlet.class);
+	private static final Logger LOG = LogManager.getLogger(AttachmentServlet.class);
 			
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

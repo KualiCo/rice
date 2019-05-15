@@ -15,15 +15,15 @@
  */
 package org.kuali.rice.krad.datadictionary.validator;
 
+import org.apache.logging.log4j.Logger;
+import org.kuali.rice.krad.uif.component.Component;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.core.io.ResourceLoader;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
-
-import org.apache.commons.logging.Log;
-import org.kuali.rice.krad.uif.component.Component;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.core.io.ResourceLoader;
 
 /**
  * A combination view controller for the Rice Dictionary Validator that handles both the setup/execution of the
@@ -144,7 +144,7 @@ public class ValidationController {
      * @param failOnWarning - Whether detecting a warning should cause the validation to fail
      * @return Returns true if the beans past validation
      */
-    public boolean validate(String[] xmlFiles, ResourceLoader loader, DefaultListableBeanFactory beans, Log log,
+    public boolean validate(String[] xmlFiles, ResourceLoader loader, DefaultListableBeanFactory beans, Logger log,
             boolean failOnWarning) {
         Validator validator = new Validator();
         //LOG.debug("Validating with Log4j output");
@@ -218,7 +218,7 @@ public class ValidationController {
      * @param failOnWarning - Whether detecting a warning should cause the validation to fail
      * @return Returns true if the beans past validation
      */
-    public boolean validate(String[] xmlFiles, Log log, boolean failOnWarning) {
+    public boolean validate(String[] xmlFiles, Logger log, boolean failOnWarning) {
         Validator validator = new Validator();
         //LOG.debug("Validating with Log4j output");
 
@@ -237,7 +237,7 @@ public class ValidationController {
      * @param failOnWarning - Whether detecting a warning should cause the validation to fail
      * @return Returns true if the beans past validation
      */
-    public boolean validate(Component object, Log log, boolean failOnWarning) {
+    public boolean validate(Component object, Logger log, boolean failOnWarning) {
         Validator validator = new Validator();
         //LOG.debug("Validating with Log4j output");
 
@@ -330,7 +330,7 @@ public class ValidationController {
      * @param validator - The filled validator
      * @param passed - Whether the validation passed or not
      */
-    protected void writeToLog(Log log, Validator validator, boolean passed) {
+    protected void writeToLog(Logger log, Validator validator, boolean passed) {
         log.info("Passed: " + passed);
         if (displayErrors) {
             log.info("Number of Errors: " + validator.getNumberOfErrors());

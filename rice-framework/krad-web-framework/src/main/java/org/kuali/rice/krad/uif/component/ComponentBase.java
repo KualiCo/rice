@@ -25,8 +25,6 @@ import org.kuali.rice.krad.uif.CssConstants;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.UifConstants.ViewStatus;
 import org.kuali.rice.krad.uif.control.ControlBase;
-import org.kuali.rice.krad.uif.field.DataField;
-import org.kuali.rice.krad.uif.field.Field;
 import org.kuali.rice.krad.uif.layout.CssGridSizes;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecyclePhase;
@@ -42,7 +40,6 @@ import org.kuali.rice.krad.uif.view.ViewIndex;
 import org.kuali.rice.krad.uif.widget.Tooltip;
 import org.kuali.rice.krad.util.KRADConstants;
 import org.kuali.rice.krad.util.KRADUtils;
-import org.kuali.rice.krad.web.form.UifFormBase;
 
 import java.util.ArrayList;
 import java.util.Collections;

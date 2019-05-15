@@ -28,7 +28,7 @@ import org.kuali.rice.krad.util.KRADPropertyConstants;
  */
 public class MaintenanceDocumentDaoOjb extends PlatformAwareDaoBaseOjb implements MaintenanceDocumentDao {
 
-//    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MaintenanceDocumentDaoOjb.class);
+//    private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(MaintenanceDocumentDaoOjb.class);
 
     /**
      * @see org.kuali.rice.krad.dao.MaintenanceDocumentDao#getLockingDocumentNumber(java.lang.String, java.lang.String)

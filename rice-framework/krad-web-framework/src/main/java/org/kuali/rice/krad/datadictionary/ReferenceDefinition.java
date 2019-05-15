@@ -16,7 +16,6 @@
 package org.kuali.rice.krad.datadictionary;
 
 import org.apache.commons.lang.StringUtils;
-import org.kuali.rice.krad.bo.BusinessObject;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.datadictionary.validator.ValidationTrace;

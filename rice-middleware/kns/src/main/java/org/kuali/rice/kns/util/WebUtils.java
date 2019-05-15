@@ -17,8 +17,9 @@ package org.kuali.rice.kns.util;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Level;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.apache.struts.Globals;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
@@ -92,7 +93,7 @@ import java.util.regex.Pattern;
  */
 @Deprecated
 public class WebUtils {
-	private static final Logger LOG = Logger.getLogger(WebUtils.class);
+	private static final Logger LOG = LogManager.getLogger(WebUtils.class);
 
 	private static final String IMAGE_COORDINATE_CLICKED_X_EXTENSION = ".x";
 	private static final String IMAGE_COORDINATE_CLICKED_Y_EXTENSION = ".y";
@@ -224,9 +225,9 @@ public class WebUtils {
 	 * @param logger
 	 */
 	public static void logRequestContents(Logger logger, Level level, HttpServletRequest request) {
-		if (logger.isEnabledFor(level)) {
-			logger.log(level, "--------------------");
-			logger.log(level, "HttpRequest attributes:");
+		if (LOG.isEnabled(level)) {
+			LOG.log(level, "--------------------");
+			LOG.log(level, "HttpRequest attributes:");
 			for (Enumeration e = request.getAttributeNames(); e.hasMoreElements();) {
 				String attrName = (String) e.nextElement();
 				Object attrValue = request.getAttribute(attrName);

@@ -16,8 +16,7 @@
 package org.kuali.rice.core.impl.services;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.config.property.ConfigurationService;
@@ -153,7 +152,7 @@ public class ConfigurationServiceImpl implements ConfigurationService {
      * This class is a Property container. It is able to load properties from various property-sources.
      */
     protected static class PropertyHolder {
-        private static Logger LOG = Logger.getLogger(PropertyHolder.class);
+        private static Logger LOG = LogManager.getLogger(PropertyHolder.class);
 
         Properties heldProperties;
 
@@ -313,7 +312,7 @@ public class ConfigurationServiceImpl implements ConfigurationService {
      * Used to obtain properties from a properties file
      */
     protected static class FilePropertySource implements PropertySource {
-        private static Log log = LogManager.getLogger(FilePropertySource.class);
+        private static Logger LOG = LogManager.getLogger(FilePropertySource.class);
 
         private String fileName;
         private boolean allowOverrides;
@@ -366,7 +365,7 @@ public class ConfigurationServiceImpl implements ConfigurationService {
                     try {
                         in.close();
                     } catch (IOException e) {
-                        log.error("caught exception closing InputStream: " + e);
+                        LOG.error("caught exception closing InputStream: " + e);
                     }
 
                 }

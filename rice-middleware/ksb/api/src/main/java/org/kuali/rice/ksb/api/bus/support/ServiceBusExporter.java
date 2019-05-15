@@ -15,6 +15,8 @@
  */
 package org.kuali.rice.ksb.api.bus.support;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.ksb.api.KsbApiServiceLocator;
 import org.kuali.rice.ksb.api.bus.ServiceBus;
 import org.kuali.rice.ksb.api.bus.ServiceDefinition;
@@ -27,7 +29,7 @@ import org.springframework.beans.factory.InitializingBean;
  */
 public class ServiceBusExporter implements InitializingBean {
 	
-	private static org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(ServiceBusExporter.class);
+	private static Logger LOG = LogManager.getLogger(ServiceBusExporter.class);
 	
 	private ServiceDefinition serviceDefinition;
 	private boolean forceSync = false;

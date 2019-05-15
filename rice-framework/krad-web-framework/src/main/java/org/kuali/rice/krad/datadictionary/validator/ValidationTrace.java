@@ -15,8 +15,8 @@
  */
 package org.kuali.rice.krad.datadictionary.validator;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.datadictionary.uif.UifDictionaryBean;
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.component.DataBinding;
@@ -38,7 +38,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ValidationTrace {
-    private static final Log LOG = LogManager.getLogger(ValidationTrace.class);
+    private static final Logger LOG = LogManager.getLogger(ValidationTrace.class);
 
     // Constant identifer for a trace entry where the bean has no identifier itself
     public static final String NO_BEAN_ID = "NOBEANID";

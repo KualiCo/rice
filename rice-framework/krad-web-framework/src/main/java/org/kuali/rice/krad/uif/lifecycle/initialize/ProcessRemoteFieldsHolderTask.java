@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.uif.lifecycle.initialize;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.kuali.rice.krad.uif.component.Component;
 import org.kuali.rice.krad.uif.container.Container;
 import org.kuali.rice.krad.uif.field.InputField;
@@ -25,6 +22,9 @@ import org.kuali.rice.krad.uif.field.RemoteFieldsHolder;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycleTaskBase;
 import org.kuali.rice.krad.uif.view.ViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Process any remote fields holder that might be in the containers items.

@@ -67,7 +67,7 @@ import java.util.List;
  */
 public class StandardWorkflowEngine implements WorkflowEngine {
 
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(StandardWorkflowEngine.class);
+	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(StandardWorkflowEngine.class);
 
 	protected final RouteHelper helper = new RouteHelper();
 	protected RouteNodeService routeNodeService;

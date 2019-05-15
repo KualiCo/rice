@@ -50,7 +50,7 @@ import java.util.Map;
  *
  */
 public class KimTypeQualifierResolver extends QualifierResolverBase {
-	private static final Logger LOG = Logger.getLogger(KimTypeQualifierResolver.class);
+	private static final Logger LOG = LogManager.getLogger(KimTypeQualifierResolver.class);
 	
 	protected static final String GROUP_ROUTE_LEVEL = "GroupType";
 	protected static final String ROLE_ROUTE_LEVEL = "RoleType";

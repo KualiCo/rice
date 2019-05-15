@@ -35,7 +35,7 @@ import java.util.Properties;
 @SuppressWarnings("unchecked")
 public class MailSenderFactoryBean extends AbstractFactoryBean {
 
-	protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MailSenderFactoryBean.class);
+	protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(MailSenderFactoryBean.class);
 	
     private static final String MAIL_PREFIX = "mail";
     private static final String USERNAME_PROPERTY = "mail.smtp.username";

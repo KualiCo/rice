@@ -39,7 +39,7 @@ import java.io.IOException;
  */
 public class KSBStrutsRequestProcessor extends RequestProcessor {
 
-	private static Logger LOG = Logger.getLogger(KSBStrutsRequestProcessor.class);
+	private static Logger LOG = LogManager.getLogger(KSBStrutsRequestProcessor.class);
 
 	private static final String CSRF_PARAMETER = "csrfToken";
 	private static final String CSRF_SESSION_TOKEN = "csrfSessionToken";

@@ -16,8 +16,8 @@
 package org.kuali.rice.coreservice.web.parameter;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.kuali.rice.coreservice.impl.component.ComponentBo;
 import org.kuali.rice.coreservice.impl.component.DerivedComponentBo;
 import org.kuali.rice.coreservice.impl.parameter.ParameterBo;
@@ -45,7 +45,7 @@ public class ParameterLookupableHelperServiceImpl extends KualiLookupableHelperS
 
     private static final long serialVersionUID = 4381873774407301041L;
 
-    private static final Log LOG = LogManager.getLogger(ParameterLookupableHelperServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(ParameterLookupableHelperServiceImpl.class);
     private static final String COMPONENT_NAME = "component.name";
     private static final String COMPONENT_CODE = "componentCode";
 

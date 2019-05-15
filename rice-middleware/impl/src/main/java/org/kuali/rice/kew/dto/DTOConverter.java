@@ -75,7 +75,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class DTOConverter {
-    private static final Logger LOG = Logger.getLogger(DTOConverter.class);
+    private static final Logger LOG = LogManager.getLogger(DTOConverter.class);
 
     public static String buildUpdatedDocumentContent(String existingDocContent,
             DocumentContentUpdate documentContentUpdate, String documentTypeName) {

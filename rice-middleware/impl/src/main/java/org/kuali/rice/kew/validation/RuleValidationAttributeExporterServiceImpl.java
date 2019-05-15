@@ -34,7 +34,7 @@ import org.springframework.beans.factory.annotation.Required;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class RuleValidationAttributeExporterServiceImpl implements RuleValidationAttributeExporterService {
-    private static final Logger LOG = Logger.getLogger(RuleValidationAttributeExporterServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(RuleValidationAttributeExporterServiceImpl.class);
 
     private ExtensionRepositoryService extensionRepositoryService;
 

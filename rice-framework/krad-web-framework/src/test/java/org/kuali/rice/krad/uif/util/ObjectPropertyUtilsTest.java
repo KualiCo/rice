@@ -15,42 +15,14 @@
  */
 package org.kuali.rice.krad.uif.util;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.beans.BeanInfo;
-import java.beans.IntrospectionException;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
-import java.beans.PropertyEditorSupport;
-import java.io.Serializable;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.reflect.Method;
-import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.kuali.rice.core.api.CoreConstants;
-import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
 import org.kuali.rice.core.api.util.type.KualiDecimal;
 import org.kuali.rice.core.api.util.type.KualiPercent;
-import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
-import org.kuali.rice.krad.uif.UifConstants;
-import org.kuali.rice.krad.uif.UifParameters;
 import org.kuali.rice.krad.uif.component.BindingInfo;
 import org.kuali.rice.krad.uif.container.CollectionGroup;
 import org.kuali.rice.krad.uif.container.CollectionGroupBase;
@@ -67,22 +39,34 @@ import org.kuali.rice.krad.uif.service.impl.ViewHelperServiceImpl;
 import org.kuali.rice.krad.uif.view.FormView;
 import org.kuali.rice.krad.uif.view.ViewPresentationControllerBase;
 import org.kuali.rice.krad.util.GlobalVariables;
-import org.kuali.rice.krad.util.KRADConstants;
 import org.kuali.rice.krad.web.bind.RequestAccessible;
-import org.kuali.rice.krad.web.bind.UifConfigurableWebBindingInitializer;
-import org.kuali.rice.krad.web.bind.UifServletRequestDataBinder;
 import org.kuali.rice.krad.web.form.UifFormBase;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.context.request.ServletWebRequest;
-import org.springframework.web.servlet.ModelAndView;
+
+import java.beans.PropertyDescriptor;
+import java.beans.PropertyEditorSupport;
+import java.io.Serializable;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.reflect.Method;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class ObjectPropertyUtilsTest extends ProcessLoggingUnitTest {
 
-    final Logger LOG = LoggerFactory.getLogger(ObjectPropertyUtilsTest.class);
+    final Logger LOG = LogManager.getLogger(ObjectPropertyUtilsTest.class);
 
     @Retention(RetentionPolicy.RUNTIME)
     public @interface TestAnnotation {

@@ -15,6 +15,14 @@
  */
 package org.kuali.rice.krad.uif.util;
 
+import org.kuali.rice.core.api.config.property.Config;
+import org.kuali.rice.core.api.config.property.ConfigContext;
+import org.kuali.rice.krad.datadictionary.Copyable;
+import org.kuali.rice.krad.uif.component.DelayedCopy;
+import org.kuali.rice.krad.uif.component.ReferenceCopy;
+import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
+import org.kuali.rice.krad.util.KRADConstants;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
@@ -33,14 +41,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Queue;
 import java.util.WeakHashMap;
-
-import org.kuali.rice.core.api.config.property.Config;
-import org.kuali.rice.core.api.config.property.ConfigContext;
-import org.kuali.rice.krad.datadictionary.Copyable;
-import org.kuali.rice.krad.uif.component.DelayedCopy;
-import org.kuali.rice.krad.uif.component.ReferenceCopy;
-import org.kuali.rice.krad.uif.lifecycle.ViewLifecycle;
-import org.kuali.rice.krad.util.KRADConstants;
 
 /**
  * Provides a lightweight "hands-free" copy implementation to replace the need for copyProperties()

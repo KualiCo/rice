@@ -37,7 +37,7 @@ import java.util.Map;
  */
 public class SendEventNotificationMessageController extends BaseSendNotificationController {
 
-    private static final Logger LOG = Logger.getLogger(SendEventNotificationMessageController.class);
+    private static final Logger LOG = LogManager.getLogger(SendEventNotificationMessageController.class);
 
     /**
      * Handles the display of the form for sending a event notification message.

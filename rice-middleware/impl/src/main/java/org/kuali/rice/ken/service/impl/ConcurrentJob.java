@@ -54,7 +54,7 @@ public abstract class ConcurrentJob<T> {
     private static final int ORACLE_00060 = 60;
     
 
-    protected final Logger LOG = Logger.getLogger(getClass());
+    protected final Logger LOG = LogManager.getLogger(getClass());
 
     protected ExecutorService executor;
     protected PlatformTransactionManager txManager;

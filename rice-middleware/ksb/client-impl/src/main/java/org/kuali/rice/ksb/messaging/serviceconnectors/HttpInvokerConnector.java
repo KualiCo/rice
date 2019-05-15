@@ -17,6 +17,7 @@ package org.kuali.rice.ksb.messaging.serviceconnectors;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
 import org.kuali.rice.ksb.api.bus.support.JavaServiceConfiguration;
@@ -32,7 +33,7 @@ import java.net.URL;
  */
 public class HttpInvokerConnector extends AbstractServiceConnector {
 
-	private static final Logger LOG = Logger.getLogger(HttpInvokerConnector.class);
+	private static final Logger LOG = LogManager.getLogger(HttpInvokerConnector.class);
 
     private static final String HTTP_CLIENT_CONFIG_BEAN = "rice.ksb.httpClientConfigurer";
 

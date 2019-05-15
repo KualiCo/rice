@@ -23,7 +23,6 @@ import org.kuali.rice.krad.datadictionary.validator.Validator;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.element.Link;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
-import org.kuali.rice.krad.uif.widget.LightBox;
 
 /**
  * Field that encloses a link element.

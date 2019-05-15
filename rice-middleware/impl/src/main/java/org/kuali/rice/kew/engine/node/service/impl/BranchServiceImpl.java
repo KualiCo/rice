@@ -25,7 +25,7 @@ import org.springframework.beans.factory.annotation.Required;
 import java.util.List;
 
 public class BranchServiceImpl implements BranchService {
-    private static final Logger LOG = Logger.getLogger(BranchServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(BranchServiceImpl.class);
 
     private DataObjectService dataObjectService;
     

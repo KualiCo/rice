@@ -43,7 +43,7 @@ import org.kuali.rice.kew.util.Utilities;
  */
 public class RequestActivationNode extends RequestActivationNodeBase {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RequestActivationNode.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(RequestActivationNode.class);
     private static long generatedRequestPriority = 0;
 
     @Override

@@ -30,7 +30,7 @@ import org.w3c.dom.Document;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class DocumentNamespaceContext implements NamespaceContext {
-    private static final Logger LOG = Logger.getLogger(DocumentNamespaceContext.class);
+    private static final Logger LOG = LogManager.getLogger(DocumentNamespaceContext.class);
 
     // the DOM Document
     private final Document doc;

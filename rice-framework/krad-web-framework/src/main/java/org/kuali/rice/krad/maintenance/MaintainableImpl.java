@@ -15,14 +15,6 @@
  */
 package org.kuali.rice.krad.maintenance;
 
-import java.io.Serializable;
-import java.security.GeneralSecurityException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
@@ -64,6 +56,14 @@ import org.kuali.rice.krad.util.KRADConstants;
 import org.kuali.rice.krad.util.KRADUtils;
 import org.kuali.rice.krad.web.form.MaintenanceDocumentForm;
 
+import java.io.Serializable;
+import java.security.GeneralSecurityException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Default implementation of the <code>Maintainable</code> interface.
  *
@@ -71,7 +71,7 @@ import org.kuali.rice.krad.web.form.MaintenanceDocumentForm;
  */
 public class MaintainableImpl extends ViewHelperServiceImpl implements Maintainable {
     private static final long serialVersionUID = 9125271369161634992L;
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(MaintainableImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(MaintainableImpl.class);
 
     private String documentNumber;
     private Object dataObject;

@@ -26,7 +26,7 @@ import org.xml.sax.SAXParseException;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class SimpleErrorHandler implements ErrorHandler {
-    private static final Logger LOG = Logger.getLogger(SimpleErrorHandler.class);
+    private static final Logger LOG = LogManager.getLogger(SimpleErrorHandler.class);
 
     private final Logger log;
 

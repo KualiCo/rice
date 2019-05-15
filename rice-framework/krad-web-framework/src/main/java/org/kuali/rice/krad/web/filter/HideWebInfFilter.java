@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.web.filter;
 
-import java.io.IOException;
-import java.util.regex.Pattern;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -26,6 +23,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.regex.Pattern;
 
 /**
  * A simple filter that 404s any urls to embedded module WEB-INF directories.

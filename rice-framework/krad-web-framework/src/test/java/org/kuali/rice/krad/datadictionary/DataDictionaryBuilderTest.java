@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -30,7 +31,7 @@ import static org.junit.Assert.fail;
  */
 
 public class DataDictionaryBuilderTest {
-    protected final Logger LOG = Logger.getLogger(getClass());
+    protected final Logger LOG = LogManager.getLogger(getClass());
 
     static final String PACKAGE_CORE_BO = "org/kuali/rice/krad/bo/datadictionary/";
 

@@ -15,13 +15,13 @@
  */
 package org.kuali.rice.krad.uif.field;
 
+import org.kuali.rice.krad.datadictionary.Copyable;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.kuali.rice.krad.datadictionary.Copyable;
 
 /**
  * Object that is returned for Ajax attribute queries and exposed

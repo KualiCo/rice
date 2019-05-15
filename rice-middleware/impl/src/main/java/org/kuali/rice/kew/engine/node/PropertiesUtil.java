@@ -32,7 +32,7 @@ import org.kuali.rice.kew.engine.node.var.PropertyScheme;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public final class PropertiesUtil {
-    private static final Logger LOG = Logger.getLogger(PropertiesUtil.class);
+    private static final Logger LOG = LogManager.getLogger(PropertiesUtil.class);
 
 	private PropertiesUtil() {
 		throw new UnsupportedOperationException("do not call");

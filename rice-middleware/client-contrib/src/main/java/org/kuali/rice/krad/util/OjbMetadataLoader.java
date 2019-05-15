@@ -29,7 +29,7 @@ import java.util.List;
 
 public class OjbMetadataLoader implements InitializingBean {
     
-    private static final Logger LOG = Logger.getLogger(OjbMetadataLoader.class);
+    private static final Logger LOG = LogManager.getLogger(OjbMetadataLoader.class);
 
     private List<String> repositoryDescriptors = new ArrayList<String>();
     private List<String> connectionDescriptors = new ArrayList<String>(); 

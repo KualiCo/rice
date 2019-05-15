@@ -55,7 +55,7 @@ import java.util.List;
  */
 public class WorkflowDocumentServiceImpl implements WorkflowDocumentService {
 
-	private static final Logger LOG = Logger.getLogger(WorkflowDocumentServiceImpl.class);
+	private static final Logger LOG = LogManager.getLogger(WorkflowDocumentServiceImpl.class);
 	
 	@Override
 	public Document getDocument(String documentId) {

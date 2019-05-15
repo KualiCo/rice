@@ -17,11 +17,8 @@ package org.kuali.rice.krad.uif.element;
 
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
-import org.kuali.rice.krad.datadictionary.validator.ErrorReport;
-import org.kuali.rice.krad.datadictionary.validator.Validator;
 import org.kuali.rice.krad.datadictionary.validator.ValidationTrace;
-
-import java.util.ArrayList;
+import org.kuali.rice.krad.datadictionary.validator.Validator;
 
 /**
  * Content element that encloses an iframe

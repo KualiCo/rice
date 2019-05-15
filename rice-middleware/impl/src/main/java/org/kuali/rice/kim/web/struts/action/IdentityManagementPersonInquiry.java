@@ -46,7 +46,7 @@ import javax.xml.namespace.QName;
  *
  */
 public class IdentityManagementPersonInquiry extends IdentityManagementBaseInquiryAction {
-    private static final Logger LOG = Logger.getLogger(IdentityManagementPersonInquiry.class);	
+    private static final Logger LOG = LogManager.getLogger(IdentityManagementPersonInquiry.class);
 	/**
 	 * This overridden method ...
 	 * 

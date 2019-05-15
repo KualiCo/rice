@@ -29,7 +29,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class SecurityInterceptor extends HandlerInterceptorAdapter {
-    private static final Logger LOG = Logger.getLogger(SecurityInterceptor.class);
+    private static final Logger LOG = LogManager.getLogger(SecurityInterceptor.class);
 
     /**
      * Request attribute key under which to register the userIsAdmin flag

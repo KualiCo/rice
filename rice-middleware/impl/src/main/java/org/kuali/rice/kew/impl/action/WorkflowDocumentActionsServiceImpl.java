@@ -94,7 +94,7 @@ import java.util.Set;
  */
 public class WorkflowDocumentActionsServiceImpl implements WorkflowDocumentActionsService {
 
-    private static final Logger LOG = Logger.getLogger(WorkflowDocumentActionsServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(WorkflowDocumentActionsServiceImpl.class);
 
     private DocumentTypeService documentTypeService;
 

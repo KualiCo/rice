@@ -15,11 +15,6 @@
  */
 package org.kuali.rice.krad.uif.field;
 
-import java.beans.PropertyEditor;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
@@ -54,6 +49,11 @@ import org.kuali.rice.krad.util.KRADPropertyConstants;
 import org.kuali.rice.krad.util.KRADUtils;
 import org.kuali.rice.krad.valuefinder.ValueFinder;
 import org.kuali.rice.krad.web.form.InquiryForm;
+
+import java.beans.PropertyEditor;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Field that renders data from the application, such as the value of a data object property

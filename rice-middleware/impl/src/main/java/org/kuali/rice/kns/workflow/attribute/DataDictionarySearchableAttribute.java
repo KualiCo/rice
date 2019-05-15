@@ -77,7 +77,7 @@ import java.util.Map;
 public class DataDictionarySearchableAttribute implements SearchableAttribute {
 
     private static final long serialVersionUID = 173059488280366451L;
-	private static final Logger LOG = Logger.getLogger(DataDictionarySearchableAttribute.class);
+	private static final Logger LOG = LogManager.getLogger(DataDictionarySearchableAttribute.class);
     public static final String DATA_TYPE_BOOLEAN = "boolean";
     public static final String KEW_RUN_MODE_PROPERTY = "kew.mode";
 

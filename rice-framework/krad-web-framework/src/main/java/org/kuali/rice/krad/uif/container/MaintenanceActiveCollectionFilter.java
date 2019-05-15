@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.uif.container;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.mo.common.active.Inactivatable;
 import org.kuali.rice.krad.datadictionary.Copyable;
@@ -25,6 +22,9 @@ import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
 import org.kuali.rice.krad.uif.util.ObjectPropertyUtils;
 import org.kuali.rice.krad.uif.view.View;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Collection filter for maintenance groups that removes inactive lines if certain

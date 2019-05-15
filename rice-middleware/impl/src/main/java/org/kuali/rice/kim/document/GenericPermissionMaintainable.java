@@ -41,7 +41,7 @@ import org.springframework.jdbc.support.incrementer.DataFieldMaxValueIncrementer
  */
 public class GenericPermissionMaintainable extends KualiMaintainableImpl {
 
-	private static final Logger LOG = Logger.getLogger( GenericPermissionMaintainable.class );	
+	private static final Logger LOG = LogManager.getLogger( GenericPermissionMaintainable.class );
 	private static final long serialVersionUID = -8102504656976243468L;
 
     protected static final String DETAIL_OBJECTS_ATTRIBUTE_NAME = "attributeDetails.kimAttribute.attributeName";

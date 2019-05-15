@@ -63,7 +63,7 @@ public class GenericAttributeContent {
     }
     public GenericAttributeContent(String elementName) {
         this.elementName = elementName;
-        log = Logger.getLogger(GenericAttributeContent.class + "[" + elementName + "]");
+        log = LogManager.getLogger(GenericAttributeContent.class + "[" + elementName + "]");
         try {
             attr_expr = XPathFactory.newInstance().newXPath().compile(elementName);
         } catch (XPathExpressionException xpee) {

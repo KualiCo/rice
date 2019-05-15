@@ -18,6 +18,7 @@ package org.kuali.rice.krad.util;
 import org.apache.commons.beanutils.NestedNullException;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.ojb.broker.core.proxy.ProxyHelper;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
@@ -65,7 +66,7 @@ import java.util.Map;
  */
 @Deprecated
 public final class ObjectUtils {
-    private static final Logger LOG = Logger.getLogger(ObjectUtils.class);
+    private static final Logger LOG = LogManager.getLogger(ObjectUtils.class);
 
     private ObjectUtils() {
         throw new UnsupportedOperationException("do not call");

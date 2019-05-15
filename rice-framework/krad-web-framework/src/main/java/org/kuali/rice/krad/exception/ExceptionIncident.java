@@ -15,15 +15,16 @@
  */
 package org.kuali.rice.krad.exception;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.kuali.rice.core.api.CoreApiServiceLocator;
+import org.kuali.rice.core.api.exception.KualiException;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.apache.logging.log4j.Logger;
-import org.kuali.rice.core.api.CoreApiServiceLocator;
-import org.kuali.rice.core.api.exception.KualiException;
 
 /**
  * Contains the exception incident information, exception, form and
@@ -33,7 +34,7 @@ import org.kuali.rice.core.api.exception.KualiException;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ExceptionIncident implements KualiExceptionIncident {
-    private static final Logger LOG = Logger.getLogger(ExceptionIncident.class);
+    private static final Logger LOG = LogManager.getLogger(ExceptionIncident.class);
     public static final String GENERIC_SYSTEM_ERROR_MESSAGE = "The system has" +
     		" encountered an error and is unable to complete your request at this time."+
             " Please provide more information regarding this error by completing"+

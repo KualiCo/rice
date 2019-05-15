@@ -18,9 +18,9 @@ package org.kuali.rice.krad.uif.layout;
 import org.kuali.rice.krad.uif.container.CollectionGroup;
 import org.kuali.rice.krad.uif.container.Group;
 import org.kuali.rice.krad.uif.container.collections.LineBuilderContext;
+import org.kuali.rice.krad.uif.element.Pager;
 import org.kuali.rice.krad.uif.field.Field;
 import org.kuali.rice.krad.uif.field.FieldGroup;
-import org.kuali.rice.krad.uif.element.Pager;
 
 /**
  * Layout manager implementations that work with a collection (such as a table layout) should implement

@@ -72,7 +72,7 @@ import java.util.Map;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class NotificationMessageContentServiceImpl implements NotificationMessageContentService {
-    private static final Logger LOG = Logger.getLogger(NotificationMessageContentServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(NotificationMessageContentServiceImpl.class);
 
     /**
      * Prefix that content type schemas should start with

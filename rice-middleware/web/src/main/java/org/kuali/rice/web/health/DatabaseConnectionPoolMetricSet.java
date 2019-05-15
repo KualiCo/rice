@@ -41,7 +41,7 @@ import java.util.Map;
  */
 public class DatabaseConnectionPoolMetricSet implements MetricSet {
 
-    private static final Logger LOG = Logger.getLogger(DatabaseConnectionPoolMetricSet.class);
+    private static final Logger LOG = LogManager.getLogger(DatabaseConnectionPoolMetricSet.class);
 
     public static final String ACTIVE = "pool.active";
     public static final String MIN = "pool.min";

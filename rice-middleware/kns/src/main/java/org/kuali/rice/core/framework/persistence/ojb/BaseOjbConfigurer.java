@@ -16,6 +16,7 @@
 package org.kuali.rice.core.framework.persistence.ojb;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.ojb.broker.metadata.ConnectionRepository;
 import org.apache.ojb.broker.metadata.DescriptorRepository;
@@ -57,7 +58,7 @@ import java.util.List;
 @Deprecated
 public class BaseOjbConfigurer extends BaseLifecycle implements InitializingBean {
 
-    private static final Logger LOG = Logger.getLogger(BaseOjbConfigurer.class);
+    private static final Logger LOG = LogManager.getLogger(BaseOjbConfigurer.class);
 
     public static final String RICE_OJB_PROPERTIES_PARAM = "rice.custom.ojb.properties";
     public static final String OJB_PROPERTIES_PROP = "OJB.properties";

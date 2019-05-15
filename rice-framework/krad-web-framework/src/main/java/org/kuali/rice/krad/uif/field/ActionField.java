@@ -15,9 +15,6 @@
  */
 package org.kuali.rice.krad.uif.field;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.datadictionary.parse.BeanTag;
 import org.kuali.rice.krad.datadictionary.parse.BeanTagAttribute;
@@ -29,6 +26,9 @@ import org.kuali.rice.krad.uif.element.Action;
 import org.kuali.rice.krad.uif.element.Image;
 import org.kuali.rice.krad.uif.lifecycle.ViewLifecycleRestriction;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Field that encloses an @{link org.kuali.rice.krad.uif.element.Action} element

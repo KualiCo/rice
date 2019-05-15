@@ -35,7 +35,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class RuleAttributeServiceImpl implements RuleAttributeService {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(RuleAttributeServiceImpl.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(RuleAttributeServiceImpl.class);
 
     private static final String RULE_ATTRIBUTE_NAME_REQUIRED = "rule.attribute.name.required";
     private static final String RULE_ATTRIBUTE_CLASS_REQUIRED = "rule.attribute.className.required";

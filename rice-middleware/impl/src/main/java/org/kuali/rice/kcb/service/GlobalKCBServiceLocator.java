@@ -26,7 +26,7 @@ import org.springframework.beans.factory.BeanFactory;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class GlobalKCBServiceLocator {
-    private static final Logger LOG = Logger.getLogger(GlobalKCBServiceLocator.class);
+    private static final Logger LOG = LogManager.getLogger(GlobalKCBServiceLocator.class);
 
     /**
      * The KCBServiceLocator singleton

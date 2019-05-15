@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging.serviceproxies;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.ksb.messaging.MessageServiceInvoker;
 import org.kuali.rice.ksb.messaging.PersistedMessageBO;
@@ -32,7 +33,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class MessageSendingTransactionSynchronization extends TransactionSynchronizationAdapter {
     
-    private static final Logger LOG = Logger.getLogger(MessageSendingTransactionSynchronization.class);
+    private static final Logger LOG = LogManager.getLogger(MessageSendingTransactionSynchronization.class);
     public static final AtomicBoolean CALLED_TRANS_COMMITTED = new AtomicBoolean(false);
     public static final AtomicBoolean CALLED_TRANS_ROLLEDBACKED = new AtomicBoolean(false);
 

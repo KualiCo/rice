@@ -20,6 +20,8 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 import javax.transaction.TransactionManager;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.enhydra.jdbc.pool.StandardXAPoolDataSource;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.springframework.beans.factory.DisposableBean;
@@ -35,7 +37,7 @@ import org.springframework.util.Assert;
  */
 public class XAPoolDataSource extends StandardXAPoolDataSource implements InitializingBean, DisposableBean {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(XAPoolDataSource.class);
+    private static final Logger LOG = LogManager.getLogger(XAPoolDataSource.class);
 
     private static final long serialVersionUID = -3698043954102287887L;
     public static final String DRIVER_CLASS_NAME = "driverClassName";

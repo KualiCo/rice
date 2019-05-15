@@ -15,8 +15,8 @@
  */
 package org.kuali.rice.krad.web.listener;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 
@@ -33,7 +33,7 @@ import java.io.Serializable;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class NonSerializableSessionListener implements HttpSessionAttributeListener {
-    private static final Log LOG = LogManager.getLogger(NonSerializableSessionListener.class);
+    private static final Logger LOG = LogManager.getLogger(NonSerializableSessionListener.class);
     private static final String ENABLE_SERIALIZATION_CHECK = "enableSerializationCheck";
     private Boolean serializationCheckEnabled;
 

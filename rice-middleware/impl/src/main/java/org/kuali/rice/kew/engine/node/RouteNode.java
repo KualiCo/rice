@@ -328,7 +328,7 @@ public class RouteNode implements Serializable, RouteNodeContract {
     	try {
     		return nodeType != null && NodeType.fromNode(this).isTypeOf(NodeType.ROLE);
     	} catch( ResourceUnavailableException ex ) {
-    		Logger.getLogger( RouteNode.class ).info( "isRoleNode(): Unable to determine node type: " + ex.getMessage() );
+    		LogManager.getLogger( RouteNode.class ).info( "isRoleNode(): Unable to determine node type: " + ex.getMessage() );
     		return false;
     	}
     }

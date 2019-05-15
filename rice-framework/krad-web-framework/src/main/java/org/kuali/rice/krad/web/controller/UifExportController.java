@@ -18,9 +18,7 @@ package org.kuali.rice.krad.web.controller;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.krad.bo.Exporter;
-import org.kuali.rice.krad.datadictionary.DataDictionary;
 import org.kuali.rice.krad.datadictionary.DataObjectEntry;
-import org.kuali.rice.krad.service.DataDictionaryService;
 import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
 import org.kuali.rice.krad.uif.UifConstants;
 import org.kuali.rice.krad.uif.UifParameters;
@@ -54,7 +52,7 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/export")
 public class UifExportController extends UifControllerBase {
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(UifExportController.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(UifExportController.class);
 
     @Autowired
     protected HttpServletRequest request;

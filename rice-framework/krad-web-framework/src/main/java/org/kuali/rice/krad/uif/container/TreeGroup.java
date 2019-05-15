@@ -15,10 +15,6 @@
  */
 package org.kuali.rice.krad.uif.container;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.kuali.rice.core.api.util.tree.Node;
 import org.kuali.rice.core.api.util.tree.Tree;
@@ -37,6 +33,10 @@ import org.kuali.rice.krad.uif.util.ContextUtils;
 import org.kuali.rice.krad.uif.util.CopyUtils;
 import org.kuali.rice.krad.uif.util.LifecycleElement;
 import org.kuali.rice.krad.uif.util.ObjectPropertyUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Group component that is backed by a <code>Tree</code> data structure and typically

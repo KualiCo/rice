@@ -16,6 +16,7 @@
 package org.kuali.rice.kim.api.identity.personal;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.Years;
@@ -73,7 +74,7 @@ import java.util.Date;
 public final class EntityBioDemographics extends AbstractDataTransferObject
     implements EntityBioDemographicsContract
 {
-    private static final Logger LOG = Logger.getLogger(EntityBioDemographics.class);
+    private static final Logger LOG = LogManager.getLogger(EntityBioDemographics.class);
 
     @XmlElement(name = Elements.ENTITY_ID, required = false)
     private final String entityId;

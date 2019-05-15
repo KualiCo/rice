@@ -31,6 +31,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.data.DataType;
 import org.kuali.rice.krad.data.DataObjectService;
 import org.kuali.rice.krad.data.KradDataServiceLocator;
@@ -88,8 +90,7 @@ import org.kuali.rice.krad.data.provider.impl.MetadataProviderBase;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class AnnotationMetadataProviderImpl extends MetadataProviderBase {
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
-			.getLogger(AnnotationMetadataProviderImpl.class);
+	private static final Logger LOG = LogManager.getLogger(AnnotationMetadataProviderImpl.class);
 
 	private boolean initializationAttempted = false;
     private DataObjectService dataObjectService;

@@ -36,7 +36,7 @@ import static org.kuali.rice.core.api.impex.xml.XmlConstants.*;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class CommonXmlParser {
-    private static final Logger LOG = Logger.getLogger(CommonXmlParser.class);
+    private static final Logger LOG = LogManager.getLogger(CommonXmlParser.class);
 
     /**
      * Parses, but does not save, a RuleResponsibility from responsibility identifier elements nested in

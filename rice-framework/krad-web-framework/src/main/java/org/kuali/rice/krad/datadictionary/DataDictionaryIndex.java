@@ -15,17 +15,17 @@
  */
 package org.kuali.rice.krad.datadictionary;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
 /**
  * Encapsulates a set of statically generated (typically during startup)
@@ -34,7 +34,7 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class DataDictionaryIndex implements Runnable {
-    private static final Log LOG = LogManager.getLogger(DataDictionaryIndex.class);
+    private static final Logger LOG = LogManager.getLogger(DataDictionaryIndex.class);
 
     private DefaultListableBeanFactory ddBeans;
 

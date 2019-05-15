@@ -43,7 +43,7 @@ import java.util.List;
 import java.util.Map;
 
 public class IdentityManagementServiceImpl implements IdentityManagementService {
-	private static final Logger LOG = Logger.getLogger( IdentityManagementServiceImpl.class );
+	private static final Logger LOG = LogManager.getLogger( IdentityManagementServiceImpl.class );
 
 	private PermissionService permissionService;
 	private ResponsibilityService responsibilityService;

@@ -16,6 +16,7 @@
 package org.kuali.rice.core.framework.config.property;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.util.RiceUtilities;
@@ -36,7 +37,7 @@ import java.util.Properties;
  */
 public class SimpleConfig extends AbstractBaseConfig {
 
-    private static final Logger LOG = Logger.getLogger(SimpleConfig.class);
+    private static final Logger LOG = LogManager.getLogger(SimpleConfig.class);
 
     protected Map<String, Object> configs = new LinkedHashMap<String, Object>();
 

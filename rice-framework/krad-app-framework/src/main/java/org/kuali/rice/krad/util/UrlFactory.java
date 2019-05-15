@@ -18,6 +18,7 @@ package org.kuali.rice.krad.util;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.net.URLCodec;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Properties;
@@ -28,7 +29,7 @@ import java.util.Properties;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class UrlFactory {
-    private static Logger LOG = Logger.getLogger(UrlFactory.class);
+    private static Logger LOG = LogManager.getLogger(UrlFactory.class);
 
     /**
      * Creates a new URL by taking the given URL and appending the parameter names and values from the given Properties instance to

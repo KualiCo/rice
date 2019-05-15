@@ -74,7 +74,7 @@ import java.util.Set;
  */
 public class ActionRequestFactory {
 
-	private static final Logger LOG = Logger.getLogger(ActionRequestFactory.class);
+	private static final Logger LOG = LogManager.getLogger(ActionRequestFactory.class);
 
 	private static RoleService roleService;
 	private static IdentityHelperService identityHelperService;

@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.krad.data.provider;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.krad.data.KradDataServiceLocator;
 import org.springframework.beans.factory.InitializingBean;
@@ -33,7 +34,7 @@ import java.util.List;
  */
 public class ProviderRegistrar implements InitializingBean {
 
-    private static final Logger LOG = Logger.getLogger(ProviderRegistrar.class);
+    private static final Logger LOG = LogManager.getLogger(ProviderRegistrar.class);
 
     /**
      * The provider registry.

@@ -15,8 +15,8 @@
  */
 package org.kuali.rice.core.impl.resourceloader;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.kuali.rice.core.api.resourceloader.ResourceLoader;
 import org.kuali.rice.core.api.resourceloader.ResourceLoaderException;
 import org.kuali.rice.core.api.util.ContextClassLoaderProxy;
 
@@ -26,7 +26,7 @@ import org.kuali.rice.core.api.util.ContextClassLoaderProxy;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public final class ResourceLoaderUtil {
-    private static final Logger LOG = Logger.getLogger(ResourceLoaderUtil.class);
+    private static final Logger LOG = LogManager.getLogger(ResourceLoaderUtil.class);
     
 	private ResourceLoaderUtil() {
 		throw new UnsupportedOperationException("do not call");

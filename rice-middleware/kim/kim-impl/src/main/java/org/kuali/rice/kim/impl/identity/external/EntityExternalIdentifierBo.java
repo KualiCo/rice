@@ -42,7 +42,7 @@ import org.kuali.rice.krad.data.jpa.PortableSequenceGenerator;
 @Entity
 @Table(name = "KRIM_ENTITY_EXT_ID_T")
 public class EntityExternalIdentifierBo extends DataObjectBase implements EntityExternalIdentifierContract {
-    private static final Logger LOG = org.apache.logging.log4j.Logger.getLogger(EntityExternalIdentifierBo.class);
+    private static final Logger LOG = org.apache.logging.log4j.LogManager.getLogger(EntityExternalIdentifierBo.class);
     private static final long serialVersionUID = 1L;
 
     @Id

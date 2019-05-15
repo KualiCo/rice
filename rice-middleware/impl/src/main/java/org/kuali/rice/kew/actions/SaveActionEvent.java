@@ -43,7 +43,7 @@ import java.util.List;
  */
 public class SaveActionEvent extends ActionTakenEvent {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(SaveActionEvent.class);
+    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(SaveActionEvent.class);
 
     private static final String RESPONSIBILITY_DESCRIPTION = "Initiator needs to complete document.";
 

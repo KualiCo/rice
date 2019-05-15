@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging.service.impl;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.ksb.messaging.PersistedMessageBO;
@@ -30,7 +31,7 @@ import java.util.Map;
 public class MessageQueueServiceImpl implements MessageQueueService {
 
 
-    private static final Logger LOG = Logger.getLogger(MessageQueueServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(MessageQueueServiceImpl.class);
     private MessageQueueDAO messageQueueDao;
 
     public void delete(PersistedMessageBO routeQueue) {

@@ -25,7 +25,7 @@ import org.apache.logging.log4j.Logger;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class ClassLoaderResourceResolver {
-    protected final Logger LOG = Logger.getLogger(getClass());
+    protected final Logger LOG = LogManager.getLogger(getClass());
 
     /**
      * This contains definitions for items in the core "xml" schema, i.e. base, id, lang, and space attributes. 

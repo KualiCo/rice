@@ -48,7 +48,7 @@ import org.kuali.rice.kim.api.identity.principal.PrincipalContract;
  */
 public class MoveDocumentAction extends ActionTakenEvent {
 
-    protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger.getLogger(getClass());
+    protected final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.LogManager.getLogger(getClass());
 
     private MovePoint movePoint;
 

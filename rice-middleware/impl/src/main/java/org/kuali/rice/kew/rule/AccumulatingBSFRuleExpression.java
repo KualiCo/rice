@@ -31,7 +31,7 @@ import java.util.List;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public class AccumulatingBSFRuleExpression extends BSFRuleExpression {
-    private static final Logger LOG = Logger.getLogger(AccumulatingBSFRuleExpression.class);
+    private static final Logger LOG = LogManager.getLogger(AccumulatingBSFRuleExpression.class);
 
     @Override
     protected void declareBeans(ScriptEngine engine, Rule rule, RouteContext context) throws ScriptException {

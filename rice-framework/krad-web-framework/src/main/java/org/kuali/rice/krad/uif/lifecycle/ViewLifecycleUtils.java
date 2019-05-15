@@ -15,6 +15,22 @@
  */
 package org.kuali.rice.krad.uif.lifecycle;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.kuali.rice.core.api.CoreApiServiceLocator;
+import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
+import org.kuali.rice.krad.uif.UifConstants;
+import org.kuali.rice.krad.uif.component.Component;
+import org.kuali.rice.krad.uif.util.CopyUtils;
+import org.kuali.rice.krad.uif.util.LifecycleElement;
+import org.kuali.rice.krad.uif.util.ObjectPropertyUtils;
+import org.kuali.rice.krad.uif.util.RecycleUtils;
+import org.kuali.rice.krad.uif.view.ExpressionEvaluator;
+import org.kuali.rice.krad.uif.view.View;
+import org.kuali.rice.krad.util.GlobalVariables;
+import org.kuali.rice.krad.util.KRADConstants;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -30,29 +46,13 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.WeakHashMap;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.Logger;
-import org.kuali.rice.core.api.CoreApiServiceLocator;
-import org.kuali.rice.krad.service.KRADServiceLocatorWeb;
-import org.kuali.rice.krad.uif.UifConstants;
-import org.kuali.rice.krad.uif.component.Component;
-import org.kuali.rice.krad.uif.util.CopyUtils;
-import org.kuali.rice.krad.uif.util.LifecycleElement;
-import org.kuali.rice.krad.uif.util.ObjectPropertyUtils;
-import org.kuali.rice.krad.uif.util.RecycleUtils;
-import org.kuali.rice.krad.uif.view.ExpressionEvaluator;
-import org.kuali.rice.krad.uif.view.ExpressionEvaluatorFactory;
-import org.kuali.rice.krad.uif.view.View;
-import org.kuali.rice.krad.util.GlobalVariables;
-import org.kuali.rice.krad.util.KRADConstants;
-
 /**
  * Utilities for working with {@link LifecycleElement} instances.
  *
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public final class ViewLifecycleUtils {
-    private static final Logger LOG = Logger.getLogger(ViewLifecycleUtils.class);
+    private static final Logger LOG = LogManager.getLogger(ViewLifecycleUtils.class);
 
     private static final String COMPONENT_CONTEXT_PREFIX = '#' + UifConstants.ContextVariableNames.COMPONENT + '.';
     private static final String PARENT_CONTEXT_PREFIX = '#' + UifConstants.ContextVariableNames.PARENT + '.';

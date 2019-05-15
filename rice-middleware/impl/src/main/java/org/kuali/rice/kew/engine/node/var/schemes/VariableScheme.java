@@ -30,7 +30,7 @@ import org.kuali.rice.kew.service.KEWServiceLocator;
  * @author Kuali Rice Team (rice.collab@kuali.org)
  */
 public final class VariableScheme implements PropertyScheme {
-    private static final Logger LOG = Logger.getLogger(VariableScheme.class);
+    private static final Logger LOG = LogManager.getLogger(VariableScheme.class);
 
     public String getName() {
         return "variable";
