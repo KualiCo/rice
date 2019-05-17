@@ -21,11 +21,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-  <bean id="rice.kew.peopleFlowService"
-        parent="rice.kew.remote.import"
-        p:serviceName="peopleFlowService"
-        p:objectType="org.kuali.rice.kew.api.peopleflow.PeopleFlowService"/>
-
   <bean id="rice.kew.kewTypeRepositoryService"
         parent="rice.kew.remote.import"
         p:serviceName="kewTypeRepositoryService"

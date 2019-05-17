@@ -26,8 +26,7 @@ import org.kuali.rice.kew.doctype.service.DocumentTypeService;
 import org.kuali.rice.kew.service.KEWServiceLocator;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
@@ -51,15 +50,13 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.powermock.api.mockito.PowerMockito.mockStatic;
 
 /**
  * Unit test for {@link AutofixDocumentsJob}
  *
  * @author Eric Westfall
  */
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({KEWServiceLocator.class, KewApiServiceLocator.class})
+@RunWith(MockitoJUnitRunner.class)
 public class AutofixDocumentsJobTest {
 
     @Mock
@@ -96,8 +93,8 @@ public class AutofixDocumentsJobTest {
         this.documentType = mock(DocumentType.class);
         when(this.documentType.getApplicationId()).thenReturn("COVFEFE");
         when(documentTypeService.findByDocumentId(any())).thenReturn(this.documentType);
-        mockStatic(KEWServiceLocator.class);
-        mockStatic(KewApiServiceLocator.class);
+        mock(KEWServiceLocator.class);
+        mock(KewApiServiceLocator.class);
 
         when(KEWServiceLocator.getDocumentTypeService()).thenReturn(documentTypeService);
         when(KewApiServiceLocator.getDocumentProcessingQueue(any(), eq("COVFEFE"))).thenReturn(documentProcessingQueue);
@@ -114,7 +111,7 @@ public class AutofixDocumentsJobTest {
         StuckDocumentService stuckDocumentService2 = mock(StuckDocumentService.class);
 
         // initially, mock out KEWServiceLocator.getStuckDocumentService to return null
-        mockStatic(KEWServiceLocator.class);
+        mock(KEWServiceLocator.class);
         when(KEWServiceLocator.getStuckDocumentService()).thenReturn(null);
 
         // make sure it returns null
@@ -152,7 +149,7 @@ public class AutofixDocumentsJobTest {
         // indicate that the second stuck doc is still stuck when asked, but the first one is resolved
         when(stuckDocumentService.resolveIncidentsIfPossible(any())).thenReturn(Collections.singletonList(incident2));
         // just return the incident when we start fixing it
-        when(stuckDocumentService.startFixingIncident(any())).then(invocation -> invocation.getArgumentAt(0, StuckDocumentIncident.class));
+        //when(stuckDocumentService.startFixingIncident(any())).then(invocation -> invocation.getArgumentAt(0, StuckDocumentIncident.class));
 
         autofixDocumentsJob.execute(context);
 

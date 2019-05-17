@@ -80,7 +80,7 @@ public class IdentityManagementGroupDocument extends IdentityManagementTypeAttri
     @Column(name = "GRP_DESC")
     protected String groupDescription;
 
-    //@Type(type="yes_no")                       
+    //@Type(type="yes_no")
     @Column(name = "ACTV_IND")
     @Convert(converter = BooleanYNConverter.class)
     protected boolean active = true;

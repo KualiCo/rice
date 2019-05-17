@@ -66,10 +66,8 @@
   <!-- Change Configurer Modes to LOCAL -->
   <param name="location.mode">LOCAL</param>
   <param name="coreservice.mode">LOCAL</param>
-  <param name="ken.mode">LOCAL</param>
   <param name="kim.mode">LOCAL</param>
   <param name="kew.mode">LOCAL</param>
-  <param name="krms.mode">LOCAL</param>
   <param name="ksb.mode">LOCAL</param>
 
 </config>

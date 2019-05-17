@@ -157,8 +157,6 @@ public interface Config {
 	/**
 	 * Configuration key under which to specify the base url for kim
 	 */
-	public static final String KEN_URL = "ken.url";
-
     public static final String DEFAULT_KEW_NOTE_CLASS = "default.kew.note.class";
 	public static final String M_BEANS = "mBeans";
 	public static final String ALT_SPRING_FILE = "config.spring.file";
@@ -213,10 +211,6 @@ public interface Config {
 	 */
 	public String getKRBaseURL();
 
-	/**
-	 * @return the base URL for KEN
-	 */
-	public String getKENBaseURL();
 
 	public String getLog4jFileLocation();
 
@@ -235,8 +229,6 @@ public interface Config {
     public String getEnvironment();
 
     public String getProductionEnvironmentCode();
-
-	public String getEDLConfigLocation();
 
     public String getDefaultKewNoteClass();
 

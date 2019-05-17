@@ -104,27 +104,8 @@
         class="org.kuali.rice.core.framework.resourceloader.GlobalResourceLoaderServiceFactoryBean"
         p:serviceName="kimRoleService"/>
 
-  <bean id="peopleFlowRequestGenerator"
-        class="org.kuali.rice.kew.impl.peopleflow.PeopleFlowRequestGeneratorImpl"
-        p:typeRepositoryService-ref="rice.kew.kewTypeRepositoryService"
-        p:roleService-ref="rice.kew.import.kimRoleService" lazy-init="true"/>
-
-  <bean id="peopleFlowRouteModule"
-        class="org.kuali.rice.kew.impl.peopleflow.PeopleFlowRouteModule"
-        lazy-init="true"
-        p:peopleFlowService-ref="rice.kew.peopleFlowService"
-        p:peopleFlowRequestGenerator-ref="peopleFlowRequestGenerator"/>
-
-  <!-- Important that this remain lazy-init because we don't want to introduce runtime dependency on KRMS if it isn't being used -->
-  <bean id="rulesEngineRouteModule" class="org.kuali.rice.kew.impl.support.krms.RulesEngineRouteModule"
-        lazy-init="true"
-        p:peopleFlowRouteModule-ref="peopleFlowRouteModule"
-        p:extensionRepositoryService-ref="rice.kew.extensionRepositoryService"
-        p:routeNodeService-ref="enRouteNodeService"/>
-
   <bean id="enRouteModuleService" class="org.kuali.rice.kew.routemodule.service.impl.RouteModuleServiceImpl"
         lazy-init="true">
-    <property name="peopleFlowRouteModule" ref="peopleFlowRouteModule"/>
     <property name="rulesEngineRouteModuleId">
       <idref local="rulesEngineRouteModule"/>
     </property>
@@ -388,10 +369,6 @@
         <value>classpath:org/kuali/rice/kew/document/datadictionary/RoutingRuleMaintenanceDocument.xml</value>
         <value>classpath:org/kuali/rice/kew/document/datadictionary/RoutingRuleDelegationMaintenanceDocument.xml</value>
         <value>classpath:org/kuali/rice/kew/impl/document/search/DocumentSearchCriteriaBo.xml</value>
-        <value>classpath:org/kuali/rice/kew/impl/datadictionary/PeopleFlowBo.xml</value>
-        <value>classpath:org/kuali/rice/kew/impl/datadictionary/PeopleFlowDelegateBo.xml</value>
-        <value>classpath:org/kuali/rice/kew/impl/datadictionary/PeopleFlowMemberBo.xml</value>
-        <value>classpath:org/kuali/rice/kew/impl/uif/PeopleFlowViews.xml</value>
       </list>
     </property>
     <property name="packagePrefixes">

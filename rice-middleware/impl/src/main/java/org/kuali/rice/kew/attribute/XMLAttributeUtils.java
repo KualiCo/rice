@@ -16,6 +16,7 @@
 package org.kuali.rice.kew.attribute;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.ConfigurationException;
 import org.kuali.rice.core.api.uif.RemotableAttributeField;

@@ -67,8 +67,6 @@
     <svc.wrah.wsdl>${wsdl.dir}/${svc.wrah.name}.wsdl</svc.wrah.wsdl>
     <svc.alch.name>ActionListCustomizationHandler</svc.alch.name>
     <svc.alch.wsdl>${wsdl.dir}/${svc.alch.name}.wsdl</svc.alch.wsdl>
-    <svc.pft.name>PeopleFlowType</svc.pft.name>
-    <svc.pft.wsdl>${wsdl.dir}/${svc.pft.name}.wsdl</svc.pft.wsdl>
   </properties>
   <build>
     <plugins>
@@ -143,18 +141,6 @@
               <className>org.kuali.rice.kew.framework.actionlist.ActionListCustomizationHandlerService</className>
               <outputFile>${svc.alch.wsdl}</outputFile>
               <serviceName>${svc.alch.name}</serviceName>
-            </configuration>
-            <goals>
-              <goal>java2ws</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>peopleFlowTypeService-wsdl</id>
-            <phase>${rice.java2ws.phase}</phase>
-            <configuration>
-              <className>org.kuali.rice.kew.framework.peopleflow.PeopleFlowTypeService</className>
-              <outputFile>${svc.pft.wsdl}</outputFile>
-              <serviceName>${svc.pft.name}</serviceName>
             </configuration>
             <goals>
               <goal>java2ws</goal>

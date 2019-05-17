@@ -16,6 +16,7 @@
 package org.kuali.rice.kew.actions;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.coreservice.framework.CoreFrameworkServiceLocator;
 import org.kuali.rice.kew.actionrequest.ActionRequestFactory;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
@@ -121,7 +122,7 @@ public class DisapproveAction extends ActionTakenEvent {
      * @throws org.kuali.rice.kew.api.exception.InvalidActionTakenException
      */
     public void recordAction() throws InvalidActionTakenException {
-        MDC.put("docId", getRouteHeader().getDocumentId());
+        ThreadContext.put("docId", getRouteHeader().getDocumentId());
         updateSearchableAttributesIfPossible();
 
         LOG.debug("Disapproving document : " + annotation);

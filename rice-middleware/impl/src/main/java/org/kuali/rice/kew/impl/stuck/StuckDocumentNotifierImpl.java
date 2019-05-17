@@ -70,7 +70,7 @@ public class StuckDocumentNotifierImpl implements StuckDocumentNotifier, Initial
     private Mailer mailer;
 
     public void afterPropertiesSet() {
-        this.freemarkerConfig = new Configuration();
+        this.freemarkerConfig = new Configuration(Configuration.VERSION_2_3_21);
         this.templateLoader = new StringTemplateLoader();
         this.freemarkerConfig.setTemplateLoader(templateLoader);
         updateTemplates();

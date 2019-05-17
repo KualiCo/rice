@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kew.actions;
 
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.actiontaken.ActionTakenValue;
 import org.kuali.rice.kew.api.action.ActionType;

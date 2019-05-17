@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.ksb.messaging.web;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
@@ -68,8 +69,8 @@ public class KSBStrutsRequestProcessor extends RequestProcessor {
 			} finally {
 				// Special handling for multipart request
 				if (form.getMultipartRequestHandler() != null) {
-					if (log.isTraceEnabled()) {
-						log.trace("  Rolling back multipart request");
+					if (LOG.isTraceEnabled()) {
+						LOG.trace("  Rolling back multipart request");
 					}
 
 					form.getMultipartRequestHandler().rollback();

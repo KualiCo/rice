@@ -22,6 +22,7 @@ import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.kew.actionitem.ActionItem;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.api.action.ActionRequestStatus;
@@ -107,7 +108,7 @@ public class RequestActivationNode extends RequestActivationNodeBase {
      */
     public boolean activateRequests(RouteContext context, DocumentRouteHeaderValue document,
             RouteNodeInstance nodeInstance) throws WorkflowException {
-        MDC.put("docId", document.getDocumentId());
+        ThreadContext.put("docId", document.getDocumentId());
         PerformanceLogger performanceLogger = new PerformanceLogger(document.getDocumentId());
         List<ActionItem> generatedActionItems = new ArrayList<ActionItem>();
         List<ActionRequestValue> requests = new ArrayList<ActionRequestValue>();

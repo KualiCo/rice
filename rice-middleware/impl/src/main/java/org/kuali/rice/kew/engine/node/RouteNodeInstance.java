@@ -22,9 +22,11 @@ import org.kuali.rice.kew.engine.node.dao.impl.RouteNodeDAOJpa;
 import org.kuali.rice.kew.routeheader.DocumentRouteHeaderValue;
 import org.kuali.rice.kew.service.KEWServiceLocator;
 import org.kuali.rice.krad.data.jpa.PortableSequenceGenerator;
+import org.kuali.rice.krad.data.jpa.converters.Boolean01Converter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -78,12 +80,14 @@ public class RouteNodeInstance implements Serializable {
     private RouteNode routeNode;
 
     @Column(name="ACTV_IND")
+    @Convert(converter = Boolean01Converter.class)
     private boolean active = false;
 
     @Column(name="CMPLT_IND")
     private boolean complete = false;
 
     @Column(name="INIT_IND")
+    @Convert(converter = Boolean01Converter.class)
     private boolean initial = true;
 
     @ManyToOne(cascade = CascadeType.ALL)

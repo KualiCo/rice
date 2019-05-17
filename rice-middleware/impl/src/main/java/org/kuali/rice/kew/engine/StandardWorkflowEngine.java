@@ -16,6 +16,7 @@
 package org.kuali.rice.kew.engine;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.coreservice.framework.CoreFrameworkServiceLocator;
 import org.kuali.rice.coreservice.framework.parameter.ParameterService;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
@@ -92,7 +93,7 @@ public class StandardWorkflowEngine implements WorkflowEngine {
 		if (documentId == null) {
 			throw new IllegalArgumentException("Cannot process a null document id.");
 		}
-		MDC.put("docId", documentId);
+		ThreadContext.put("docId", documentId);
 		boolean success = true;
 		RouteContext context = RouteContext.createNewRouteContext();
 		try {
@@ -163,7 +164,7 @@ public class StandardWorkflowEngine implements WorkflowEngine {
                 throw new RouteManagerException("Problems contacting PostProcessor", e, context);
             }
 			RouteContext.releaseCurrentRouteContext();
-			MDC.remove("docId");
+			ThreadContext.remove("docId");
 		}
 	}
 

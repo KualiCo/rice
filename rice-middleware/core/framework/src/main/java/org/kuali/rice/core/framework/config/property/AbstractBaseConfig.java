@@ -129,10 +129,6 @@ public abstract class AbstractBaseConfig implements org.kuali.rice.core.api.conf
         return getProperty(Config.DOCUMENT_LOCK_TIMEOUT);
     }
 
-    public String getEDLConfigLocation() {
-        return getProperty(Config.EDL_CONFIG_LOCATION);
-    }
-
     public String getEmailConfigurationPath() {
         return getProperty(org.kuali.rice.core.api.config.property.Config.EMAIL_SECURITY_PATH);
     }
@@ -195,10 +191,6 @@ public abstract class AbstractBaseConfig implements org.kuali.rice.core.api.conf
             val = getProperty(VERSION);
         }
         return val;
-    }
-
-    public String getKENBaseURL() {
-        return getProperty(Config.KEN_URL);
     }
 
     public String getKEWBaseURL() {

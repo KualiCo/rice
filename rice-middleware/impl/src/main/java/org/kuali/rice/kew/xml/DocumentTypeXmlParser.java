@@ -1349,8 +1349,6 @@ public class DocumentTypeXmlParser {
         } else if (((Boolean) getXPath().evaluate("./routeModule", node, XPathConstants.BOOLEAN)).booleanValue()) {
             routeNode.setRouteMethodName((String) getXPath().evaluate("./routeModule", node, XPathConstants.STRING));
             routeNode.setRouteMethodCode(KewApiConstants.ROUTE_LEVEL_ROUTE_MODULE);
-        } else if (((Boolean) getXPath().evaluate("./peopleFlows", node, XPathConstants.BOOLEAN)).booleanValue()) {
-            routeNode.setRouteMethodCode(KewApiConstants.ROUTE_LEVEL_PEOPLE_FLOW);
         } else if (((Boolean) getXPath().evaluate("./rulesEngine", node, XPathConstants.BOOLEAN)).booleanValue()) {
             // validate that the element has at least one of the two required attributes, XML schema does not provide a way for us to
             // check this so we must do so programatically

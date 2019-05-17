@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kew.engine.node;
 
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.api.exception.WorkflowException;
 import org.kuali.rice.kew.engine.RouteContext;
@@ -200,7 +201,7 @@ public class IteratedRequestActivationNode implements SimpleNode {
      * @throws org.kuali.rice.kew.api.exception.WorkflowException
      */
     private boolean activateRequests(RouteContext context, DocumentRouteHeaderValue document, RouteNodeInstance nodeInstance) throws WorkflowException {
-        MDC.put("docId", document.getDocumentId());
+        ThreadContext.put("docId", document.getDocumentId());
         PerformanceLogger performanceLogger = new PerformanceLogger(document.getDocumentId());
         List generatedActionItems = new ArrayList();
         List<ActionRequestValue> requests = KEWServiceLocator.getActionRequestService().findPendingRootRequestsByDocIdAtRouteNode(document.getDocumentId(), nodeInstance.getRouteNodeInstanceId());

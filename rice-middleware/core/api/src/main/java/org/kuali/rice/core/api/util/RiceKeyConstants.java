@@ -262,9 +262,6 @@ public final class RiceKeyConstants {
     public static final String ERROR_NEGATIVES_NOT_ALLOWED_ON_FIELD =
             "error.negatives.not.allowed.on.field";
 
-    // PeopleFlow
-    public static final String PEOPLEFLOW_DUPLICATE = "peopleFlow.duplicate";
-
     // Super User
     public static final String ERROR_SUPER_USER_TAKE_ACTIONS_MISSING = "superuser.takeactions.annotation.missing";
     public static final String ERROR_SUPER_USER_TAKE_ACTIONS_NONE_SELECTED = "superuser.takeactions.none.selected";

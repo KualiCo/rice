@@ -139,7 +139,7 @@ public class KRADConfigurer extends ModuleConfigurer implements SmartApplication
                         long start = System.currentTimeMillis();
                         LOG.info("Executing scheduled Data Dictionary component publishing...");
                         try {
-                            KRADServiceLocatorWeb.getDataDictionaryComponentPublisherService().publishAllComponents();
+//                            KRADServiceLocatorWeb.getDataDictionaryComponentPublisherService().publishAllComponents();
                         } catch (RuntimeException e) {
                             LOG.error("Failed to publish data dictionary components.", e);
                             throw e;

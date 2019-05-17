@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kew.routemodule.service.impl;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.reflect.ObjectDefinition;
 import org.kuali.rice.core.api.resourceloader.GlobalResourceLoader;
@@ -41,7 +42,6 @@ public class RouteModuleServiceImpl implements RouteModuleService, BeanFactoryAw
     private BeanFactory beanFactory;
     private String rulesEngineRouteModuleId;
 
-    private RouteModule peopleFlowRouteModule;
     private volatile RouteModule rulesEngineRouteModule;
 
     public RouteModule findRouteModule(RouteNode node) throws ResourceUnavailableException {
@@ -51,8 +51,6 @@ public class RouteModuleServiceImpl implements RouteModuleService, BeanFactoryAw
         // default to FlexRM module if the routeMethodName is null
         if (node.isRulesEngineNode()) {
             routeModule = getRulesEngineRouteModule();
-        } else if (node.isPeopleFlowNode()) {
-            routeModule = getPeopleFlowRouteModule();
         } else if (routeMethodName == null || node.isFlexRM()) {
             routeModule = getFlexRMRouteModule(routeMethodName);
         } else {
@@ -86,14 +84,6 @@ public class RouteModuleServiceImpl implements RouteModuleService, BeanFactoryAw
 
     private RouteModule getFlexRMRouteModule(String ruleTemplateName) {
         return new FlexRMAdapter();
-    }
-
-    public void setPeopleFlowRouteModule(RouteModule peopleFlowRouteModule) {
-        this.peopleFlowRouteModule = peopleFlowRouteModule;
-    }
-
-    public RouteModule getPeopleFlowRouteModule() {
-        return peopleFlowRouteModule;
     }
 
     public String getRulesEngineRouteModuleId() {

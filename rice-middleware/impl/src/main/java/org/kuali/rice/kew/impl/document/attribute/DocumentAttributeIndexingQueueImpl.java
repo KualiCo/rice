@@ -16,7 +16,9 @@
 package org.kuali.rice.kew.impl.document.attribute;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.ThreadContext;
 import org.joda.time.DateTime;
 import org.kuali.rice.core.api.exception.RiceIllegalArgumentException;
 import org.kuali.rice.kew.api.KewApiServiceLocator;
@@ -59,7 +61,7 @@ public class DocumentAttributeIndexingQueueImpl implements DocumentAttributeInde
         if (StringUtils.isBlank(documentId)) {
             throw new RiceIllegalArgumentException("documentId was null or blank");
         }
-        MDC.put("docId", documentId);
+        ThreadContext.put("docId", documentId);
         try {
             long t1 = System.currentTimeMillis();
             LOG.info("Indexing document attributes for document " + documentId);
@@ -75,7 +77,7 @@ public class DocumentAttributeIndexingQueueImpl implements DocumentAttributeInde
             LOG.info("...finished indexing document " + documentId + " for document search, total time = " + (t2 - t1) +
                     " ms.");
         } finally {
-            MDC.remove("docId");
+            ThreadContext.remove("docId");
         }
     }
 

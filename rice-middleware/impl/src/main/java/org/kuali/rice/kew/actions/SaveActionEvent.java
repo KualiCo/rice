@@ -16,6 +16,7 @@
 package org.kuali.rice.kew.actions;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.kew.actionrequest.ActionRequestFactory;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.actionrequest.KimPrincipalRecipient;
@@ -86,7 +87,7 @@ public class SaveActionEvent extends ActionTakenEvent {
     }
 
     public void recordAction() throws InvalidActionTakenException {
-	MDC.put("docId", getRouteHeader().getDocumentId());
+		ThreadContext.put("docId", getRouteHeader().getDocumentId());
 	LOG.debug("Checking to see if the action is legal");
 	/* Code below for variable 'checkIfActionIsValid' is used to identify when the 
 	 * DocumentRouteHeaderValue 'legal actions' should be checked for the current

@@ -16,6 +16,8 @@
 package org.kuali.rice.kew.engine.node;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.criteria.Predicate;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.kew.actionitem.ActionItem;
@@ -56,8 +58,7 @@ import static org.kuali.rice.core.api.criteria.PredicateFactory.equal;
  */
 public class RoleNode extends RequestsNode {
 
-	private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
-			.getLogger( RoleNode.class );
+	private static final Logger LOG = LogManager.getLogger( RoleNode.class );
 
 	@Override
 	protected RouteModule getRouteModule(RouteContext context) throws Exception {

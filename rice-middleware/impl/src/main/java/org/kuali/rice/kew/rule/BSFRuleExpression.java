@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kew.rule;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.exception.RiceIllegalStateException;
 import org.kuali.rice.kew.api.KewApiServiceLocator;

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.core.api.exception.RiceRuntimeException;
 import org.kuali.rice.kew.actionitem.ActionItem;
 import org.kuali.rice.kew.actionrequest.ActionRequestFactory;
@@ -87,7 +88,7 @@ public class ExceptionRoutingServiceImpl implements WorkflowDocumentExceptionRou
     
     protected DocumentRouteHeaderValue placeInExceptionRouting(String errorMessage, RouteNodeInstance nodeInstance, PersistedMessageBO persistedMessage, RouteContext routeContext, DocumentRouteHeaderValue document, boolean invokePostProcessor) throws Exception {
     	String documentId = document.getDocumentId();
-        MDC.put("docId", documentId);
+        ThreadContext.put("docId", documentId);
         PerformanceLogger performanceLogger = new PerformanceLogger(documentId);
         try {
 
@@ -128,7 +129,7 @@ public class ExceptionRoutingServiceImpl implements WorkflowDocumentExceptionRou
             }
         } finally {
             performanceLogger.log("Time to generate exception request.");
-            MDC.remove("docId");
+            ThreadContext.remove("docId");
         }
 
         return document;

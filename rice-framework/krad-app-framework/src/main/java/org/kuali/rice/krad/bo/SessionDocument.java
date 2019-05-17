@@ -18,6 +18,7 @@ package org.kuali.rice.krad.bo;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -26,6 +27,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import org.eclipse.persistence.annotations.Index;
+import org.kuali.rice.krad.data.jpa.converters.BooleanYNConverter;
 
 /*
  * Defines methods a business object should implement.
@@ -60,6 +62,7 @@ public class SessionDocument extends DataObjectBase {
 	protected byte[] serializedDocumentForm;
 
 	@Column(name="CONTENT_ENCRYPTED_IND",length=1)
+	@Convert(converter = BooleanYNConverter.class)
 	protected Boolean encrypted = false;
 
 	/**

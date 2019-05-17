@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kew.util;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.kew.api.KewApiConstants;
 import org.kuali.rice.kew.engine.node.BranchState;

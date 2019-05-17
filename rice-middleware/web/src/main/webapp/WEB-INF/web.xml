@@ -146,21 +146,6 @@
   </filter-mapping>
 
   <filter-mapping>
-    <filter-name>BootstrapFilter</filter-name>
-    <servlet-name>notification</servlet-name>
-  </filter-mapping>
-
-  <filter-mapping>
-    <filter-name>UserLoginFilter</filter-name>
-    <servlet-name>notification</servlet-name>
-  </filter-mapping>
-
-  <filter-mapping>
-    <filter-name>UserPreferencesFilter</filter-name>
-    <servlet-name>notification</servlet-name>
-  </filter-mapping>
-
-  <filter-mapping>
     <filter-name>ajaxSessionTimeoutFilter</filter-name>
     <servlet-name>krad</servlet-name>
   </filter-mapping>
@@ -203,37 +188,6 @@
   <filter-mapping>
     <filter-name>DummyLoginFilter</filter-name>
     <servlet-name>login</servlet-name>
-  </filter-mapping>
-
-  <!-- for KCB Spring Web MVC pages -->
-  <filter-mapping>
-    <filter-name>BootstrapFilter</filter-name>
-    <servlet-name>kcb</servlet-name>
-  </filter-mapping>
-
-  <filter-mapping>
-    <filter-name>UserLoginFilter</filter-name>
-    <servlet-name>kcb</servlet-name>
-  </filter-mapping>
-
-  <filter-mapping>
-    <filter-name>UserPreferencesFilter</filter-name>
-    <servlet-name>kcb</servlet-name>
-  </filter-mapping>
-
-  <filter-mapping>
-    <filter-name>BootstrapFilter</filter-name>
-    <servlet-name>edoclite</servlet-name>
-  </filter-mapping>
-
-  <filter-mapping>
-    <filter-name>UserLoginFilter</filter-name>
-    <servlet-name>edoclite</servlet-name>
-  </filter-mapping>
-
-  <filter-mapping>
-    <filter-name>UserPreferencesFilter</filter-name>
-    <servlet-name>edoclite</servlet-name>
   </filter-mapping>
 
   <filter-mapping>
@@ -285,25 +239,6 @@
     <load-on-startup>0</load-on-startup>
   </servlet>
 
-  <!-- Notification system servlets -->
-  <!-- Notification System Spring MVC UI -->
-  <servlet>
-    <servlet-name>notification</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <init-param>
-      <param-name>contextConfigLocation</param-name>
-      <param-value>ken/WEB-INF/notification-servlet.xml</param-value>
-    </init-param>
-    <init-param>
-      <description>this init parameter is Ken's module prefix within the containing webapp, it is propagated as a
-        property in the XmlApplicationContext
-      </description>
-      <param-name>prefix</param-name>
-      <param-value>/ken</param-value>
-    </init-param>
-    <load-on-startup>2</load-on-startup>
-  </servlet>
-
   <servlet>
     <servlet-name>dwr-invoker</servlet-name>
     <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
@@ -320,24 +255,6 @@
       <param-value>/WEB-INF/dwr-kns.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
-  </servlet>
-
-  <!-- KCB servlets -->
-  <servlet>
-    <servlet-name>kcb</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <init-param>
-      <param-name>contextConfigLocation</param-name>
-      <param-value>kcb/WEB-INF/kcb-servlet.xml</param-value>
-    </init-param>
-    <init-param>
-      <description>this init parameter is KCB's module prefix within the containing webapp, it is propagated as a
-        property in the XmlApplicationContext
-      </description>
-      <param-name>prefix</param-name>
-      <param-value>/kcb</param-value>
-    </init-param>
-    <load-on-startup>2</load-on-startup>
   </servlet>
 
   <servlet>
@@ -359,11 +276,6 @@
   <servlet>
     <servlet-name>attachment</servlet-name>
     <servlet-class>org.kuali.rice.kew.notes.web.AttachmentServlet</servlet-class>
-  </servlet>
-
-  <servlet>
-    <servlet-name>edoclite</servlet-name>
-    <servlet-class>org.kuali.rice.edl.impl.EDLServlet</servlet-class>
   </servlet>
 
   <servlet>
@@ -405,16 +317,6 @@
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>notification</servlet-name>
-    <url-pattern>*.form</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>kcb</servlet-name>
-    <url-pattern>*.kcb</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
     <servlet-name>dwr-invoker</servlet-name>
     <url-pattern>/dwr/*</url-pattern>
   </servlet-mapping>
@@ -432,11 +334,6 @@
   <servlet-mapping>
     <servlet-name>attachment</servlet-name>
     <url-pattern>/kew/attachment/*</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>edoclite</servlet-name>
-    <url-pattern>/kew/EDocLite</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
@@ -479,10 +376,6 @@
     <taglib>
       <taglib-uri>http://www.kuali.org/struts.apache.org/tags-html-el</taglib-uri>
       <taglib-location>/WEB-INF/tld/kuali-struts-html-el.tld</taglib-location>
-    </taglib>
-    <taglib>
-      <taglib-uri>http://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API</taglib-uri>
-      <taglib-location>/WEB-INF/tld/esapi.tld</taglib-location>
     </taglib>
   </jsp-config>
 </web-app>

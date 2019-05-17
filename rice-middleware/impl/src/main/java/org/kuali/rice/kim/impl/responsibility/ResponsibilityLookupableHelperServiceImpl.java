@@ -17,6 +17,7 @@ package org.kuali.rice.kim.impl.responsibility;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.membership.MemberType;
 import org.kuali.rice.kew.api.KewApiConstants;

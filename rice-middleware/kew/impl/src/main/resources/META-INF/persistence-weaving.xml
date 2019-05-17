@@ -29,10 +29,6 @@
     </description>
     <class>org.kuali.rice.krad.data.jpa.converters.Boolean01Converter</class>
     <class>org.kuali.rice.krad.data.jpa.converters.BooleanYNConverter</class>
-    <class>org.kuali.rice.kew.impl.peopleflow.PeopleFlowAttributeBo</class>
-    <class>org.kuali.rice.kew.impl.peopleflow.PeopleFlowBo</class>
-    <class>org.kuali.rice.kew.impl.peopleflow.PeopleFlowDelegateBo</class>
-    <class>org.kuali.rice.kew.impl.peopleflow.PeopleFlowMemberBo</class>
     <class>org.kuali.rice.kew.impl.type.KewAttributeDefinitionBo</class>
     <class>org.kuali.rice.kew.impl.type.KewTypeAttributeBo</class>
     <class>org.kuali.rice.kew.impl.type.KewTypeBo</class>

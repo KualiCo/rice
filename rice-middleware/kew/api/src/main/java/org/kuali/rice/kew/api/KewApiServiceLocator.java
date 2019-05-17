@@ -34,7 +34,6 @@ import org.kuali.rice.kew.api.extension.ExtensionRepositoryService;
 import org.kuali.rice.kew.api.group.GroupMembershipChangeQueue;
 import org.kuali.rice.kew.api.mail.ImmediateEmailReminderQueue;
 import org.kuali.rice.kew.api.note.NoteService;
-import org.kuali.rice.kew.api.peopleflow.PeopleFlowService;
 import org.kuali.rice.kew.api.preferences.PreferencesService;
 import org.kuali.rice.kew.api.repository.type.KewTypeRepositoryService;
 import org.kuali.rice.kew.api.responsibility.ResponsibilityChangeQueue;
@@ -56,7 +55,6 @@ public class KewApiServiceLocator {
     public static final String EXTENSION_REPOSITORY_SERVICE = "rice.kew.extensionRepositoryService";
     public static final String RULE_SERVICE = "rice.kew.ruleService";
     public static final String KEW_TYPE_REPOSITORY_SERVICE = "rice.kew.kewTypeRepositoryService";
-    public static final String PEOPLE_FLOW_SERVICE = "rice.kew.peopleFlowService";
     public static final String PREFERENCES_SERVICE = "rice.kew.preferencesService";
     public static final String KEW_RUN_MODE_PROPERTY = "kew.mode";
     public static final String STANDALONE_APPLICATION_ID = "standalone.application.id";
@@ -120,10 +118,6 @@ public class KewApiServiceLocator {
 
     public static KewTypeRepositoryService getKewTypeRepositoryService() {
         return getService(KEW_TYPE_REPOSITORY_SERVICE);
-    }
-
-    public static PeopleFlowService getPeopleFlowService() {
-        return getService(PEOPLE_FLOW_SERVICE);
     }
 
     public static DocumentAttributeIndexingQueue getDocumentAttributeIndexingQueue() {

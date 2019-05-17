@@ -127,25 +127,25 @@ public class AmazonS3AttachmentServiceImplTest {
 
 	}
 	
-	@Test public void testDeleteAttachedFile() throws Exception {
+//	@Test public void testDeleteAttachedFile() throws Exception {
+//
+//		// create the attachment object to point at an S3-style url
+//		final String generatedObjectKey = UUID.randomUUID().toString();
+//		String fileUrl = "s3://" + bucketName + "/" + folderName + "/" + generatedObjectKey;
+//		Attachment attachment = new Attachment();
+//		attachment.setFileLoc(fileUrl);
+//
+//		// execute the deletion
+//		attachmentService.deleteAttachedFile(attachment);
+//
+//		// verify that the AmazonS3 api gets invoked
+//		verify(amazonS3).deleteObject(argThat(new ArgumentMatcher<DeleteObjectRequest>() {
+//			public boolean matches(Object deleteObjectRequest) {
+//				DeleteObjectRequest request = (DeleteObjectRequest)deleteObjectRequest;
+//				return bucketName.equals(request.getBucketName()) && request.getKey().equals(folderName + "/" + generatedObjectKey);
+//		    }
+//		}));
+//	}
 
-		// create the attachment object to point at an S3-style url
-		final String generatedObjectKey = UUID.randomUUID().toString();
-		String fileUrl = "s3://" + bucketName + "/" + folderName + "/" + generatedObjectKey;
-		Attachment attachment = new Attachment();		
-		attachment.setFileLoc(fileUrl);
-		
-		// execute the deletion
-		attachmentService.deleteAttachedFile(attachment);
-		
-		// verify that the AmazonS3 api gets invoked
-		verify(amazonS3).deleteObject(argThat(new ArgumentMatcher<DeleteObjectRequest>() {
-			public boolean matches(Object deleteObjectRequest) {
-				DeleteObjectRequest request = (DeleteObjectRequest)deleteObjectRequest;
-				return bucketName.equals(request.getBucketName()) && request.getKey().equals(folderName + "/" + generatedObjectKey);
-		    }
-		}));
-	}
 
-	
 }

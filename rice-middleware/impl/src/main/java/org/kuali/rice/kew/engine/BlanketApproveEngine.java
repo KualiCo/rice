@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kew.engine;
 
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.coreservice.framework.parameter.ParameterService;
 import org.kuali.rice.kew.actionrequest.ActionRequestFactory;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
@@ -65,7 +66,7 @@ public class BlanketApproveEngine extends StandardWorkflowEngine {
         if (documentId == null) {
             throw new IllegalArgumentException("Cannot process a null document id.");
         }
-        MDC.put("docId", documentId);
+        ThreadContext.put("docId", documentId);
 
         try {
             RouteContext context = RouteContext.createNewRouteContext();
@@ -152,7 +153,7 @@ public class BlanketApproveEngine extends StandardWorkflowEngine {
             }
         } finally {
             RouteContext.releaseCurrentRouteContext();
-            MDC.remove("docId");
+            ThreadContext.remove("docId");
         }
     }
 

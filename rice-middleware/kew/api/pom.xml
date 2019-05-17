@@ -113,8 +113,6 @@
     <svc.rpq.wsdl>${wsdl.dir}/${svc.rpq.name}.wsdl</svc.rpq.wsdl>
     <svc.ierq.name>ImmediateEmailReminderQueue</svc.ierq.name>
     <svc.ierq.wsdl>${wsdl.dir}/${svc.ierq.name}.wsdl</svc.ierq.wsdl>
-    <svc.pf.name>PeopleFlowService</svc.pf.name>
-    <svc.pf.wsdl>${wsdl.dir}/${svc.pf.name}.wsdl</svc.pf.wsdl>
     <svc.ps.name>PreferencesService</svc.ps.name>
     <svc.ps.wsdl>${wsdl.dir}/${svc.ps.name}.wsdl</svc.ps.wsdl>
   </properties>
@@ -323,18 +321,6 @@
               <className>org.kuali.rice.kew.api.mail.ImmediateEmailReminderQueue</className>
               <outputFile>${svc.ierq.wsdl}</outputFile>
               <serviceName>${svc.ierq.name}</serviceName>
-            </configuration>
-            <goals>
-              <goal>java2ws</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>pepleFlowService-wsdl</id>
-            <phase>${rice.java2ws.phase}</phase>
-            <configuration>
-              <className>org.kuali.rice.kew.api.peopleflow.PeopleFlowService</className>
-              <outputFile>${svc.pf.wsdl}</outputFile>
-              <serviceName>${svc.pf.name}</serviceName>
             </configuration>
             <goals>
               <goal>java2ws</goal>

@@ -28,12 +28,6 @@
 
   <bean id="kewConfigurer" class="org.kuali.rice.kew.config.KEWConfigurer"/>
 
-  <bean id="kenConfigurer" class="org.kuali.rice.ken.impl.config.KENConfigurer"/>
-
-  <bean id="edlConfigurer" class="org.kuali.rice.edl.impl.config.EDLConfigurer"/>
-
-  <bean id="krmsConfigurer" class="org.kuali.rice.krms.config.KRMSConfigurer"/>
-
   <bean id="locationConfigurer" class="org.kuali.rice.location.impl.config.LocationConfigurer"/>
 
 </beans>

@@ -82,12 +82,6 @@
     <property name="dataObjectService" ref="dataObjectService"/>
   </bean>
 
-  <bean id="rice.kew.peopleFlowService" class="org.kuali.rice.kew.impl.peopleflow.PeopleFlowServiceImpl">
-    <property name="dataObjectService" ref="dataObjectService"/>
-    <property name="kewTypeRepositoryService" ref="rice.kew.kewTypeRepositoryService"/>
-    <property name="responsibilityIdService" ref="enResponsibilityIdService"/>
-  </bean>
-
     <!--  StatsService -->
   <bean id="enStatsService" class="org.kuali.rice.kew.stats.service.impl.StatsServiceImpl">
     <property name="statsDAO">
@@ -207,7 +201,6 @@
         <idref local="enQuickLinksService"/>
         <idref local="rice.kew.noteService"/>
         <idref local="rice.kew.kewTypeRepositoryService"/>
-        <idref local="rice.kew.peopleFlowService"/>
         <idref local="rice.kew.stuckDocumentService"/>
       </list>
     </property>

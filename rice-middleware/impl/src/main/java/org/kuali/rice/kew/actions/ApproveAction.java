@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kew.actions;
 
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.actionrequest.Recipient;
 import org.kuali.rice.kew.actiontaken.ActionTakenValue;
@@ -130,7 +131,7 @@ public class ApproveAction extends ActionTakenEvent {
      * @throws org.kuali.rice.kew.api.exception.ResourceUnavailableException
      */
     public void recordAction() throws InvalidActionTakenException {
-        MDC.put("docId", getRouteHeader().getDocumentId());
+        ThreadContext.put("docId", getRouteHeader().getDocumentId());
         updateSearchableAttributesIfPossible();
         LOG.debug("Approving document : " + annotation);
 

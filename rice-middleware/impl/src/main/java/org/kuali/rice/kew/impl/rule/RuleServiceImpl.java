@@ -16,6 +16,7 @@
 package org.kuali.rice.kew.impl.rule;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
 import org.kuali.rice.core.api.criteria.Predicate;

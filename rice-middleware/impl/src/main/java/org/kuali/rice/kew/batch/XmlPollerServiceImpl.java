@@ -15,6 +15,8 @@
  */
 package org.kuali.rice.kew.batch;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.CoreApiServiceLocator;
 import org.kuali.rice.core.api.impex.xml.DirectoryXmlDocCollection;
 import org.kuali.rice.core.api.impex.xml.FileXmlDocCollection;
@@ -56,8 +58,7 @@ import java.util.List;
  */
 public class XmlPollerServiceImpl implements XmlPollerService {
 
-    private static final org.apache.logging.log4j.Logger LOG = org.apache.logging.log4j.Logger
-            .getLogger(XmlPollerServiceImpl.class);
+    private static final Logger LOG = LogManager.getLogger(XmlPollerServiceImpl.class);
     private static final Format DIR_FORMAT = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS");
 
     /**

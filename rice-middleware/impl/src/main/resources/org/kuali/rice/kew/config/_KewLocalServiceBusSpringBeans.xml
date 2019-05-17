@@ -147,18 +147,6 @@
     </property>
   </bean>
 
-  <bean id="rice.kew.peopleFlowService.exporter" parent="kewServiceExporter">
-    <property name="serviceDefinition">
-      <bean parent="kewService">
-        <property name="service">
-          <ref bean="rice.kew.peopleFlowService"/>
-        </property>
-        <property name="localServiceName" value="peopleFlowService"/>
-        <property name="busSecurity" value="${rice.kew.peopleFlowService.secure}"/>
-      </bean>
-    </property>
-  </bean>
-
   <bean id="rice.kew.extensionRepositoryService.exporter" parent="kewServiceExporter">
     <property name="serviceDefinition">
       <bean parent="kewService">

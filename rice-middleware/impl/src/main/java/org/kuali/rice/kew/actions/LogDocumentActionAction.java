@@ -15,6 +15,7 @@
  */
 package org.kuali.rice.kew.actions;
 
+import org.apache.logging.log4j.ThreadContext;
 import org.kuali.rice.kew.actionrequest.ActionRequestValue;
 import org.kuali.rice.kew.actiontaken.ActionTakenValue;
 import org.kuali.rice.kew.api.exception.InvalidActionTakenException;
@@ -66,7 +67,7 @@ public class LogDocumentActionAction extends ActionTakenEvent {
      * @throws InvalidActionTakenException
      */
     public void recordAction() throws InvalidActionTakenException {
-        MDC.put("docId", getRouteHeader().getDocumentId());
+        ThreadContext.put("docId", getRouteHeader().getDocumentId());
 
         String errorMessage = validateActionRules();
         if (!org.apache.commons.lang.StringUtils.isEmpty(errorMessage)) {

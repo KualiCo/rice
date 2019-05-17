@@ -61,15 +61,6 @@
     </plugins>
   </build>
 
-  <profiles>
-    <profile>
-      <id>standalone</id>
-      <properties>
-        <appserver.port>9090</appserver.port>
-      </properties>
-    </profile>
-  </profiles>
-
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>

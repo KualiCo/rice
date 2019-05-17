@@ -26,10 +26,8 @@ import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.util.*;
 
@@ -40,8 +38,7 @@ import static org.junit.Assert.assertEquals;
  *
  * @author Eric Westfall
  */
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({KEWServiceLocator.class})
+@RunWith(MockitoJUnitRunner.class)
 public class DocumentTypeWindowTargetsTest {
 
     private static final String _BLANK = "_blank";
@@ -137,7 +134,7 @@ public class DocumentTypeWindowTargetsTest {
                 return (DOCUMENT_TYPE_INDEX.get(invocationOnMock.getArguments()[0].toString()));
             }
         });
-        PowerMockito.mockStatic(KEWServiceLocator.class);
+        Mockito.mock(KEWServiceLocator.class);
         Mockito.when(KEWServiceLocator.getDocumentTypeService()).thenReturn(documentTypeService);
     }
 

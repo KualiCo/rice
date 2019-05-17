@@ -22,8 +22,7 @@ import org.kuali.rice.kew.service.KEWServiceLocator;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.quartz.JobDataMap;
 import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
@@ -51,15 +50,13 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
-import static org.powermock.api.mockito.PowerMockito.mockStatic;
 
 /**
  * Unit test for {@link AutofixCollectorJob}
  *
  * @author Eric Westfall
  */
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({KEWServiceLocator.class})
+@RunWith(MockitoJUnitRunner.class)
 public class AutofixCollectorJobTest {
 
     @Mock
@@ -93,7 +90,7 @@ public class AutofixCollectorJobTest {
         StuckDocumentService stuckDocumentService2 = mock(StuckDocumentService.class);
 
         // initially, mock out KEWServiceLocator.getStuckDocumentService to return null
-        mockStatic(KEWServiceLocator.class);
+        mock(KEWServiceLocator.class);
         when(KEWServiceLocator.getStuckDocumentService()).thenReturn(null);
 
         // make sure it returns null
@@ -115,7 +112,7 @@ public class AutofixCollectorJobTest {
         autofixCollectorJob.setStuckDocumentService(null);
 
         // now mock out the KEWServiceLocator so that it returns null as well
-        mockStatic(KEWServiceLocator.class);
+        mock(KEWServiceLocator.class);
         when(KEWServiceLocator.getStuckDocumentService()).thenReturn(null);
 
         // try to execute it, no exceptions should be thrown

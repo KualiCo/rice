@@ -22,7 +22,6 @@ import org.kuali.rice.core.api.uif.RemotableAttributeField;
  * dictionary {@link org.kuali.rice.krad.datadictionary.AttributeDefinition} configurations
  *
  * <p>
- * Used by the default type services {@link org.kuali.rice.krad.workflow.DataDictionaryPeopleFlowTypeServiceImpl} to
  * build the remotable fields for the type attributes
  * </p>
  *

@@ -17,6 +17,7 @@ package org.kuali.rice.kim.service;
 
 import javax.xml.namespace.QName;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kuali.rice.core.api.config.module.RunMode;
 import org.kuali.rice.core.api.config.property.ConfigContext;

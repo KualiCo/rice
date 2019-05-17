@@ -320,10 +320,6 @@ public class RouteNode implements Serializable, RouteNodeContract {
     public boolean isRulesEngineNode() {
         return StringUtils.equals(routeMethodCode, KewApiConstants.ROUTE_LEVEL_RULES_ENGINE);
     }
-
-    public boolean isPeopleFlowNode() {
-        return StringUtils.equals(routeMethodCode, KewApiConstants.ROUTE_LEVEL_PEOPLE_FLOW);
-    }
     
     public boolean isRoleNode() {
     	try {
