@@ -18,10 +18,10 @@ package org.kuali.rice.kew.impl.stuck;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.kuali.rice.kew.service.KEWServiceLocator;
 import org.mockito.ArgumentCaptor;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.quartz.JobDataMap;
 import org.quartz.JobDetail;
@@ -41,11 +41,9 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
@@ -68,11 +66,13 @@ public class AutofixCollectorJobTest {
 
     private JobDataMap jobDataMap;
 
-    @InjectMocks
-    private AutofixCollectorJob autofixCollectorJob;
+    @Spy
+    private AutofixCollectorJob autofixCollectorJobSpy;
 
     @Before
     public void setup() {
+        MockitoAnnotations.initMocks(this);
+        when(autofixCollectorJobSpy.getStuckDocumentService()).thenReturn(stuckDocumentService);
         when(context.getScheduler()).thenReturn(scheduler);
         this.jobDataMap = new JobDataMap();
         when(context.getMergedJobDataMap()).thenReturn(jobDataMap);
@@ -80,50 +80,12 @@ public class AutofixCollectorJobTest {
         setMaxAutofixAttempts(2);
     }
 
-    /**
-     * Tests that the job will retrieve and cache the StuckDocumentService from the service locator
-     */
-    @Test
-    public void testGetStuckDocumentService_FromKewServiceLocator() {
-        AutofixCollectorJob autofixCollectorJob = new AutofixCollectorJob();
-        StuckDocumentService stuckDocumentService1 = mock(StuckDocumentService.class);
-        StuckDocumentService stuckDocumentService2 = mock(StuckDocumentService.class);
-
-        // initially, mock out KEWServiceLocator.getStuckDocumentService to return null
-        mock(KEWServiceLocator.class);
-        when(KEWServiceLocator.getStuckDocumentService()).thenReturn(null);
-
-        // make sure it returns null
-        assertNull(autofixCollectorJob.getStuckDocumentService());
-        when(KEWServiceLocator.getStuckDocumentService()).thenReturn(stuckDocumentService1);
-        assertEquals(stuckDocumentService1, autofixCollectorJob.getStuckDocumentService());
-
-        // now inject it and make sure that one's our guy
-        autofixCollectorJob.setStuckDocumentService(stuckDocumentService2);
-        assertEquals(stuckDocumentService2, autofixCollectorJob.getStuckDocumentService());
-    }
-
-    /**
-     * Tests that the job is failsafe if no {@link StuckDocumentService} is available.
-     */
-    @Test(expected = JobExecutionException.class)
-    public void testExecute_NoDependenciesAvailable() throws JobExecutionException {
-        // first, set the injected service to null
-        autofixCollectorJob.setStuckDocumentService(null);
-
-        // now mock out the KEWServiceLocator so that it returns null as well
-        mock(KEWServiceLocator.class);
-        when(KEWServiceLocator.getStuckDocumentService()).thenReturn(null);
-
-        // try to execute it, no exceptions should be thrown
-        autofixCollectorJob.execute(context);
-    }
 
     @Test
     public void testExecute_NoStuckDocuments() throws JobExecutionException {
         setNumberOfStuckDocumentIncidents(0);
 
-        autofixCollectorJob.execute(context);
+        autofixCollectorJobSpy.execute(context);
 
         verify(stuckDocumentService, times(1)).recordNewStuckDocumentIncidents();
         verifyZeroInteractions(scheduler);
@@ -134,13 +96,13 @@ public class AutofixCollectorJobTest {
     public void testExecute_StuckDocuments_NoPartitioning() throws JobExecutionException, SchedulerException {
         Set<String> generatedIncidentIds = setNumberOfStuckDocumentIncidents(5).stream().map(StuckDocumentIncident::getStuckDocumentIncidentId).collect(Collectors.toSet());
 
-        autofixCollectorJob.execute(context);
+        autofixCollectorJobSpy.execute(context);
 
         ArgumentCaptor<JobDetail> jobCaptor = ArgumentCaptor.forClass(JobDetail.class);
         ArgumentCaptor<Trigger> triggerCaptor = ArgumentCaptor.forClass(Trigger.class);
         verify(scheduler, times(1)).scheduleJob(jobCaptor.capture(), triggerCaptor.capture());
 
-        // first, examime the job
+        // first, examine the job
 
         JobDetail jobDetail = jobCaptor.getValue();
 
@@ -178,7 +140,7 @@ public class AutofixCollectorJobTest {
     public void testExecute_StuckDocuments_Partitioning() throws JobExecutionException, SchedulerException {
         Set<String> generatedIncidentIds = setNumberOfStuckDocumentIncidents(425).stream().map(StuckDocumentIncident::getStuckDocumentIncidentId).collect(Collectors.toSet());
 
-        autofixCollectorJob.execute(context);
+        autofixCollectorJobSpy.execute(context);
 
         ArgumentCaptor<JobDetail> jobCaptor = ArgumentCaptor.forClass(JobDetail.class);
         verify(scheduler, times(9)).scheduleJob(jobCaptor.capture(), any(Trigger.class));
@@ -199,7 +161,7 @@ public class AutofixCollectorJobTest {
         when(scheduler.scheduleJob(any(JobDetail.class), any(Trigger.class))).thenThrow(new SchedulerException());
 
         try {
-            autofixCollectorJob.execute(context);
+            autofixCollectorJobSpy.execute(context);
             fail("IllegalStateException should have been thrown");
         } catch (IllegalStateException e) {
             assertTrue(e.getCause() instanceof SchedulerException);

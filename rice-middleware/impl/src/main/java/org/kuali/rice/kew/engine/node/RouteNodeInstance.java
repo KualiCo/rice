@@ -84,6 +84,7 @@ public class RouteNodeInstance implements Serializable {
     private boolean active = false;
 
     @Column(name="CMPLT_IND")
+    @Convert(converter = Boolean01Converter.class)
     private boolean complete = false;
 
     @Column(name="INIT_IND")

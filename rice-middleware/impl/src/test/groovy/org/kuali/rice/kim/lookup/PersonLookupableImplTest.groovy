@@ -71,7 +71,7 @@ class PersonLookupableImplTest {
                 getReturnLocation: { "RETURN_LOCATION" }
             ] as LookupableHelperService)
             // test that the result is the same as the return value from the protected helper
-            assertEquals(lookupable.getCreateNewUrl("KIM_BASE_PATH/identityManagementPersonDocument.do?returnLocation=RETURN_LOCATION&docTypeName=IdentityManagementPersonDocument&methodToCall=docHandler&command=initiate"), lookupable.getCreateNewUrl())
+            assertEquals(lookupable.getCreateNewUrl("KIM_BASE_PATH/identityManagementPersonDocument.do?docTypeName=IdentityManagementPersonDocument&returnLocation=RETURN_LOCATION&methodToCall=docHandler&command=initiate"), lookupable.getCreateNewUrl())
             //assertEquals("""<a title="Create a new record" href="KIM_BASE_PATH/identityManagementPersonDocument.do?returnLocation=RETURN_LOCATION&docTypeName=IdentityManagementPersonDocument&methodToCall=docHandler&command=initiate"><img src="images/tinybutton-createnew.gif" alt="create new" width="70" height="15"/></a>""", lookupable.getCreateNewUrl())
         }
     }

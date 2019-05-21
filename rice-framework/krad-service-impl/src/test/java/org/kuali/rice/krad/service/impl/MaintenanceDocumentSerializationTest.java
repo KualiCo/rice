@@ -79,10 +79,11 @@ public class MaintenanceDocumentSerializationTest {
         GlobalResourceLoaderTestUtils.addMockService(KRADServiceLocator.KRAD_SERIALIZER_SERVICE, dataObjectSerializerService);
         GlobalResourceLoaderTestUtils.addMockService(KRADServiceLocator.XML_OBJECT_SERIALIZER_SERVICE,
                 xmlObjectSerializerServiceImpl);
+
+        GlobalResourceLoaderTestUtils.addMockService(KRADServiceLocatorWeb.DOCUMENT_DICTIONARY_SERVICE, mockDocumentDictionaryService);
+        when(mockWorkflowDocumentService.getDocument(any())).thenReturn(Document.Builder.create("1","1","1","1").build());
         GlobalResourceLoaderTestUtils.addMockService(KewApiServiceLocator.WORKFLOW_DOCUMENT_SERVICE,
                 mockWorkflowDocumentService);
-        GlobalResourceLoaderTestUtils.addMockService(KRADServiceLocatorWeb.DOCUMENT_DICTIONARY_SERVICE, mockDocumentDictionaryService);
-        when(mockWorkflowDocumentService.getDocument(anyString())).thenReturn(Document.Builder.create("1","1","1","1").build());
         when(mockDocumentDictionaryService.getMaintainableClass(anyString())).thenAnswer(new Answer<Object>() {
             @Override
             public Object answer(InvocationOnMock invocationOnMock) throws Throwable {

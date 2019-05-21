@@ -33,7 +33,6 @@ class PermissionLookupableImplTest {
         ] as LookupableHelperService)
 
         // test that the result is the same as the return value from the protected helper
-        assertEquals(lookupable.getCreateNewUrl("maintenance.do?businessObjectClassName=org.kuali.rice.kim.impl.permission.GenericPermissionBo&returnLocation=RETURN_LOCATION&methodToCall=start"), lookupable.getCreateNewUrl())
-        //assertEquals("""<a title="Create a new record" href="maintenance.do?businessObjectClassName=org.kuali.rice.kim.impl.permission.GenericPermissionBo&returnLocation=RETURN_LOCATION&methodToCall=start"><img src="images/tinybutton-createnew.gif" alt="create new" width="70" height="15"/></a>""", lookupable.getCreateNewUrl())
+        assertEquals(lookupable.getCreateNewUrl("maintenance.do?returnLocation=RETURN_LOCATION&businessObjectClassName=org.kuali.rice.kim.impl.permission.GenericPermissionBo&methodToCall=start"), lookupable.getCreateNewUrl())
     }
 }

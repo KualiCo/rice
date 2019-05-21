@@ -26,18 +26,14 @@ import java.sql.Timestamp;
  * @deprecated Only used in KNS classes, use KRAD.
  */
 @Deprecated
-@MappedSuperclass
 public abstract class MultipleValueLookupMetadata extends PersistableBusinessObjectBase {
-    @Id
-    @Column(name="LOOKUP_RSLT_ID")
+
     private String lookupResultsSequenceNumber;
-    @Column(name="PRNCPL_ID")
     private String lookupPersonId;
     /**
      * the time the lookup data was persisted, used by a batch purge job
      */
-    //@Transient
-    @Column(name="LOOKUP_DT")
+
     private Timestamp lookupDate;
     
     public String getLookupResultsSequenceNumber() {

@@ -76,17 +76,11 @@ public class StaticWeavingTest {
                 findNotWeaved(Stream.of(persistenceObject, persistenceEntity).collect(Collectors.toSet()),
                         entityScanner.findCandidateComponents("org.kuali.rice.kew"),
                         entityScanner.findCandidateComponents("org.kuali.rice.kim"),
-                        entityScanner.findCandidateComponents("org.kuali.rice.kcb"),
-                        entityScanner.findCandidateComponents("org.kuali.rice.ken"),
                         mscScanner.findCandidateComponents("org.kuali.rice.kew"),
-                        mscScanner.findCandidateComponents("org.kuali.rice.kim"),
-                        mscScanner.findCandidateComponents("org.kuali.rice.kcb"),
-                        mscScanner.findCandidateComponents("org.kuali.rice.ken")),
+                        mscScanner.findCandidateComponents("org.kuali.rice.kim")),
                 findNotWeaved(Collections.singleton(persistenceObject),
                         embeddableScanner.findCandidateComponents("org.kuali.rice.kew"),
-                        embeddableScanner.findCandidateComponents("org.kuali.rice.kim"),
-                        embeddableScanner.findCandidateComponents("org.kuali.rice.kcb"),
-                        embeddableScanner.findCandidateComponents("org.kuali.rice.ken")))
+                        embeddableScanner.findCandidateComponents("org.kuali.rice.kim")))
                 .collect(Collectors.toSet());
 
         assertTrue( "(NOTE: it is expected this test may fail if executed from the IDE instead of command line "

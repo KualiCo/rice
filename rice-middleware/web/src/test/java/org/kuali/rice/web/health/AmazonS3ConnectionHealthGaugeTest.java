@@ -41,7 +41,6 @@ import static org.mockito.Mockito.when;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class AmazonS3ConnectionHealthGaugeTest {
-
     private AmazonS3ConnectionHealthGauge gauge;
 
     @Mock

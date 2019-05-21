@@ -34,23 +34,7 @@
     <class>org.kuali.rice.krad.data.jpa.converters.Boolean01Converter</class>
     <class>org.kuali.rice.krad.data.jpa.converters.Boolean01BigDecimalConverter</class>
     <class>org.kuali.rice.krad.data.jpa.converters.HashConverter</class>
-    <!-- KCB/KEN -->
-    <class>org.kuali.rice.kcb.bo.Message</class>
-    <class>org.kuali.rice.kcb.bo.MessageDelivery</class>
-    <class>org.kuali.rice.kcb.bo.RecipientDelivererConfig</class>
-    <class>org.kuali.rice.kcb.bo.RecipientPreference</class>
-    <class>org.kuali.rice.ken.bo.NotificationBo</class>
-    <class>org.kuali.rice.ken.bo.NotificationChannelBo</class>
-    <class>org.kuali.rice.ken.bo.NotificationChannelReviewerBo</class>
-    <class>org.kuali.rice.ken.bo.NotificationContentTypeBo</class>
-    <class>org.kuali.rice.ken.bo.NotificationMessageDelivery</class>
-    <class>org.kuali.rice.ken.bo.NotificationPriorityBo</class>
-    <class>org.kuali.rice.ken.bo.NotificationProducerBo</class>
-    <class>org.kuali.rice.ken.bo.NotificationRecipientBo</class>
-    <class>org.kuali.rice.ken.bo.NotificationRecipientListBo</class>
-    <class>org.kuali.rice.ken.bo.NotificationSenderBo</class>
-    <class>org.kuali.rice.ken.bo.UserChannelSubscriptionBo</class>
-    <!-- KEW -->
+
     <class>org.kuali.rice.kew.routeheader.DocumentRouteHeaderValue</class>
     <class>org.kuali.rice.kew.engine.node.RouteNodeInstance</class>
     <class>org.kuali.rice.kew.engine.node.RouteNode</class>
@@ -139,7 +123,6 @@
     <class>org.kuali.rice.kim.document.IdentityManagementGroupDocument</class>
     <class>org.kuali.rice.kim.document.IdentityManagementPersonDocument</class>
     <class>org.kuali.rice.kim.document.IdentityManagementRoleDocument</class>
-
 
   </persistence-unit>
 </persistence>

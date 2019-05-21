@@ -7,7 +7,7 @@
   <packaging>pom</packaging>
   <name>Rice</name>
   <inceptionYear>2005</inceptionYear>
-  <version>2.6.4-SNAPSHOT</version>
+  <version>2.7.0-SNAPSHOT</version>
   <description>
     The Kuali Rice effort provides an enterprise class middleware suite of integrated products that allows
     both Kuali and non-Kuali applications
@@ -111,7 +111,7 @@
     <jotm.version>2.1.10-kuali-1</jotm.version>
     <log4j.version>2.11.2</log4j.version>
     <mail.version>1.6.2</mail.version>
-    <metrics.version>3.2.1</metrics.version>
+    <metrics.version>4.0.5</metrics.version>
     <mockito.version>2.24.5</mockito.version>
     <objenesis.version>3.0.1</objenesis.version>
     <plexus-utils.version>3.1.1</plexus-utils.version>

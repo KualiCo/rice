@@ -356,19 +356,6 @@
   <param name="rice.krad.bos.ignoreMissingFieldsOnDeserialize" override="false"></param>
     <param name="rice.krad.preload.uif.view.definitions" override="false">true</param>
 
-	<!-- KCB -->
-	<param name="rice.kcb.struts.config.files" override="false">/kcb/WEB-INF/struts-config.xml</param>
-	<param name="kcb.url" override="false">${application.url}/kcb</param>
-	<param name="rice.kcb.set.soap.services.as.default" override="false">true</param>
-	<param name="rice.kcb.expose.services.on.bus" override="false">true</param>
-
-	<!-- KEN -->
-	<param name="rice.ken.struts.config.files" override="false">/ken/WEB-INF/struts-config.xml</param>
-	<param name="ken.url" override="false">${application.url}/ken</param>
-	<param name="ken.mode" override="false">REMOTE</param>
-	<param name="rice.ken.set.soap.services.as.default" override="false">true</param>
-	<param name="rice.ken.expose.services.on.bus" override="false">true</param>
-
 	<!-- KEW -->
 	<param name="rice.kew.struts.config.files" override="false">/kew/WEB-INF/struts-config.xml</param>
 	<param name="kew.url" override="false">${application.url}/kew</param>

@@ -21,7 +21,7 @@
     <parent>
         <artifactId>rice-kim</artifactId>
         <groupId>org.kuali.rice</groupId>
-        <version>2.6.4-SNAPSHOT</version>
+        <version>2.7.0-SNAPSHOT</version>
     </parent>
     <artifactId>rice-kim-impl</artifactId>
     <name>Rice KIM Impl</name>
@@ -94,9 +94,29 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-          <groupId>org.codehaus.groovy</groupId>
-          <artifactId>groovy-all</artifactId>
-          <scope>test</scope>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.objenesis</groupId>
+            <artifactId>objenesis</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy-agent</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <scope>test</scope>
             <type>pom</type>
         </dependency>
 

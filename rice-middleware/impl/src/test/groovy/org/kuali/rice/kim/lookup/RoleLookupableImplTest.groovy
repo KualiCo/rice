@@ -34,7 +34,6 @@ class RoleLookupableImplTest {
         ] as LookupableHelperService)
 
         // test that the result is the same as the return value from the protected helper
-        assertEquals(lookupable.getCreateNewUrl("lookup.do?businessObjectClassName=org.kuali.rice.kim.impl.type.KimTypeBo&returnLocation=RETURN_LOCATION&docFormKey=IMRD&command=initiate"), lookupable.getCreateNewUrl())
-        //assertEquals("""<a title="Create a new record" href="lookup.do?businessObjectClassName=org.kuali.rice.kim.impl.type.KimTypeBo&returnLocation=RETURN_LOCATION&docFormKey=IMRD&command=initiate"><img src="images/tinybutton-createnew.gif" alt="create new" width="70" height="15"/></a>""", lookupable.getCreateNewUrl())
+        assertEquals(lookupable.getCreateNewUrl("lookup.do?docFormKey=IMRD&returnLocation=RETURN_LOCATION&businessObjectClassName=org.kuali.rice.kim.impl.type.KimTypeBo&command=initiate"), lookupable.getCreateNewUrl())
     }
 }

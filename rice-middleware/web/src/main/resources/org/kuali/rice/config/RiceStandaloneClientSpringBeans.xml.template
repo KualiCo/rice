@@ -64,9 +64,6 @@
                   p:includeUserInterfaceComponents="true"
                   p:webModuleConfigurationFiles="${rice.kim.struts.config.files}" />
 		</property>
-		<property name="kcbConfigurer">
-            <bean class="org.kuali.rice.kcb.config.KCBConfigurer" />
-        </property>
 		<property name="kewConfigurer">
 			<bean class="org.kuali.rice.kew.config.KEWConfigurer"
                 p:runMode="${kew.mode}" 
@@ -74,13 +71,5 @@
                 p:setSOAPServicesAsDefault="${rice.default.soap.service}"
                 p:webModuleConfigurationFiles="${rice.kew.struts.config.files}" />
 		</property>
-		<property name="kenConfigurer">
-        	<bean class="org.kuali.rice.ken.config.KENConfigurer" />
-		</property>
-        <property name="additionalSpringFiles">
-            <list>
-                <value>${rice.additionalSpringFiles}</value>
-            </list>
-        </property>
 	</bean>
 </beans>

@@ -64,31 +64,31 @@ public class StuckDocumentServiceImplTest {
     private Map<String, StuckDocumentIncident> incidentDatabase;
     private Map<String, StuckDocumentFixAttempt> fixAttemptDatabase;
 
-//    @Before
-//    public void setup() {
-//        stuckDocumentService.setFailureNotificationEnabled(failureNotificationEnabled);
-//        incidentDatabase = new HashMap<String, StuckDocumentIncident>();
-//        fixAttemptDatabase = new HashMap<String, StuckDocumentFixAttempt>();
-//        when(dao.findIncident(any())).then(invocation -> {
-//            return incidentDatabase.get(invocation.getArgumentAt(0, String.class));
-//        });
-//        when(dao.saveIncident(any())).then(invocation -> {
-//            StuckDocumentIncident incident = invocation.getArgumentAt(0, StuckDocumentIncident.class);
-//            if (incident.getStuckDocumentIncidentId() == null) {
-//                incident.setStuckDocumentIncidentId(UUID.randomUUID().toString());
-//            }
-//            incidentDatabase.put(incident.getStuckDocumentIncidentId(), incident);
-//            return incident;
-//        });
-//        when(dao.saveFixAttempt(any())).then(invocation -> {
-//            StuckDocumentFixAttempt attempt = invocation.getArgumentAt(0, StuckDocumentFixAttempt.class);
-//            if (attempt.getStuckDocumentFixAttemptId() == null) {
-//                attempt.setStuckDocumentFixAttemptId(UUID.randomUUID().toString());
-//            }
-//            fixAttemptDatabase.put(attempt.getStuckDocumentFixAttemptId(), attempt);
-//            return attempt;
-//        });
-//    }
+    @Before
+    public void setup() {
+        stuckDocumentService.setFailureNotificationEnabled(failureNotificationEnabled);
+        incidentDatabase = new HashMap<String, StuckDocumentIncident>();
+        fixAttemptDatabase = new HashMap<String, StuckDocumentFixAttempt>();
+        when(dao.findIncident(any())).then(invocation -> {
+            return incidentDatabase.get(invocation. getArgument(0));
+        });
+        when(dao.saveIncident(any())).then(invocation -> {
+            StuckDocumentIncident incident = invocation.getArgument(0);
+            if (incident.getStuckDocumentIncidentId() == null) {
+                incident.setStuckDocumentIncidentId(UUID.randomUUID().toString());
+            }
+            incidentDatabase.put(incident.getStuckDocumentIncidentId(), incident);
+            return incident;
+        });
+        when(dao.saveFixAttempt(any())).then(invocation -> {
+            StuckDocumentFixAttempt attempt = invocation.getArgument(0);
+            if (attempt.getStuckDocumentFixAttemptId() == null) {
+                attempt.setStuckDocumentFixAttemptId(UUID.randomUUID().toString());
+            }
+            fixAttemptDatabase.put(attempt.getStuckDocumentFixAttemptId(), attempt);
+            return attempt;
+        });
+    }
 
     @Test(expected = NullPointerException.class)
     public void testFindIncident_NullArgument() {
