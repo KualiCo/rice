@@ -18,7 +18,6 @@
 
 <td class="content" valign="top">      
       <administrationChannel:workflow />
-      <administrationChannel:sendNotification />
 </td>
 <td class="content" valign="top">
       <administrationChannel:identity />
