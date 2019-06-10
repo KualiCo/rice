@@ -187,10 +187,10 @@
     </dependency>
 
     <!-- required for compilation, contrary to what dependency:analyze says -->
-    <dependency>
-      <groupId>aopalliance</groupId>
-      <artifactId>aopalliance</artifactId>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>aopalliance</groupId>-->
+      <!--<artifactId>aopalliance</artifactId>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>org.bouncycastle</groupId>
@@ -240,11 +240,11 @@
       </exclusions>
     </dependency>
 
-    <dependency>
-      <groupId>com.sun.xml.messaging.saaj</groupId>
-      <artifactId>saaj-impl</artifactId>
-      <version>${saaj-impl.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>com.sun.xml.messaging.saaj</groupId>-->
+      <!--<artifactId>saaj-impl</artifactId>-->
+      <!--<version>${saaj-impl.version}</version>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>

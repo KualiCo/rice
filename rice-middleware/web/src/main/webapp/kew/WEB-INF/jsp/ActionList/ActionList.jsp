@@ -265,7 +265,6 @@
                                             <display:table class="datatable-100" cellpadding="2" cellspacing="0"
                                                            name="actionListPage" pagesize="${preferences.pageSize}"
                                                            export="true" id="result" htmlId="row"
-                                                           decorator="org.kuali.rice.kew.actionlist.web.ActionListDecorator"
                                                            excludedParams="*" requestURI="${actionListURI}">
                                                 <display:setProperty name="export.banner" value="" />
                                                 <display:setProperty name="css.tr.even" value="actionlist_anyRow" />
