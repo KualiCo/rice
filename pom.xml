@@ -29,7 +29,7 @@
     <project.encoding>UTF-8</project.encoding>
     <project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
 
-    <project.java.version>11</project.java.version>
+    <project.java.version>8</project.java.version>
     <project.compiler.version>${project.java.version}</project.compiler.version>
     <project.compiler.release>${project.java.version}</project.compiler.release>
     <javadoc.doclint>none</javadoc.doclint>
@@ -658,7 +658,7 @@
               <version>${plugin.compiler.version}</version>
               <configuration>
                 <useIncrementalCompilation>false</useIncrementalCompilation>
-                <release>${project.compiler.release}</release>
+                <!--<release>${project.compiler.release}</release>-->
                 <compilerVersion>${project.compiler.version}</compilerVersion>
                 <showDeprecation>true</showDeprecation>
                 <showWarnings>true</showWarnings>
@@ -817,7 +817,9 @@
             <meminitial>512</meminitial>
             <maxmem>2048</maxmem>
             <forceJavacCompilerUse>true</forceJavacCompilerUse>
-            <release>${project.compiler.release}</release>
+            <source>${project.compiler.version}</source>
+            <target>${project.compiler.version}</target>
+            <!--<release>${project.compiler.release}</release>-->
             <compilerVersion>${project.compiler.version}</compilerVersion>
             <encoding>${project.encoding}</encoding>
           </configuration>
