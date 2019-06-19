@@ -72,14 +72,14 @@
       <artifactId>core-filter</artifactId>
       <version>1.7</version>
       <exclusions>
-        <exclusion>
-          <groupId>org.glassfish.jersey.core</groupId>
-          <artifactId>jersey-client</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.glassfish.jersey.media</groupId>
-          <artifactId>jersey-media-json-jackson</artifactId>
-        </exclusion>
+        <!--<exclusion>-->
+          <!--<groupId>org.glassfish.jersey.core</groupId>-->
+          <!--<artifactId>jersey-client</artifactId>-->
+        <!--</exclusion>-->
+        <!--<exclusion>-->
+          <!--<groupId>org.glassfish.jersey.media</groupId>-->
+          <!--<artifactId>jersey-media-json-jackson</artifactId>-->
+        <!--</exclusion>-->
         <exclusion>
           <artifactId>commons-lang</artifactId>
           <groupId>commons-lang</groupId>
