@@ -106,9 +106,6 @@
 
   <bean id="enRouteModuleService" class="org.kuali.rice.kew.routemodule.service.impl.RouteModuleServiceImpl"
         lazy-init="true">
-    <property name="rulesEngineRouteModuleId">
-      <idref local="rulesEngineRouteModule"/>
-    </property>
   </bean>
 
   <!-- 2.1 Workflow Engine -->

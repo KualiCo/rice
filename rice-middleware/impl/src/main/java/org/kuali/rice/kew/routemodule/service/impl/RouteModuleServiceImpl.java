@@ -40,18 +40,12 @@ public class RouteModuleServiceImpl implements RouteModuleService, BeanFactoryAw
     private static final Logger LOG = LogManager.getLogger(RouteModuleServiceImpl.class);
 
     private BeanFactory beanFactory;
-    private String rulesEngineRouteModuleId;
-
-    private volatile RouteModule rulesEngineRouteModule;
 
     public RouteModule findRouteModule(RouteNode node) throws ResourceUnavailableException {
         String routeMethodName = node.getRouteMethodName();
         LOG.debug("Finding route module for routeMethodName="+routeMethodName+" at route level "+node.getRouteNodeName());
         RouteModule routeModule = null;
-        // default to FlexRM module if the routeMethodName is null
-        if (node.isRulesEngineNode()) {
-            routeModule = getRulesEngineRouteModule();
-        } else if (routeMethodName == null || node.isFlexRM()) {
+        if (routeMethodName == null || node.isFlexRM()) {
             routeModule = getFlexRMRouteModule(routeMethodName);
         } else {
             routeModule = getRouteModule(routeMethodName);
@@ -86,28 +80,8 @@ public class RouteModuleServiceImpl implements RouteModuleService, BeanFactoryAw
         return new FlexRMAdapter();
     }
 
-    public String getRulesEngineRouteModuleId() {
-        return rulesEngineRouteModuleId;
-    }
-
-    public void setRulesEngineRouteModuleId(String rulesEngineRouteModuleId) {
-        this.rulesEngineRouteModuleId = rulesEngineRouteModuleId;
-    }
-
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         this.beanFactory = beanFactory;
     }
-
-    /**
-     * Loaded lazily by id so as not to introduce a runtime dependency on KRMS when it is not in use.
-     */
-    protected RouteModule getRulesEngineRouteModule() {
-        if (rulesEngineRouteModule == null) {
-            // this should initialize the route module in spring
-            rulesEngineRouteModule = (RouteModule)beanFactory.getBean(getRulesEngineRouteModuleId());
-        }
-        return rulesEngineRouteModule;
-    }
-
 }
