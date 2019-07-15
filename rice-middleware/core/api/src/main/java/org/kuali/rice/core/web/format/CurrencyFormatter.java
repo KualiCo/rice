@@ -235,6 +235,8 @@ public class CurrencyFormatter extends Formatter {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         if (formatter instanceof DecimalFormat) {
             ((DecimalFormat) formatter).setParseBigDecimal(true);
+            ((DecimalFormat) formatter).setNegativePrefix("($");
+            ((DecimalFormat) formatter).setNegativeSuffix(")");
         }
         return formatter;
     }
