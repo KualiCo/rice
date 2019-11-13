@@ -127,7 +127,7 @@
     <velocity.version>1.7</velocity.version>
     <velocity.tools.version>2.0</velocity.tools.version>
     <wss4j.version>2.2.3</wss4j.version>
-    <xmlsec.version>2.1.2</xmlsec.version>
+    <xmlsec.version>2.1.4</xmlsec.version>
     <xmlunit.version>2.6.2</xmlunit.version>
     <xapool.version>1.5.0-patch7</xapool.version>
     <xstream.version>1.4.11.1</xstream.version>
