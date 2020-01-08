@@ -16,6 +16,7 @@
 package org.kuali.rice.kim.lookup;
 
 import org.apache.commons.lang.StringUtils;
+import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.kew.api.KewApiConstants;
 import org.kuali.rice.kim.api.KimConstants;
@@ -84,10 +85,10 @@ public class PersonLookupableHelperServiceImpl  extends KimLookupableHelperServi
 	public HtmlData getInquiryUrl(BusinessObject bo, String propertyName) {
 		HtmlData inqUrl = super.getInquiryUrl(bo, propertyName);
 		Properties parameters = new Properties();
-        parameters.put(KewApiConstants.COMMAND_PARAMETER, "start");
-        //parameters.put(KRADConstants.DOCUMENT_TYPE_NAME, KimConstants.KimUIConstants.KIM_PERSON_DOCUMENT_TYPE_NAME);
+        parameters.put(KewApiConstants.COMMAND_PARAMETER, KRADConstants.MAINTENANCE_NEW_METHOD_TO_CALL);
         parameters.put(KimConstants.PrimaryKeyConstants.PRINCIPAL_ID, ((Person)bo).getPrincipalId());
-        String href = UrlFactory.parameterizeUrl(ConfigContext.getCurrentContextConfig().getProperty("kfs.url") + "/"+ "kr/inquiry.do?businessObjectClassName=org.kuali.kfs.kim.impl.identity.PersonImpl", parameters);
+        String href = UrlFactory.parameterizeUrl(ConfigContext.getCurrentContextConfig().getProperty(Config.KFS_URL)
+				+ "/kr/inquiry.do?businessObjectClassName=org.kuali.kfs.kim.impl.identity.PersonImpl", parameters);
 	    ((HtmlData.AnchorHtmlData)inqUrl).setHref(href);
 	    return inqUrl;
 	}

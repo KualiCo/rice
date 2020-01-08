@@ -76,9 +76,7 @@ public class SOAPConnector extends AbstractServiceConnector {
 		try {
 			clientFactory.setServiceClass(Class.forName(getServiceConfiguration().getServiceInterface()));
 		} catch (ClassNotFoundException e) {
-			//LOG.error("Failed to connect to soap service " + getServiceConfiguration().getServiceName() + " because failed to load interface class: " + getServiceConfiguration().getServiceInterface(), e);
-			return null;
-//			throw new RiceRuntimeException("Failed to connect to soap service " + getServiceConfiguration().getServiceName() + " because failed to load interface class: " + getServiceConfiguration().getServiceInterface(), e);
+			throw new RiceRuntimeException("Failed to connect to soap service " + getServiceConfiguration().getServiceName() + " because failed to load interface class: " + getServiceConfiguration().getServiceInterface(), e);
 		}
 		clientFactory.setBus(KSBServiceLocator.getCXFBus());
 		clientFactory.setServiceName(getServiceConfiguration().getServiceName());

@@ -26,6 +26,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import org.kuali.rice.core.api.config.module.RunMode;
+import org.kuali.rice.core.api.config.property.Config;
 import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.criteria.Predicate;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
@@ -369,13 +370,8 @@ public class KimModuleService extends ModuleServiceBase {
 
 	@Override
 	protected String getInquiryUrl(Class inquiryBusinessObjectClass){
-		String inquiryUrl = ConfigContext.getCurrentContextConfig().getProperty("kfs.url") + "/";
+		String inquiryUrl = ConfigContext.getCurrentContextConfig().getProperty(Config.KFS_URL) + "/";
 
-
-//		String inquiryUrl = KimCommonUtilsInternal.getKimBasePath();
-//		if (!inquiryUrl.endsWith("/")) {
-//			inquiryUrl = inquiryUrl + "/";
-//		}
 		if(RoleContract.class.isAssignableFrom(inquiryBusinessObjectClass)) {
 			return inquiryUrl + KimConstants.KimUIConstants.KIM_ROLE_INQUIRY_ACTION;
 		} else if(GroupContract.class.isAssignableFrom(inquiryBusinessObjectClass)) {

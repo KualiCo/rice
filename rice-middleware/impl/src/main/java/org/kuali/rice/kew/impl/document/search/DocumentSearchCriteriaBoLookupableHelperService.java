@@ -592,7 +592,7 @@ public class DocumentSearchCriteriaBoLookupableHelperService extends KualiLookup
             return link;
         }
         link.setDisplayText("Initiator Inquiry for User with ID:" + principalId);
-        String url = ConfigContext.getCurrentContextConfig().getProperty("kfs.url") + "/" +
+        String url = ConfigContext.getCurrentContextConfig().getProperty(Config.KFS_URL) + "/" +
                 "kr/inquiry.do?businessObjectClassName=org.kuali.kfs.kim.impl.identity.PersonImpl&principalId="
                 + principalId
                 + "&methodToCall=start";
