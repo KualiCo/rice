@@ -69,38 +69,38 @@
             </list>
           </property>
         </bean>
-        <bean parent="RelationshipDefinition">
-          <property name="objectAttributeName" value="initiatorPerson"/>
-          <property name="supportAttributes">
-            <list>
-              <bean parent="SupportAttributeDefinition" p:identifier="true" p:sourceName="initiatorPrincipalName" p:targetName="principalName"/>
-            </list>
-          </property>
-        </bean>
-        <bean parent="RelationshipDefinition">
-          <property name="objectAttributeName" value="approverPerson"/>
-          <property name="supportAttributes">
-            <list>
-              <bean parent="SupportAttributeDefinition" p:identifier="true" p:sourceName="approverPrincipalName" p:targetName="principalName"/>
-            </list>
-          </property>
-        </bean>
-        <bean parent="RelationshipDefinition">
-          <property name="objectAttributeName" value="viewerPerson"/>
-          <property name="supportAttributes">
-            <list>
-              <bean parent="SupportAttributeDefinition" p:identifier="true" p:sourceName="viewerPrincipalName" p:targetName="principalName"/>
-            </list>
-          </property>
-        </bean>
-        <bean parent="RelationshipDefinition">
-          <property name="objectAttributeName" value="groupViewer"/>
-          <property name="supportAttributes">
-            <list>
-              <bean parent="SupportAttributeDefinition" p:identifier="true" p:sourceName="groupViewerId" p:targetName="id"/>
-            </list>
-          </property>
-        </bean>
+<!--        <bean parent="RelationshipDefinition">-->
+<!--          <property name="objectAttributeName" value="initiatorPerson"/>-->
+<!--          <property name="supportAttributes">-->
+<!--            <list>-->
+<!--              <bean parent="SupportAttributeDefinition" p:identifier="true" p:sourceName="initiatorPrincipalName" p:targetName="principalName"/>-->
+<!--            </list>-->
+<!--          </property>-->
+<!--        </bean>-->
+<!--        <bean parent="RelationshipDefinition">-->
+<!--          <property name="objectAttributeName" value="approverPerson"/>-->
+<!--          <property name="supportAttributes">-->
+<!--            <list>-->
+<!--              <bean parent="SupportAttributeDefinition" p:identifier="true" p:sourceName="approverPrincipalName" p:targetName="principalName"/>-->
+<!--            </list>-->
+<!--          </property>-->
+<!--        </bean>-->
+<!--        <bean parent="RelationshipDefinition">-->
+<!--          <property name="objectAttributeName" value="viewerPerson"/>-->
+<!--          <property name="supportAttributes">-->
+<!--            <list>-->
+<!--              <bean parent="SupportAttributeDefinition" p:identifier="true" p:sourceName="viewerPrincipalName" p:targetName="principalName"/>-->
+<!--            </list>-->
+<!--          </property>-->
+<!--        </bean>-->
+<!--        <bean parent="RelationshipDefinition">-->
+<!--          <property name="objectAttributeName" value="groupViewer"/>-->
+<!--          <property name="supportAttributes">-->
+<!--            <list>-->
+<!--              <bean parent="SupportAttributeDefinition" p:identifier="true" p:sourceName="groupViewerId" p:targetName="id"/>-->
+<!--            </list>-->
+<!--          </property>-->
+<!--        </bean>-->
       </list>
     </property>
   </bean>
@@ -400,9 +400,9 @@
         <bean parent="FieldDefinition" p:attributeName="documentTypeLabel"/>
         <bean parent="FieldDefinition" p:attributeName="title" p:maxLength="256"/>
         <bean parent="FieldDefinition" p:attributeName="statusLabel"/>
-        <bean parent="FieldDefinition" p:attributeName="initiatorDisplayName" />
+        <bean parent="FieldDefinition" p:attributeName="initiatorDisplayName" p:noInquiry="true"/>
         <bean parent="FieldDefinition" p:attributeName="dateCreated"/>
-        <bean parent="FieldDefinition" p:attributeName="routeLog"/>
+<!--        <bean parent="FieldDefinition" p:attributeName="routeLog"/>-->
       </list>
     </property>
     <property name="title" value="Document Search"/>

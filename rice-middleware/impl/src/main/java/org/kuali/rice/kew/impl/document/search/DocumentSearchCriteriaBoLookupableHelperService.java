@@ -591,10 +591,11 @@ public class DocumentSearchCriteriaBoLookupableHelperService extends KualiLookup
         if (StringUtils.isBlank(principalId) ) {
             return link;
         }
-        link.setTarget(this.targets.getRouteLogTarget(documentType.getName()));
         link.setDisplayText("Initiator Inquiry for User with ID:" + principalId);
-        String url = ConfigContext.getCurrentContextConfig().getProperty(Config.KIM_URL) + "/" +
-                "identityManagementPersonInquiry.do?principalId=" + principalId;
+        String url = ConfigContext.getCurrentContextConfig().getProperty("kfs.url") + "/" +
+                "kr/inquiry.do?businessObjectClassName=org.kuali.kfs.kim.impl.identity.PersonImpl&principalId="
+                + principalId
+                + "&methodToCall=start";
         link.setHref(url);
         return link;
     }
