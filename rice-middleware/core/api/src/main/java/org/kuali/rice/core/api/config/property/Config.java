@@ -139,6 +139,8 @@ public interface Config {
 	public static final String DATASOURCE_USERNAME = "datasource.username";
 	public static final String DATASOURCE_PASSWORD = "datasource.password";
 
+	public static final String KFS_URL = "kfs.url";
+
 	/**
 	 * Configuration key under which to specify the base url for workflow
 	 */

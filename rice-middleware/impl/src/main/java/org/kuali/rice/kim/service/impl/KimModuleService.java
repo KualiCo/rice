@@ -26,6 +26,8 @@ import java.util.Properties;
 import java.util.Set;
 
 import org.kuali.rice.core.api.config.module.RunMode;
+import org.kuali.rice.core.api.config.property.Config;
+import org.kuali.rice.core.api.config.property.ConfigContext;
 import org.kuali.rice.core.api.criteria.Predicate;
 import org.kuali.rice.core.api.criteria.QueryByCriteria;
 import org.kuali.rice.kew.api.KewApiConstants;
@@ -368,16 +370,14 @@ public class KimModuleService extends ModuleServiceBase {
 
 	@Override
 	protected String getInquiryUrl(Class inquiryBusinessObjectClass){
-		String inquiryUrl = KimCommonUtilsInternal.getKimBasePath();
-		if (!inquiryUrl.endsWith("/")) {
-			inquiryUrl = inquiryUrl + "/";
-		}
+		String inquiryUrl = ConfigContext.getCurrentContextConfig().getProperty(Config.KFS_URL) + "/";
+
 		if(RoleContract.class.isAssignableFrom(inquiryBusinessObjectClass)) {
 			return inquiryUrl + KimConstants.KimUIConstants.KIM_ROLE_INQUIRY_ACTION;
 		} else if(GroupContract.class.isAssignableFrom(inquiryBusinessObjectClass)) {
 			return inquiryUrl + KimConstants.KimUIConstants.KIM_GROUP_INQUIRY_ACTION;
 		} else if(Person.class.isAssignableFrom(inquiryBusinessObjectClass)) {
-			return inquiryUrl + KimConstants.KimUIConstants.KIM_PERSON_INQUIRY_ACTION;
+			return inquiryUrl + "kr/inquiry.do?businessObjectClassName=org.kuali.kfs.kim.impl.identity.PersonImpl";
 		}
 		return super.getInquiryUrl(inquiryBusinessObjectClass);
 	}

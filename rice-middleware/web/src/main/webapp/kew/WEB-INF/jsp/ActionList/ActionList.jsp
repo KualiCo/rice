@@ -331,27 +331,27 @@
                                                 </c:if>
                                                 <c:if test="${preferences.showInitiator == Constants.PREFERENCES_YES_VAL}">
                                                     <display:column sortable="true" title="${initiatorLabel}" sortProperty="routeHeaderInitiatorName" class="infocell">
-                                                        <kul:inquiry boClassName="org.kuali.rice.kim.impl.identity.PersonImpl"
-                                                                     keyValues="principalId=${result.routeHeaderInitiatorWorkflowId}"
-                                                                     render="true">
+<%--                                                        <kul:inquiry boClassName="org.kuali.rice.kim.impl.identity.PersonImpl"--%>
+<%--                                                                     keyValues="principalId=${result.routeHeaderInitiatorWorkflowId}"--%>
+<%--                                                                     render="true">--%>
                                                             <c:out value="${result.routeHeaderInitiatorName}" />
-                                                        </kul:inquiry>
+<%--                                                        </kul:inquiry>--%>
                                                     </display:column>
                                                 </c:if>
                                                 <c:if test="${preferences.showDelegator == Constants.PREFERENCES_YES_VAL}">
                                                     <display:column sortable="true" title="${delegatorLabel}" sortProperty="delegatorName" class="infocell">
                                                         <c:choose>
                                                             <c:when test="${result.delegatorPrincipalId != null}">
-                                                                <kul:inquiry boClassName="org.kuali.rice.kim.impl.identity.PersonImpl"
-                                                                             keyValues="principalId=${result.delegatorPrincipalId}"
-                                                                             render="true">
+<%--                                                                <kul:inquiry boClassName="org.kuali.rice.kim.impl.identity.PersonImpl"--%>
+<%--                                                                             keyValues="principalId=${result.delegatorPrincipalId}"--%>
+<%--                                                                             render="true">--%>
                                                                     <c:out value="${result.delegatorName}" />
-                                                                </kul:inquiry>
+<%--                                                                </kul:inquiry>--%>
                                                             </c:when>
                                                             <c:when test="${result.delegatorGroupId != null}">
-                                                                <kul:inquiry boClassName="org.kuali.rice.kim.impl.group.GroupBo" keyValues="id=${result.delegatorGroupId}" render="true">
+<%--                                                                <kul:inquiry boClassName="org.kuali.rice.kim.impl.group.GroupBo" keyValues="id=${result.delegatorGroupId}" render="true">--%>
                                                                     <c:out value="${result.delegatorName}" />
-                                                                </kul:inquiry>
+<%--                                                                </kul:inquiry>--%>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 &nbsp;
@@ -375,9 +375,9 @@
                                                     <display:column sortable="true" title="${workgroupRequestLabel}" sortProperty="groupName" class="infocell">
                                                         <c:choose>
                                                             <c:when test="${!empty result.groupId}">
-                                                                <kul:inquiry boClassName="org.kuali.rice.kim.impl.group.GroupBo" keyValues="id=${result.groupId}" render="true">
+<%--                                                                <kul:inquiry boClassName="org.kuali.rice.kim.impl.group.GroupBo" keyValues="id=${result.groupId}" render="true">--%>
                                                                     <c:out value="${result.groupName}" />
-                                                                </kul:inquiry>
+<%--                                                                </kul:inquiry>--%>
                                                             </c:when>
                                                             <c:otherwise>
                                                                 &nbsp;
@@ -414,27 +414,27 @@
                                                         <html-el:checkbox property="outboxItems" value="${result.id}" />
                                                     </display:column>
                                                 </c:if>
-                                                <display:column title="${routeLogLabel}" class="infocell">
-                                                    <c:set var="routeLogTarget" value="${ActionListForm.targets.getRouteLogTarget(result.docName)}" />
-                                                    <c:choose>
-                                                        <c:when test="${routeLogTarget != '_blank'}">
-                                                            <c:url var="routeLogUrl" value="RouteLog.do">
-                                                                <c:param name="documentId" value="${result.documentId}"/>
-                                                                <c:param name="showBackButton" value="true"/>
-                                                            </c:url>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <c:url var="routeLogUrl" value="RouteLog.do">
-                                                                <c:param name="documentId" value="${result.documentId}"/>
-                                                            </c:url>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                    <div align="center"><a
-                                                            href="${routeLogUrl}"
-                                                            target="<esapi:encodeForHTMLAttribute>${routeLogTarget}</esapi:encodeForHTMLAttribute>">
-                                                        <img alt="Route Log for Document"
-                                                             src="images/my_route_log.gif" /> </a></div>
-                                                </display:column>
+<%--                                                <display:column title="${routeLogLabel}" class="infocell">--%>
+<%--                                                    <c:set var="routeLogTarget" value="${ActionListForm.targets.getRouteLogTarget(result.docName)}" />--%>
+<%--                                                    <c:choose>--%>
+<%--                                                        <c:when test="${routeLogTarget != '_blank'}">--%>
+<%--                                                            <c:url var="routeLogUrl" value="RouteLog.do">--%>
+<%--                                                                <c:param name="documentId" value="${result.documentId}"/>--%>
+<%--                                                                <c:param name="showBackButton" value="true"/>--%>
+<%--                                                            </c:url>--%>
+<%--                                                        </c:when>--%>
+<%--                                                        <c:otherwise>--%>
+<%--                                                            <c:url var="routeLogUrl" value="RouteLog.do">--%>
+<%--                                                                <c:param name="documentId" value="${result.documentId}"/>--%>
+<%--                                                            </c:url>--%>
+<%--                                                        </c:otherwise>--%>
+<%--                                                    </c:choose>--%>
+<%--                                                    <div align="center"><a--%>
+<%--                                                            href="${routeLogUrl}"--%>
+<%--                                                            target="<esapi:encodeForHTMLAttribute>${routeLogTarget}</esapi:encodeForHTMLAttribute>">--%>
+<%--                                                        <img alt="Route Log for Document"--%>
+<%--                                                             src="images/my_route_log.gif" /> </a></div>--%>
+<%--                                                </display:column>--%>
                                             </display:table>
                                         </td>
                                     </tr>
