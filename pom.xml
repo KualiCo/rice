@@ -54,7 +54,7 @@
     <bytebuddy.version>1.9.10</bytebuddy.version>
     <closure.version>v20170423</closure.version>
     <cglib.version>3.2.10</cglib.version>
-    <commons-beanutils.version>1.9.3</commons-beanutils.version>
+    <commons-beanutils.version>1.9.4</commons-beanutils.version>
     <commons-codec.version>1.10</commons-codec.version>
     <commons-collections.version>3.2.2</commons-collections.version>
     <commons-dbcp.version>1.4</commons-dbcp.version>
