@@ -115,7 +115,7 @@
     <mockito.version>2.24.5</mockito.version>
     <objenesis.version>3.0.1</objenesis.version>
     <plexus-utils.version>3.1.1</plexus-utils.version>
-    <quartz.version>2.3.0</quartz.version>
+    <quartz.version>2.3.2</quartz.version>
     <saaj-impl.version>1.5.1</saaj-impl.version>
     <servlet-api.version>3.0.1</servlet-api.version>
     <spring-modules-ojb.version>0.8a</spring-modules-ojb.version>
