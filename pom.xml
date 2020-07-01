@@ -109,7 +109,7 @@
     <kuali-mvn.version>1.0.2</kuali-mvn.version>
     <kuali-util.version>4.4.16</kuali-util.version>
     <jotm.version>2.1.10-kuali-1</jotm.version>
-    <log4j.version>2.11.2</log4j.version>
+    <log4j.version>2.13.3</log4j.version>
     <mail.version>1.6.2</mail.version>
     <metrics.version>4.0.5</metrics.version>
     <mockito.version>2.24.5</mockito.version>
