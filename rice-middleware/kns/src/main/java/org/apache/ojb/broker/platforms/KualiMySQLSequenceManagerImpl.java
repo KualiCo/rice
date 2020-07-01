@@ -32,41 +32,25 @@ public class KualiMySQLSequenceManagerImpl extends AbstractSequenceManager {
 	}
 
 	@Override
-	protected long getUniqueLong(FieldDescriptor arg0)
-			throws SequenceManagerException {
-		PersistenceBroker broker = getBrokerForClass();
-
-		Statement stmt = null;
-		Long seqNumber = null;
+	protected long getUniqueLong(FieldDescriptor arg0) {
+		final PersistenceBroker broker = getBrokerForClass();
 		final String sequenceName = arg0.getSequenceName();
 
+		Long seqNumber = null;
 		try {
-			//FIXME: should we be closing this connection in a finally block?
-			Connection c = broker.serviceConnectionManager().getConnection();
-			stmt = c.createStatement();
-			String sql = "INSERT INTO " + sequenceName + " VALUES (NULL);";
-			stmt.executeUpdate(sql);
-			sql = "SELECT LAST_INSERT_ID()";
-			
-			//FIXME: should we be closing this result set in a finally block?
-			ResultSet rs = stmt.executeQuery(sql);
-			if (rs != null) {
-				rs.first();
-				seqNumber = rs.getLong(1);
+			final Connection c = broker.serviceConnectionManager().getConnection();
+			try (Statement stmt = c.createStatement()) {
+				stmt.executeUpdate("INSERT INTO " + sequenceName + " VALUES (NULL);");
+				try (ResultSet rs = stmt.executeQuery("SELECT LAST_INSERT_ID()")) {
+					if (rs != null && rs.next()) {
+						return rs.getLong(1);
+					}
+				}
 			}
 		} catch (Exception e) {
 			throw new RuntimeException("Unable to execute for sequence name: " + sequenceName, e);
-		} finally {
-			try {
-				if (stmt != null) {
-					stmt.close();
-				}
-			} catch (Exception e) {
-				throw new RuntimeException("Unable to close statement for sequence name: " + sequenceName, e);
-			}
 		}
 
 		return seqNumber;
 	}
-
 }

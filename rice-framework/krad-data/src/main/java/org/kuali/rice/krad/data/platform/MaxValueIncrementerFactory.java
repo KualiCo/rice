@@ -232,65 +232,33 @@ public final class MaxValueIncrementerFactory {
 
         private JdbcTemplate template;
 
-        /**
-         * Creates an incrementer for MySQL.
-         */
         private EnhancedMySQLMaxValueIncrementer() {}
 
-        /**
-         * Creates an incrementer for MySQL.
-         *
-         * @param dataSource the {@link DataSource} for which to retrieve the incrementer.
-         * @param incrementerName the name of the incrementer.
-         * @param columnName the name of the column to increment.
-         */
         private EnhancedMySQLMaxValueIncrementer(DataSource dataSource, String incrementerName, String columnName) {
             super(dataSource, incrementerName, columnName);
         }
 
-        /**
-         * {@inheritDoc}
-         */
         @Override
         public synchronized void afterPropertiesSet() {
             super.afterPropertiesSet();
             template = new JdbcTemplate(getDataSource());
         }
 
-        /**
-         * {@inheritDoc}
-         */
         @Override
         protected synchronized long getNextKey() throws DataAccessException {
-            return template.execute(new ConnectionCallback<Long>() {
-                @Override
-                public Long doInConnection(Connection con) throws SQLException, DataAccessException {
-                    Statement statement = null;
-                    ResultSet resultSet = null;
-                    try {
-                        statement = con.createStatement();
-                        String sql = "INSERT INTO " + getIncrementerName() + " VALUES (NULL)";
-                        statement.executeUpdate(sql);
-                        sql = "SELECT LAST_INSERT_ID()";
-                        resultSet = statement.executeQuery(sql);
-                        if (resultSet != null) {
-                            resultSet.first();
+            return template.execute((ConnectionCallback<Long>) con -> {
+                try (Statement statement = con.createStatement()) {
+                    statement.executeUpdate("INSERT INTO " + getIncrementerName() + " VALUES (NULL)");
+                    try (ResultSet resultSet = statement.executeQuery("SELECT LAST_INSERT_ID()")) {
+                        if (resultSet != null && resultSet.next()) {
                             return resultSet.getLong(1);
                         } else {
                             throw new IncorrectResultSizeDataAccessException("Failed to get last_insert_id() for sequence incrementer table '" + getIncrementerName() + "'", 1);
                         }
-                    } finally {
-                        JdbcUtils.closeResultSet(resultSet);
-                        JdbcUtils.closeStatement(statement);
                     }
                 }
-            }).longValue();
+            });
         }
     }
-
-    /**
-     * No-op constructor for final class.
-     */
-    private MaxValueIncrementerFactory() {}
 
 }
